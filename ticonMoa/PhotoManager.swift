@@ -15,8 +15,8 @@ final class PhotoManager {
     // PhotoLibray에 요청하는 옵션
     private let fetchOptions: PHFetchOptions = {
         let options = PHFetchOptions()
-        options.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
-        options.fetchLimit = 3
+//        options.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
+//        options.fetchLimit = 3
         // 최대 6개월의 사진 검색
         return options
     }()

@@ -16,6 +16,7 @@
 		E0B653B4260C40DD007C402F /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B653B2260C40DD007C402F /* HomeCollectionViewCell.swift */; };
 		E0B653B5260C40DD007C402F /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0B653B3260C40DD007C402F /* HomeCollectionViewCell.xib */; };
 		E0B653B8260C497B007C402F /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B653B7260C497B007C402F /* PhotoManager.swift */; };
+		E0B653BB260C5833007C402F /* BarcodeWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B653BA260C5833007C402F /* BarcodeWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E0B653B2260C40DD007C402F /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E0B653B3260C40DD007C402F /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		E0B653B7260C497B007C402F /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
+		E0B653BA260C5833007C402F /* BarcodeWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				E053B6382604FC77005FAD51 /* AppDelegate.swift */,
 				E053B63A2604FC77005FAD51 /* SceneDelegate.swift */,
 				E053B63C2604FC77005FAD51 /* ViewController.swift */,
+				E0B653BA260C5833007C402F /* BarcodeWrapper.swift */,
 				E0B653B7260C497B007C402F /* PhotoManager.swift */,
 				E0B653B2260C40DD007C402F /* HomeCollectionViewCell.swift */,
 				E0B653B3260C40DD007C402F /* HomeCollectionViewCell.xib */,
@@ -151,6 +154,7 @@
 				E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */,
 				E053B63B2604FC77005FAD51 /* SceneDelegate.swift in Sources */,
 				E0B653B8260C497B007C402F /* PhotoManager.swift in Sources */,
+				E0B653BB260C5833007C402F /* BarcodeWrapper.swift in Sources */,
 				E0B653B4260C40DD007C402F /* HomeCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

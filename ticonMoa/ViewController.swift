@@ -6,13 +6,38 @@
 //
 
 import UIKit
+import Photos
+import Vision
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    let startTime = Date()
+    private var images: [UIImage] = [] {
+        didSet {
+            print(Date().timeIntervalSince1970 - self.startTime.timeIntervalSince1970)
+            collectionView.reloadData()
+        }
+    }
+    private let photoManager = PhotoManager()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
         self.collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
+
+        photoManager.requestAuthAndGetAllPhotos { image in
+            guard let image = image else { return }
+            let bw = BarcodeWrapper(image: image) {
+                self.images.append($0)
+            }
+            bw.requestBarcode()
+        }
+    }
+
+}
+
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
@@ -24,6 +49,4 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
         
     }
-    
-    
 }

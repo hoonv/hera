@@ -17,6 +17,7 @@ class ViewController: UIViewController {
         didSet {
             print(Date().timeIntervalSince1970 - self.startTime.timeIntervalSince1970)
             collectionView.reloadData()
+//            collectionView.reloadItems(at: [IndexPath(row: images.count, section: 0)])
         }
     }
     private let photoManager = PhotoManager()
@@ -24,15 +25,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
 
         photoManager.requestAuthAndGetAllPhotos { image in
             guard let image = image else { return }
-            let bw = BarcodeWrapper(image: image) {
+            let bw = BarcodeRequestWrapper(image: image) {
                 self.images.append($0)
             }
-            bw.requestBarcode()
+            bw.requestDetect()
         }
     }
 
@@ -45,8 +46,19 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? HomeCollectionViewCell else { return UICollectionViewCell() }
-        cell.image.image = images[indexPath.row]
+        cell.imageView.image = images[indexPath.row]
+        
+//        cell.backgroundColor = .red
         return cell
         
     }
+}
+
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let w = (self.view.frame.width - 20) / 3
+        return CGSize(width: w, height: w)
+    }
+    
 }

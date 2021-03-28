@@ -29,7 +29,7 @@ final class PhotoManager {
         return option
     }()
     private let targetSize = CGSize(width: 300, height: 500)
-    private let contentMode: PHImageContentMode = .aspectFit
+    private let contentMode: PHImageContentMode = .aspectFill
     
     
     func requestAuthorization(completion: @escaping () -> Void) {

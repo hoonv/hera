@@ -8,7 +8,7 @@
 import UIKit
 import Vision
 
-class BarcodeWrapper {
+class BarcodeRequestWrapper {
     
     let image: UIImage
     lazy var detectBarcodeRequest: VNDetectBarcodesRequest = {
@@ -34,11 +34,12 @@ class BarcodeWrapper {
         
             completion(image)
         } else {
+//            completion(image)
 //            print("Cannot extract barcode information from data.")
         }
     }
     
-    func requestBarcode() {
+    func requestDetect() {
         guard let ciImage = CIImage(image: image) else { return }
         let handler = VNImageRequestHandler(ciImage: ciImage, orientation: CGImagePropertyOrientation.up, options: [:])
 
@@ -49,4 +50,7 @@ class BarcodeWrapper {
         }
     }
     
+    deinit {
+        print("Deinit")
+    }
 }

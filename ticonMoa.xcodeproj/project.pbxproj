@@ -64,12 +64,11 @@
 		E053B6372604FC77005FAD51 /* ticonMoa */ = {
 			isa = PBXGroup;
 			children = (
+				E0AE47FB2613078100BEC498 /* Cell */,
 				E0AE47F926104F6D00BEC498 /* Model */,
 				E053B6382604FC77005FAD51 /* AppDelegate.swift */,
 				E053B63A2604FC77005FAD51 /* SceneDelegate.swift */,
 				E053B63C2604FC77005FAD51 /* ViewController.swift */,
-				E0B653B2260C40DD007C402F /* HomeCollectionViewCell.swift */,
-				E0B653B3260C40DD007C402F /* HomeCollectionViewCell.xib */,
 				E053B63E2604FC77005FAD51 /* Main.storyboard */,
 				E053B6412604FC79005FAD51 /* Assets.xcassets */,
 				E053B6432604FC79005FAD51 /* LaunchScreen.storyboard */,
@@ -85,6 +84,15 @@
 				E0B653B7260C497B007C402F /* PhotoManager.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E0AE47FB2613078100BEC498 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E0B653B2260C40DD007C402F /* HomeCollectionViewCell.swift */,
+				E0B653B3260C40DD007C402F /* HomeCollectionViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

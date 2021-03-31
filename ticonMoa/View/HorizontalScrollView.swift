@@ -11,9 +11,9 @@ class HorizontalScrollView: UIView {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var contentView: UIView?
-
-    let nibName = "HorizontalScrollView"
-    let items = ["All", "Coffee", "Cake", "A"]
+    private let edgeInsetConstant: CGFloat = 10
+    private let nibName = "HorizontalScrollView"
+    let items = ["All", "Coffee", "Cake", "a","bb", "ccc", "dddd"]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,7 +30,6 @@ class HorizontalScrollView: UIView {
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(view)
-        print(frame)
         contentView = view
         
         collectionView.delegate = self
@@ -54,19 +53,19 @@ extension HorizontalScrollView: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CategoryCell else { return UICollectionViewCell() }
         cell.titleLabel.text = items[indexPath.row]
-        cell.layer.cornerRadius = (frame.height - 10) / 2
+        cell.layer.cornerRadius = (frame.height - edgeInsetConstant) / 2
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
+        return UIEdgeInsets(top: 0, left: edgeInsetConstant, bottom: edgeInsetConstant, right: edgeInsetConstant)
     }
     
 }
 extension HorizontalScrollView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let h = (frame.height - 10)
+        let h = (frame.height - edgeInsetConstant)
         let w = max(items[indexPath.row].widthOfString(usingFont: .systemFont(ofSize: 17, weight: .regular)) + 30, h)
         return CGSize(width: w, height: h)
     }

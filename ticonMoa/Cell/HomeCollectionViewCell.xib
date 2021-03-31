@@ -16,32 +16,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="218" height="216"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qKP-ph-dAD">
-                        <rect key="frame" x="0.0" y="0.5" width="218" height="165"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qKP-ph-dAD">
+                        <rect key="frame" x="0.0" y="0.5" width="218" height="215"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAt-Et-GRb">
-                        <rect key="frame" x="0.0" y="166" width="218" height="50"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="qKP-ph-dAD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="JhB-oN-wMV"/>
-                <constraint firstItem="dAt-Et-GRb" firstAttribute="top" secondItem="qKP-ph-dAD" secondAttribute="bottom" id="UhI-iy-T2L"/>
-                <constraint firstAttribute="bottom" secondItem="dAt-Et-GRb" secondAttribute="bottom" id="fXd-3J-bGh"/>
-                <constraint firstItem="dAt-Et-GRb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jCC-Rx-D1l"/>
-                <constraint firstAttribute="trailing" secondItem="dAt-Et-GRb" secondAttribute="trailing" id="lAd-Du-gj1"/>
-                <constraint firstAttribute="bottom" secondItem="qKP-ph-dAD" secondAttribute="bottom" constant="50" id="wtM-Gi-NYP"/>
+                <constraint firstAttribute="bottom" secondItem="qKP-ph-dAD" secondAttribute="bottom" id="wtM-Gi-NYP"/>
                 <constraint firstAttribute="trailing" secondItem="qKP-ph-dAD" secondAttribute="trailing" id="z1x-AK-Cs2"/>
                 <constraint firstItem="qKP-ph-dAD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="zi5-YV-00A"/>
             </constraints>
             <size key="customSize" width="218" height="216"/>
             <connections>
                 <outlet property="imageView" destination="qKP-ph-dAD" id="nes-PJ-UIi"/>
-                <outlet property="label" destination="dAt-Et-GRb" id="Mgp-u1-4Hv"/>
             </connections>
             <point key="canvasLocation" x="259.4202898550725" y="115.17857142857142"/>
         </collectionViewCell>

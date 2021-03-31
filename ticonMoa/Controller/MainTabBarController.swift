@@ -9,17 +9,24 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
-    let floatingTabbarView = RoundTabBarView(["house", "magnifyingglass", "person"])
+    private let floatingTabbarView = RoundTabBarView(["house", "magnifyingglass", "person"])
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBar.isHidden = true
         setupFloatingTabBar()
-        
-        self.viewControllers = []
+        setupViewControllers()
+    }
+    
+    private func setupViewControllers() {
+        guard let homeVC: HomeViewController = UIStoryboard.main.instantiate(),
+              let searchVC: SearchViewController = UIStoryboard.main.instantiate() ,
+              let profileVC: ProfileViewController = UIStoryboard.main.instantiate()
+        else { return }
+        self.viewControllers = [homeVC, searchVC, profileVC]
     }
 
-    func setupFloatingTabBar() {
+    private func setupFloatingTabBar() {
         floatingTabbarView.delegate = self
         view.addSubview(floatingTabbarView)
         floatingTabbarView.centerXInSuperview()

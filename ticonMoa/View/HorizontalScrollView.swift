@@ -13,6 +13,7 @@ class HorizontalScrollView: UIView {
     var contentView: UIView?
 
     let nibName = "HorizontalScrollView"
+    let items = ["All", "Coffee", "Cake", "A"]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,12 +48,13 @@ class HorizontalScrollView: UIView {
 
 extension HorizontalScrollView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CategoryCell else { return UICollectionViewCell() }
-        cell.layer.cornerRadius = (frame.height - 20) / 2
+        cell.titleLabel.text = items[indexPath.row]
+        cell.layer.cornerRadius = (frame.height - 10) / 2
         return cell
     }
     
@@ -64,8 +66,9 @@ extension HorizontalScrollView: UICollectionViewDelegate, UICollectionViewDataSo
 extension HorizontalScrollView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let w = (frame.height - 10)
-        return CGSize(width: 2 * w, height: w)
+        let h = (frame.height - 10)
+        let w = max(items[indexPath.row].widthOfString(usingFont: .systemFont(ofSize: 17, weight: .regular)) + 30, h)
+        return CGSize(width: w, height: h)
     }
     
 }

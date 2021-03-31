@@ -16,6 +16,8 @@
 		E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480426131D5C00BEC498 /* MainTabBarController.swift */; };
 		E0AE480826131DF600BEC498 /* RoundTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480726131DF600BEC498 /* RoundTabBarView.swift */; };
 		E0AE480C2613222D00BEC498 /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480B2613222D00BEC498 /* Autolayout.swift */; };
+		E0AE4817261438AE00BEC498 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE4816261438AE00BEC498 /* SearchViewController.swift */; };
+		E0AE481B261438BA00BEC498 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE481A261438BA00BEC498 /* ProfileViewController.swift */; };
 		E0B653B4260C40DD007C402F /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B653B2260C40DD007C402F /* HomeCollectionViewCell.swift */; };
 		E0B653B5260C40DD007C402F /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0B653B3260C40DD007C402F /* HomeCollectionViewCell.xib */; };
 		E0B653B8260C497B007C402F /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B653B7260C497B007C402F /* PhotoManager.swift */; };
@@ -34,6 +36,8 @@
 		E0AE480426131D5C00BEC498 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E0AE480726131DF600BEC498 /* RoundTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTabBarView.swift; sourceTree = "<group>"; };
 		E0AE480B2613222D00BEC498 /* Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autolayout.swift; sourceTree = "<group>"; };
+		E0AE4816261438AE00BEC498 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E0AE481A261438BA00BEC498 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E0B653B2260C40DD007C402F /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E0B653B3260C40DD007C402F /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		E0B653B7260C497B007C402F /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
@@ -70,15 +74,14 @@
 		E053B6372604FC77005FAD51 /* ticonMoa */ = {
 			isa = PBXGroup;
 			children = (
+				E0AE4815261437C100BEC498 /* View */,
+				E0AE4814261437AD00BEC498 /* Controller */,
 				E0AE480A2613222600BEC498 /* Extensions */,
 				E0AE47FB2613078100BEC498 /* Cell */,
 				E0AE47F926104F6D00BEC498 /* Model */,
 				E053B6382604FC77005FAD51 /* AppDelegate.swift */,
 				E053B63A2604FC77005FAD51 /* SceneDelegate.swift */,
-				E053B63C2604FC77005FAD51 /* HomeViewController.swift */,
 				E053B63E2604FC77005FAD51 /* Main.storyboard */,
-				E0AE480426131D5C00BEC498 /* MainTabBarController.swift */,
-				E0AE480726131DF600BEC498 /* RoundTabBarView.swift */,
 				E053B6412604FC79005FAD51 /* Assets.xcassets */,
 				E053B6432604FC79005FAD51 /* LaunchScreen.storyboard */,
 				E053B6462604FC79005FAD51 /* Info.plist */,
@@ -110,6 +113,25 @@
 				E0AE480B2613222D00BEC498 /* Autolayout.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E0AE4814261437AD00BEC498 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E053B63C2604FC77005FAD51 /* HomeViewController.swift */,
+				E0AE4816261438AE00BEC498 /* SearchViewController.swift */,
+				E0AE481A261438BA00BEC498 /* ProfileViewController.swift */,
+				E0AE480426131D5C00BEC498 /* MainTabBarController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E0AE4815261437C100BEC498 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0AE480726131DF600BEC498 /* RoundTabBarView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,11 +205,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0AE4817261438AE00BEC498 /* SearchViewController.swift in Sources */,
 				E053B63D2604FC77005FAD51 /* HomeViewController.swift in Sources */,
 				E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */,
 				E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */,
 				E053B63B2604FC77005FAD51 /* SceneDelegate.swift in Sources */,
 				E0AE480C2613222D00BEC498 /* Autolayout.swift in Sources */,
+				E0AE481B261438BA00BEC498 /* ProfileViewController.swift in Sources */,
 				E0B653B8260C497B007C402F /* PhotoManager.swift in Sources */,
 				E0B653BB260C5833007C402F /* BarcodeRequestWrapper.swift in Sources */,
 				E0AE480826131DF600BEC498 /* RoundTabBarView.swift in Sources */,

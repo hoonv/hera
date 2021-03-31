@@ -15,6 +15,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         self.tabBar.isHidden = true
         setupFloatingTabBar()
+        
         self.viewControllers = []
     }
 

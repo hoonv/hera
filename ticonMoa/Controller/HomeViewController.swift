@@ -20,12 +20,12 @@ class HomeViewController: UIViewController {
 //            collectionView.reloadItems(at: [IndexPath(row: images.count, section: 0)])
         }
     }
+    
     private let photoManager = PhotoManager()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
 
         photoManager.requestAuthAndGetAllPhotos { image in

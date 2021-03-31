@@ -19,6 +19,10 @@
 		E0AE4817261438AE00BEC498 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE4816261438AE00BEC498 /* SearchViewController.swift */; };
 		E0AE481B261438BA00BEC498 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE481A261438BA00BEC498 /* ProfileViewController.swift */; };
 		E0AE481F26143C9000BEC498 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE481E26143C9000BEC498 /* UIStoryboard.swift */; };
+		E0AE4826261442D400BEC498 /* HorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE4825261442D400BEC498 /* HorizontalScrollView.swift */; };
+		E0AE482A261442FC00BEC498 /* HorizontalScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AE4829261442FC00BEC498 /* HorizontalScrollView.xib */; };
+		E0AE482E2614526600BEC498 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE482C2614526600BEC498 /* CategoryCell.swift */; };
+		E0AE482F2614526600BEC498 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AE482D2614526600BEC498 /* CategoryCell.xib */; };
 		E0B653B4260C40DD007C402F /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B653B2260C40DD007C402F /* HomeCollectionViewCell.swift */; };
 		E0B653B5260C40DD007C402F /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0B653B3260C40DD007C402F /* HomeCollectionViewCell.xib */; };
 		E0B653B8260C497B007C402F /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B653B7260C497B007C402F /* PhotoManager.swift */; };
@@ -40,6 +44,10 @@
 		E0AE4816261438AE00BEC498 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E0AE481A261438BA00BEC498 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E0AE481E26143C9000BEC498 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
+		E0AE4825261442D400BEC498 /* HorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollView.swift; sourceTree = "<group>"; };
+		E0AE4829261442FC00BEC498 /* HorizontalScrollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorizontalScrollView.xib; sourceTree = "<group>"; };
+		E0AE482C2614526600BEC498 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		E0AE482D2614526600BEC498 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		E0B653B2260C40DD007C402F /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E0B653B3260C40DD007C402F /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		E0B653B7260C497B007C402F /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
@@ -105,6 +113,8 @@
 			children = (
 				E0B653B2260C40DD007C402F /* HomeCollectionViewCell.swift */,
 				E0B653B3260C40DD007C402F /* HomeCollectionViewCell.xib */,
+				E0AE482C2614526600BEC498 /* CategoryCell.swift */,
+				E0AE482D2614526600BEC498 /* CategoryCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -133,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				E0AE480726131DF600BEC498 /* RoundTabBarView.swift */,
+				E0AE4825261442D400BEC498 /* HorizontalScrollView.swift */,
+				E0AE4829261442FC00BEC498 /* HorizontalScrollView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,6 +206,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0AE482A261442FC00BEC498 /* HorizontalScrollView.xib in Resources */,
+				E0AE482F2614526600BEC498 /* CategoryCell.xib in Resources */,
 				E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */,
 				E053B6422604FC79005FAD51 /* Assets.xcassets in Resources */,
 				E053B6402604FC77005FAD51 /* Main.storyboard in Resources */,
@@ -211,8 +225,10 @@
 				E0AE481F26143C9000BEC498 /* UIStoryboard.swift in Sources */,
 				E0AE4817261438AE00BEC498 /* SearchViewController.swift in Sources */,
 				E053B63D2604FC77005FAD51 /* HomeViewController.swift in Sources */,
+				E0AE482E2614526600BEC498 /* CategoryCell.swift in Sources */,
 				E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */,
 				E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */,
+				E0AE4826261442D400BEC498 /* HorizontalScrollView.swift in Sources */,
 				E053B63B2604FC77005FAD51 /* SceneDelegate.swift in Sources */,
 				E0AE480C2613222D00BEC498 /* Autolayout.swift in Sources */,
 				E0AE481B261438BA00BEC498 /* ProfileViewController.swift in Sources */,

@@ -14,7 +14,7 @@
 		E053B6422604FC79005FAD51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E053B6412604FC79005FAD51 /* Assets.xcassets */; };
 		E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E053B6432604FC79005FAD51 /* LaunchScreen.storyboard */; };
 		E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480426131D5C00BEC498 /* MainTabBarController.swift */; };
-		E0AE480826131DF600BEC498 /* FloatingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480726131DF600BEC498 /* FloatingTabView.swift */; };
+		E0AE480826131DF600BEC498 /* RoundTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480726131DF600BEC498 /* RoundTabBarView.swift */; };
 		E0AE480C2613222D00BEC498 /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480B2613222D00BEC498 /* Autolayout.swift */; };
 		E0B653B4260C40DD007C402F /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B653B2260C40DD007C402F /* HomeCollectionViewCell.swift */; };
 		E0B653B5260C40DD007C402F /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0B653B3260C40DD007C402F /* HomeCollectionViewCell.xib */; };
@@ -32,7 +32,7 @@
 		E053B6442604FC79005FAD51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E053B6462604FC79005FAD51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0AE480426131D5C00BEC498 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		E0AE480726131DF600BEC498 /* FloatingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingTabView.swift; sourceTree = "<group>"; };
+		E0AE480726131DF600BEC498 /* RoundTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTabBarView.swift; sourceTree = "<group>"; };
 		E0AE480B2613222D00BEC498 /* Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autolayout.swift; sourceTree = "<group>"; };
 		E0B653B2260C40DD007C402F /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E0B653B3260C40DD007C402F /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 				E053B63C2604FC77005FAD51 /* ViewController.swift */,
 				E053B63E2604FC77005FAD51 /* Main.storyboard */,
 				E0AE480426131D5C00BEC498 /* MainTabBarController.swift */,
-				E0AE480726131DF600BEC498 /* FloatingTabView.swift */,
+				E0AE480726131DF600BEC498 /* RoundTabBarView.swift */,
 				E053B6412604FC79005FAD51 /* Assets.xcassets */,
 				E053B6432604FC79005FAD51 /* LaunchScreen.storyboard */,
 				E053B6462604FC79005FAD51 /* Info.plist */,
@@ -190,7 +190,7 @@
 				E0AE480C2613222D00BEC498 /* Autolayout.swift in Sources */,
 				E0B653B8260C497B007C402F /* PhotoManager.swift in Sources */,
 				E0B653BB260C5833007C402F /* BarcodeRequestWrapper.swift in Sources */,
-				E0AE480826131DF600BEC498 /* FloatingTabView.swift in Sources */,
+				E0AE480826131DF600BEC498 /* RoundTabBarView.swift in Sources */,
 				E0B653B4260C40DD007C402F /* HomeCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -43,7 +43,7 @@ class RoundTabBarView: UIView {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.1
         layer.shadowOffset = .zero
-        layer.shadowRadius = bounds.height / 2
+        layer.shadowRadius = bounds.height / 5
     }
 
     func setupStackView(_ items: [String]) {

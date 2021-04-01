@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="L1m-a2-qS8">
-                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="82W-sr-3JD">
                                     <size key="itemSize" width="128" height="128"/>
@@ -41,11 +41,11 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="H4n-rS-uID"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="For-RS-hvn" customClass="HorizontalScrollView" customModule="ticonMoa" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="For-RS-hvn" customClass="IconStackView" customModule="ticonMoa" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="BtO-EP-GOh"/>
+                                    <constraint firstAttribute="height" constant="44" id="BtO-EP-GOh"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -55,7 +55,7 @@
                             <constraint firstItem="L1m-a2-qS8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Hwo-k0-0qN"/>
                             <constraint firstItem="For-RS-hvn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="etn-0l-ni1"/>
                             <constraint firstItem="L1m-a2-qS8" firstAttribute="top" secondItem="For-RS-hvn" secondAttribute="bottom" id="fbd-e5-O2A"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="L1m-a2-qS8" secondAttribute="bottom" id="j1w-7P-2z3"/>
+                            <constraint firstAttribute="bottom" secondItem="L1m-a2-qS8" secondAttribute="bottom" id="j1w-7P-2z3"/>
                             <constraint firstItem="For-RS-hvn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kpi-Xm-X6N"/>
                             <constraint firstItem="For-RS-hvn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="o8y-UW-r2y"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L1m-a2-qS8" secondAttribute="trailing" id="qNG-iV-7ob"/>
@@ -98,6 +98,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fO5-xF-rSG">
+                                <rect key="frame" x="122" y="326" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ovw-k8-o2F"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

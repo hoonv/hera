@@ -31,7 +31,6 @@ class BarcodeRequestWrapper {
         if let bestResult = request.results?.first as? VNBarcodeObservation,
             let payload = bestResult.payloadStringValue {
             print(payload)
-        
             completion(image)
         } else {
 //            completion(image)

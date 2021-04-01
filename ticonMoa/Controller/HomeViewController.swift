@@ -15,9 +15,7 @@ class HomeViewController: UIViewController {
     let startTime = Date()
     private var images: [UIImage] = [] {
         didSet {
-            print(Date().timeIntervalSince1970 - self.startTime.timeIntervalSince1970)
             collectionView.reloadData()
-//            collectionView.reloadItems(at: [IndexPath(row: images.count, section: 0)])
         }
     }
     
@@ -28,10 +26,10 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
 
-        photoManager.requestAuthAndGetAllPhotos { image in
+        photoManager.requestAuthAndGetAllPhotos { [weak self] image in
             guard let image = image else { return }
-            let bw = BarcodeRequestWrapper(image: image) {
-                self.images.append($0)
+            let bw = BarcodeRequestWrapper(image: image) { _ in
+                self?.images.append(image)
             }
             bw.requestDetect()
         }

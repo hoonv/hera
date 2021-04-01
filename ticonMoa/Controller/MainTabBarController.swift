@@ -30,7 +30,7 @@ class MainTabBarController: UITabBarController {
         floatingTabbarView.delegate = self
         view.addSubview(floatingTabbarView)
         floatingTabbarView.centerXInSuperview()
-        floatingTabbarView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
+        floatingTabbarView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
     }
 }
 

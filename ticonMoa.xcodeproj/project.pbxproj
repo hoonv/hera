@@ -24,6 +24,9 @@
 		E0AE482E2614526600BEC498 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE482C2614526600BEC498 /* CategoryCell.swift */; };
 		E0AE482F2614526600BEC498 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AE482D2614526600BEC498 /* CategoryCell.xib */; };
 		E0AE483326145A8200BEC498 /* String+widthHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE483226145A8200BEC498 /* String+widthHeight.swift */; };
+		E0AE48372614659500BEC498 /* IconStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE48362614659500BEC498 /* IconStackView.swift */; };
+		E0AE483A261465CA00BEC498 /* IconStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AE4839261465CA00BEC498 /* IconStackView.xib */; };
+		E0AE483D2615AFEA00BEC498 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE483C2615AFEA00BEC498 /* IconButton.swift */; };
 		E0B653B4260C40DD007C402F /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B653B2260C40DD007C402F /* HomeCollectionViewCell.swift */; };
 		E0B653B5260C40DD007C402F /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0B653B3260C40DD007C402F /* HomeCollectionViewCell.xib */; };
 		E0B653B8260C497B007C402F /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B653B7260C497B007C402F /* PhotoManager.swift */; };
@@ -50,6 +53,9 @@
 		E0AE482C2614526600BEC498 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		E0AE482D2614526600BEC498 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		E0AE483226145A8200BEC498 /* String+widthHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+widthHeight.swift"; sourceTree = "<group>"; };
+		E0AE48362614659500BEC498 /* IconStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconStackView.swift; sourceTree = "<group>"; };
+		E0AE4839261465CA00BEC498 /* IconStackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconStackView.xib; sourceTree = "<group>"; };
+		E0AE483C2615AFEA00BEC498 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		E0B653B2260C40DD007C402F /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E0B653B3260C40DD007C402F /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		E0B653B7260C497B007C402F /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
@@ -146,8 +152,11 @@
 			isa = PBXGroup;
 			children = (
 				E0AE480726131DF600BEC498 /* RoundTabBarView.swift */,
+				E0AE48362614659500BEC498 /* IconStackView.swift */,
+				E0AE4839261465CA00BEC498 /* IconStackView.xib */,
 				E0AE4825261442D400BEC498 /* HorizontalScrollView.swift */,
 				E0AE4829261442FC00BEC498 /* HorizontalScrollView.xib */,
+				E0AE483C2615AFEA00BEC498 /* IconButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,6 +220,7 @@
 			files = (
 				E0AE482A261442FC00BEC498 /* HorizontalScrollView.xib in Resources */,
 				E0AE482F2614526600BEC498 /* CategoryCell.xib in Resources */,
+				E0AE483A261465CA00BEC498 /* IconStackView.xib in Resources */,
 				E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */,
 				E053B6422604FC79005FAD51 /* Assets.xcassets in Resources */,
 				E053B6402604FC77005FAD51 /* Main.storyboard in Resources */,
@@ -233,11 +243,13 @@
 				E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */,
 				E0AE4826261442D400BEC498 /* HorizontalScrollView.swift in Sources */,
 				E053B63B2604FC77005FAD51 /* SceneDelegate.swift in Sources */,
+				E0AE48372614659500BEC498 /* IconStackView.swift in Sources */,
 				E0AE480C2613222D00BEC498 /* Autolayout.swift in Sources */,
 				E0AE481B261438BA00BEC498 /* ProfileViewController.swift in Sources */,
 				E0AE483326145A8200BEC498 /* String+widthHeight.swift in Sources */,
 				E0B653B8260C497B007C402F /* PhotoManager.swift in Sources */,
 				E0B653BB260C5833007C402F /* BarcodeRequestWrapper.swift in Sources */,
+				E0AE483D2615AFEA00BEC498 /* IconButton.swift in Sources */,
 				E0AE480826131DF600BEC498 /* RoundTabBarView.swift in Sources */,
 				E0B653B4260C40DD007C402F /* HomeCollectionViewCell.swift in Sources */,
 			);

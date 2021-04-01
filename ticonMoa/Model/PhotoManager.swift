@@ -14,10 +14,17 @@ final class PhotoManager {
 
     // PhotoLibray에 요청하는 옵션
     private let fetchOptions: PHFetchOptions = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
         let options = PHFetchOptions()
-//        options.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
-//        options.fetchLimit = 3
-        // 최대 6개월의 사진 검색
+        options.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
+        options.fetchLimit = 1000
+        let end = formatter.string(from: Date(timeIntervalSinceNow: -180*24*60*60))
+        let today = formatter.string(from: Date())
+        if let startDate = formatter.date(from: end),
+           let endDate = formatter.date(from: today) {
+            options.predicate = NSPredicate(format: "creationDate > %@ AND creationDate < %@", startDate as NSDate, endDate as NSDate)
+        }
         return options
     }()
     

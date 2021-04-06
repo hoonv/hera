@@ -27,6 +27,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.layer.cornerRadius = 30
+        self.collectionView.layer.cornerRadius = 30
         self.iconStackView.delegate = self
         self.collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
 
@@ -45,7 +47,6 @@ class HomeViewController: UIViewController {
     @objc func handleGesture(_ gesture: UIPanGestureRecognizer) {
         let translate = gesture.translation(in: gesture.view)
         let percent   = translate.x / gesture.view!.bounds.size.width
-        print(translate, percent)
         
         if gesture.state == .began {
             let controller = storyboard!.instantiateViewController(withIdentifier: "PhotoAddViewController") as! PhotoAddViewController
@@ -54,10 +55,10 @@ class HomeViewController: UIViewController {
 
             show(controller, sender: self)
         } else if gesture.state == .changed {
-            interactionController?.update(percent)
+            interactionController?.update(percent * 0.8)
         } else if gesture.state == .ended || gesture.state == .cancelled {
             let velocity = gesture.velocity(in: gesture.view)
-            if (percent > 0.5 && velocity.x == 0) || velocity.x > 0 {
+            if (percent > 0.5 && velocity.x == 0) || velocity.x > 100 {
                 interactionController?.finish()
             } else {
                 interactionController?.cancel()
@@ -116,7 +117,6 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        print(interactionController,"#@!#!@#!")
         return interactionController
     }
     

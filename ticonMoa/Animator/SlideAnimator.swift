@@ -23,7 +23,7 @@ final class SlideInAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func transitionDuration(using ctx: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.1
+        return 0.35
     }
     
     func animateTransition(using ctx: UIViewControllerContextTransitioning) {
@@ -40,25 +40,29 @@ final class SlideInAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let initialFrame = ctx.initialFrame(for: fromVC)
         let finalFrame = ctx.finalFrame(for: toVC)
         
-        snapshot.frame = initialFrame
-        containerView.addSubview(toVC.view)
-        containerView.addSubview(snapshot)
-        toVC.view.frame = finalFrame
-
         if transitionType == .presenting {
-//            toVC.view.frame.origin.x = -finalFrame.width
-
+            snapshot.frame = initialFrame
+            containerView.addSubview(toVC.view)
+            containerView.addSubview(snapshot)
+            toVC.view.frame = finalFrame
         } else {
-//            toVC.view.frame.origin.x = finalFrame.width
+            snapshot.frame = initialFrame
+            containerView.addSubview(snapshot)
+            containerView.addSubview(toVC.view)
+            toVC.view.frame = finalFrame
+            toVC.view.frame.origin.x = finalFrame.width
         }
-        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut], animations: {
-                       if self.transitionType == .presenting {
-                           snapshot.frame.origin.x = finalFrame.width
-                       } else {
-                           snapshot.frame.origin.x = -finalFrame.width
-                       }
-                       toVC.view.frame = finalFrame
-               })  { _ in
+
+        UIView.animate(withDuration: transitionDuration(using: ctx),
+                       delay: 0,
+                       options: [.curveEaseOut],
+                       animations: {
+                        if self.transitionType == .presenting {
+                            snapshot.frame.origin.x = finalFrame.width
+                        } else {
+                            toVC.view.frame.origin.x = 0
+                        }
+                       })  { _ in
             snapshot.removeFromSuperview()
             ctx.completeTransition(!ctx.transitionWasCancelled)
         }

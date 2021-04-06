@@ -12,17 +12,16 @@ class PhotoAddViewController: UIViewController {
     let customTransitionDelegate = TransitioningDelegate()
     var interactionController: UIPercentDrivenInteractiveTransition?
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         transitioningDelegate = customTransitionDelegate
-        
+        view.backgroundColor = .black
         let panUp = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
         view.addGestureRecognizer(panUp)
 
-        
-        
     }
 
 
@@ -33,10 +32,9 @@ class PhotoAddViewController: UIViewController {
         if gesture.state == .began {
             interactionController = UIPercentDrivenInteractiveTransition()
             customTransitionDelegate.interactionController = interactionController
-
             dismiss(animated: true)
         } else if gesture.state == .changed {
-            interactionController?.update(percent)
+            interactionController?.update(percent * 0.8)
         } else if gesture.state == .ended {
             let velocity = gesture.velocity(in: gesture.view)
             if (percent > 0.5 && velocity.x == 0) || velocity.x < 0 {

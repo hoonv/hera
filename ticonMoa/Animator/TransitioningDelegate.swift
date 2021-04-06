@@ -26,10 +26,6 @@ class TransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
         return SlideInAnimator(transitionType: .dismissing)
     }
 
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return PresentationController(presentedViewController: presented, presenting: presenting)
-    }
-
     func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactionController
     }
@@ -38,8 +34,4 @@ class TransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
         return interactionController
     }
 
-}
-
-class PresentationController: UIPresentationController {
-    override var shouldRemovePresentersView: Bool { return true }
 }

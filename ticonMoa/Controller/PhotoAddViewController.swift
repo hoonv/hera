@@ -15,13 +15,16 @@ class PhotoAddViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        transitioningDelegate = customTransitionDelegate
+        
         view.backgroundColor = .black
+
+        transitioningDelegate = customTransitionDelegate
         let panUp = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
         view.addGestureRecognizer(panUp)
 
+        super.viewDidLoad()
     }
 
 
@@ -37,7 +40,7 @@ class PhotoAddViewController: UIViewController {
             interactionController?.update(percent * 0.8)
         } else if gesture.state == .ended {
             let velocity = gesture.velocity(in: gesture.view)
-            if (percent > 0.5 && velocity.x == 0) || velocity.x < 0 {
+            if (percent > 0.5 && velocity.x == 0) || velocity.x < -100 {
                 interactionController?.finish()
             } else {
                 interactionController?.cancel()

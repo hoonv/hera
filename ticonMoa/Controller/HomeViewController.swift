@@ -14,24 +14,17 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var iconStackView: IconStackView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let startTime = Date()
+    private let photoManager = PhotoManager()
+    private var interactionController: UIPercentDrivenInteractiveTransition?
     private var images: [UIImage] = [] {
         didSet {
             collectionView.reloadData()
         }
     }
-    
-    private let photoManager = PhotoManager()
-    
-    private var interactionController: UIPercentDrivenInteractiveTransition?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.layer.cornerRadius = 30
-        self.collectionView.layer.cornerRadius = 30
-        self.iconStackView.delegate = self
-        self.collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
 
+    override func viewDidLoad() {
+        setupUI()
+        
         let panRight = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
         view.addGestureRecognizer(panRight)
         
@@ -42,8 +35,17 @@ class HomeViewController: UIViewController {
             }
             bw.requestDetect()
         }
+        
+        super.viewDidLoad()
     }
 
+    private func setupUI() {
+        self.view.layer.cornerRadius = 30
+        self.collectionView.layer.cornerRadius = 30
+        self.iconStackView.delegate = self
+        self.collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
+    }
+    
     @objc func handleGesture(_ gesture: UIPanGestureRecognizer) {
         let translate = gesture.translation(in: gesture.view)
         let percent   = translate.x / gesture.view!.bounds.size.width
@@ -78,29 +80,21 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? HomeCollectionViewCell else { return UICollectionViewCell() }
         cell.imageView.image = images[indexPath.row]
         return cell
-        
     }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let w = (self.view.frame.width - 20) / 3
         return CGSize(width: w, height: w)
     }
-    
 }
 
 extension HomeViewController: IconStackViewDelegate {
     func iconStackView(_ iconStackView: IconStackView, didSelected index: Int) {
-        print(index)
         let controller = storyboard!.instantiateViewController(withIdentifier: "PhotoAddViewController") as! PhotoAddViewController
-
         show(controller, sender: self)
-
     }
-    
-    
 }
 
 extension HomeViewController: UIViewControllerTransitioningDelegate {

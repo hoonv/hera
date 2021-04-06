@@ -18,17 +18,14 @@ final class SlideInAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
     init(transitionType: TransitionType) {
         self.transitionType = transitionType
-
         super.init()
     }
     
     func transitionDuration(using ctx: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.35
+        return 0.5
     }
     
     func animateTransition(using ctx: UIViewControllerContextTransitioning) {
-        print("animateTransition start")
-        
         guard let fromVC = ctx.viewController(forKey: .from),
             let toVC = ctx.viewController(forKey: .to),
             let snapshot = ctx.view(forKey: .from)?.snapshotView(afterScreenUpdates: true)
@@ -67,10 +64,5 @@ final class SlideInAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             ctx.completeTransition(!ctx.transitionWasCancelled)
         }
     }
-    
-    func animationEnded(_ transitionCompleted: Bool) {
-        print("ended")
-    }
-    
 }
 

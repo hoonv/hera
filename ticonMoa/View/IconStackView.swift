@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol IconStackViewDelegate: AnyObject {
+    func iconStackView(_ iconStackView: IconStackView, didSelected index : Int)
+}
+
 class IconStackView: UIView {
 
     var contentView: UIView?
     
+    weak var delegate: IconStackViewDelegate?
     private let nibName = "IconStackView"
     private let buttonNames = ["plus.app", "ticket"]
     private let symbolConfig = UIImage.SymbolConfiguration(pointSize: 28, weight: .regular, scale: .medium)
@@ -64,7 +69,7 @@ class IconStackView: UIView {
     }
     
     @objc func test(_ sender: UIButton) {
-        print(sender.tag)
+        delegate?.iconStackView(self, didSelected: sender.tag)
     }
     
     private func loadViewFromNib() -> UIView? {

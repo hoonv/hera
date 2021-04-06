@@ -18,7 +18,7 @@ final class PhotoManager {
         formatter.dateFormat = "yyyy-MM-dd"
         let options = PHFetchOptions()
         options.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
-        options.fetchLimit = 1000
+        options.fetchLimit = 100
         let end = formatter.string(from: Date(timeIntervalSinceNow: -180*24*60*60))
         let today = formatter.string(from: Date())
         if let startDate = formatter.date(from: end),

@@ -27,21 +27,15 @@ class HomeViewController: UIViewController {
         
         let panRight = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
         view.addGestureRecognizer(panRight)
-        
-        photoManager.requestAuthAndGetAllPhotos { [weak self] image in
-            guard let image = image else { return }
-            let bw = BarcodeRequestWrapper(image: image) { _ in
-                self?.images.append(image)
-            }
-            bw.requestDetect()
-        }
+        photoManager.delegate = self
+        photoManager.requestAuthAndGetAllPhotos()
         
         super.viewDidLoad()
     }
 
     private func setupUI() {
         self.view.layer.cornerRadius = 30
-        self.collectionView.layer.cornerRadius = 30
+//        self.collectionView.layer.cornerRadius = 30
         self.iconStackView.delegate = self
         self.collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
     }
@@ -114,4 +108,14 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
         return interactionController
     }
     
+}
+
+extension HomeViewController: PhotoManagerDelegate {
+    func photoManager(_ photoManager: PhotoManager, didLoad image: UIImage?, index: Int) {
+        guard let image = image else { return }
+        let bw = BarcodeRequestWrapper(image: image) { _ in
+            self.images.append(image)
+        }
+        bw.requestDetect()
+    }
 }

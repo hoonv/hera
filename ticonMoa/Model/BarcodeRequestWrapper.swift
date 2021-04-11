@@ -12,12 +12,12 @@ class BarcodeRequestWrapper {
     
     let image: UIImage
     lazy var detectBarcodeRequest: VNDetectBarcodesRequest = {
-        return VNDetectBarcodesRequest(completionHandler: { (request, error) in
+        return VNDetectBarcodesRequest(completionHandler: { [weak self] (request, error) in
             guard error == nil else {
                 print("error")
                 return
             }
-            self.processClassification(for: request)
+            self?.processClassification(for: request)
         })
     }()
     let completion: ((UIImage) -> Void)
@@ -28,17 +28,16 @@ class BarcodeRequestWrapper {
     }
     
     func processClassification(for request: VNRequest) {
-        if let bestResult = request.results?.first as? VNBarcodeObservation,
-            let payload = bestResult.payloadStringValue {
-            print(payload)
-            completion(image)
-        } else {
-//            completion(image)
-//            print("Cannot extract barcode information from data.")
+        guard let bestResult = request.results?.first as? VNBarcodeObservation,
+              let payload = bestResult.payloadStringValue
+        else {
+            return
         }
+        print(payload)
+        completion(image)
     }
     
-    func requestDetect() {
+    func requestDetection() {
         guard let ciImage = CIImage(image: image) else { return }
         let handler = VNImageRequestHandler(ciImage: ciImage, orientation: CGImagePropertyOrientation.up, options: [:])
 

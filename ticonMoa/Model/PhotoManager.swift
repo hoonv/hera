@@ -8,17 +8,22 @@
 import UIKit
 import Photos
 
+protocol PhotoManagerDelegate: AnyObject {
+    func photoManager(_ photoManager: PhotoManager, didLoad image: UIImage?, index: Int)
+}
+
 final class PhotoManager {
 
+    weak var delegate: PhotoManagerDelegate?
     private let requiredAccessLevel: PHAccessLevel = .readWrite
 
     // PhotoLibray에 요청하는 옵션
-    private let fetchOptions: PHFetchOptions = {
+    private var fetchOptions: PHFetchOptions = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let options = PHFetchOptions()
         options.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
-        options.fetchLimit = 1000
+//        options.fetchLimit = 1
         let end = formatter.string(from: Date(timeIntervalSinceNow: -180*24*60*60))
         let today = formatter.string(from: Date())
         if let startDate = formatter.date(from: end),
@@ -29,14 +34,14 @@ final class PhotoManager {
     }()
     
     // fetchResult -> Image로 변환할때 필요한 옵션
-    private let requestOptions: PHImageRequestOptions = {
+    var requestOptions: PHImageRequestOptions = {
         let option = PHImageRequestOptions()
         option.isSynchronous = false
         option.deliveryMode = .highQualityFormat
         return option
     }()
-    private let targetSize = CGSize(width: 300, height: 500)
-    private let contentMode: PHImageContentMode = .aspectFill
+    var targetSize = CGSize(width: 300, height: 500)
+    var contentMode: PHImageContentMode = .aspectFill
     
     
     func requestAuthorization(completion: @escaping () -> Void) {
@@ -52,20 +57,20 @@ final class PhotoManager {
         }
     }
     
-    func requestAuthAndGetAllPhotos(completion: @escaping (UIImage?) -> Void ) {
+    func requestAuthAndGetAllPhotos() {
         requestAuthorization {
-            self.getCanAccessImages(completion: completion)
+            self.requestAccessableImage()
         }
     }
     
-    private func getCanAccessImages(completion: @escaping (UIImage?) -> Void) {
+    private func requestAccessableImage() {
   
         let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: self.fetchOptions)
         
-        fetchResult.enumerateObjects { (asset, _, _ ) in
+        fetchResult.enumerateObjects { (asset, idx, _ ) in
             PHImageManager.default().requestImage(for: asset, targetSize: self.targetSize,contentMode: self.contentMode, options: self.requestOptions) {
                 (image, _) in
-                completion(image)
+                self.delegate?.photoManager(self, didLoad: image, index: idx)
             }
         }
     }

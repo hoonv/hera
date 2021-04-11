@@ -34,7 +34,8 @@ class HomeViewController: UIViewController {
 
     private func setupUI() {
         self.view.layer.cornerRadius = 30
-//        self.collectionView.layer.cornerRadius = 30
+        self.collectionView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        self.collectionView.layer.cornerRadius = 30
         self.iconStackView.delegate = self
         self.collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
     }

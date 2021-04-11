@@ -21,10 +21,9 @@ class HomeViewController: UIViewController {
             collectionView.reloadData()
         }
     }
-
+    
     override func viewDidLoad() {
         setupUI()
-        
         let panRight = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
         view.addGestureRecognizer(panRight)
         photoManager.delegate = self
@@ -113,9 +112,9 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
 extension HomeViewController: PhotoManagerDelegate {
     func photoManager(_ photoManager: PhotoManager, didLoad image: UIImage?, index: Int) {
         guard let image = image else { return }
-        let bw = BarcodeRequestWrapper(image: image) { _ in
-            self.images.append(image)
+        let barcodeWrapper: BarcodeRequestWrapper? = BarcodeRequestWrapper(image: image) { [weak self] uiimage in
+            self?.images.append(uiimage)
         }
-        bw.requestDetect()
+        barcodeWrapper?.requestDetection()
     }
 }

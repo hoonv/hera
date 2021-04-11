@@ -23,7 +23,7 @@ final class PhotoManager {
         formatter.dateFormat = "yyyy-MM-dd"
         let options = PHFetchOptions()
         options.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
-        options.fetchLimit = 100
+//        options.fetchLimit = 1
         let end = formatter.string(from: Date(timeIntervalSinceNow: -180*24*60*60))
         let today = formatter.string(from: Date())
         if let startDate = formatter.date(from: end),
@@ -59,11 +59,11 @@ final class PhotoManager {
     
     func requestAuthAndGetAllPhotos() {
         requestAuthorization {
-            self.getCanAccessImages()
+            self.requestAccessableImage()
         }
     }
     
-    private func getCanAccessImages() {
+    private func requestAccessableImage() {
   
         let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: self.fetchOptions)
         

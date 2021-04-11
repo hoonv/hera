@@ -47,8 +47,4 @@ class BarcodeRequestWrapper {
             print("Error Decoding Barcode")
         }
     }
-    
-    deinit {
-        print("Deinit")
-    }
 }

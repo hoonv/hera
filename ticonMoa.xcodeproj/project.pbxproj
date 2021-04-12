@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E0364FF22623E007006D243E /* ImagePreProccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FF12623E007006D243E /* ImagePreProccessor.swift */; };
+		E0364FF52623EA97006D243E /* TextRecognitionWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FF42623EA97006D243E /* TextRecognitionWrapper.swift */; };
+		E0364FFB26247CBB006D243E /* AutoPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FFA26247CBB006D243E /* AutoPhotoViewController.swift */; };
+		E0364FFE26247CC4006D243E /* ManualPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FFD26247CC4006D243E /* ManualPhotoViewController.swift */; };
 		E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053B6382604FC77005FAD51 /* AppDelegate.swift */; };
 		E053B63B2604FC77005FAD51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053B63A2604FC77005FAD51 /* SceneDelegate.swift */; };
 		E053B63D2604FC77005FAD51 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053B63C2604FC77005FAD51 /* HomeViewController.swift */; };
@@ -37,6 +41,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E0364FF12623E007006D243E /* ImagePreProccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreProccessor.swift; sourceTree = "<group>"; };
+		E0364FF42623EA97006D243E /* TextRecognitionWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionWrapper.swift; sourceTree = "<group>"; };
+		E0364FFA26247CBB006D243E /* AutoPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoPhotoViewController.swift; sourceTree = "<group>"; };
+		E0364FFD26247CC4006D243E /* ManualPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualPhotoViewController.swift; sourceTree = "<group>"; };
 		E053B6352604FC77005FAD51 /* ticonMoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ticonMoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E053B6382604FC77005FAD51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E053B63A2604FC77005FAD51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,7 +126,9 @@
 			isa = PBXGroup;
 			children = (
 				E0B653BA260C5833007C402F /* BarcodeRequestWrapper.swift */,
+				E0364FF42623EA97006D243E /* TextRecognitionWrapper.swift */,
 				E0B653B7260C497B007C402F /* PhotoManager.swift */,
+				E0364FF12623E007006D243E /* ImagePreProccessor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -148,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				E053B63C2604FC77005FAD51 /* HomeViewController.swift */,
+				E0364FFA26247CBB006D243E /* AutoPhotoViewController.swift */,
+				E0364FFD26247CC4006D243E /* ManualPhotoViewController.swift */,
 				E0AE4816261438AE00BEC498 /* SearchViewController.swift */,
 				E0AE481A261438BA00BEC498 /* ProfileViewController.swift */,
 				E0AE480426131D5C00BEC498 /* MainTabBarController.swift */,
@@ -252,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0364FF52623EA97006D243E /* TextRecognitionWrapper.swift in Sources */,
 				E0AE481F26143C9000BEC498 /* UIStoryboard.swift in Sources */,
 				E0AE4854261BE6EB00BEC498 /* TransitioningDelegate.swift in Sources */,
 				E0AE4817261438AE00BEC498 /* SearchViewController.swift in Sources */,
@@ -260,14 +273,17 @@
 				E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */,
 				E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */,
 				E0AE4826261442D400BEC498 /* HorizontalScrollView.swift in Sources */,
+				E0364FFE26247CC4006D243E /* ManualPhotoViewController.swift in Sources */,
 				E053B63B2604FC77005FAD51 /* SceneDelegate.swift in Sources */,
 				E0AE48372614659500BEC498 /* IconStackView.swift in Sources */,
 				E0AE480C2613222D00BEC498 /* Autolayout.swift in Sources */,
 				E0AE484726171CE100BEC498 /* SlideAnimator.swift in Sources */,
+				E0364FF22623E007006D243E /* ImagePreProccessor.swift in Sources */,
 				E0AE481B261438BA00BEC498 /* ProfileViewController.swift in Sources */,
 				E0AE48412616875F00BEC498 /* PhotoAddViewController.swift in Sources */,
 				E0AE483326145A8200BEC498 /* String+widthHeight.swift in Sources */,
 				E0B653B8260C497B007C402F /* PhotoManager.swift in Sources */,
+				E0364FFB26247CBB006D243E /* AutoPhotoViewController.swift in Sources */,
 				E0B653BB260C5833007C402F /* BarcodeRequestWrapper.swift in Sources */,
 				E0AE483D2615AFEA00BEC498 /* IconButton.swift in Sources */,
 				E0AE480826131DF600BEC498 /* RoundTabBarView.swift in Sources */,

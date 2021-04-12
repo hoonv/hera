@@ -14,7 +14,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var iconStackView: IconStackView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private let photoManager = PhotoManager()
     private var interactionController: UIPercentDrivenInteractiveTransition?
     private var images: [UIImage] = [] {
         didSet {
@@ -26,9 +25,7 @@ class HomeViewController: UIViewController {
         setupUI()
         let panRight = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
         view.addGestureRecognizer(panRight)
-        photoManager.delegate = self
-        photoManager.requestAuthAndGetAllPhotos()
-        
+
         super.viewDidLoad()
     }
 
@@ -63,6 +60,18 @@ class HomeViewController: UIViewController {
         }
     }
     
+    
+    let imagePickerController = UIImagePickerController()
+    
+    func showManual() {
+        imagePickerController.allowsEditing = false
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        
+        present(imagePickerController, animated: true, completion: nil)
+
+    }
+    
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -86,8 +95,29 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeViewController: IconStackViewDelegate {
     func iconStackView(_ iconStackView: IconStackView, didSelected index: Int) {
-        let controller = storyboard!.instantiateViewController(withIdentifier: "PhotoAddViewController") as! PhotoAddViewController
-        show(controller, sender: self)
+//        let controller = storyboard!.instantiateViewController(withIdentifier: "PhotoAddViewController") as! PhotoAddViewController
+//        show(controller, sender: self)
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .actionSheet)
+            
+        // 2
+        let autoAction = UIAlertAction(title: "auto", style: .default) {_ in
+            print("auto")
+        }
+        let manualAction = UIAlertAction(title: "manual", style: .default) {_ in
+            self.showManual()
+        }
+            
+        // 3
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            
+        // 4
+        optionMenu.addAction(autoAction)
+        optionMenu.addAction(manualAction)
+        optionMenu.addAction(cancelAction)
+            
+        // 5
+        self.present(optionMenu, animated: true, completion: nil)
+
     }
 }
 
@@ -110,12 +140,27 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
     
 }
 
-extension HomeViewController: PhotoManagerDelegate {
-    func photoManager(_ photoManager: PhotoManager, didLoad image: UIImage?, index: Int) {
-        guard let image = image else { return }
-        let barcodeWrapper: BarcodeRequestWrapper? = BarcodeRequestWrapper(image: image) { [weak self] uiimage in
-            self?.images.append(uiimage)
+extension HomeViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        var pickedImage: UIImage? = nil
+        
+        if let possibleImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            pickedImage = possibleImage // 수정된 이미지가 있을 경우
+        } else if let possibleImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            pickedImage = possibleImage // 원본 이미지가 있을 경우
         }
-        barcodeWrapper?.requestDetection()
+        
+        picker.dismiss(animated: true) {
+            self.presentManualViewController(image: pickedImage)
+        }
+
+    }
+    
+    func presentManualViewController(image: UIImage?) {
+        let controller = storyboard!.instantiateViewController(withIdentifier: "ManualPhotoViewController") as! ManualPhotoViewController
+        controller.selectedImage = image
+        self.show(controller, sender: self)
     }
 }

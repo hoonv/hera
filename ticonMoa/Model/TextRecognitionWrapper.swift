@@ -50,7 +50,7 @@ class TextRecognitionWrapper {
 //            let wordBox = boundingBox(forRegionOfInterest: wordObservation.boundingBox, withinImageBounds: layer.bounds)
 //            let wordLayer = shapeLayer(color: .red, frame: wordBox)
 //            layer.addSublayer(wordLayer)
-            print(wordObservation.topCandidates(1).first?.string)
+            print(wordObservation.topCandidates(1).first?.string ?? "")
             var transform = CGAffineTransform.identity
             transform = transform.scaledBy(x: image.size.width, y: -image.size.height)
             transform = transform.translatedBy(x: 0, y: -1)

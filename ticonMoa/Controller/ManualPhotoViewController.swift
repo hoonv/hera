@@ -39,7 +39,7 @@ class ManualPhotoViewController: UIViewController {
     func recognizeWithTesseract(image: UIImage) {
         tesseract?.image = image
         tesseract?.recognize()
-        print(tesseract?.recognizedText)
+        print(tesseract?.recognizedText ?? "")
     }
 
     @IBAction func DoneTouched(_ sender: Any) {

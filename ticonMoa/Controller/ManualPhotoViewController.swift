@@ -22,17 +22,20 @@ class ManualPhotoViewController: UIViewController {
         imageView.layer.cornerRadius = 20
         
         tesseract?.delegate = self
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
+        
         let brw = BarcodeRequestWrapper(image: selectedImage!, completion: { _ in })
         brw.requestDetection()
         
         let trw = TextRecognitionWrapper(image: selectedImage!, layer: imageView.layer, completion: { image in
             self.recognizeWithTesseract(image: image)
         })
-        trw.perform()
-        
+        DispatchQueue.global().async {
+            trw.perform()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+
         super.viewDidAppear(animated)
     }
         

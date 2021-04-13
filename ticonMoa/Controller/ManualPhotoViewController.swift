@@ -42,6 +42,12 @@ class ManualPhotoViewController: UIViewController {
         print(tesseract?.recognizedText)
     }
 
+    @IBAction func DoneTouched(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func cancelTouched(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension ManualPhotoViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {

@@ -47,8 +47,8 @@ class TextRecognitionWrapper {
         
         print("\n\n\n\n")
         for wordObservation in results {
-            let wordBox = boundingBox(forRegionOfInterest: wordObservation.boundingBox, withinImageBounds: layer.bounds)
-            let wordLayer = shapeLayer(color: .red, frame: wordBox)
+//            let wordBox = boundingBox(forRegionOfInterest: wordObservation.boundingBox, withinImageBounds: layer.bounds)
+//            let wordLayer = shapeLayer(color: .red, frame: wordBox)
 //            layer.addSublayer(wordLayer)
 
             var transform = CGAffineTransform.identity

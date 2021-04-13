@@ -13,7 +13,8 @@ class ManualPhotoViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     var selectedImage: UIImage?
-    
+    let tesseract = G8Tesseract(language:"eng+kor")
+
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = selectedImage
@@ -21,7 +22,6 @@ class ManualPhotoViewController: UIViewController {
         imageView.layer.cornerRadius = 20
         
         tesseract?.delegate = self
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -35,13 +35,11 @@ class ManualPhotoViewController: UIViewController {
         
         super.viewDidAppear(animated)
     }
-    
-    let tesseract = G8Tesseract(language:"eng+kor")
-    
+        
     func recognizeWithTesseract(image: UIImage) {
         tesseract?.image = image
         tesseract?.recognize()
-        print(tesseract?.recognizedText!)
+        print(tesseract?.recognizedText)
     }
 
 }
@@ -61,11 +59,8 @@ extension ManualPhotoViewController: UIImagePickerControllerDelegate & UINavigat
         
         picker.dismiss(animated: true)
     }
-    
-    
 }
 
 
 extension ManualPhotoViewController: G8TesseractDelegate {
-    
 }

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import TesseractOCR
+
 
 class ManualPhotoViewController: UIViewController {
 
@@ -17,6 +19,9 @@ class ManualPhotoViewController: UIViewController {
         imageView.image = selectedImage
         imageView.isUserInteractionEnabled = true
         imageView.layer.cornerRadius = 20
+        
+        tesseract?.delegate = self
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -24,11 +29,19 @@ class ManualPhotoViewController: UIViewController {
         brw.requestDetection()
         
         let trw = TextRecognitionWrapper(image: selectedImage!, layer: imageView.layer, completion: { image in
-            print(image)
+            self.recognizeWithTesseract(image: image)
         })
         trw.perform()
         
         super.viewDidAppear(animated)
+    }
+    
+    let tesseract = G8Tesseract(language:"eng+kor")
+    
+    func recognizeWithTesseract(image: UIImage) {
+        tesseract?.image = image
+        tesseract?.recognize()
+        print(tesseract?.recognizedText!)
     }
 
 }
@@ -52,3 +65,7 @@ extension ManualPhotoViewController: UIImagePickerControllerDelegate & UINavigat
     
 }
 
+
+extension ManualPhotoViewController: G8TesseractDelegate {
+    
+}

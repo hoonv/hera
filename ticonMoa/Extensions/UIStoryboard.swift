@@ -13,7 +13,7 @@ extension UIStoryboard {
     }
     
     func instantiate<T>(name: String) -> T? {
-        return instantiateViewController(withIdentifier: String(describing: T.self)) as? T
+        return instantiateViewController(withIdentifier: name) as? T
     }
 
     static let main = UIStoryboard(name: "Main", bundle: nil)

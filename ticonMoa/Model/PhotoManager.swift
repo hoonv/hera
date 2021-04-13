@@ -12,10 +12,10 @@ protocol PhotoManagerDelegate: AnyObject {
     func photoManager(_ photoManager: PhotoManager, didLoad image: UIImage?, index: Int)
 }
 
+
 final class PhotoManager {
 
     weak var delegate: PhotoManagerDelegate?
-    private let requiredAccessLevel: PHAccessLevel = .readWrite
 
     // PhotoLibray에 요청하는 옵션
     private var fetchOptions: PHFetchOptions = {
@@ -45,14 +45,27 @@ final class PhotoManager {
     
     
     func requestAuthorization(completion: @escaping () -> Void) {
-        PHPhotoLibrary.requestAuthorization(for: requiredAccessLevel) { (status) in
-            switch status {
-            case .denied, .notDetermined:
-                print("사진 권한 처리")
-            case .limited, .authorized:
-                completion()
-            default:
-                break
+        if #available(iOS 14, *) {
+            PHPhotoLibrary.requestAuthorization(for: .readWrite) { (status) in
+                switch status {
+                case .denied, .notDetermined:
+                    print("사진 권한 처리")
+                case .limited, .authorized:
+                    completion()
+                default:
+                    break
+                }
+            }
+        } else {
+            PHPhotoLibrary.requestAuthorization { (status) in
+                switch status {
+                case .denied, .notDetermined:
+                    print("사진 권한 처리")
+                case .limited, .authorized:
+                    completion()
+                default:
+                    break
+                }
             }
         }
     }

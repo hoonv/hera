@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		E0364FF52623EA97006D243E /* TextRecognitionWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FF42623EA97006D243E /* TextRecognitionWrapper.swift */; };
 		E0364FFB26247CBB006D243E /* AutoPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FFA26247CBB006D243E /* AutoPhotoViewController.swift */; };
 		E0364FFE26247CC4006D243E /* ManualPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FFD26247CC4006D243E /* ManualPhotoViewController.swift */; };
+		E036500B26252454006D243E /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = E036500A26252454006D243E /* tessdata */; };
 		E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053B6382604FC77005FAD51 /* AppDelegate.swift */; };
 		E053B63B2604FC77005FAD51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053B63A2604FC77005FAD51 /* SceneDelegate.swift */; };
 		E053B63D2604FC77005FAD51 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053B63C2604FC77005FAD51 /* HomeViewController.swift */; };
@@ -49,6 +50,7 @@
 		E0364FF42623EA97006D243E /* TextRecognitionWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionWrapper.swift; sourceTree = "<group>"; };
 		E0364FFA26247CBB006D243E /* AutoPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoPhotoViewController.swift; sourceTree = "<group>"; };
 		E0364FFD26247CC4006D243E /* ManualPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualPhotoViewController.swift; sourceTree = "<group>"; };
+		E036500A26252454006D243E /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		E053B6352604FC77005FAD51 /* ticonMoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ticonMoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E053B6382604FC77005FAD51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E053B63A2604FC77005FAD51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		E053B6372604FC77005FAD51 /* ticonMoa */ = {
 			isa = PBXGroup;
 			children = (
+				E036500A26252454006D243E /* tessdata */,
 				E0AE484526171CD600BEC498 /* Animator */,
 				E0AE4815261437C100BEC498 /* View */,
 				E0AE4814261437AD00BEC498 /* Controller */,
@@ -211,7 +214,6 @@
 				3053155E20A9E51D8D61FD34 /* Pods-ticonMoa.debug.xcconfig */,
 				79A4CD5FE06E834BF95ED000 /* Pods-ticonMoa.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -275,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0AE482A261442FC00BEC498 /* HorizontalScrollView.xib in Resources */,
+				E036500B26252454006D243E /* tessdata in Resources */,
 				E0AE482F2614526600BEC498 /* CategoryCell.xib in Resources */,
 				E0AE483A261465CA00BEC498 /* IconStackView.xib in Resources */,
 				E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */,

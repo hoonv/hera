@@ -18,8 +18,6 @@ class TextRecognitionWrapper {
         let textDetectRequest = VNRecognizeTextRequest {
             [weak self] r,e  in
             self?.handleDetectedText(request: r, error: e) }
-        // Tell Vision to report bounding box around each character.
-//        textDetectRequest.reportCharacterBoxes = true
         return textDetectRequest
     }()
     
@@ -51,20 +49,15 @@ class TextRecognitionWrapper {
         for wordObservation in results {
             let wordBox = boundingBox(forRegionOfInterest: wordObservation.boundingBox, withinImageBounds: layer.bounds)
             let wordLayer = shapeLayer(color: .red, frame: wordBox)
-            layer.addSublayer(wordLayer)
-            print(wordObservation.topCandidates(1).compactMap { $0.string })
-//            guard let charBoxes = wordObservation.characterBoxes else {
-//                continue
-//            }
-//            for charObservation in charBoxes {
-//                let charBox = boundingBox(forRegionOfInterest: charObservation.boundingBox, withinImageBounds: layer.bounds)
-//                print(charObservation.boundingBox, layer.bounds, charBox)
-//                let charLayer = shapeLayer(color: .purple, frame: charBox)
-//                charLayer.borderWidth = 1
-//
-//                // Add to pathLayer on top of image.
-//                layer.addSublayer(charLayer)
-//            }
+//            layer.addSublayer(wordLayer)
+
+            var transform = CGAffineTransform.identity
+            transform = transform.scaledBy(x: image.size.width, y: -image.size.height)
+            transform = transform.translatedBy(x: 0, y: -1)
+            let rect = wordObservation.boundingBox.applying(transform)
+            
+            let cropped = image.crop(rect: rect)
+            completion(cropped)
         }
     }
     
@@ -111,5 +104,19 @@ class TextRecognitionWrapper {
         rect.size.height *= imageHeight
         
         return rect
+    }
+}
+
+extension UIImage {
+    func crop( rect: CGRect) -> UIImage {
+        var rect = rect
+        rect.origin.x*=self.scale
+        rect.origin.y*=self.scale
+        rect.size.width*=self.scale
+        rect.size.height*=self.scale
+
+        let imageRef = self.cgImage!.cropping(to: rect)
+        let image = UIImage(cgImage: imageRef!, scale: self.scale, orientation: self.imageOrientation)
+        return image
     }
 }

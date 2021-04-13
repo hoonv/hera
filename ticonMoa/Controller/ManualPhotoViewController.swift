@@ -18,7 +18,18 @@ class ManualPhotoViewController: UIViewController {
         imageView.isUserInteractionEnabled = true
         imageView.layer.cornerRadius = 20
     }
- 
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let brw = BarcodeRequestWrapper(image: selectedImage!, completion: { _ in })
+        brw.requestDetection()
+        
+        let trw = TextRecognitionWrapper(image: selectedImage!, layer: imageView.layer, completion: { image in
+            print(image)
+        })
+        trw.perform()
+        
+        super.viewDidAppear(animated)
+    }
 
 }
 
@@ -27,16 +38,17 @@ extension ManualPhotoViewController: UIImagePickerControllerDelegate & UINavigat
         
         var newImage: UIImage? = nil
         
-        if let possibleImage = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage { // 수정된 이미지가 있을 경우
+        if let possibleImage = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
             newImage = possibleImage
-        } else if let possibleImage = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerOriginalImage")] as? UIImage { // 오리지널 이미지가 있을 경우
+        } else if let possibleImage = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerOriginalImage")] as? UIImage {
             newImage = possibleImage
         }
         
-        imageView.image = newImage // 받아온 이미지를 이미지 뷰에 넣어준다.
+        imageView.image = newImage
         
-        picker.dismiss(animated: true) // 그리고 picker를 닫아준다.
+        picker.dismiss(animated: true)
     }
     
     
 }
+

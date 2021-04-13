@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B6348F1712760BB6EFD96D4 /* Pods_ticonMoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 877DF317B04331FB7E3B67F8 /* Pods_ticonMoa.framework */; };
 		E0364FF22623E007006D243E /* ImagePreProccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FF12623E007006D243E /* ImagePreProccessor.swift */; };
 		E0364FF52623EA97006D243E /* TextRecognitionWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FF42623EA97006D243E /* TextRecognitionWrapper.swift */; };
 		E0364FFB26247CBB006D243E /* AutoPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FFA26247CBB006D243E /* AutoPhotoViewController.swift */; };
@@ -41,6 +42,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3053155E20A9E51D8D61FD34 /* Pods-ticonMoa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ticonMoa.debug.xcconfig"; path = "Target Support Files/Pods-ticonMoa/Pods-ticonMoa.debug.xcconfig"; sourceTree = "<group>"; };
+		79A4CD5FE06E834BF95ED000 /* Pods-ticonMoa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ticonMoa.release.xcconfig"; path = "Target Support Files/Pods-ticonMoa/Pods-ticonMoa.release.xcconfig"; sourceTree = "<group>"; };
+		877DF317B04331FB7E3B67F8 /* Pods_ticonMoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ticonMoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0364FF12623E007006D243E /* ImagePreProccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreProccessor.swift; sourceTree = "<group>"; };
 		E0364FF42623EA97006D243E /* TextRecognitionWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionWrapper.swift; sourceTree = "<group>"; };
 		E0364FFA26247CBB006D243E /* AutoPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoPhotoViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B6348F1712760BB6EFD96D4 /* Pods_ticonMoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +97,8 @@
 			children = (
 				E053B6372604FC77005FAD51 /* ticonMoa */,
 				E053B6362604FC77005FAD51 /* Products */,
+				FFEBC3EBBEA75BCB46C73955 /* Pods */,
+				EAA2D1BEF8CE5C294F1D0B9C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -190,6 +197,24 @@
 			path = Animator;
 			sourceTree = "<group>";
 		};
+		EAA2D1BEF8CE5C294F1D0B9C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				877DF317B04331FB7E3B67F8 /* Pods_ticonMoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FFEBC3EBBEA75BCB46C73955 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3053155E20A9E51D8D61FD34 /* Pods-ticonMoa.debug.xcconfig */,
+				79A4CD5FE06E834BF95ED000 /* Pods-ticonMoa.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -197,9 +222,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E053B6492604FC79005FAD51 /* Build configuration list for PBXNativeTarget "ticonMoa" */;
 			buildPhases = (
+				883A0E0AC89365E19C044AE9 /* [CP] Check Pods Manifest.lock */,
 				E053B6312604FC77005FAD51 /* Sources */,
 				E053B6322604FC77005FAD51 /* Frameworks */,
 				E053B6332604FC77005FAD51 /* Resources */,
+				16D7733897A4EBCF07F6B934 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,6 +285,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		16D7733897A4EBCF07F6B934 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ticonMoa/Pods-ticonMoa-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ticonMoa/Pods-ticonMoa-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ticonMoa/Pods-ticonMoa-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		883A0E0AC89365E19C044AE9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ticonMoa-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E053B6312604FC77005FAD51 /* Sources */ = {
@@ -431,6 +500,7 @@
 		};
 		E053B64A2604FC79005FAD51 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3053155E20A9E51D8D61FD34 /* Pods-ticonMoa.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -450,6 +520,7 @@
 		};
 		E053B64B2604FC79005FAD51 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79A4CD5FE06E834BF95ED000 /* Pods-ticonMoa.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

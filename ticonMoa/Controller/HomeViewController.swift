@@ -11,6 +11,7 @@ import Vision
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var iconStackView: IconStackView!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -39,6 +40,9 @@ class HomeViewController: UIViewController {
         self.collectionView.layer.cornerRadius = 30
         self.iconStackView.delegate = self
         self.collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
+        
+        indicator.centerInSuperview()
+        indicator.stopAnimating()
     }
     
     @objc func handleGesture(_ gesture: UIPanGestureRecognizer) {
@@ -109,6 +113,7 @@ extension HomeViewController: IconStackViewDelegate {
     }
     
     func showAuto() {
+        indicator.startAnimating()
         photoManager.requestAuthAndGetAllPhotos()
     }
     
@@ -166,8 +171,13 @@ extension HomeViewController: UIImagePickerControllerDelegate & UINavigationCont
 }
 
 extension HomeViewController: PhotoManagerDelegate {
-    func photoManager(_ photoManager: PhotoManager, didLoad image: UIImage?, index: Int) {
+    func photoManager(_ photoManager: PhotoManager, didLoad image: UIImage?, index: Int, isLast: Bool) {
         guard let image = image else { return }
+        print(index)
+        if isLast {
+            self.indicator.stopAnimating()
+        }
+        
         let barcodeWrapper: BarcodeRequestWrapper? = BarcodeRequestWrapper(image: image) { [weak self] uiimage in
             self?.images.append(uiimage)
         }

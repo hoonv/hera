@@ -9,7 +9,7 @@ import UIKit
 import Photos
 
 protocol PhotoManagerDelegate: AnyObject {
-    func photoManager(_ photoManager: PhotoManager, didLoad image: UIImage?, index: Int)
+    func photoManager(_ photoManager: PhotoManager, didLoad image: UIImage?, index: Int, isLast: Bool)
 }
 
 
@@ -25,7 +25,7 @@ final class PhotoManager {
         options.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
         options.fetchLimit = 500
         let end = formatter.string(from: Date(timeIntervalSinceNow: -180*24*60*60))
-        let today = formatter.string(from: Date())
+        let today = formatter.string(from: Date(timeIntervalSinceNow: 24*60*60))
         if let startDate = formatter.date(from: end),
            let endDate = formatter.date(from: today) {
             options.predicate = NSPredicate(format: "creationDate > %@ AND creationDate < %@", startDate as NSDate, endDate as NSDate)
@@ -41,7 +41,7 @@ final class PhotoManager {
         return option
     }()
     var targetSize = CGSize(width: 300, height: 500)
-    var contentMode: PHImageContentMode = .aspectFill
+    var contentMode: PHImageContentMode = .aspectFit
     
     
     func requestAuthorization(completion: @escaping () -> Void) {
@@ -80,10 +80,13 @@ final class PhotoManager {
   
         let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: self.fetchOptions)
         
+        let count = fetchResult.count
+        
         fetchResult.enumerateObjects { (asset, idx, _ ) in
+            
             PHImageManager.default().requestImage(for: asset, targetSize: self.targetSize,contentMode: self.contentMode, options: self.requestOptions) {
                 (image, _) in
-                self.delegate?.photoManager(self, didLoad: image, index: idx)
+                self.delegate?.photoManager(self, didLoad: image, index: idx, isLast: idx == count - 1)
             }
         }
     }

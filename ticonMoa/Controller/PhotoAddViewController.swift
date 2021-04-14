@@ -160,7 +160,7 @@ class PhotoAddViewController: UIViewController {
 }
 
 extension PhotoAddViewController: PhotoManagerDelegate {
-    func photoManager(_ photoManager: PhotoManager, didLoad image: UIImage?, index: Int) {
+    func photoManager(_ photoManager: PhotoManager, didLoad image: UIImage?, index: Int, isLast: Bool) {
         guard let image = image else { return }
         let barcodeWrapper: BarcodeRequestWrapper? = BarcodeRequestWrapper(image: image) { [weak self] uiimage in
             self?.images.append(uiimage)

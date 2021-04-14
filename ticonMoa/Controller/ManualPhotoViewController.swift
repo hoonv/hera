@@ -15,6 +15,7 @@ class ManualPhotoViewController: UIViewController {
     var selectedImage: UIImage?
     let tesseract = G8Tesseract(language:"eng+kor")
 
+    @IBOutlet weak var textView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = selectedImage
@@ -27,7 +28,10 @@ class ManualPhotoViewController: UIViewController {
         brw.requestDetection()
         
         let trw = TextRecognitionWrapper(image: selectedImage!, layer: imageView.layer, completion: { image in
-            self.recognizeWithTesseract(image: image)
+            let ret = self.recognizeWithTesseract(image: image)
+            DispatchQueue.main.async {
+                self.textView.text = self.textView.text + ret
+            }
         })
         DispatchQueue.global().async {
             trw.perform()
@@ -39,10 +43,10 @@ class ManualPhotoViewController: UIViewController {
         super.viewDidAppear(animated)
     }
         
-    func recognizeWithTesseract(image: UIImage) {
+    func recognizeWithTesseract(image: UIImage) -> String {
         tesseract?.image = image
         tesseract?.recognize()
-        print(tesseract?.recognizedText ?? "")
+        return tesseract?.recognizedText ?? ""
     }
 
     @IBAction func DoneTouched(_ sender: Any) {

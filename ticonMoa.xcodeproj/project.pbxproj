@@ -134,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				E0364FFD26247CC4006D243E /* ManualPhotoViewController.swift */,
+				E0B653BA260C5833007C402F /* BarcodeRequestWrapper.swift */,
+				E0364FF42623EA97006D243E /* TextRecognitionWrapper.swift */,
 			);
 			path = ManualAddingScene;
 			sourceTree = "<group>";
@@ -191,8 +193,6 @@
 		E0AE47F926104F6D00BEC498 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E0B653BA260C5833007C402F /* BarcodeRequestWrapper.swift */,
-				E0364FF42623EA97006D243E /* TextRecognitionWrapper.swift */,
 				E0364FF12623E007006D243E /* ImagePreProccessor.swift */,
 			);
 			path = Model;

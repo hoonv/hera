@@ -50,7 +50,7 @@ class HomeViewController: UIViewController {
         let percent   = translate.x / gesture.view!.bounds.size.width
         
         if gesture.state == .began {
-            let controller = storyboard!.instantiateViewController(withIdentifier: "PhotoAddViewController") as! PhotoAddViewController
+            let controller = storyboard!.instantiateViewController(withIdentifier: "PhotoAddViewController") as! MapViewController
             interactionController = UIPercentDrivenInteractiveTransition()
             controller.customTransitionDelegate.interactionController = interactionController
 

@@ -23,7 +23,7 @@ final class PhotoManager {
         formatter.dateFormat = "yyyy-MM-dd"
         let options = PHFetchOptions()
         options.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
-        options.fetchLimit = 500
+//        options.fetchLimit = 500
         let end = formatter.string(from: Date(timeIntervalSinceNow: -180*24*60*60))
         let today = formatter.string(from: Date(timeIntervalSinceNow: 24*60*60))
         if let startDate = formatter.date(from: end),
@@ -83,7 +83,6 @@ final class PhotoManager {
         let count = fetchResult.count
         
         fetchResult.enumerateObjects { (asset, idx, _ ) in
-            
             PHImageManager.default().requestImage(for: asset, targetSize: self.targetSize,contentMode: self.contentMode, options: self.requestOptions) {
                 (image, _) in
                 self.delegate?.photoManager(self, didLoad: image, index: idx, isLast: idx == count - 1)

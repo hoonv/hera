@@ -32,7 +32,7 @@ class HomeViewController: UIViewController {
         view.addGestureRecognizer(panRight)
 
         super.viewDidLoad()
-    }
+}
 
     private func setupUI() {
         self.view.layer.cornerRadius = 30
@@ -173,7 +173,7 @@ extension HomeViewController: UIImagePickerControllerDelegate & UINavigationCont
 extension HomeViewController: PhotoManagerDelegate {
     func photoManager(_ photoManager: PhotoManager, didLoad image: UIImage?, index: Int, isLast: Bool) {
         guard let image = image else { return }
-        print(index)
+
         if isLast {
             self.indicator.stopAnimating()
         }

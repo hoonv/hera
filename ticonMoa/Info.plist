@@ -66,5 +66,9 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>기프티콘 분석을 위해 사진 권환이 필요합니다</string>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
 </dict>
 </plist>

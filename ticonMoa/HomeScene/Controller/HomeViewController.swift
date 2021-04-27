@@ -38,7 +38,6 @@ class HomeViewController: UIViewController {
                 } else {
                     self.indicator.stopAnimating()
                 }
-                
             })
             .disposed(by: bag)
         

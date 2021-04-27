@@ -29,7 +29,6 @@ extension HomeViewController: IconStackViewDelegate {
     }
     
     func showAuto() {
-//        indicator.startAnimating()
         viewModel.input.requestPhotoWithAuto()
     }
     

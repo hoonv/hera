@@ -28,9 +28,9 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput, HomeViewModelType 
     var output: HomeViewModelOutput { self }
     
     var images = BehaviorSubject<[UIImage]>(value: [])
-    private var _images: [UIImage] = []
     var isFinished = BehaviorSubject<Bool>(value: false)
-
+    
+    private var _images: [UIImage] = []
     private let photoManager = PhotoManager()
 
     init() {

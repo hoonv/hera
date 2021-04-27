@@ -270,11 +270,11 @@
 		E0BBB1E32638175700DC4553 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E0AE484626171CE100BEC498 /* SlideAnimator.swift */,
-				E0AE4853261BE6EB00BEC498 /* TransitioningDelegate.swift */,
 				E053B63C2604FC77005FAD51 /* HomeViewController.swift */,
 				E0BBB1D9263810DC00DC4553 /* HomeVC + TransitioningDelegate.swift */,
 				E0BBB1DF2638113D00DC4553 /* HomeVC + IconStackViewDelegate.swift */,
+				E0AE484626171CE100BEC498 /* SlideAnimator.swift */,
+				E0AE4853261BE6EB00BEC498 /* TransitioningDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         setupUI()
-
+        
         viewModel.output.images
             .bind(to: collectionView.rx.items(cellIdentifier: "Cell", cellType: HomeCollectionViewCell.self)) { idx, image, cell in
                 cell.imageView.image = image
@@ -45,8 +45,8 @@ class HomeViewController: UIViewController {
             .disposed(by: bag)
         
         super.viewDidLoad()
-}
-
+    }
+    
     private func setupUI() {
         self.view.layer.cornerRadius = 30
         self.collectionView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]

@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import Photos
-import Vision
 import RxSwift
 import RxCocoa
 
@@ -49,11 +47,11 @@ class HomeViewController: UIViewController {
     
     private func setupUI() {
         self.view.layer.cornerRadius = 30
+        self.iconStackView.delegate = self
+
         self.collectionView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         self.collectionView.layer.cornerRadius = 30
-        self.iconStackView.delegate = self
         self.collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
-        
         
         let panRight = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
         view.addGestureRecognizer(panRight)

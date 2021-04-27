@@ -8,7 +8,6 @@
 import UIKit
 import TesseractOCR
 
-
 class ManualPhotoViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!

@@ -40,7 +40,18 @@
 		E0B653B8260C497B007C402F /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B653B7260C497B007C402F /* PhotoManager.swift */; };
 		E0B653BB260C5833007C402F /* BarcodeRequestWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B653BA260C5833007C402F /* BarcodeRequestWrapper.swift */; };
 		E0BBB1B326378ADE00DC4553 /* PhotoCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBB1B226378ADE00DC4553 /* PhotoCluster.swift */; };
+		E0BBB1C02637C55E00DC4553 /* ticonMoaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBB1BF2637C55E00DC4553 /* ticonMoaTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E0BBB1C22637C55E00DC4553 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E053B62D2604FC77005FAD51 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E053B6342604FC77005FAD51;
+			remoteInfo = ticonMoa;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3053155E20A9E51D8D61FD34 /* Pods-ticonMoa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ticonMoa.debug.xcconfig"; path = "Target Support Files/Pods-ticonMoa/Pods-ticonMoa.debug.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +91,9 @@
 		E0B653B7260C497B007C402F /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		E0B653BA260C5833007C402F /* BarcodeRequestWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeRequestWrapper.swift; sourceTree = "<group>"; };
 		E0BBB1B226378ADE00DC4553 /* PhotoCluster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCluster.swift; sourceTree = "<group>"; };
+		E0BBB1BD2637C55E00DC4553 /* ticonMoaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ticonMoaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0BBB1BF2637C55E00DC4553 /* ticonMoaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ticonMoaTests.swift; sourceTree = "<group>"; };
+		E0BBB1C12637C55E00DC4553 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +102,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B6348F1712760BB6EFD96D4 /* Pods_ticonMoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0BBB1BA2637C55E00DC4553 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				E053B6372604FC77005FAD51 /* ticonMoa */,
+				E0BBB1BE2637C55E00DC4553 /* ticonMoaTests */,
 				E053B6362604FC77005FAD51 /* Products */,
 				FFEBC3EBBEA75BCB46C73955 /* Pods */,
 				EAA2D1BEF8CE5C294F1D0B9C /* Frameworks */,
@@ -165,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				E053B6352604FC77005FAD51 /* ticonMoa.app */,
+				E0BBB1BD2637C55E00DC4553 /* ticonMoaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -232,6 +255,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E0BBB1BE2637C55E00DC4553 /* ticonMoaTests */ = {
+			isa = PBXGroup;
+			children = (
+				E0BBB1BF2637C55E00DC4553 /* ticonMoaTests.swift */,
+				E0BBB1C12637C55E00DC4553 /* Info.plist */,
+			);
+			path = ticonMoaTests;
+			sourceTree = "<group>";
+		};
 		EAA2D1BEF8CE5C294F1D0B9C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +303,24 @@
 			productReference = E053B6352604FC77005FAD51 /* ticonMoa.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E0BBB1BC2637C55E00DC4553 /* ticonMoaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0BBB1C62637C55E00DC4553 /* Build configuration list for PBXNativeTarget "ticonMoaTests" */;
+			buildPhases = (
+				E0BBB1B92637C55E00DC4553 /* Sources */,
+				E0BBB1BA2637C55E00DC4553 /* Frameworks */,
+				E0BBB1BB2637C55E00DC4553 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E0BBB1C32637C55E00DC4553 /* PBXTargetDependency */,
+			);
+			name = ticonMoaTests;
+			productName = ticonMoaTests;
+			productReference = E0BBB1BD2637C55E00DC4553 /* ticonMoaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -282,6 +332,10 @@
 				TargetAttributes = {
 					E053B6342604FC77005FAD51 = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					E0BBB1BC2637C55E00DC4553 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = E053B6342604FC77005FAD51;
 					};
 				};
 			};
@@ -299,6 +353,7 @@
 			projectRoot = "";
 			targets = (
 				E053B6342604FC77005FAD51 /* ticonMoa */,
+				E0BBB1BC2637C55E00DC4553 /* ticonMoaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -316,6 +371,13 @@
 				E053B6422604FC79005FAD51 /* Assets.xcassets in Resources */,
 				E053B6402604FC77005FAD51 /* Main.storyboard in Resources */,
 				E0B653B5260C40DD007C402F /* HomeCollectionViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0BBB1BB2637C55E00DC4553 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,7 +457,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E0BBB1B92637C55E00DC4553 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0BBB1C02637C55E00DC4553 /* ticonMoaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E0BBB1C32637C55E00DC4553 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E053B6342604FC77005FAD51 /* ticonMoa */;
+			targetProxy = E0BBB1C22637C55E00DC4553 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E053B63E2604FC77005FAD51 /* Main.storyboard */ = {
@@ -573,6 +651,48 @@
 			};
 			name = Release;
 		};
+		E0BBB1C42637C55E00DC4553 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7BP3494UVW;
+				INFOPLIST_FILE = ticonMoaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hoonv.ticonMoaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ticonMoa.app/ticonMoa";
+			};
+			name = Debug;
+		};
+		E0BBB1C52637C55E00DC4553 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7BP3494UVW;
+				INFOPLIST_FILE = ticonMoaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hoonv.ticonMoaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ticonMoa.app/ticonMoa";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -590,6 +710,15 @@
 			buildConfigurations = (
 				E053B64A2604FC79005FAD51 /* Debug */,
 				E053B64B2604FC79005FAD51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0BBB1C62637C55E00DC4553 /* Build configuration list for PBXNativeTarget "ticonMoaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0BBB1C42637C55E00DC4553 /* Debug */,
+				E0BBB1C52637C55E00DC4553 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

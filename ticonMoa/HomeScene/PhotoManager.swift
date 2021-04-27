@@ -79,21 +79,16 @@ final class PhotoManager {
   
         let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: self.fetchOptions)
         
-        let count = fetchResult.count
-        let assets = fetchResult.objects(at:
+        var assets = fetchResult.objects(at:
                                 IndexSet(integersIn: 0..<fetchResult.count))
         
         let c = PhotoCluster(data: assets)
-        c.execute()
-        
-        fetchResult.enumerateObjects { (asset, idx, _ ) in
-            let screenRect = UIScreen.main.bounds
-            let screenWidth = screenRect.size.width
-            let screenHeight = screenRect.size.height
-            print(screenWidth, screenHeight)
+        assets = c.execute()
+
+        assets.enumerated().forEach { (idx, asset) in
             PHImageManager.default().requestImage(for: asset, targetSize: self.targetSize,contentMode: self.contentMode, options: self.requestOptions) {
                 (image, _) in
-                self.delegate?.photoManager(self, didLoad: image, index: idx, isLast: idx == count - 1)
+                self.delegate?.photoManager(self, didLoad: image, index: idx, isLast: idx == assets.count - 1)
             }
         }
     }

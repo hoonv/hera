@@ -39,6 +39,7 @@
 		E0B653B5260C40DD007C402F /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0B653B3260C40DD007C402F /* HomeCollectionViewCell.xib */; };
 		E0B653B8260C497B007C402F /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B653B7260C497B007C402F /* PhotoManager.swift */; };
 		E0B653BB260C5833007C402F /* BarcodeRequestWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B653BA260C5833007C402F /* BarcodeRequestWrapper.swift */; };
+		E0BBB1B326378ADE00DC4553 /* PhotoCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBB1B226378ADE00DC4553 /* PhotoCluster.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		E0B653B3260C40DD007C402F /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		E0B653B7260C497B007C402F /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		E0B653BA260C5833007C402F /* BarcodeRequestWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeRequestWrapper.swift; sourceTree = "<group>"; };
+		E0BBB1B226378ADE00DC4553 /* PhotoCluster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCluster.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				E053B63C2604FC77005FAD51 /* HomeViewController.swift */,
 				E0B653B7260C497B007C402F /* PhotoManager.swift */,
+				E0BBB1B226378ADE00DC4553 /* PhotoCluster.swift */,
 				E0AE484626171CE100BEC498 /* SlideAnimator.swift */,
 				E0AE4853261BE6EB00BEC498 /* TransitioningDelegate.swift */,
 				E0B653B2260C40DD007C402F /* HomeCollectionViewCell.swift */,
@@ -365,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0BBB1B326378ADE00DC4553 /* PhotoCluster.swift in Sources */,
 				E0364FF52623EA97006D243E /* TextRecognitionWrapper.swift in Sources */,
 				E0AE481F26143C9000BEC498 /* UIStoryboard.swift in Sources */,
 				E0AE4854261BE6EB00BEC498 /* TransitioningDelegate.swift in Sources */,

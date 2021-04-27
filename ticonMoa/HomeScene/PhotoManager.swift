@@ -43,7 +43,6 @@ final class PhotoManager {
     var targetSize = CGSize(width: 300, height: 500)
     var contentMode: PHImageContentMode = .aspectFit
     
-    
     func requestAuthorization(completion: @escaping () -> Void) {
         if #available(iOS 14, *) {
             PHPhotoLibrary.requestAuthorization(for: .readWrite) { (status) in
@@ -81,13 +80,21 @@ final class PhotoManager {
         let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: self.fetchOptions)
         
         let count = fetchResult.count
+        let assets = fetchResult.objects(at:
+                                IndexSet(integersIn: 0..<fetchResult.count))
+        
+        let c = PhotoCluster(data: assets)
+        c.execute()
         
         fetchResult.enumerateObjects { (asset, idx, _ ) in
+            let screenRect = UIScreen.main.bounds
+            let screenWidth = screenRect.size.width
+            let screenHeight = screenRect.size.height
+            print(screenWidth, screenHeight)
             PHImageManager.default().requestImage(for: asset, targetSize: self.targetSize,contentMode: self.contentMode, options: self.requestOptions) {
                 (image, _) in
                 self.delegate?.photoManager(self, didLoad: image, index: idx, isLast: idx == count - 1)
             }
         }
     }
-    
 }

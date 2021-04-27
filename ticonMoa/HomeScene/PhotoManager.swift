@@ -23,7 +23,7 @@ final class PhotoManager {
         formatter.dateFormat = "yyyy-MM-dd"
         let options = PHFetchOptions()
         options.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
-        options.fetchLimit = 500
+//        options.fetchLimit = 500
         let end = formatter.string(from: Date(timeIntervalSinceNow: -180*24*60*60))
         let today = formatter.string(from: Date(timeIntervalSinceNow: 24*60*60))
         if let startDate = formatter.date(from: end),
@@ -42,7 +42,6 @@ final class PhotoManager {
     }()
     var targetSize = CGSize(width: 300, height: 500)
     var contentMode: PHImageContentMode = .aspectFit
-    
     
     func requestAuthorization(completion: @escaping () -> Void) {
         if #available(iOS 14, *) {
@@ -81,14 +80,21 @@ final class PhotoManager {
         let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: self.fetchOptions)
         
         let count = fetchResult.count
+        let assets = fetchResult.objects(at:
+                                IndexSet(integersIn: 0..<fetchResult.count))
+        
+        let c = PhotoCluster(data: assets)
+        c.execute()
         
         fetchResult.enumerateObjects { (asset, idx, _ ) in
-            
+            let screenRect = UIScreen.main.bounds
+            let screenWidth = screenRect.size.width
+            let screenHeight = screenRect.size.height
+            print(screenWidth, screenHeight)
             PHImageManager.default().requestImage(for: asset, targetSize: self.targetSize,contentMode: self.contentMode, options: self.requestOptions) {
                 (image, _) in
                 self.delegate?.photoManager(self, didLoad: image, index: idx, isLast: idx == count - 1)
             }
         }
     }
-    
 }

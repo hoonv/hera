@@ -20,9 +20,9 @@ class BarcodeRequestWrapper {
             self?.processClassification(for: request)
         })
     }()
-    let completion: ((UIImage) -> Void)
+    let completion: ((UIImage, String) -> Void)
     
-    init(image: UIImage, completion: @escaping ((UIImage) -> Void)) {
+    init(image: UIImage, completion: @escaping ((UIImage, String) -> Void)) {
         self.image = image
         self.completion = completion
     }
@@ -33,11 +33,10 @@ class BarcodeRequestWrapper {
         else {
             return
         }
-        print(payload)
-        completion(image)
+        completion(image, payload)
     }
     
-    func requestDetection() {
+    func perform() {
         guard let ciImage = CIImage(image: image) else { return }
         let handler = VNImageRequestHandler(ciImage: ciImage, orientation: CGImagePropertyOrientation.up, options: [:])
 

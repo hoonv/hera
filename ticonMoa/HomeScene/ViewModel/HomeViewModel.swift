@@ -53,11 +53,11 @@ extension HomeViewModel: PhotoManagerDelegate {
             self.isFinished.on(.next(false))
         }
         
-        let barcodeWrapper: BarcodeRequestWrapper? = BarcodeRequestWrapper(image: image) { [weak self] uiimage in
+        let barcodeWrapper: BarcodeRequestWrapper? = BarcodeRequestWrapper(image: image) { [weak self] uiimage, payload  in
             guard let self = self else { return }
             self._images.append(image)
             self.images.on(.next(self._images))
         }
-        barcodeWrapper?.requestDetection()
+        barcodeWrapper?.perform()
     }
 }

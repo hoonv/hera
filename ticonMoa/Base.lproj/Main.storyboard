@@ -250,6 +250,9 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="barcodeTextField" destination="bl2-TH-xmK" id="DJo-Vg-BDj"/>
+                        <outlet property="brandTextField" destination="kFU-EZ-glk" id="Quc-Av-eNo"/>
+                        <outlet property="dateTextField" destination="KWo-JY-xr1" id="uaO-no-ZhJ"/>
                         <outlet property="imageView" destination="Qmd-Nc-bjh" id="XWp-zh-1uI"/>
                         <outlet property="textView" destination="m3U-DY-5XD" id="swY-s5-4CI"/>
                     </connections>

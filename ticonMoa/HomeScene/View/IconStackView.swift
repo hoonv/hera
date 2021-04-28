@@ -17,7 +17,7 @@ class IconStackView: UIView {
     
     weak var delegate: IconStackViewDelegate?
     private let nibName = "IconStackView"
-    private let buttonNames = ["plus.app", "ticket"]
+    private let buttonNames = ["plus.app"] // 가능하다면 "ticket"
     private let symbolConfig = UIImage.SymbolConfiguration(pointSize: 28, weight: .regular, scale: .medium)
     
     override init(frame: CGRect) {

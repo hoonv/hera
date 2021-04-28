@@ -35,33 +35,35 @@ class ManualPhotoViewController: UIViewController, G8TesseractDelegate {
         viewModel.input.requestTextRecognition(image: image, layer: imageView.layer)
         
         viewModel.output.barcode
-            .subscribeOn(MainScheduler.instance)
+            .observeOn(MainScheduler.instance)
             .subscribe(onNext: { payload in
                 self.barcodeTextField.text = payload
             })
             .disposed(by: bag)
         
         viewModel.output.brand
-            .subscribeOn(MainScheduler.instance)
+            .observeOn(MainScheduler.instance)
             .subscribe(onNext: { payload in
-                DispatchQueue.main.async {
-                    self.brandTextField.text = payload
-                }
+                self.brandTextField.text = payload
             })
             .disposed(by: bag)
         
         viewModel.output.expirationDate
+            .observeOn(MainScheduler.instance)
             .subscribe(onNext: { date in
                 let dateString = date.toStringKST(dateFormat: "yyyy.MM.dd")
-                DispatchQueue.main.async {
-                    self.dateTextField.text = dateString
-                }
+                self.dateTextField.text = dateString
             })
             .disposed(by: bag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        bag = DisposeBag()
+        super.viewDidDisappear(animated)
     }
 
     @IBAction func DoneTouched(_ sender: Any) {

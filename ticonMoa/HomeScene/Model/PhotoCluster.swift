@@ -43,12 +43,12 @@ class PhotoCluster {
             }
             
             guard let lastAsset = temporaryAssets.last,
-                  let lastCreation = lastAsset.creationDate,
-                  let iCreation = i.creationDate
+                  let prevDate = lastAsset.creationDate,
+                  let currDate = i.creationDate
             else { continue }
         
             if lastAsset.size == i.size
-                && iCreation.timeIntervalSince(lastCreation) < timeDiffer {
+                && currDate.timeIntervalSince(prevDate) < timeDiffer {
                 temporaryAssets.append(i)
             } else {
                 assets.append(temporaryAssets.first!)

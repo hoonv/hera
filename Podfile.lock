@@ -1,16 +1,30 @@
 PODS:
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
   - TesseractOCRiOS (5.0.1)
 
 DEPENDENCIES:
+  - RxCocoa
+  - RxSwift
   - TesseractOCRiOS
 
 SPEC REPOS:
   trunk:
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - TesseractOCRiOS
 
 SPEC CHECKSUMS:
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   TesseractOCRiOS: 2c189465f86abb030d0c5141c90da9705b647854
 
-PODFILE CHECKSUM: 8248ef82fbcd162f22ba85f1fdda9547a2a7570e
+PODFILE CHECKSUM: 1cbe6afb93557f2a943d3b1bca352455c396466e
 
 COCOAPODS: 1.9.3

@@ -10,7 +10,7 @@ import Vision
 
 class TextRecognitionWrapper {
     
-    let completion: ((UIImage) -> Void)
+    let completion: (([(UIImage, String)]) -> Void)
     let image: UIImage
     let layer: CALayer
     
@@ -21,7 +21,7 @@ class TextRecognitionWrapper {
         return textDetectRequest
     }()
     
-    init(image: UIImage, layer: CALayer, completion: @escaping ((UIImage) -> Void)) {
+    init(image: UIImage, layer: CALayer, completion: @escaping (([(UIImage, String)]) -> Void)) {
         self.image = image
         self.layer = layer
         self.completion = completion
@@ -45,17 +45,18 @@ class TextRecognitionWrapper {
         
         guard let results = request?.results as? [VNRecognizedTextObservation] else { return }
         
-        print("\n\n\n\n")
-        for wordObservation in results {
-            print(wordObservation.topCandidates(1).first?.string ?? "")
+        let mapped = results.compactMap { result -> (UIImage, String)? in
+            guard let payload = result.topCandidates(1).first?.string else { return nil }
             var transform = CGAffineTransform.identity
             transform = transform.scaledBy(x: image.size.width, y: -image.size.height)
             transform = transform.translatedBy(x: 0, y: -1)
-            let rect = wordObservation.boundingBox.applying(transform)
+            let rect = result.boundingBox.applying(transform)
             
             let cropped = image.crop(rect: rect)
-            completion(cropped)
+            return (cropped, payload)
         }
+        
+        completion(mapped)
     }
     
     fileprivate func shapeLayer(color: UIColor, frame: CGRect) -> CAShapeLayer {

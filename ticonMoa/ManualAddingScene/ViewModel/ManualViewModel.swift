@@ -60,12 +60,12 @@ class ManualViewModel: ManualViewModelInput, ManualViewModelOutput, ManualViewMo
             let brandReg = BrandRecognizer()
             if let date = dateReg.recognize(input: payload) {
                 self.expirationDate.on(.next(date))
-                return
+                continue
             }
             
             if let brand = brandReg.match(input: payload) {
                 self.brand.on(.next(brand))
-                return
+                continue
             }
             
             self.recognizeWithTesseract(image: image) { str in

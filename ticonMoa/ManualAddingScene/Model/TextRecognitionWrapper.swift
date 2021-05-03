@@ -55,8 +55,6 @@ class TextRecognitionWrapper {
             guard let cropped = image.crop(rect: rect) else { return nil }
             return (cropped, payload)
         }
-        
-        print(mapped.count)
         completion(mapped)
     }
     

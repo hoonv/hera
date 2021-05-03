@@ -51,6 +51,9 @@
 		E0BBB20F2638F70200DC4553 /* Date+toString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBB20E2638F70200DC4553 /* Date+toString.swift */; };
 		E0BBB2122638F70600DC4553 /* Date+toString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBB20E2638F70200DC4553 /* Date+toString.swift */; };
 		E0BBB2162638F72600DC4553 /* BrandRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBB2152638F72600DC4553 /* BrandRecognizer.swift */; };
+		E0C3CF90263E5E1700483A91 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3CF8F263E5E1700483A91 /* SearchViewModel.swift */; };
+		E0C3CF95263E5F0600483A91 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3CF93263E5F0600483A91 /* SearchCollectionViewCell.swift */; };
+		E0C3CF96263E5F0600483A91 /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C3CF94263E5F0600483A91 /* SearchCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +115,9 @@
 		E0BBB2072638EB6A00DC4553 /* DateRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRecognizer.swift; sourceTree = "<group>"; };
 		E0BBB20E2638F70200DC4553 /* Date+toString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+toString.swift"; sourceTree = "<group>"; };
 		E0BBB2152638F72600DC4553 /* BrandRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandRecognizer.swift; sourceTree = "<group>"; };
+		E0C3CF8F263E5E1700483A91 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		E0C3CF93263E5F0600483A91 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		E0C3CF94263E5F0600483A91 /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +154,9 @@
 			isa = PBXGroup;
 			children = (
 				E0AE4816261438AE00BEC498 /* SearchViewController.swift */,
+				E0C3CF93263E5F0600483A91 /* SearchCollectionViewCell.swift */,
+				E0C3CF94263E5F0600483A91 /* SearchCollectionViewCell.xib */,
+				E0C3CF8F263E5E1700483A91 /* SearchViewModel.swift */,
 			);
 			path = SearchScene;
 			sourceTree = "<group>";
@@ -448,6 +457,7 @@
 				E0AE482A261442FC00BEC498 /* HorizontalScrollView.xib in Resources */,
 				E036500B26252454006D243E /* tessdata in Resources */,
 				E0AE482F2614526600BEC498 /* CategoryCell.xib in Resources */,
+				E0C3CF96263E5F0600483A91 /* SearchCollectionViewCell.xib in Resources */,
 				E0AE483A261465CA00BEC498 /* IconStackView.xib in Resources */,
 				E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */,
 				E053B6422604FC79005FAD51 /* Assets.xcassets in Resources */,
@@ -512,6 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0C3CF90263E5E1700483A91 /* SearchViewModel.swift in Sources */,
 				E0BBB1B326378ADE00DC4553 /* PhotoCluster.swift in Sources */,
 				E0364FF52623EA97006D243E /* TextRecognitionWrapper.swift in Sources */,
 				E0AE481F26143C9000BEC498 /* UIStoryboard.swift in Sources */,
@@ -539,6 +550,7 @@
 				E0B653B8260C497B007C402F /* PhotoManager.swift in Sources */,
 				E0BBB1DA263810DC00DC4553 /* HomeVC + TransitioningDelegate.swift in Sources */,
 				E0B653BB260C5833007C402F /* BarcodeRequestWrapper.swift in Sources */,
+				E0C3CF95263E5F0600483A91 /* SearchCollectionViewCell.swift in Sources */,
 				E0BBB2002638268400DC4553 /* ManualViewModel.swift in Sources */,
 				E0AE483D2615AFEA00BEC498 /* IconButton.swift in Sources */,
 				E0AE480826131DF600BEC498 /* RoundTabBarView.swift in Sources */,

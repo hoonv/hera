@@ -18,22 +18,39 @@ class ManualPhotoViewController: UIViewController, G8TesseractDelegate {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var barcodeTextField: UITextField!
     var selectedImage: UIImage?
-    let tesseract = G8Tesseract(language: "eng+kor")
+    var tesseract: G8Tesseract? {
+        let tess = G8Tesseract(language: "eng+kor")
+        tess?.delegate = self
+        return tess
+    }
+    
     var viewModel = ManualViewModel(ocr: nil)
     var bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tesseract?.delegate = self
         viewModel = ManualViewModel(ocr: tesseract)
     
         imageView.image = selectedImage
         imageView.isUserInteractionEnabled = true
         imageView.layer.cornerRadius = 20
         
+        binding()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         guard let image = selectedImage else { return }
         viewModel.input.requestTextRecognition(image: image, layer: imageView.layer)
-        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        bag = DisposeBag()
+        super.viewDidDisappear(animated)
+    }
+    
+    func binding() {
         viewModel.output.barcode
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { payload in
@@ -56,19 +73,11 @@ class ManualPhotoViewController: UIViewController, G8TesseractDelegate {
             })
             .disposed(by: bag)
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        bag = DisposeBag()
-        super.viewDidDisappear(animated)
-    }
 
     @IBAction func DoneTouched(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func cancelTouched(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

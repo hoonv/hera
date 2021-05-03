@@ -9,18 +9,31 @@ import UIKit
 import Photos
 import RxSwift
 
-protocol PhotoManagerDelegate: AnyObject {
-    func photoManager(_ photoManager: PhotoManager, didLoad image: UIImage?, index: Int, isLast: Bool)
-}
-
-
 final class PhotoManager {
 
     let imageOutput = PublishSubject<UIImage>()
     let isProccess = PublishSubject<Bool>()
-
-    weak var delegate: PhotoManagerDelegate?
-
+    let bag = DisposeBag()
+    
+    func requestAuthorization() {
+        if #available(iOS 14, *) {
+            PHPhotoLibrary.requestAuthorization(for: .readWrite, handler: requestAuthHandler)
+        } else {
+            PHPhotoLibrary.requestAuthorization(requestAuthHandler)
+        }
+    }
+    
+    private func requestAuthHandler(status: PHAuthorizationStatus) {
+        switch status {
+        case .denied, .notDetermined, .restricted:
+            print("사진 권한이 필요합니다")
+        case .limited, .authorized:
+            requestPhotos()
+        @unknown default:
+            break
+        }
+    }
+    
     // PhotoLibray에 요청하는 옵션
     private var fetchOptions: PHFetchOptions = {
         let formatter = DateFormatter()
@@ -46,26 +59,6 @@ final class PhotoManager {
     }()
     var targetSize = CGSize(width: 300, height: 500)
     var contentMode: PHImageContentMode = .aspectFit
-    let bag = DisposeBag()
-    
-    func requestAuthorization() {
-        if #available(iOS 14, *) {
-            PHPhotoLibrary.requestAuthorization(for: .readWrite, handler: requestAuthHandler)
-        } else {
-            PHPhotoLibrary.requestAuthorization(requestAuthHandler)
-        }
-    }
-    
-    private func requestAuthHandler(status: PHAuthorizationStatus) {
-        switch status {
-        case .denied, .notDetermined, .restricted:
-            print("사진 권한이 필요합니다")
-        case .limited, .authorized:
-            requestPhotos()
-        @unknown default:
-            break
-        }
-    }
      
     private func requestPhotos() {
         

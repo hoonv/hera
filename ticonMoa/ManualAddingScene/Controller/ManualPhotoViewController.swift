@@ -25,6 +25,7 @@ class ManualPhotoViewController: UIViewController, G8TesseractDelegate {
     }
     
     var viewModel = ManualViewModel(ocr: nil)
+    var isProccess = false
     var bag = DisposeBag()
     
     override func viewDidLoad() {
@@ -41,8 +42,9 @@ class ManualPhotoViewController: UIViewController, G8TesseractDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        guard let image = selectedImage else { return }
+        guard let image = selectedImage, isProccess == false else { return }
         viewModel.input.requestTextRecognition(image: image, layer: imageView.layer)
+        isProccess = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {

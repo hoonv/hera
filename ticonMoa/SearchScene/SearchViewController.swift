@@ -16,6 +16,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
+        cell.layer.cornerRadius = 10
         return cell
     }
     
@@ -27,22 +28,63 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath) as? SearchHeaderReusableView else { return UICollectionReusableView() }
         return header
     }
-
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.showsCancelButton = false
+        searchBar.setValue("취소", forKey: "cancelButtonText")
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "SearchCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SearchCollectionViewCell")
         collectionView.register(UINib(nibName: "SearchHeaderReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
+        searchBar.delegate = self
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+         self.view.endEditing(true)
+   }
+    
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+        searchBar.showsCancelButton = false
+        UIView.animate(withDuration: 0.2, animations: {
+             self.searchBar.layoutIfNeeded()
+             }, completion: {finished in
+                 print("Animation finished")
+         })
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+        searchBar.showsCancelButton = false
+        UIView.animate(withDuration: 0.2, animations: {
+             self.searchBar.layoutIfNeeded()
+             }, completion: {finished in
+                 print("Animation finished")
+         })
+
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        print("begin ended")
+        searchBar.showsCancelButton = true
+        UIView.animate(withDuration: 0.2, animations: {
+             self.searchBar.layoutIfNeeded()
+             }, completion: {finished in
+                 print("Animation finished")
+         })
+
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (view.frame.width - 40) / 2, height: 60)
+        return CGSize(width: (view.frame.width - 40) / 2, height: 80)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

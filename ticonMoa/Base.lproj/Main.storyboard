@@ -298,15 +298,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Pbd-l0-5v0">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pbd-l0-5v0">
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="TJl-X7-oKs"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dS2-GV-n1m">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="730"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bNY-is-Fbq">
                                     <size key="itemSize" width="128" height="128"/>
@@ -338,13 +338,15 @@
                             <constraint firstItem="Pbd-l0-5v0" firstAttribute="trailing" secondItem="ovw-k8-o2F" secondAttribute="trailing" id="xo5-qd-2Qr"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ji3-jr-gYl"/>
                     <connections>
                         <outlet property="collectionView" destination="dS2-GV-n1m" id="I9o-6L-Ymn"/>
+                        <outlet property="searchBar" destination="Pbd-l0-5v0" id="enk-Xh-CLo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="khN-2n-bhc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1939" y="466"/>
+            <point key="canvasLocation" x="2847.826086956522" y="465.40178571428567"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="qNY-or-ESd">
@@ -372,6 +374,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cu0-ST-num" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1937.68115942029" y="1143.75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oEn-Re-bXj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hsr-B9-pQn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="q9q-JQ-CdC">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YAK-LP-tf3" kind="relationship" relationship="rootViewController" id="tg3-jV-GIn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hiD-eU-yiv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1937.68115942029" y="465.40178571428567"/>
         </scene>
     </scenes>
     <resources>

@@ -54,6 +54,7 @@
 		E0C3CF90263E5E1700483A91 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3CF8F263E5E1700483A91 /* SearchViewModel.swift */; };
 		E0C3CF95263E5F0600483A91 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3CF93263E5F0600483A91 /* SearchCollectionViewCell.swift */; };
 		E0C3CF96263E5F0600483A91 /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C3CF94263E5F0600483A91 /* SearchCollectionViewCell.xib */; };
+		E0C3CF9A263F955D00483A91 /* HomeVC + UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3CF99263F955D00483A91 /* HomeVC + UI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		E0C3CF8F263E5E1700483A91 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		E0C3CF93263E5F0600483A91 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		E0C3CF94263E5F0600483A91 /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
+		E0C3CF99263F955D00483A91 /* HomeVC + UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC + UI.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				E053B63C2604FC77005FAD51 /* HomeViewController.swift */,
+				E0C3CF99263F955D00483A91 /* HomeVC + UI.swift */,
 				E0BBB1F226381F2400DC4553 /* HomeVC + ImagePicker.swift */,
 				E0BBB1D9263810DC00DC4553 /* HomeVC + TransitioningDelegate.swift */,
 				E0BBB1DF2638113D00DC4553 /* HomeVC + IconStackViewDelegate.swift */,
@@ -550,6 +553,7 @@
 				E0B653B8260C497B007C402F /* PhotoManager.swift in Sources */,
 				E0BBB1DA263810DC00DC4553 /* HomeVC + TransitioningDelegate.swift in Sources */,
 				E0B653BB260C5833007C402F /* BarcodeRequestWrapper.swift in Sources */,
+				E0C3CF9A263F955D00483A91 /* HomeVC + UI.swift in Sources */,
 				E0C3CF95263E5F0600483A91 /* SearchCollectionViewCell.swift in Sources */,
 				E0BBB2002638268400DC4553 /* ManualViewModel.swift in Sources */,
 				E0AE483D2615AFEA00BEC498 /* IconButton.swift in Sources */,

@@ -30,8 +30,8 @@ class HomeViewController: UIViewController {
             }
             .disposed(by: bag)
         
-        viewModel.output.isFinished
-            .subscribeOn(MainScheduler.instance)
+        viewModel.output.isProccess
+            .observeOn(MainScheduler.instance)
             .subscribe(onNext: { b in
                 if b {
                     self.indicator.startAnimating()

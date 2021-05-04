@@ -6,14 +6,23 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
+
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        FirebaseApp.configure()
+                
+        GIDSignIn.sharedInstance()?.clientID = "1087307261306-e9eqjp0hgqpgapfs3hlostqrkvt0stih.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance()?.delegate = self
+       
         return true
     }
 
@@ -31,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        print("User email: \(user.profile.email ?? "No email")")
+    }
 }
 

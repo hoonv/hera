@@ -7,10 +7,13 @@
 
 import UIKit
 import TesseractOCR
-
+import FirebaseDatabase
 
 class ManualPhotoViewController: UIViewController {
-
+    
+    var ref = Database.database().reference()
+    
+    
     @IBOutlet weak var imageView: UIImageView!
     var selectedImage: UIImage?
     let tesseract = G8Tesseract(language:"eng+kor")
@@ -31,6 +34,7 @@ class ManualPhotoViewController: UIViewController {
             let ret = self.recognizeWithTesseract(image: image)
             DispatchQueue.main.async {
                 self.textView.text = self.textView.text + ret
+                
             }
         })
         DispatchQueue.global().async {

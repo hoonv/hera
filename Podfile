@@ -8,5 +8,10 @@ target 'ticonMoa' do
   pod 'TesseractOCRiOS', :inhibit_warnings => true
 
   # Pods for ticonMoa
+pod 'Firebase/Auth'
+pod 'Firebase/Firestore'
+pod 'Firebase/Core'
+pod 'Firebase/Database'
 
+  pod 'GoogleSignIn'
 end

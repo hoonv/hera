@@ -6,7 +6,7 @@ target 'ticonMoa' do
   use_frameworks!
   pod 'RxSwift'
   pod 'RxCocoa'
-  pod 'TesseractOCRiOS', :inhibit_warnings => true
+#  pod 'TesseractOCRiOS', :inhibit_warnings => true
 
   # Pods for ticonMoa
 

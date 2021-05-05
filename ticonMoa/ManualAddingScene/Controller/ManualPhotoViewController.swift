@@ -6,37 +6,33 @@
 //
 
 import UIKit
-import TesseractOCR
 import RxSwift
+import SwiftyTesseract
 
-class ManualPhotoViewController: UIViewController, G8TesseractDelegate {
+class ManualPhotoViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var textView: UITextView!
 
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var brandTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var barcodeTextField: UITextField!
-    var selectedImage: UIImage?
-    var tesseract: G8Tesseract? {
-        let tess = G8Tesseract(language: "eng+kor")
-        tess?.delegate = self
-        return tess
-    }
     
-    var viewModel = ManualViewModel(ocr: nil)
+    var selectedImage: UIImage?
+    
+    var viewModel = ManualViewModel()
     var isProccess = false
     var bag = DisposeBag()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = ManualViewModel(ocr: tesseract)
     
         imageView.image = selectedImage
         imageView.isUserInteractionEnabled = true
         imageView.layer.cornerRadius = 20
         
         binding()
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -53,6 +49,14 @@ class ManualPhotoViewController: UIViewController, G8TesseractDelegate {
     }
     
     func binding() {
+        
+        viewModel.output.name
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { payload in
+                self.nameTextField.text = payload
+            })
+            .disposed(by: bag)
+        
         viewModel.output.barcode
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { payload in

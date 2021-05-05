@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SwiftyTesseract
 
 class HomeViewController: UIViewController {
     
@@ -23,7 +24,6 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         setupUI()
-        
         viewModel.output.images
             .bind(to: collectionView.rx.items(cellIdentifier: "Cell", cellType: HomeCollectionViewCell.self)) { idx, image, cell in
                 cell.imageView.image = image
@@ -38,6 +38,14 @@ class HomeViewController: UIViewController {
                 } else {
                     self.indicator.stopAnimating()
                 }
+            })
+            .disposed(by: bag)
+        
+        collectionView.rx.itemSelected
+            .subscribe(onNext: { index in
+                self.present(CouponDetailViewController(), animated: true, completion: nil)
+                print(index)
+                
             })
             .disposed(by: bag)
         

@@ -71,3 +71,9 @@ class HomeViewController: UIViewController {
     }
     
 }
+ 
+extension String {
+    func add(a: Int) {
+        
+    }
+}

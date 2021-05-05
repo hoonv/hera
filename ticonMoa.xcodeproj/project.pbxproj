@@ -19,6 +19,13 @@
 		E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E053B6432604FC79005FAD51 /* LaunchScreen.storyboard */; };
 		E0AB99E626421B9600F11602 /* SwiftyTesseract in Frameworks */ = {isa = PBXBuildFile; productRef = E0AB99E526421B9600F11602 /* SwiftyTesseract */; };
 		E0AB99EC26421E3400F11602 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = E0AB99EB26421E3400F11602 /* tessdata */; };
+		E0AB99F626427A6100F11602 /* HomeViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB99F526427A6100F11602 /* HomeViewController2.swift */; };
+		E0AB99FA26427B6000F11602 /* HomeIconHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB99F926427B6000F11602 /* HomeIconHeaderView.swift */; };
+		E0AB99FE26427B6700F11602 /* HomeIconHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB99FD26427B6700F11602 /* HomeIconHeaderView.xib */; };
+		E0AB9A0526429A4A00F11602 /* HomeCollectionViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A0326429A4A00F11602 /* HomeCollectionViewCell2.swift */; };
+		E0AB9A0626429A4A00F11602 /* HomeCollectionViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB9A0426429A4A00F11602 /* HomeCollectionViewCell2.xib */; };
+		E0AB9A132642A09F00F11602 /* HomeCategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A112642A09F00F11602 /* HomeCategoryHeaderView.swift */; };
+		E0AB9A142642A09F00F11602 /* HomeCategoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB9A122642A09F00F11602 /* HomeCategoryHeaderView.xib */; };
 		E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480426131D5C00BEC498 /* MainTabBarController.swift */; };
 		E0AE480826131DF600BEC498 /* RoundTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480726131DF600BEC498 /* RoundTabBarView.swift */; };
 		E0AE480C2613222D00BEC498 /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480B2613222D00BEC498 /* Autolayout.swift */; };
@@ -87,6 +94,13 @@
 		E053B6442604FC79005FAD51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E053B6462604FC79005FAD51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0AB99EB26421E3400F11602 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = ../../../../tessdata; sourceTree = "<group>"; };
+		E0AB99F526427A6100F11602 /* HomeViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController2.swift; sourceTree = "<group>"; };
+		E0AB99F926427B6000F11602 /* HomeIconHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIconHeaderView.swift; sourceTree = "<group>"; };
+		E0AB99FD26427B6700F11602 /* HomeIconHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeIconHeaderView.xib; sourceTree = "<group>"; };
+		E0AB9A0326429A4A00F11602 /* HomeCollectionViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell2.swift; sourceTree = "<group>"; };
+		E0AB9A0426429A4A00F11602 /* HomeCollectionViewCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell2.xib; sourceTree = "<group>"; };
+		E0AB9A112642A09F00F11602 /* HomeCategoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryHeaderView.swift; sourceTree = "<group>"; };
+		E0AB9A122642A09F00F11602 /* HomeCategoryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCategoryHeaderView.xib; sourceTree = "<group>"; };
 		E0AE480426131D5C00BEC498 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E0AE480726131DF600BEC498 /* RoundTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTabBarView.swift; sourceTree = "<group>"; };
 		E0AE480B2613222D00BEC498 /* Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autolayout.swift; sourceTree = "<group>"; };
@@ -246,6 +260,13 @@
 				E053B6382604FC77005FAD51 /* AppDelegate.swift */,
 				E053B63A2604FC77005FAD51 /* SceneDelegate.swift */,
 				E053B63E2604FC77005FAD51 /* Main.storyboard */,
+				E0AB99F526427A6100F11602 /* HomeViewController2.swift */,
+				E0AB9A0326429A4A00F11602 /* HomeCollectionViewCell2.swift */,
+				E0AB9A112642A09F00F11602 /* HomeCategoryHeaderView.swift */,
+				E0AB9A122642A09F00F11602 /* HomeCategoryHeaderView.xib */,
+				E0AB9A0426429A4A00F11602 /* HomeCollectionViewCell2.xib */,
+				E0AB99F926427B6000F11602 /* HomeIconHeaderView.swift */,
+				E0AB99FD26427B6700F11602 /* HomeIconHeaderView.xib */,
 				E053B6412604FC79005FAD51 /* Assets.xcassets */,
 				E053B6432604FC79005FAD51 /* LaunchScreen.storyboard */,
 				E053B6462604FC79005FAD51 /* Info.plist */,
@@ -489,8 +510,11 @@
 				E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */,
 				E0C3CFA0263FE24C00483A91 /* SearchHeaderReusableView.xib in Resources */,
 				E053B6422604FC79005FAD51 /* Assets.xcassets in Resources */,
+				E0AB99FE26427B6700F11602 /* HomeIconHeaderView.xib in Resources */,
+				E0AB9A142642A09F00F11602 /* HomeCategoryHeaderView.xib in Resources */,
 				E0AB99EC26421E3400F11602 /* tessdata in Resources */,
 				E053B6402604FC77005FAD51 /* Main.storyboard in Resources */,
+				E0AB9A0626429A4A00F11602 /* HomeCollectionViewCell2.xib in Resources */,
 				E0B653B5260C40DD007C402F /* HomeCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,6 +585,7 @@
 				E0AE4817261438AE00BEC498 /* SearchViewController.swift in Sources */,
 				E053B63D2604FC77005FAD51 /* HomeViewController.swift in Sources */,
 				E0AE482E2614526600BEC498 /* CategoryCell.swift in Sources */,
+				E0AB99F626427A6100F11602 /* HomeViewController2.swift in Sources */,
 				E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */,
 				E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */,
 				E0BBB1E02638113D00DC4553 /* HomeVC + IconStackViewDelegate.swift in Sources */,
@@ -578,11 +603,14 @@
 				E0AE48412616875F00BEC498 /* MapViewController.swift in Sources */,
 				E0AE483326145A8200BEC498 /* String+widthHeight.swift in Sources */,
 				E0B653B8260C497B007C402F /* PhotoManager.swift in Sources */,
+				E0AB99FA26427B6000F11602 /* HomeIconHeaderView.swift in Sources */,
 				E0BBB1DA263810DC00DC4553 /* HomeVC + TransitioningDelegate.swift in Sources */,
 				E0B653BB260C5833007C402F /* BarcodeRequestWrapper.swift in Sources */,
 				E0C3CF9A263F955D00483A91 /* HomeVC + UI.swift in Sources */,
 				E0C3CF95263E5F0600483A91 /* SearchCollectionViewCell.swift in Sources */,
 				E0C3CF9F263FE24C00483A91 /* SearchHeaderReusableView.swift in Sources */,
+				E0AB9A132642A09F00F11602 /* HomeCategoryHeaderView.swift in Sources */,
+				E0AB9A0526429A4A00F11602 /* HomeCollectionViewCell2.swift in Sources */,
 				E0BBB2002638268400DC4553 /* ManualViewModel.swift in Sources */,
 				E0AE483D2615AFEA00BEC498 /* IconButton.swift in Sources */,
 				E0AE480826131DF600BEC498 /* RoundTabBarView.swift in Sources */,

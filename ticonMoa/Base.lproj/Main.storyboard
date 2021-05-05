@@ -374,14 +374,24 @@
                                     <outlet property="delegate" destination="l3u-8Y-9Ra" id="936-Il-SYA"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FgV-Vj-9oL" customClass="ButtonAddView" customModule="ticonMoa" customModuleProvider="target">
+                                <rect key="frame" x="116" y="798" width="182" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="182" id="3kJ-rg-qBL"/>
+                                    <constraint firstAttribute="height" constant="44" id="D15-hx-phE"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mxc-Ob-f6g"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="FgV-Vj-9oL" firstAttribute="centerX" secondItem="Mxc-Ob-f6g" secondAttribute="centerX" id="6Pl-SB-Bp4"/>
                             <constraint firstItem="Mxc-Ob-f6g" firstAttribute="trailing" secondItem="0wb-WT-bFf" secondAttribute="trailing" id="6uk-ot-pEm"/>
                             <constraint firstItem="0wb-WT-bFf" firstAttribute="top" secondItem="fhQ-mX-Onk" secondAttribute="bottom" constant="4" id="9gv-Lz-LWk"/>
                             <constraint firstItem="0wb-WT-bFf" firstAttribute="leading" secondItem="Mxc-Ob-f6g" secondAttribute="leading" id="ROS-TW-sVV"/>
                             <constraint firstItem="Mxc-Ob-f6g" firstAttribute="trailing" secondItem="fhQ-mX-Onk" secondAttribute="trailing" id="SFh-G4-XQY"/>
+                            <constraint firstItem="FgV-Vj-9oL" firstAttribute="bottom" secondItem="Mxc-Ob-f6g" secondAttribute="bottom" constant="-20" id="cRW-eb-nn2"/>
                             <constraint firstItem="fhQ-mX-Onk" firstAttribute="top" secondItem="Mxc-Ob-f6g" secondAttribute="top" id="cct-mn-fLk"/>
                             <constraint firstItem="fhQ-mX-Onk" firstAttribute="leading" secondItem="Mxc-Ob-f6g" secondAttribute="leading" id="f3E-qw-eE9"/>
                             <constraint firstItem="Mxc-Ob-f6g" firstAttribute="bottom" secondItem="0wb-WT-bFf" secondAttribute="bottom" id="uIg-JW-fKz"/>

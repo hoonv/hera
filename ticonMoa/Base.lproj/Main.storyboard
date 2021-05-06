@@ -398,6 +398,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addView" destination="FgV-Vj-9oL" id="34m-7n-hvt"/>
                         <outlet property="collectionView" destination="0wb-WT-bFf" id="6if-U6-Dg3"/>
                     </connections>
                 </viewController>

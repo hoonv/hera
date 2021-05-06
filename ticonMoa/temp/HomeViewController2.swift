@@ -6,15 +6,42 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class HomeViewController2: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var addView: ButtonAddView!
+    
+    let bag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "HomeCollectionViewCell2", bundle: nil), forCellWithReuseIdentifier: "HomeCollectionViewCell2")
         collectionView.register(UINib(nibName: "HomeCategoryHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeCategoryHeaderView")
+        
+        addView.addButton.rx.tap
+            .bind { [weak self] in
+
+            }.disposed(by: bag)
+        addView.addButton.rx.controlEvent(.touchDown)
+            .bind { [weak self] in
+                self?.addView.addButton.shrink()
+            }.disposed(by: bag)
+        addView.addButton.rx.controlEvent(.touchUpInside)
+            .bind { [weak self] in
+                self?.addView.addButton.expand()
+            }.disposed(by: bag)
+        addView.addButton.rx.controlEvent(.touchUpOutside)
+            .bind { [weak self] in
+                self?.addView.addButton.expand()
+            }.disposed(by: bag)
+    }
+    
+    func pullUpView() {
+        
     }
 
 }
@@ -27,7 +54,7 @@ extension HomeViewController2: UICollectionViewDelegateFlowLayout {
 
 extension HomeViewController2: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 200
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

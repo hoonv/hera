@@ -30,6 +30,8 @@
 		E0AB9A1C2642CC2A00F11602 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A1B2642CC2A00F11602 /* Category.swift */; };
 		E0AB9A212642CDE500F11602 /* ButtonAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A202642CDE500F11602 /* ButtonAddView.swift */; };
 		E0AB9A272642CDEE00F11602 /* ButtonAddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB9A262642CDEE00F11602 /* ButtonAddView.xib */; };
+		E0AB9A3D264367B200F11602 /* PullUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A3C264367B200F11602 /* PullUpView.swift */; };
+		E0AB9A41264367B700F11602 /* PullUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB9A40264367B700F11602 /* PullUpView.xib */; };
 		E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480426131D5C00BEC498 /* MainTabBarController.swift */; };
 		E0AE480826131DF600BEC498 /* RoundTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480726131DF600BEC498 /* RoundTabBarView.swift */; };
 		E0AE480C2613222D00BEC498 /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480B2613222D00BEC498 /* Autolayout.swift */; };
@@ -109,6 +111,8 @@
 		E0AB9A1B2642CC2A00F11602 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E0AB9A202642CDE500F11602 /* ButtonAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAddView.swift; sourceTree = "<group>"; };
 		E0AB9A262642CDEE00F11602 /* ButtonAddView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonAddView.xib; sourceTree = "<group>"; };
+		E0AB9A3C264367B200F11602 /* PullUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullUpView.swift; sourceTree = "<group>"; };
+		E0AB9A40264367B700F11602 /* PullUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullUpView.xib; sourceTree = "<group>"; };
 		E0AE480426131D5C00BEC498 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E0AE480726131DF600BEC498 /* RoundTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTabBarView.swift; sourceTree = "<group>"; };
 		E0AE480B2613222D00BEC498 /* Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autolayout.swift; sourceTree = "<group>"; };
@@ -287,6 +291,8 @@
 				E0AB99F926427B6000F11602 /* HomeIconHeaderView.swift */,
 				E0AB99FD26427B6700F11602 /* HomeIconHeaderView.xib */,
 				E0AB9A202642CDE500F11602 /* ButtonAddView.swift */,
+				E0AB9A3C264367B200F11602 /* PullUpView.swift */,
+				E0AB9A40264367B700F11602 /* PullUpView.xib */,
 				E0AB9A262642CDEE00F11602 /* ButtonAddView.xib */,
 			);
 			path = temp;
@@ -530,6 +536,7 @@
 				E0AE483A261465CA00BEC498 /* IconStackView.xib in Resources */,
 				E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */,
 				E0C3CFA0263FE24C00483A91 /* SearchHeaderReusableView.xib in Resources */,
+				E0AB9A41264367B700F11602 /* PullUpView.xib in Resources */,
 				E053B6422604FC79005FAD51 /* Assets.xcassets in Resources */,
 				E0AB99FE26427B6700F11602 /* HomeIconHeaderView.xib in Resources */,
 				E0AB9A142642A09F00F11602 /* HomeCategoryHeaderView.xib in Resources */,
@@ -610,6 +617,7 @@
 				E0AB99F626427A6100F11602 /* HomeViewController2.swift in Sources */,
 				E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */,
 				E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */,
+				E0AB9A3D264367B200F11602 /* PullUpView.swift in Sources */,
 				E0BBB1E02638113D00DC4553 /* HomeVC + IconStackViewDelegate.swift in Sources */,
 				E0AE4826261442D400BEC498 /* HorizontalScrollView.swift in Sources */,
 				E0364FFE26247CC4006D243E /* ManualPhotoViewController.swift in Sources */,

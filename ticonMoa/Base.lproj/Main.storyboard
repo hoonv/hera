@@ -418,14 +418,16 @@
                                 <rect key="frame" x="0.0" y="384" width="414" height="512"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="robot" translatesAutoresizingMaskIntoConstraints="NO" id="TZz-Zj-G30">
-                                        <rect key="frame" x="217" y="82" width="135" height="135"/>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Ri-Er-Gny" customClass="ChoiceView" customModule="ticonMoa" customModuleProvider="target">
+                                        <rect key="frame" x="35" y="95" width="135" height="135"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="technician" translatesAutoresizingMaskIntoConstraints="NO" id="Z56-Bh-f7a">
-                                        <rect key="frame" x="74" y="82" width="135" height="135"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WBc-av-Y8n" customClass="ChoiceView" customModule="ticonMoa" customModuleProvider="target">
+                                        <rect key="frame" x="200" y="106" width="135" height="135"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -434,6 +436,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
+                        <outlet property="autoView" destination="WBc-av-Y8n" id="khL-Is-rdN"/>
+                        <outlet property="manualView" destination="7Ri-Er-Gny" id="eJ5-TR-YtZ"/>
                         <outlet property="pullUpView" destination="Mxl-dq-h2x" id="UCU-4N-Qnr"/>
                     </connections>
                 </viewController>
@@ -488,9 +492,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="robot" width="512" height="512"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
-        <image name="technician" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

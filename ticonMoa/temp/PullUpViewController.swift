@@ -11,8 +11,12 @@ class PullUpViewController: UIViewController {
 
     static let identifier: String = String(describing: PullUpViewController.self)
     
+    @IBOutlet weak var autoView: ChoiceView!
+    @IBOutlet weak var manualView: ChoiceView!
+    
     @IBOutlet weak var pullUpView: UIView!
     
+    var isManaul = true
     var dismissClosure: (() -> Void)?
     
     private var pullUpviewHeight: CGFloat {
@@ -25,12 +29,26 @@ class PullUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpShortLine()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(viewTappeded))
+        let autoWidth = (view.frame.width - 70) / 2
+        
+        manualView.frame = CGRect(x: 30, y: 30, width: autoWidth, height: autoWidth * 1.1)
+        autoView.frame = CGRect(x: 40 + autoWidth, y: 30, width: autoWidth, height: autoWidth * 1.1)
+        autoView.imageView.image = UIImage(named: "robot")
+        manualView.imageView.image = UIImage(named: "technician")
+        autoView.toggle(isSelected: false)
+        manualView.toggle(isSelected: true)
+        autoView.label.text = "auto"
+        manualView.label.text = "manual"
+
+        let manualTapGesture = UITapGestureRecognizer(target: self, action: #selector(manualTapped))
+        let autoTapGesture = UITapGestureRecognizer(target: self, action: #selector(autoTapped))
+        manualView.addGestureRecognizer(manualTapGesture)
+        autoView.addGestureRecognizer(autoTapGesture)
+        
         pullUpView.frame = CGRect(x: 0,
                                   y: view.frame.height - pullUpviewHeight / 2,
                                   width: view.frame.width,
                                   height: pullUpviewHeight)
-        pullUpView.addGestureRecognizer(tap)
         
         pullUpView.layer.cornerRadius = 30
         pullUpView.layer.shadowPath = UIBezierPath(rect: view.bounds).cgPath
@@ -43,6 +61,22 @@ class PullUpViewController: UIViewController {
         pullUpView.addGestureRecognizer(panGesture)
         
     }
+    
+    @objc func manualTapped(_ sender: UITapGestureRecognizer) {
+        toggle(flag: true)
+    }
+    
+    @objc func autoTapped(_ sender: UITapGestureRecognizer) {
+        toggle(flag: false)
+
+    }
+    
+    private func toggle(flag: Bool) {
+        isManaul = flag
+        manualView.toggle(isSelected: isManaul)
+        autoView.toggle(isSelected: !isManaul)
+    }
+
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -52,9 +86,6 @@ class PullUpViewController: UIViewController {
                                       width: self.view.frame.width,
                                       height: self.pullUpviewHeight)
         })
-    }
-    @objc func viewTappeded(_ sender: UIView) {
-        print("x")
     }
     
     private func setUpShortLine() {

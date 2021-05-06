@@ -33,6 +33,8 @@
 		E0AB9A3D264367B200F11602 /* PullUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A3C264367B200F11602 /* PullUpView.swift */; };
 		E0AB9A41264367B700F11602 /* PullUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB9A40264367B700F11602 /* PullUpView.xib */; };
 		E0AB9A4B2643707200F11602 /* PullUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A4A2643707200F11602 /* PullUpViewController.swift */; };
+		E0AB9A4F2643B47100F11602 /* ChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A4E2643B47100F11602 /* ChoiceView.swift */; };
+		E0AB9A532643B48F00F11602 /* ChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB9A522643B48F00F11602 /* ChoiceView.xib */; };
 		E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480426131D5C00BEC498 /* MainTabBarController.swift */; };
 		E0AE480826131DF600BEC498 /* RoundTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480726131DF600BEC498 /* RoundTabBarView.swift */; };
 		E0AE480C2613222D00BEC498 /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480B2613222D00BEC498 /* Autolayout.swift */; };
@@ -115,6 +117,8 @@
 		E0AB9A3C264367B200F11602 /* PullUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullUpView.swift; sourceTree = "<group>"; };
 		E0AB9A40264367B700F11602 /* PullUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullUpView.xib; sourceTree = "<group>"; };
 		E0AB9A4A2643707200F11602 /* PullUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullUpViewController.swift; sourceTree = "<group>"; };
+		E0AB9A4E2643B47100F11602 /* ChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceView.swift; sourceTree = "<group>"; };
+		E0AB9A522643B48F00F11602 /* ChoiceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceView.xib; sourceTree = "<group>"; };
 		E0AE480426131D5C00BEC498 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E0AE480726131DF600BEC498 /* RoundTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTabBarView.swift; sourceTree = "<group>"; };
 		E0AE480B2613222D00BEC498 /* Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autolayout.swift; sourceTree = "<group>"; };
@@ -287,6 +291,8 @@
 			children = (
 				E0AB99F526427A6100F11602 /* HomeViewController2.swift */,
 				E0AB9A4A2643707200F11602 /* PullUpViewController.swift */,
+				E0AB9A4E2643B47100F11602 /* ChoiceView.swift */,
+				E0AB9A522643B48F00F11602 /* ChoiceView.xib */,
 				E0AB9A112642A09F00F11602 /* HomeCategoryHeaderView.swift */,
 				E0AB9A122642A09F00F11602 /* HomeCategoryHeaderView.xib */,
 				E0AB9A0426429A4A00F11602 /* HomeCollectionViewCell2.xib */,
@@ -537,6 +543,7 @@
 				E0AE482F2614526600BEC498 /* CategoryCell.xib in Resources */,
 				E0C3CF96263E5F0600483A91 /* SearchCollectionViewCell.xib in Resources */,
 				E0AE483A261465CA00BEC498 /* IconStackView.xib in Resources */,
+				E0AB9A532643B48F00F11602 /* ChoiceView.xib in Resources */,
 				E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */,
 				E0C3CFA0263FE24C00483A91 /* SearchHeaderReusableView.xib in Resources */,
 				E0AB9A41264367B700F11602 /* PullUpView.xib in Resources */,
@@ -624,6 +631,7 @@
 				E0BBB1E02638113D00DC4553 /* HomeVC + IconStackViewDelegate.swift in Sources */,
 				E0AB9A4B2643707200F11602 /* PullUpViewController.swift in Sources */,
 				E0AE4826261442D400BEC498 /* HorizontalScrollView.swift in Sources */,
+				E0AB9A4F2643B47100F11602 /* ChoiceView.swift in Sources */,
 				E0364FFE26247CC4006D243E /* ManualPhotoViewController.swift in Sources */,
 				E053B63B2604FC77005FAD51 /* SceneDelegate.swift in Sources */,
 				E0BBB2162638F72600DC4553 /* BrandRecognizer.swift in Sources */,

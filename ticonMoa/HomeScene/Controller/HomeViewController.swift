@@ -8,7 +8,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import SwiftyTesseract
 
 class HomeViewController: UIViewController {
     

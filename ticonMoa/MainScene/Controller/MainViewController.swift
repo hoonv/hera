@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var addView: ButtonAddView!
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     let imagePickerController = UIImagePickerController()
 
     var pullUpVC: PullUpViewController?
@@ -23,7 +24,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.register(UINib(nibName: "HomeCollectionViewCell2", bundle: nil), forCellWithReuseIdentifier: "HomeCollectionViewCell2")
+        collectionView.register(UINib(nibName: "MainCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MainCollectionViewCell")
         collectionView.register(UINib(nibName: "HomeCategoryHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeCategoryHeaderView")
         
         addView.addButton.rx.tap
@@ -42,6 +43,7 @@ class MainViewController: UIViewController {
             .bind { [weak self] in
                 self?.addView.addButton.expand()
             }.disposed(by: bag)
+        
     }
     
     func pullUpView() {
@@ -100,7 +102,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell2", for: indexPath) as? HomeCollectionViewCell2 else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
         cell.layer.cornerRadius = 12
         return cell
     }

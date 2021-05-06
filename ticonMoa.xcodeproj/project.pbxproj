@@ -19,7 +19,7 @@
 		E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E053B6432604FC79005FAD51 /* LaunchScreen.storyboard */; };
 		E0AB99E626421B9600F11602 /* SwiftyTesseract in Frameworks */ = {isa = PBXBuildFile; productRef = E0AB99E526421B9600F11602 /* SwiftyTesseract */; };
 		E0AB99EC26421E3400F11602 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = E0AB99EB26421E3400F11602 /* tessdata */; };
-		E0AB99F626427A6100F11602 /* HomeViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB99F526427A6100F11602 /* HomeViewController2.swift */; };
+		E0AB99F626427A6100F11602 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB99F526427A6100F11602 /* MainViewController.swift */; };
 		E0AB99FA26427B6000F11602 /* HomeIconHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB99F926427B6000F11602 /* HomeIconHeaderView.swift */; };
 		E0AB99FE26427B6700F11602 /* HomeIconHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB99FD26427B6700F11602 /* HomeIconHeaderView.xib */; };
 		E0AB9A0526429A4A00F11602 /* HomeCollectionViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A0326429A4A00F11602 /* HomeCollectionViewCell2.swift */; };
@@ -103,7 +103,7 @@
 		E053B6442604FC79005FAD51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E053B6462604FC79005FAD51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0AB99EB26421E3400F11602 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = ../../../../tessdata; sourceTree = "<group>"; };
-		E0AB99F526427A6100F11602 /* HomeViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController2.swift; sourceTree = "<group>"; };
+		E0AB99F526427A6100F11602 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E0AB99F926427B6000F11602 /* HomeIconHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIconHeaderView.swift; sourceTree = "<group>"; };
 		E0AB99FD26427B6700F11602 /* HomeIconHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeIconHeaderView.xib; sourceTree = "<group>"; };
 		E0AB9A0326429A4A00F11602 /* HomeCollectionViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell2.swift; sourceTree = "<group>"; };
@@ -289,7 +289,7 @@
 		E0AB9A1F2642CDAD00F11602 /* temp */ = {
 			isa = PBXGroup;
 			children = (
-				E0AB99F526427A6100F11602 /* HomeViewController2.swift */,
+				E0AB99F526427A6100F11602 /* MainViewController.swift */,
 				E0AB9A4A2643707200F11602 /* PullUpViewController.swift */,
 				E0AB9A4E2643B47100F11602 /* ChoiceView.swift */,
 				E0AB9A522643B48F00F11602 /* ChoiceView.xib */,
@@ -624,7 +624,7 @@
 				E0AB9A182642CC2500F11602 /* Gifticon.swift in Sources */,
 				E053B63D2604FC77005FAD51 /* HomeViewController.swift in Sources */,
 				E0AE482E2614526600BEC498 /* CategoryCell.swift in Sources */,
-				E0AB99F626427A6100F11602 /* HomeViewController2.swift in Sources */,
+				E0AB99F626427A6100F11602 /* MainViewController.swift in Sources */,
 				E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */,
 				E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */,
 				E0AB9A3D264367B200F11602 /* PullUpView.swift in Sources */,

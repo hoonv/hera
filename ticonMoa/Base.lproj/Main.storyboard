@@ -336,10 +336,10 @@
             </objects>
             <point key="canvasLocation" x="2761" y="465"/>
         </scene>
-        <!--Home View Controller2-->
+        <!--Main View Controller-->
         <scene sceneID="xHR-j3-h1d">
             <objects>
-                <viewController id="l3u-8Y-9Ra" customClass="HomeViewController2" customModule="ticonMoa" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="l3u-8Y-9Ra" customClass="MainViewController" customModule="ticonMoa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LsE-6v-UD1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -9,14 +9,16 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class HomeViewController2: UIViewController {
+class MainViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var addView: ButtonAddView!
     
-    var pullUpVC: PullUpViewController?
+    let imagePickerController = UIImagePickerController()
 
+    var pullUpVC: PullUpViewController?
+    let viewModel = HomeViewModel()
     let bag = DisposeBag()
     
     override func viewDidLoad() {
@@ -62,19 +64,37 @@ class HomeViewController2: UIViewController {
         if state == .auto {
             print("auto")
         } else if state == .manaul  {
-            print("manual")
+            showManual()
         }
     }
 
+    func showAuto() {
+        viewModel.input.requestPhotoWithAuto()
+    }
+    
+    func showManual() {
+        imagePickerController.allowsEditing = false
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func presentManualViewController(image: UIImage?) {
+        guard let controller: ManualPhotoViewController = UIStoryboard.main.instantiate() else { return }
+        controller.selectedImage = image
+        self.show(controller, sender: self)
+    }
+    
 }
 
-extension HomeViewController2: UICollectionViewDelegateFlowLayout {
+extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (view.frame.width - 50) / 2, height: 220)
     }
 }
 
-extension HomeViewController2: UICollectionViewDataSource, UICollectionViewDelegate {
+extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
@@ -98,5 +118,25 @@ extension HomeViewController2: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeCategoryHeaderView", for: indexPath) as? HomeCategoryHeaderView else { return UICollectionReusableView() }
         return header
+    }
+}
+
+
+extension MainViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        var pickedImage: UIImage? = nil
+        
+        if let possibleImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            pickedImage = possibleImage // 수정된 이미지가 있을 경우
+        } else if let possibleImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            pickedImage = possibleImage // 원본 이미지가 있을 경우
+        }
+        
+        picker.dismiss(animated: true) {
+            self.presentManualViewController(image: pickedImage)
+        }
+
     }
 }

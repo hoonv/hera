@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ButtonAddView" customModule="ticonMoa" customModuleProvider="target">
             <connections>
-                <outlet property="addView" destination="ILe-b3-X83" id="8B8-SE-RB9"/>
+                <outlet property="addButton" destination="ILe-b3-X83" id="cSj-Nk-TPn"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

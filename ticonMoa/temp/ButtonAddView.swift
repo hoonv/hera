@@ -11,7 +11,7 @@ class ButtonAddView: UIView {
 
     private let nibName = "ButtonAddView"
 
-    @IBOutlet weak var addView: UIButton!
+    @IBOutlet weak var addButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,9 +28,14 @@ class ButtonAddView: UIView {
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(view)
-        addView.layer.cornerRadius = 20
-        
+        addButton.layer.cornerRadius = 20
+        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.15
+        layer.shadowOffset = .zero
+        layer.shadowRadius = bounds.height / 5
     }
+    
     
     private func loadViewFromNib() -> UIView? {
         let bundle = Bundle(for: type(of: self))

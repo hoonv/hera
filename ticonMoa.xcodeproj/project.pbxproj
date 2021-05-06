@@ -32,6 +32,7 @@
 		E0AB9A272642CDEE00F11602 /* ButtonAddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB9A262642CDEE00F11602 /* ButtonAddView.xib */; };
 		E0AB9A3D264367B200F11602 /* PullUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A3C264367B200F11602 /* PullUpView.swift */; };
 		E0AB9A41264367B700F11602 /* PullUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB9A40264367B700F11602 /* PullUpView.xib */; };
+		E0AB9A4B2643707200F11602 /* PullUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A4A2643707200F11602 /* PullUpViewController.swift */; };
 		E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480426131D5C00BEC498 /* MainTabBarController.swift */; };
 		E0AE480826131DF600BEC498 /* RoundTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480726131DF600BEC498 /* RoundTabBarView.swift */; };
 		E0AE480C2613222D00BEC498 /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480B2613222D00BEC498 /* Autolayout.swift */; };
@@ -113,6 +114,7 @@
 		E0AB9A262642CDEE00F11602 /* ButtonAddView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonAddView.xib; sourceTree = "<group>"; };
 		E0AB9A3C264367B200F11602 /* PullUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullUpView.swift; sourceTree = "<group>"; };
 		E0AB9A40264367B700F11602 /* PullUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullUpView.xib; sourceTree = "<group>"; };
+		E0AB9A4A2643707200F11602 /* PullUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullUpViewController.swift; sourceTree = "<group>"; };
 		E0AE480426131D5C00BEC498 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E0AE480726131DF600BEC498 /* RoundTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTabBarView.swift; sourceTree = "<group>"; };
 		E0AE480B2613222D00BEC498 /* Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autolayout.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				E0AB99F526427A6100F11602 /* HomeViewController2.swift */,
+				E0AB9A4A2643707200F11602 /* PullUpViewController.swift */,
 				E0AB9A112642A09F00F11602 /* HomeCategoryHeaderView.swift */,
 				E0AB9A122642A09F00F11602 /* HomeCategoryHeaderView.xib */,
 				E0AB9A0426429A4A00F11602 /* HomeCollectionViewCell2.xib */,
@@ -619,6 +622,7 @@
 				E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */,
 				E0AB9A3D264367B200F11602 /* PullUpView.swift in Sources */,
 				E0BBB1E02638113D00DC4553 /* HomeVC + IconStackViewDelegate.swift in Sources */,
+				E0AB9A4B2643707200F11602 /* PullUpViewController.swift in Sources */,
 				E0AE4826261442D400BEC498 /* HorizontalScrollView.swift in Sources */,
 				E0364FFE26247CC4006D243E /* ManualPhotoViewController.swift in Sources */,
 				E053B63B2604FC77005FAD51 /* SceneDelegate.swift in Sources */,

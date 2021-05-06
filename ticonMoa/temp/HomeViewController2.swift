@@ -15,6 +15,8 @@ class HomeViewController2: UIViewController {
     
     @IBOutlet weak var addView: ButtonAddView!
     
+    var pullUpVC: PullUpViewController?
+
     let bag = DisposeBag()
     
     override func viewDidLoad() {
@@ -24,7 +26,7 @@ class HomeViewController2: UIViewController {
         
         addView.addButton.rx.tap
             .bind { [weak self] in
-
+                self?.pullUpView()
             }.disposed(by: bag)
         addView.addButton.rx.controlEvent(.touchDown)
             .bind { [weak self] in
@@ -41,7 +43,22 @@ class HomeViewController2: UIViewController {
     }
     
     func pullUpView() {
-        
+        guard self.pullUpVC == nil else { return }
+        guard let pullUpVC: PullUpViewController = storyboard?.instantiateViewController(withIdentifier: PullUpViewController.identifier) as? PullUpViewController else { return }
+        self.addChild(pullUpVC)
+        pullUpVC.dismissClosure = dismissPullUpView
+        pullUpVC.view.frame = view.bounds
+        self.view.addSubview(pullUpVC.view)
+        pullUpVC.didMove(toParent: self)
+        self.pullUpVC = pullUpVC
+    }
+    
+    func dismissPullUpView() {
+        self.pullUpVC?.willMove(toParent: nil)
+        self.pullUpVC?.view.removeFromSuperview()
+        self.pullUpVC?.removeFromParent()
+        self.pullUpVC?.dismiss(animated: false, completion: nil)
+        self.pullUpVC = nil
     }
 
 }

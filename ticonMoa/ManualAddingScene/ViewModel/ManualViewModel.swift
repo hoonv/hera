@@ -72,7 +72,7 @@ class ManualViewModel: ManualViewModelInput, ManualViewModelOutput, ManualViewMo
         for (idx, line) in input.enumerated() {
             
             let joined = line.joined()
-            if joined.count == 12 && Int(joined) != nil {
+            if joined.count >= 12 && Int(joined) != nil {
                 guard let n1 = input[idx - 2].first,
                       let n2 = input[idx - 1].first else { continue }
                 if n1.count > n2.count {

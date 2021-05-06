@@ -304,8 +304,8 @@
 			children = (
 				E0AB99F526427A6100F11602 /* MainViewController.swift */,
 				E0AB9A6A2643D6D900F11602 /* MainVC + CollectionView.swift */,
-				E0AB9A4A2643707200F11602 /* PullUpViewController.swift */,
 				E0AB9A702643D74100F11602 /* MainVC + PhotoPick.swift */,
+				E0AB9A4A2643707200F11602 /* PullUpViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
     var pullUpVC: PullUpViewController?
     let viewModel = HomeViewModel()
     let bag = DisposeBag()
-    
+    var images: [UIImage] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
@@ -28,6 +28,15 @@ class MainViewController: UIViewController {
     }
     
     func bind() {
+    
+        viewModel.output.images
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { images in
+                self.images = images
+                self.collectionView.reloadData()
+            })
+            .disposed(by: bag)
+
         addView.addButton.rx.tap
             .bind { [weak self] in
                 self?.pullUpView()
@@ -64,7 +73,7 @@ class MainViewController: UIViewController {
         self.pullUpVC?.dismiss(animated: false, completion: nil)
         self.pullUpVC = nil
         if state == .auto {
-            print("auto")
+            showAuto()
         } else if state == .manaul  {
             showManual()
         }

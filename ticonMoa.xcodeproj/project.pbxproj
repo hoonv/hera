@@ -300,9 +300,9 @@
 				E0AB99F926427B6000F11602 /* HomeIconHeaderView.swift */,
 				E0AB99FD26427B6700F11602 /* HomeIconHeaderView.xib */,
 				E0AB9A202642CDE500F11602 /* ButtonAddView.swift */,
+				E0AB9A262642CDEE00F11602 /* ButtonAddView.xib */,
 				E0AB9A3C264367B200F11602 /* PullUpView.swift */,
 				E0AB9A40264367B700F11602 /* PullUpView.xib */,
-				E0AB9A262642CDEE00F11602 /* ButtonAddView.xib */,
 			);
 			path = temp;
 			sourceTree = "<group>";

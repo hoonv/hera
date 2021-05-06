@@ -53,12 +53,17 @@ class HomeViewController2: UIViewController {
         self.pullUpVC = pullUpVC
     }
     
-    func dismissPullUpView() {
+    func dismissPullUpView(state: PullUpFinishState) {
         self.pullUpVC?.willMove(toParent: nil)
         self.pullUpVC?.view.removeFromSuperview()
         self.pullUpVC?.removeFromParent()
         self.pullUpVC?.dismiss(animated: false, completion: nil)
         self.pullUpVC = nil
+        if state == .auto {
+            print("auto")
+        } else if state == .manaul  {
+            print("manual")
+        }
     }
 
 }

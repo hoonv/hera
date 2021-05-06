@@ -7,6 +7,12 @@
 
 import UIKit
 
+enum PullUpFinishState {
+    case cancel
+    case manaul
+    case auto
+}
+
 class PullUpViewController: UIViewController {
 
     static let identifier: String = String(describing: PullUpViewController.self)
@@ -16,8 +22,10 @@ class PullUpViewController: UIViewController {
     
     @IBOutlet weak var pullUpView: UIView!
     
+    @IBOutlet weak var goButton: UIButton!
+    
     var isManaul = true
-    var dismissClosure: (() -> Void)?
+    var dismissClosure: ((PullUpFinishState) -> Void)?
     
     private var pullUpviewHeight: CGFloat {
         view.frame.height * 0.45
@@ -26,13 +34,18 @@ class PullUpViewController: UIViewController {
         view.frame.height * 0.55
     }
     
+    @IBAction func goButtonTouched(_ sender: Any) {
+        let state: PullUpFinishState = isManaul ? .manaul : .auto
+        movePullUpToHide(state: state)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpShortLine()
-        let autoWidth = (view.frame.width - 70) / 2
+        let autoWidth = (view.frame.width - 90) / 2
         
-        manualView.frame = CGRect(x: 30, y: 30, width: autoWidth, height: autoWidth * 1.1)
-        autoView.frame = CGRect(x: 40 + autoWidth, y: 30, width: autoWidth, height: autoWidth * 1.1)
+        manualView.frame = CGRect(x: 40, y: 30, width: autoWidth, height: autoWidth * 1.1)
+        autoView.frame = CGRect(x: 50 + autoWidth, y: 30, width: autoWidth, height: autoWidth * 1.1)
         autoView.imageView.image = UIImage(named: "robot")
         manualView.imageView.image = UIImage(named: "technician")
         autoView.toggle(isSelected: false)
@@ -44,6 +57,9 @@ class PullUpViewController: UIViewController {
         let autoTapGesture = UITapGestureRecognizer(target: self, action: #selector(autoTapped))
         manualView.addGestureRecognizer(manualTapGesture)
         autoView.addGestureRecognizer(autoTapGesture)
+        
+        goButton.frame = CGRect(x: (view.frame.width - 182) / 2, y: autoWidth * 1.1 + 70, width: 182, height: 44)
+        goButton.layer.cornerRadius = 20
         
         pullUpView.frame = CGRect(x: 0,
                                   y: view.frame.height - pullUpviewHeight / 2,
@@ -122,13 +138,14 @@ class PullUpViewController: UIViewController {
         }
     }
     
-    func movePullUpToHide() {
+    func movePullUpToHide(state: PullUpFinishState = .cancel) {
         UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseIn], animations: {
             self.pullUpView.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: self.view.frame.height)
         }, completion: { _ in
-            self.dismissClosure?()
+            self.dismissClosure?(state)
         })
     }
+    
     @objc private func panGestureRe(_ recognizer: UIPanGestureRecognizer) {
         moveView(panGestureRecognizer: recognizer)
         

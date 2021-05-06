@@ -8,7 +8,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import SwiftyTesseract
 
 class HomeViewController: UIViewController {
     
@@ -70,10 +69,4 @@ class HomeViewController: UIViewController {
         self.show(controller, sender: self)
     }
     
-}
- 
-extension String {
-    func add(a: Int) {
-        
-    }
 }

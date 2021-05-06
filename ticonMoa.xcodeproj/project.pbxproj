@@ -19,19 +19,24 @@
 		E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E053B6432604FC79005FAD51 /* LaunchScreen.storyboard */; };
 		E0AB99E626421B9600F11602 /* SwiftyTesseract in Frameworks */ = {isa = PBXBuildFile; productRef = E0AB99E526421B9600F11602 /* SwiftyTesseract */; };
 		E0AB99EC26421E3400F11602 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = E0AB99EB26421E3400F11602 /* tessdata */; };
-		E0AB99F626427A6100F11602 /* HomeViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB99F526427A6100F11602 /* HomeViewController2.swift */; };
-		E0AB99FA26427B6000F11602 /* HomeIconHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB99F926427B6000F11602 /* HomeIconHeaderView.swift */; };
-		E0AB99FE26427B6700F11602 /* HomeIconHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB99FD26427B6700F11602 /* HomeIconHeaderView.xib */; };
-		E0AB9A0526429A4A00F11602 /* HomeCollectionViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A0326429A4A00F11602 /* HomeCollectionViewCell2.swift */; };
-		E0AB9A0626429A4A00F11602 /* HomeCollectionViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB9A0426429A4A00F11602 /* HomeCollectionViewCell2.xib */; };
-		E0AB9A132642A09F00F11602 /* HomeCategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A112642A09F00F11602 /* HomeCategoryHeaderView.swift */; };
-		E0AB9A142642A09F00F11602 /* HomeCategoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB9A122642A09F00F11602 /* HomeCategoryHeaderView.xib */; };
+		E0AB99F626427A6100F11602 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB99F526427A6100F11602 /* MainViewController.swift */; };
+		E0AB99FA26427B6000F11602 /* MainIconHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB99F926427B6000F11602 /* MainIconHeaderView.swift */; };
+		E0AB99FE26427B6700F11602 /* MainIconHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB99FD26427B6700F11602 /* MainIconHeaderView.xib */; };
+		E0AB9A0526429A4A00F11602 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A0326429A4A00F11602 /* MainCollectionViewCell.swift */; };
+		E0AB9A0626429A4A00F11602 /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB9A0426429A4A00F11602 /* MainCollectionViewCell.xib */; };
+		E0AB9A132642A09F00F11602 /* MainCategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A112642A09F00F11602 /* MainCategoryHeaderView.swift */; };
+		E0AB9A142642A09F00F11602 /* MainCategoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB9A122642A09F00F11602 /* MainCategoryHeaderView.xib */; };
 		E0AB9A182642CC2500F11602 /* Gifticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A172642CC2500F11602 /* Gifticon.swift */; };
 		E0AB9A1C2642CC2A00F11602 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A1B2642CC2A00F11602 /* Category.swift */; };
 		E0AB9A212642CDE500F11602 /* ButtonAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A202642CDE500F11602 /* ButtonAddView.swift */; };
 		E0AB9A272642CDEE00F11602 /* ButtonAddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB9A262642CDEE00F11602 /* ButtonAddView.xib */; };
 		E0AB9A3D264367B200F11602 /* PullUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A3C264367B200F11602 /* PullUpView.swift */; };
 		E0AB9A41264367B700F11602 /* PullUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB9A40264367B700F11602 /* PullUpView.xib */; };
+		E0AB9A4B2643707200F11602 /* PullUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A4A2643707200F11602 /* PullUpViewController.swift */; };
+		E0AB9A4F2643B47100F11602 /* ChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A4E2643B47100F11602 /* ChoiceView.swift */; };
+		E0AB9A532643B48F00F11602 /* ChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB9A522643B48F00F11602 /* ChoiceView.xib */; };
+		E0AB9A6B2643D6D900F11602 /* MainVC + CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A6A2643D6D900F11602 /* MainVC + CollectionView.swift */; };
+		E0AB9A712643D74100F11602 /* MainVC + PhotoPick.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A702643D74100F11602 /* MainVC + PhotoPick.swift */; };
 		E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480426131D5C00BEC498 /* MainTabBarController.swift */; };
 		E0AE480826131DF600BEC498 /* RoundTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480726131DF600BEC498 /* RoundTabBarView.swift */; };
 		E0AE480C2613222D00BEC498 /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480B2613222D00BEC498 /* Autolayout.swift */; };
@@ -100,19 +105,24 @@
 		E053B6442604FC79005FAD51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E053B6462604FC79005FAD51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0AB99EB26421E3400F11602 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = ../../../../tessdata; sourceTree = "<group>"; };
-		E0AB99F526427A6100F11602 /* HomeViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController2.swift; sourceTree = "<group>"; };
-		E0AB99F926427B6000F11602 /* HomeIconHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIconHeaderView.swift; sourceTree = "<group>"; };
-		E0AB99FD26427B6700F11602 /* HomeIconHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeIconHeaderView.xib; sourceTree = "<group>"; };
-		E0AB9A0326429A4A00F11602 /* HomeCollectionViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell2.swift; sourceTree = "<group>"; };
-		E0AB9A0426429A4A00F11602 /* HomeCollectionViewCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell2.xib; sourceTree = "<group>"; };
-		E0AB9A112642A09F00F11602 /* HomeCategoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryHeaderView.swift; sourceTree = "<group>"; };
-		E0AB9A122642A09F00F11602 /* HomeCategoryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCategoryHeaderView.xib; sourceTree = "<group>"; };
+		E0AB99F526427A6100F11602 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E0AB99F926427B6000F11602 /* MainIconHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainIconHeaderView.swift; sourceTree = "<group>"; };
+		E0AB99FD26427B6700F11602 /* MainIconHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainIconHeaderView.xib; sourceTree = "<group>"; };
+		E0AB9A0326429A4A00F11602 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		E0AB9A0426429A4A00F11602 /* MainCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCollectionViewCell.xib; sourceTree = "<group>"; };
+		E0AB9A112642A09F00F11602 /* MainCategoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryHeaderView.swift; sourceTree = "<group>"; };
+		E0AB9A122642A09F00F11602 /* MainCategoryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCategoryHeaderView.xib; sourceTree = "<group>"; };
 		E0AB9A172642CC2500F11602 /* Gifticon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gifticon.swift; sourceTree = "<group>"; };
 		E0AB9A1B2642CC2A00F11602 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E0AB9A202642CDE500F11602 /* ButtonAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAddView.swift; sourceTree = "<group>"; };
 		E0AB9A262642CDEE00F11602 /* ButtonAddView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonAddView.xib; sourceTree = "<group>"; };
 		E0AB9A3C264367B200F11602 /* PullUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullUpView.swift; sourceTree = "<group>"; };
 		E0AB9A40264367B700F11602 /* PullUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullUpView.xib; sourceTree = "<group>"; };
+		E0AB9A4A2643707200F11602 /* PullUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullUpViewController.swift; sourceTree = "<group>"; };
+		E0AB9A4E2643B47100F11602 /* ChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceView.swift; sourceTree = "<group>"; };
+		E0AB9A522643B48F00F11602 /* ChoiceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceView.xib; sourceTree = "<group>"; };
+		E0AB9A6A2643D6D900F11602 /* MainVC + CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC + CollectionView.swift"; sourceTree = "<group>"; };
+		E0AB9A702643D74100F11602 /* MainVC + PhotoPick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC + PhotoPick.swift"; sourceTree = "<group>"; };
 		E0AE480426131D5C00BEC498 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E0AE480726131DF600BEC498 /* RoundTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTabBarView.swift; sourceTree = "<group>"; };
 		E0AE480B2613222D00BEC498 /* Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autolayout.swift; sourceTree = "<group>"; };
@@ -260,6 +270,7 @@
 				E0AB99EB26421E3400F11602 /* tessdata */,
 				E02027DB2628626900AD7230 /* MainTabBar */,
 				E02027D82628609E00AD7230 /* HomeScene */,
+				E0AB9A1F2642CDAD00F11602 /* MainScene */,
 				E02027DC2628628E00AD7230 /* ManualAddingScene */,
 				E0C3CFA3263FF78200483A91 /* CounponDetailScene */,
 				E02027D92628622400AD7230 /* SearchScene */,
@@ -272,7 +283,6 @@
 				E053B6382604FC77005FAD51 /* AppDelegate.swift */,
 				E053B63A2604FC77005FAD51 /* SceneDelegate.swift */,
 				E053B63E2604FC77005FAD51 /* Main.storyboard */,
-				E0AB9A1F2642CDAD00F11602 /* temp */,
 				E053B6412604FC79005FAD51 /* Assets.xcassets */,
 				E053B6432604FC79005FAD51 /* LaunchScreen.storyboard */,
 				E053B6462604FC79005FAD51 /* Info.plist */,
@@ -280,22 +290,43 @@
 			path = ticonMoa;
 			sourceTree = "<group>";
 		};
-		E0AB9A1F2642CDAD00F11602 /* temp */ = {
+		E0AB9A1F2642CDAD00F11602 /* MainScene */ = {
 			isa = PBXGroup;
 			children = (
-				E0AB99F526427A6100F11602 /* HomeViewController2.swift */,
-				E0AB9A112642A09F00F11602 /* HomeCategoryHeaderView.swift */,
-				E0AB9A122642A09F00F11602 /* HomeCategoryHeaderView.xib */,
-				E0AB9A0426429A4A00F11602 /* HomeCollectionViewCell2.xib */,
-				E0AB9A0326429A4A00F11602 /* HomeCollectionViewCell2.swift */,
-				E0AB99F926427B6000F11602 /* HomeIconHeaderView.swift */,
-				E0AB99FD26427B6700F11602 /* HomeIconHeaderView.xib */,
+				E0AB9A5A2643D50700F11602 /* Controller */,
+				E0AB9A5B2643D51500F11602 /* View */,
+			);
+			path = MainScene;
+			sourceTree = "<group>";
+		};
+		E0AB9A5A2643D50700F11602 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E0AB99F526427A6100F11602 /* MainViewController.swift */,
+				E0AB9A6A2643D6D900F11602 /* MainVC + CollectionView.swift */,
+				E0AB9A702643D74100F11602 /* MainVC + PhotoPick.swift */,
+				E0AB9A4A2643707200F11602 /* PullUpViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E0AB9A5B2643D51500F11602 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0AB9A4E2643B47100F11602 /* ChoiceView.swift */,
+				E0AB9A522643B48F00F11602 /* ChoiceView.xib */,
+				E0AB9A112642A09F00F11602 /* MainCategoryHeaderView.swift */,
+				E0AB9A122642A09F00F11602 /* MainCategoryHeaderView.xib */,
+				E0AB9A0426429A4A00F11602 /* MainCollectionViewCell.xib */,
+				E0AB9A0326429A4A00F11602 /* MainCollectionViewCell.swift */,
+				E0AB99F926427B6000F11602 /* MainIconHeaderView.swift */,
+				E0AB99FD26427B6700F11602 /* MainIconHeaderView.xib */,
 				E0AB9A202642CDE500F11602 /* ButtonAddView.swift */,
+				E0AB9A262642CDEE00F11602 /* ButtonAddView.xib */,
 				E0AB9A3C264367B200F11602 /* PullUpView.swift */,
 				E0AB9A40264367B700F11602 /* PullUpView.xib */,
-				E0AB9A262642CDEE00F11602 /* ButtonAddView.xib */,
 			);
-			path = temp;
+			path = View;
 			sourceTree = "<group>";
 		};
 		E0AE47F926104F6D00BEC498 /* Model */ = {
@@ -534,15 +565,16 @@
 				E0AE482F2614526600BEC498 /* CategoryCell.xib in Resources */,
 				E0C3CF96263E5F0600483A91 /* SearchCollectionViewCell.xib in Resources */,
 				E0AE483A261465CA00BEC498 /* IconStackView.xib in Resources */,
+				E0AB9A532643B48F00F11602 /* ChoiceView.xib in Resources */,
 				E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */,
 				E0C3CFA0263FE24C00483A91 /* SearchHeaderReusableView.xib in Resources */,
 				E0AB9A41264367B700F11602 /* PullUpView.xib in Resources */,
 				E053B6422604FC79005FAD51 /* Assets.xcassets in Resources */,
-				E0AB99FE26427B6700F11602 /* HomeIconHeaderView.xib in Resources */,
-				E0AB9A142642A09F00F11602 /* HomeCategoryHeaderView.xib in Resources */,
+				E0AB99FE26427B6700F11602 /* MainIconHeaderView.xib in Resources */,
+				E0AB9A142642A09F00F11602 /* MainCategoryHeaderView.xib in Resources */,
 				E0AB99EC26421E3400F11602 /* tessdata in Resources */,
 				E053B6402604FC77005FAD51 /* Main.storyboard in Resources */,
-				E0AB9A0626429A4A00F11602 /* HomeCollectionViewCell2.xib in Resources */,
+				E0AB9A0626429A4A00F11602 /* MainCollectionViewCell.xib in Resources */,
 				E0B653B5260C40DD007C402F /* HomeCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -614,18 +646,22 @@
 				E0AB9A182642CC2500F11602 /* Gifticon.swift in Sources */,
 				E053B63D2604FC77005FAD51 /* HomeViewController.swift in Sources */,
 				E0AE482E2614526600BEC498 /* CategoryCell.swift in Sources */,
-				E0AB99F626427A6100F11602 /* HomeViewController2.swift in Sources */,
+				E0AB99F626427A6100F11602 /* MainViewController.swift in Sources */,
 				E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */,
 				E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */,
 				E0AB9A3D264367B200F11602 /* PullUpView.swift in Sources */,
 				E0BBB1E02638113D00DC4553 /* HomeVC + IconStackViewDelegate.swift in Sources */,
+				E0AB9A4B2643707200F11602 /* PullUpViewController.swift in Sources */,
 				E0AE4826261442D400BEC498 /* HorizontalScrollView.swift in Sources */,
+				E0AB9A4F2643B47100F11602 /* ChoiceView.swift in Sources */,
 				E0364FFE26247CC4006D243E /* ManualPhotoViewController.swift in Sources */,
 				E053B63B2604FC77005FAD51 /* SceneDelegate.swift in Sources */,
 				E0BBB2162638F72600DC4553 /* BrandRecognizer.swift in Sources */,
 				E0AE48372614659500BEC498 /* IconStackView.swift in Sources */,
 				E0AE480C2613222D00BEC498 /* Autolayout.swift in Sources */,
+				E0AB9A6B2643D6D900F11602 /* MainVC + CollectionView.swift in Sources */,
 				E0C3CFA5263FF79D00483A91 /* CouponDetailViewController.swift in Sources */,
+				E0AB9A712643D74100F11602 /* MainVC + PhotoPick.swift in Sources */,
 				E0AE484726171CE100BEC498 /* SlideAnimator.swift in Sources */,
 				E0BBB20F2638F70200DC4553 /* Date+toString.swift in Sources */,
 				E0364FF22623E007006D243E /* ImagePreProccessor.swift in Sources */,
@@ -633,15 +669,15 @@
 				E0AE48412616875F00BEC498 /* MapViewController.swift in Sources */,
 				E0AE483326145A8200BEC498 /* String+widthHeight.swift in Sources */,
 				E0B653B8260C497B007C402F /* PhotoManager.swift in Sources */,
-				E0AB99FA26427B6000F11602 /* HomeIconHeaderView.swift in Sources */,
+				E0AB99FA26427B6000F11602 /* MainIconHeaderView.swift in Sources */,
 				E0AB9A212642CDE500F11602 /* ButtonAddView.swift in Sources */,
 				E0BBB1DA263810DC00DC4553 /* HomeVC + TransitioningDelegate.swift in Sources */,
 				E0B653BB260C5833007C402F /* BarcodeRequestWrapper.swift in Sources */,
 				E0C3CF9A263F955D00483A91 /* HomeVC + UI.swift in Sources */,
 				E0C3CF95263E5F0600483A91 /* SearchCollectionViewCell.swift in Sources */,
 				E0C3CF9F263FE24C00483A91 /* SearchHeaderReusableView.swift in Sources */,
-				E0AB9A132642A09F00F11602 /* HomeCategoryHeaderView.swift in Sources */,
-				E0AB9A0526429A4A00F11602 /* HomeCollectionViewCell2.swift in Sources */,
+				E0AB9A132642A09F00F11602 /* MainCategoryHeaderView.swift in Sources */,
+				E0AB9A0526429A4A00F11602 /* MainCollectionViewCell.swift in Sources */,
 				E0BBB2002638268400DC4553 /* ManualViewModel.swift in Sources */,
 				E0AE483D2615AFEA00BEC498 /* IconButton.swift in Sources */,
 				E0AE480826131DF600BEC498 /* RoundTabBarView.swift in Sources */,

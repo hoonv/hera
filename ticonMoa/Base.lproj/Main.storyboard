@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -335,15 +336,15 @@
             </objects>
             <point key="canvasLocation" x="2761" y="465"/>
         </scene>
-        <!--Home View Controller2-->
+        <!--Main View Controller-->
         <scene sceneID="xHR-j3-h1d">
             <objects>
-                <viewController id="l3u-8Y-9Ra" customClass="HomeViewController2" customModule="ticonMoa" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="l3u-8Y-9Ra" customClass="MainViewController" customModule="ticonMoa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LsE-6v-UD1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhQ-mX-Onk" customClass="HomeIconHeaderView" customModule="ticonMoa" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhQ-mX-Onk" customClass="MainIconHeaderView" customModule="ticonMoa" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -370,7 +371,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="l3u-8Y-9Ra" id="kAE-sm-FpW"/>
+                                    <outlet property="dataSource" destination="l3u-8Y-9Ra" id="ASE-Gv-QEg"/>
                                     <outlet property="delegate" destination="l3u-8Y-9Ra" id="936-Il-SYA"/>
                                 </connections>
                             </collectionView>
@@ -404,7 +405,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BuK-2D-SkX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="873.91304347826099" y="1878.3482142857142"/>
+            <point key="canvasLocation" x="1016" y="1878"/>
+        </scene>
+        <!--Pull Up View Controller-->
+        <scene sceneID="WEt-ab-kVe">
+            <objects>
+                <viewController storyboardIdentifier="PullUpViewController" id="WOQ-Mg-a10" customClass="PullUpViewController" customModule="ticonMoa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1GW-kz-kTf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mxl-dq-h2x">
+                                <rect key="frame" x="0.0" y="384" width="414" height="512"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Ri-Er-Gny" customClass="ChoiceView" customModule="ticonMoa" customModuleProvider="target">
+                                        <rect key="frame" x="35" y="95" width="135" height="135"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WBc-av-Y8n" customClass="ChoiceView" customModule="ticonMoa" customModuleProvider="target">
+                                        <rect key="frame" x="200" y="106" width="135" height="135"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bt-uf-EC9">
+                                        <rect key="frame" x="121" y="273" width="173" height="56"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" name="appColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Let's Go"/>
+                                        <connections>
+                                            <action selector="goButtonTouched:" destination="WOQ-Mg-a10" eventType="touchUpInside" id="AFF-0d-x7a"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ty1-c5-FPN"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="autoView" destination="WBc-av-Y8n" id="khL-Is-rdN"/>
+                        <outlet property="goButton" destination="9bt-uf-EC9" id="eNZ-5E-gkY"/>
+                        <outlet property="manualView" destination="7Ri-Er-Gny" id="eJ5-TR-YtZ"/>
+                        <outlet property="pullUpView" destination="Mxl-dq-h2x" id="UCU-4N-Qnr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SFY-sL-YVJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1015.9420289855074" y="2556.6964285714284"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="qNY-or-ESd">
@@ -454,6 +506,9 @@
     </scenes>
     <resources>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
+        <namedColor name="appColor">
+            <color red="0.86274509803921573" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

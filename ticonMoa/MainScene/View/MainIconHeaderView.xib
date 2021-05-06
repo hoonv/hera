@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeIconHeaderView" customModule="ticonMoa" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainIconHeaderView" customModule="ticonMoa" customModuleProvider="target">
             <connections>
                 <outlet property="mapButton" destination="GHq-50-a1d" id="ygD-hk-WBm"/>
                 <outlet property="searchButton" destination="jgB-vk-tAh" id="iKS-cB-YVL"/>

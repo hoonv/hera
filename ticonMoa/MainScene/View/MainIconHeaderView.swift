@@ -1,16 +1,19 @@
 //
-//  PullUpView.swift
+//  HomeIconHeaderView.swift
 //  ticonMoa
 //
-//  Created by 채훈기 on 2021/05/06.
+//  Created by 채훈기 on 2021/05/05.
 //
 
 import UIKit
 
-class PullUpView: UIView {
-
+class MainIconHeaderView: UIView {
     
-    private let nibName = "PullUpView"
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var mapButton: UIButton!
+    
+    private let nibName = "MainIconHeaderView"
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,6 +30,9 @@ class PullUpView: UIView {
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(view)
+        
+        searchButton.layer.cornerRadius = 12
+        mapButton.layer.cornerRadius = 12
     }
     
     private func loadViewFromNib() -> UIView? {
@@ -34,5 +40,4 @@ class PullUpView: UIView {
         let nib = UINib(nibName: nibName, bundle: bundle)
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
     }
-
 }

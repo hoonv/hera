@@ -91,14 +91,18 @@ class LoginViewController: UIViewController,  GIDSignInDelegate {
                 let tabbarVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! UITabBarController
                 tabbarVC.modalPresentationStyle = .fullScreen
                 self.present(tabbarVC, animated: true, completion: nil)
-                var email = Auth.auth().currentUser?.email
-                var uid = Auth.auth().currentUser?.uid
-                var user_id = email?.components(separatedBy: "@")[0]
-                
-                
+                let email = Auth.auth().currentUser?.email
+                let uid = Auth.auth().currentUser?.uid
+                let user_id = email?.components(separatedBy: "@")[0]
+                let post = [ "uid" :uid, "email":email,"Coupon" : ""]
+                let childupdates = ["/User/\(user_id!)": post]
+                self.ref.updateChildValues(childupdates)
+                /*
                 self.ref.child("User").updateChildValues([user_id!:""])
                 self.ref.child("User").child(user_id!).updateChildValues(["email":email!])
                 self.ref.child("User").child(user_id!).updateChildValues(["uid":uid!])
+                self.ref.child("User").child(user_id!).child("Coupon")
+                */
             }
         }
     }
@@ -159,13 +163,12 @@ extension LoginViewController: ASAuthorizationControllerPresentationContextProvi
                 return
             } // User is signed in to Firebase with Apple.
                 // ...
-            var email = Auth.auth().currentUser?.email
-            var uid = Auth.auth().currentUser?.uid
-            var user_id = email?.components(separatedBy: "@")[0]
-            
-            self.ref.child("User").updateChildValues([user_id!:""])
-            self.ref.child("User").child(user_id!).updateChildValues(["email":email!])
-            self.ref.child("User").child(user_id!).updateChildValues(["uid":uid!])
+            let email = Auth.auth().currentUser?.email
+            let uid = Auth.auth().currentUser?.uid
+            let user_id = email?.components(separatedBy: "@")[0]
+            let post = [ "uid" :uid, "email":email,"Coupon" : ""]
+            let childupdates = ["/User/\(user_id!)": post]
+            self.ref.updateChildValues(childupdates)
             }
         }
     }

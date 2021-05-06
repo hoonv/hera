@@ -7,16 +7,33 @@
 
 import UIKit
 import Photos
-
-protocol PhotoManagerDelegate: AnyObject {
-    func photoManager(_ photoManager: PhotoManager, didLoad image: UIImage?, index: Int, isLast: Bool)
-}
-
+import RxSwift
 
 final class PhotoManager {
 
-    weak var delegate: PhotoManagerDelegate?
-
+    let imageOutput = PublishSubject<UIImage>()
+    let isProccess = PublishSubject<Bool>()
+    let bag = DisposeBag()
+    
+    func requestAuthorization() {
+        if #available(iOS 14, *) {
+            PHPhotoLibrary.requestAuthorization(for: .readWrite, handler: requestAuthHandler)
+        } else {
+            PHPhotoLibrary.requestAuthorization(requestAuthHandler)
+        }
+    }
+    
+    private func requestAuthHandler(status: PHAuthorizationStatus) {
+        switch status {
+        case .denied, .notDetermined, .restricted:
+            print("사진 권한이 필요합니다")
+        case .limited, .authorized:
+            requestPhotos()
+        @unknown default:
+            break
+        }
+    }
+    
     // PhotoLibray에 요청하는 옵션
     private var fetchOptions: PHFetchOptions = {
         let formatter = DateFormatter()
@@ -42,54 +59,26 @@ final class PhotoManager {
     }()
     var targetSize = CGSize(width: 300, height: 500)
     var contentMode: PHImageContentMode = .aspectFit
-    
-    func requestAuthorization(completion: @escaping () -> Void) {
-        if #available(iOS 14, *) {
-            PHPhotoLibrary.requestAuthorization(for: .readWrite) { (status) in
-                switch status {
-                case .denied, .notDetermined:
-                    print("사진 권한 처리")
-                case .limited, .authorized:
-                    completion()
-                default:
-                    break
-                }
-            }
-        } else {
-            PHPhotoLibrary.requestAuthorization { (status) in
-                switch status {
-                case .denied, .notDetermined:
-                    print("사진 권한 처리")
-                case .limited, .authorized:
-                    completion()
-                default:
-                    break
-                }
-            }
-        }
-    }
-    
-    func requestAuthAndGetAllPhotos() {
-        requestAuthorization {
-            self.requestAccessableImage()
-        }
-    }
-    
-    private func requestAccessableImage() {
-  
+     
+    private func requestPhotos() {
+        
         let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: self.fetchOptions)
         
-        var assets = fetchResult.objects(at:
+        let assets = fetchResult.objects(at:
                                 IndexSet(integersIn: 0..<fetchResult.count))
         
-        let c = PhotoCluster(data: assets)
-        assets = c.execute()
-
-        assets.enumerated().forEach { (idx, asset) in
-            PHImageManager.default().requestImage(for: asset, targetSize: self.targetSize,contentMode: self.contentMode, options: self.requestOptions) {
-                (image, _) in
-                self.delegate?.photoManager(self, didLoad: image, index: idx, isLast: idx == assets.count - 1)
-            }
-        }
+        PhotoCluster(data: assets).execute()
+            .subscribe(onNext: { asset in
+            PHImageManager.default()
+                .requestImage(for: asset,
+                              targetSize: self.targetSize,
+                              contentMode: self.contentMode,
+                              options: self.requestOptions,
+                              resultHandler: { image, _ in
+                guard let image = image else { return }
+                self.imageOutput.on(.next(image))
+            })
+            }, onCompleted: { self.isProccess.on(.next(false)) })
+        .disposed(by: bag)
     }
 }

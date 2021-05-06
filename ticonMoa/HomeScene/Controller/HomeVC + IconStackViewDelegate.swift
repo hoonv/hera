@@ -27,16 +27,4 @@ extension HomeViewController: IconStackViewDelegate {
             
         self.present(optionMenu, animated: true, completion: nil)
     }
-    
-    func showAuto() {
-        viewModel.input.requestPhotoWithAuto()
-    }
-    
-    func showManual() {
-        imagePickerController.allowsEditing = false
-        imagePickerController.delegate = self
-        imagePickerController.sourceType = .photoLibrary
-        
-        present(imagePickerController, animated: true, completion: nil)
-    }
 }

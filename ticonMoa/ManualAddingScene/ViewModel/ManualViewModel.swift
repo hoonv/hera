@@ -7,7 +7,8 @@
 
 import UIKit
 import RxSwift
-import TesseractOCR
+
+import SwiftyTesseract
 
 protocol ManualViewModelInput {
     func requestTextRecognition(image: UIImage, layer: CALayer)
@@ -35,18 +36,64 @@ class ManualViewModel: ManualViewModelInput, ManualViewModelOutput, ManualViewMo
     var brand = BehaviorSubject<String>(value: "")
     var expirationDate = BehaviorSubject<Date>(value: Date())
 
-    private var ocr: G8Tesseract?
+    let tesseract = Tesseract(languages: [.english, .korean]) {
+        set(.disallowlist, value: "•@#$%^&*")
+        set(.preserveInterwordSpaces, value: .true)
+    }
 
-    init(ocr: G8Tesseract?) {
-        self.ocr = ocr
+    init() {
+
     }
     
     func requestTextRecognition(image: UIImage, layer: CALayer) {
+            
         let barcodeRequest = BarcodeRequestWrapper(image: image, completion: barcodeRequestHandler)
-        let textRequest = TextRecognitionWrapper(image: image, layer: layer, completion: textRequestHandler)
-        
-        textRequest.perform()
+
         barcodeRequest.perform()
+        
+        let res = tesseract.performOCR(on: image)
+        switch res {
+        case .success(let input):
+            let toks = input
+                .split(separator: "\n")
+                .map { $0.split(separator: " ").map { String($0) }
+                }
+            analyzeOCRResult(input: toks)
+        default:
+            print("ocr ERROR in Manual View Model")
+        }
+   
+    }
+    
+    func analyzeOCRResult(input: [[String]]) {
+        let dateReg = DateRecognizer()
+        let brandReg = BrandRecognizer()
+        
+        for (idx, line) in input.enumerated() {
+            
+            let joined = line.joined()
+            if joined.count == 12 && Int(joined) != nil {
+                guard let n1 = input[idx - 2].first,
+                      let n2 = input[idx - 1].first else { continue }
+                if n1.count > n2.count {
+                    self.name.on(.next(n1))
+                } else {
+                    self.name.on(.next(n2))
+                }
+            }
+            
+            for word in line {
+                if let date = dateReg.recognize(input: word) {
+                    self.expirationDate.on(.next(date))
+                    continue
+                }
+                if let brand = brandReg.match(input: word) {
+                    self.brand.on(.next(brand))
+                    continue
+                }
+            }
+        }
+        
     }
     
     func barcodeRequestHandler(image: UIImage, payload: String) {
@@ -55,7 +102,7 @@ class ManualViewModel: ManualViewModelInput, ManualViewModelOutput, ManualViewMo
     
     func textRequestHandler(data: [(UIImage, String)]) {
         
-        for (image, payload) in data {
+        for (_, payload) in data {
             let dateReg = DateRecognizer()
             let brandReg = BrandRecognizer()
             if let date = dateReg.recognize(input: payload) {
@@ -67,31 +114,6 @@ class ManualViewModel: ManualViewModelInput, ManualViewModelOutput, ManualViewMo
                 self.brand.on(.next(brand))
                 continue
             }
-            
-            self.recognizeWithTesseract(image: image) { str in
-                guard let str = str else { return }
-                
-                if let date = dateReg.recognize(input: str) {
-                    self.expirationDate.on(.next(date))
-                }
-                if let brand = brandReg.match(input: str) {
-                    self.brand.on(.next(brand))
-                    return
-                }
-            }
-            
-        }
-    }
-    
-
-    
-    func recognizeWithTesseract(image: UIImage, completion: @escaping (String?) -> Void) {
-        DispatchQueue.global().async {
-            let oocr = G8Tesseract(language: "eng+kor")
-            oocr?.image = image
-            oocr?.recognize()
-            let str = oocr?.recognizedText?.trimmingCharacters(in: .whitespacesAndNewlines)
-            completion(str)
         }
     }
 }

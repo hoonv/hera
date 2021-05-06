@@ -104,4 +104,24 @@ extension UIButton {
         pulse.toValue = 1.0
         layer.add(pulse, forKey: "pulse")
     }
+    
+    func shrink() {
+        let animation = CABasicAnimation(keyPath: "transform.scale")
+        animation.duration = 0.15
+        animation.fromValue = 1
+        animation.toValue = 0.98
+        animation.fillMode = .forwards
+        animation.isRemovedOnCompletion = false
+        layer.add(animation, forKey: "pulse")
+    }
+    
+    func expand() {
+        let animation = CABasicAnimation(keyPath: "transform.scale")
+        animation.duration = 0.15
+        animation.fromValue = 1
+        animation.toValue = 1.01
+        animation.fillMode = .forwards
+        animation.isRemovedOnCompletion = false
+        layer.add(animation, forKey: "pulse")
+    }
 }

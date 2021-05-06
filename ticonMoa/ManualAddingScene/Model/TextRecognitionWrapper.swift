@@ -45,7 +45,6 @@ class TextRecognitionWrapper {
         
         guard let results = request?.results as? [VNRecognizedTextObservation] else { return }
         
-        
         let mapped = results.compactMap { result -> (UIImage, String)? in
             guard let payload = result.topCandidates(1).first?.string else { return nil }
             var transform = CGAffineTransform.identity
@@ -56,8 +55,6 @@ class TextRecognitionWrapper {
             guard let cropped = image.crop(rect: rect) else { return nil }
             return (cropped, payload)
         }
-        
-        print(mapped.count)
         completion(mapped)
     }
     
@@ -110,11 +107,18 @@ class TextRecognitionWrapper {
 extension UIImage {
     func crop( rect: CGRect) -> UIImage? {
         var rect = rect
-        rect.origin.x*=self.scale
-        rect.origin.y*=self.scale
-        rect.size.width*=self.scale
-        rect.size.height*=self.scale
+        rect.origin.x *= self.scale
+        rect.origin.y *= self.scale
+        
+        rect.origin.x -= 5
+        rect.origin.y -= 5
+        
+        rect.size.width *= self.scale
+        rect.size.height *= self.scale
 
+        rect.size.width += 10
+        rect.size.height += 10
+        
         guard let imageRef = self.cgImage?.cropping(to: rect) else{ return nil }
         let image = UIImage(cgImage: imageRef, scale: self.scale, orientation: self.imageOrientation)
         

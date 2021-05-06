@@ -24,10 +24,4 @@ extension HomeViewController: UIImagePickerControllerDelegate & UINavigationCont
         }
 
     }
-    
-    func presentManualViewController(image: UIImage?) {
-        guard let controller: ManualPhotoViewController = UIStoryboard.main.instantiate() else { return }
-        controller.selectedImage = image
-        self.show(controller, sender: self)
-    }
 }

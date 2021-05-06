@@ -14,7 +14,7 @@ protocol HomeViewModelInput {
 
 protocol HomeViewModelOutput {
     var images: BehaviorSubject<[UIImage]> { get }
-    var isFinished: BehaviorSubject<Bool> { get }
+    var isProccess: BehaviorSubject<Bool> { get }
 }
 
 protocol HomeViewModelType {
@@ -28,36 +28,34 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput, HomeViewModelType 
     var output: HomeViewModelOutput { self }
     
     var images = BehaviorSubject<[UIImage]>(value: [])
-    var isFinished = BehaviorSubject<Bool>(value: false)
+    var isProccess = BehaviorSubject<Bool>(value: false)
     
     private var _images: [UIImage] = []
     private let photoManager = PhotoManager()
 
+    let bag = DisposeBag()
+    
     init() {
-        photoManager.delegate = self
+        photoManager.isProccess
+            .subscribe(onNext: { flag in
+                self.isProccess.onNext(flag)
+            })
+            .disposed(by: bag)
+        photoManager.imageOutput
+            .subscribe(onNext: { image in
+                let barcodeDetector = BarcodeRequestWrapper(image: image) { [weak self] uiimage, payload  in
+                    guard let self = self else { return }
+                    self._images.append(image)
+                    self.images.on(.next(self._images))
+                }
+                barcodeDetector.perform()
+            })
+            .disposed(by: bag)
     }
 
     func requestPhotoWithAuto() {
-        isFinished.on(.next(true))
-        photoManager.requestAuthAndGetAllPhotos()
+        isProccess.on(.next(true))
+        photoManager.requestAuthorization()
     }
     
-}
-
-
-extension HomeViewModel: PhotoManagerDelegate {
-    func photoManager(_ photoManager: PhotoManager, didLoad image: UIImage?, index: Int, isLast: Bool) {
-        guard let image = image else { return }
-
-        if isLast {
-            self.isFinished.on(.next(false))
-        }
-        
-        let barcodeWrapper: BarcodeRequestWrapper? = BarcodeRequestWrapper(image: image) { [weak self] uiimage, payload  in
-            guard let self = self else { return }
-            self._images.append(image)
-            self.images.on(.next(self._images))
-        }
-        barcodeWrapper?.perform()
-    }
 }

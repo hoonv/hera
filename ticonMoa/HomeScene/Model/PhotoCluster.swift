@@ -7,6 +7,7 @@
 
 import UIKit
 import Photos
+import RxSwift
 
 class PhotoCluster {
     
@@ -27,7 +28,7 @@ class PhotoCluster {
         return widthRemainder == 0 && heightRemainder == 0
     }
     
-    func execute() -> [PHAsset] {
+    func execute() -> Observable<PHAsset> {
         var assets: [PHAsset] = []
         var temporaryAssets: [PHAsset] = []
         
@@ -61,7 +62,13 @@ class PhotoCluster {
             assets.append(first)
         }
         
-        return assets
+        return Observable.create { observer in
+            for asset in assets {
+                observer.onNext(asset)
+            }
+            observer.onCompleted()
+            return Disposables.create()
+        }
     }
 }
 

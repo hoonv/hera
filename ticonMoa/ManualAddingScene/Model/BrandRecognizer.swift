@@ -14,7 +14,9 @@ class BrandRecognizer {
         "CU": ["CU", "cu", "Cu", "cU"],
         "스타벅스": ["starbucks", "스타벅스"],
         "공차": ["공자","공차"],
-        "본죽": ["본죽","붓좆","목축","톱즉"]
+        "본죽": ["본죽","붓좆","목축","톱즉"],
+        "bhc": ["bhc","BHC"],
+        "도미노피자": ["도미노피자","도마노피자"],
     ]
     
     func match(input: String) -> String? {

@@ -12,10 +12,11 @@ class CategoryCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     
+    @IBOutlet weak var imageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        containerView.backgroundColor = .black
-        titleLabel.textColor = .white
+//        containerView.backgroundColor = .black
+//        titleLabel.textColor = .white
     }
 
 }

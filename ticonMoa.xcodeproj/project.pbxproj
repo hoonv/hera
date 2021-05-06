@@ -10,6 +10,8 @@
 		55371515263F653F00E00DE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55371514263F653F00E00DE2 /* GoogleService-Info.plist */; };
 		55371516263F653F00E00DE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55371514263F653F00E00DE2 /* GoogleService-Info.plist */; };
 		5537153F263F7BD100E00DE2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537153E263F7BD100E00DE2 /* LoginViewController.swift */; };
+		553D131A264402BB00E14AAB /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553D1319264402BB00E14AAB /* PushKit.framework */; };
+		553D131C264402C700E14AAB /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553D131B264402C700E14AAB /* UserNotifications.framework */; };
 		7B6348F1712760BB6EFD96D4 /* Pods_ticonMoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 877DF317B04331FB7E3B67F8 /* Pods_ticonMoa.framework */; };
 		E0364FF22623E007006D243E /* ImagePreProccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FF12623E007006D243E /* ImagePreProccessor.swift */; };
 		E0364FF52623EA97006D243E /* TextRecognitionWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FF42623EA97006D243E /* TextRecognitionWrapper.swift */; };
@@ -61,6 +63,8 @@
 		55371514263F653F00E00DE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5537153B263F77E600E00DE2 /* ticonMoa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ticonMoa.entitlements; sourceTree = "<group>"; };
 		5537153E263F7BD100E00DE2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		553D1319264402BB00E14AAB /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
+		553D131B264402C700E14AAB /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		79A4CD5FE06E834BF95ED000 /* Pods-ticonMoa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ticonMoa.release.xcconfig"; path = "Target Support Files/Pods-ticonMoa/Pods-ticonMoa.release.xcconfig"; sourceTree = "<group>"; };
 		877DF317B04331FB7E3B67F8 /* Pods_ticonMoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ticonMoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0364FF12623E007006D243E /* ImagePreProccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreProccessor.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				553D131C264402C700E14AAB /* UserNotifications.framework in Frameworks */,
+				553D131A264402BB00E14AAB /* PushKit.framework in Frameworks */,
 				7B6348F1712760BB6EFD96D4 /* Pods_ticonMoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +290,8 @@
 		EAA2D1BEF8CE5C294F1D0B9C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				553D131B264402C700E14AAB /* UserNotifications.framework */,
+				553D1319264402BB00E14AAB /* PushKit.framework */,
 				877DF317B04331FB7E3B67F8 /* Pods_ticonMoa.framework */,
 			);
 			name = Frameworks;

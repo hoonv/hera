@@ -2,7 +2,7 @@
 //  ManualPhotoViewController.swift
 //  ticonMoa
 //
-//  Created by 채훈기 on 2021/04/12.
+//  Created by 최영찬 on 2021/05/06.
 //
 
 import UIKit

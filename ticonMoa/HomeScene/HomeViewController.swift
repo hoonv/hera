@@ -2,12 +2,13 @@
 //  ViewController.swift
 //  ticonMoa
 //
-//  Created by 채훈기 on 2021/03/20.
+//  Created by 최영찬 on 2021/05/06.
 //
 
 import UIKit
 import Photos
 import Vision
+import UserNotifications //알림기능
 
 class HomeViewController: UIViewController {
     
@@ -31,8 +32,9 @@ class HomeViewController: UIViewController {
         let panRight = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
         view.addGestureRecognizer(panRight)
 
+        
         super.viewDidLoad()
-}
+    }
 
     private func setupUI() {
         self.view.layer.cornerRadius = 30

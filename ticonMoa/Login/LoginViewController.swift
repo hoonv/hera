@@ -2,7 +2,7 @@
 //  LoginController.swift
 //  ticonMoa
 //
-//  Created by ychoib on 2021/05/03.
+//  Created by 최영찬 on 2021/05/06.
 //
 
 import UIKit

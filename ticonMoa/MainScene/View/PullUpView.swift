@@ -8,7 +8,6 @@
 import UIKit
 
 class PullUpView: UIView {
-
     
     private let nibName = "PullUpView"
     

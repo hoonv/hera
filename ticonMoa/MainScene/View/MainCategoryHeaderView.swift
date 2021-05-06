@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeCategoryHeaderView: UICollectionReusableView {
+class MainCategoryHeaderView: UICollectionReusableView {
 
     override func awakeFromNib() {
         super.awakeFromNib()

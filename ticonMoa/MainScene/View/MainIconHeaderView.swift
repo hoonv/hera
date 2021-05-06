@@ -7,12 +7,12 @@
 
 import UIKit
 
-class HomeIconHeaderView: UIView {
+class MainIconHeaderView: UIView {
     
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var mapButton: UIButton!
     
-    private let nibName = "HomeIconHeaderView"
+    private let nibName = "MainIconHeaderView"
 
     
     override init(frame: CGRect) {

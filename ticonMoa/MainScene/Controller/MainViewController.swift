@@ -15,7 +15,6 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var addView: ButtonAddView!
     
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
     let imagePickerController = UIImagePickerController()
 
     var pullUpVC: PullUpViewController?
@@ -24,9 +23,11 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.register(UINib(nibName: "MainCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MainCollectionViewCell")
-        collectionView.register(UINib(nibName: "HomeCategoryHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeCategoryHeaderView")
-        
+        registerCells()
+        bind()
+    }
+    
+    func bind() {
         addView.addButton.rx.tap
             .bind { [weak self] in
                 self?.pullUpView()
@@ -43,7 +44,6 @@ class MainViewController: UIViewController {
             .bind { [weak self] in
                 self?.addView.addButton.expand()
             }.disposed(by: bag)
-        
     }
     
     func pullUpView() {
@@ -88,57 +88,4 @@ class MainViewController: UIViewController {
         self.show(controller, sender: self)
     }
     
-}
-
-extension MainViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (view.frame.width - 50) / 2, height: 220)
-    }
-}
-
-extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
-        cell.layer.cornerRadius = 12
-        return cell
-    }
-    
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width - 40, height: 64)
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeCategoryHeaderView", for: indexPath) as? HomeCategoryHeaderView else { return UICollectionReusableView() }
-        return header
-    }
-}
-
-
-extension MainViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        var pickedImage: UIImage? = nil
-        
-        if let possibleImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            pickedImage = possibleImage // 수정된 이미지가 있을 경우
-        } else if let possibleImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            pickedImage = possibleImage // 원본 이미지가 있을 경우
-        }
-        
-        picker.dismiss(animated: true) {
-            self.presentManualViewController(image: pickedImage)
-        }
-
-    }
 }

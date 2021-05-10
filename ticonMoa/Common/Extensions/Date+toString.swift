@@ -8,7 +8,11 @@
 import Foundation
 
 extension Date {
-    func toString( dateFormat format: String ) -> String {
+    static var max: Date { Date() }
+}
+
+extension Date {
+    func toString(dateFormat format: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         dateFormatter.timeZone = TimeZone.autoupdatingCurrent
@@ -16,11 +20,11 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
-    func toStringKST( dateFormat format: String ) -> String {
+    func toStringKST(dateFormat format: String) -> String {
         return self.toString(dateFormat: format)
     }
     
-    func toStringUTC( dateFormat format: String ) -> String {
+    func toStringUTC(dateFormat format: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")

@@ -276,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				E0AB99EB26421E3400F11602 /* tessdata */,
+				E0BDEB8A2649504B00228762 /* Common */,
 				E0BDEB6526491DFE00228762 /* Module */,
 				E02027DB2628626900AD7230 /* MainTabBar */,
 				E02027D82628609E00AD7230 /* HomeScene (deprecated) */,
@@ -285,10 +286,6 @@
 				E02027D92628622400AD7230 /* SearchScene */,
 				E02027DA2628623800AD7230 /* ProfileScene */,
 				E02027DE2628639800AD7230 /* MapScene */,
-				E0AE4815261437C100BEC498 /* View */,
-				E0AE480A2613222600BEC498 /* Extensions */,
-				E0AE47FB2613078100BEC498 /* Cell */,
-				E0AE47F926104F6D00BEC498 /* Model */,
 				E053B6382604FC77005FAD51 /* AppDelegate.swift */,
 				E053B63A2604FC77005FAD51 /* SceneDelegate.swift */,
 				E053B63E2604FC77005FAD51 /* Main.storyboard */,
@@ -331,6 +328,9 @@
 				E0AB9A262642CDEE00F11602 /* ButtonAddView.xib */,
 				E0AB9A3C264367B200F11602 /* PullUpView.swift */,
 				E0AB9A40264367B700F11602 /* PullUpView.xib */,
+				E0AE4825261442D400BEC498 /* HorizontalScrollView.swift */,
+				E0AE4829261442FC00BEC498 /* HorizontalScrollView.xib */,
+				E0AE483C2615AFEA00BEC498 /* IconButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -364,16 +364,6 @@
 				E0BDEB8426494C7600228762 /* Array.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		E0AE4815261437C100BEC498 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E0AE4825261442D400BEC498 /* HorizontalScrollView.swift */,
-				E0AE4829261442FC00BEC498 /* HorizontalScrollView.xib */,
-				E0AE483C2615AFEA00BEC498 /* IconButton.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		E0BBB1BE2637C55E00DC4553 /* ticonMoaTests */ = {
@@ -419,6 +409,7 @@
 		E0BBB1E62638178C00DC4553 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E0AE47FB2613078100BEC498 /* Cell */,
 				E0AE48362614659500BEC498 /* IconStackView.swift */,
 				E0AE4839261465CA00BEC498 /* IconStackView.xib */,
 				E0B653B2260C40DD007C402F /* HomeCollectionViewCell.swift */,
@@ -481,6 +472,15 @@
 				E0AB9A0326429A4A00F11602 /* MainCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		E0BDEB8A2649504B00228762 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E0AE480A2613222600BEC498 /* Extensions */,
+				E0AE47F926104F6D00BEC498 /* Model */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		E0C3CFA3263FF78200483A91 /* CounponDetailScene */ = {

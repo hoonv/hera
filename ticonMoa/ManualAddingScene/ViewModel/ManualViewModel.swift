@@ -53,38 +53,34 @@ class ManualViewModel: ManualViewModelInput, ManualViewModelOutput, ManualViewMo
     }
     
     private func analyzeOCRResult(input: [[String]]) {
-        let dateReg = DateRecognizer()
-        let brandReg = BrandRecognizer()
+
         let nameReg = NameRecognizer()
         for (idx, line) in input.enumerated() {
             let joined = line.joined()
-    
-            if let name = nameReg.match(input: [joined]) {
+            let n1 = input[safe: idx - 2]?.first
+            let n2 = input[safe: idx - 1]?.first
+            if let name = nameReg.match(input: joined, candidates: [n1,n2]) {
                 self.name.on(.next(name))
             }
-
-            if joined.count >= 12 && Int(joined) != nil {
-                guard let n1 = input[idx - 2].first,
-                      let n2 = input[idx - 1].first else { continue }
-                if n1.count > n2.count {
-                    self.name.on(.next(n1))
-                } else {
-                    self.name.on(.next(n2))
-                }
-            }
             
-            for word in line {
-                if let date = dateReg.match(input: word) {
-                    self.expirationDate.on(.next(date))
-                    continue
-                }
-                if let brand = brandReg.match(input: word) {
-                    self.brand.on(.next(brand))
-                    continue
-                }
+            recognizeDateBrand(line: line)
+
+        }
+    }
+    
+    private func recognizeDateBrand(line: [String]) {
+        let dateReg = DateRecognizer()
+        let brandReg = BrandRecognizer()
+        for word in line {
+            if let date = dateReg.match(input: word) {
+                self.expirationDate.on(.next(date))
+                continue
+            }
+            if let brand = brandReg.match(input: word) {
+                self.brand.on(.next(brand))
+                continue
             }
         }
-        
     }
     
     private func barcodeRequestHandler(image: UIImage, payload: String) {

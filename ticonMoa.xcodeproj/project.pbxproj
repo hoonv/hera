@@ -320,12 +320,9 @@
 		E0AB9A5B2643D51500F11602 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E0BDEB8126494C1800228762 /* Cell */,
 				E0AB9A4E2643B47100F11602 /* ChoiceView.swift */,
 				E0AB9A522643B48F00F11602 /* ChoiceView.xib */,
-				E0AB9A112642A09F00F11602 /* MainCategoryHeaderView.swift */,
-				E0AB9A122642A09F00F11602 /* MainCategoryHeaderView.xib */,
-				E0AB9A0426429A4A00F11602 /* MainCollectionViewCell.xib */,
-				E0AB9A0326429A4A00F11602 /* MainCollectionViewCell.swift */,
 				E0AB99F926427B6000F11602 /* MainIconHeaderView.swift */,
 				E0AB99FD26427B6700F11602 /* MainIconHeaderView.xib */,
 				E0AB9A202642CDE500F11602 /* ButtonAddView.swift */,
@@ -470,6 +467,17 @@
 				E0BDEB6D264939F700228762 /* TessearctEngine.swift */,
 			);
 			path = OCR;
+			sourceTree = "<group>";
+		};
+		E0BDEB8126494C1800228762 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E0AB9A112642A09F00F11602 /* MainCategoryHeaderView.swift */,
+				E0AB9A122642A09F00F11602 /* MainCategoryHeaderView.xib */,
+				E0AB9A0426429A4A00F11602 /* MainCollectionViewCell.xib */,
+				E0AB9A0326429A4A00F11602 /* MainCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		E0C3CFA3263FF78200483A91 /* CounponDetailScene */ = {

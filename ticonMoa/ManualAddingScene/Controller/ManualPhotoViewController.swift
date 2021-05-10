@@ -39,7 +39,7 @@ class ManualPhotoViewController: UIViewController {
         super.viewDidAppear(animated)
         
         guard let image = selectedImage, isProccess == false else { return }
-        viewModel.input.requestTextRecognition(image: image, layer: imageView.layer)
+        viewModel.input.executeOCR(image: image)
         isProccess = true
     }
     

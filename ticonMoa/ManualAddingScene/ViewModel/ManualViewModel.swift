@@ -7,11 +7,11 @@
 
 import UIKit
 import RxSwift
-
 import SwiftyTesseract
 
 protocol ManualViewModelInput {
-    func requestTextRecognition(image: UIImage, layer: CALayer)
+    func executeOCR(image: UIImage)
+    func executeOCR(image: UIImage, layer: CALayer)
 }
 
 protocol ManualViewModelOutput {
@@ -36,42 +36,33 @@ class ManualViewModel: ManualViewModelInput, ManualViewModelOutput, ManualViewMo
     var brand = BehaviorSubject<String>(value: "")
     var expirationDate = BehaviorSubject<Date>(value: Date())
 
-    let tesseract = Tesseract(languages: [.english, .korean]) {
-        set(.disallowlist, value: "•@#$%^&*")
-        set(.preserveInterwordSpaces, value: .true)
-    }
-
+    let ocrManager: OCRManager
+    
     init() {
-
+        ocrManager = OCRManager()
     }
     
-    func requestTextRecognition(image: UIImage, layer: CALayer) {
-            
-        let barcodeRequest = BarcodeRequestWrapper(image: image, completion: barcodeRequestHandler)
-
-        barcodeRequest.perform()
-        
-        let res = tesseract.performOCR(on: image)
-        switch res {
-        case .success(let input):
-            let toks = input
-                .split(separator: "\n")
-                .map { $0.split(separator: " ").map { String($0) }
-                }
-            analyzeOCRResult(input: toks)
-        default:
-            print("ocr ERROR in Manual View Model")
-        }
-   
+    func executeOCR(image: UIImage) {
+        ocrManager.requestBarcodeRecognition(image: image, completion: barcodeRequestHandler)
+        let payloads: [[String]] = ocrManager.requestTextRecognition(image: image)
+        analyzeOCRResult(input: payloads)
     }
     
-    func analyzeOCRResult(input: [[String]]) {
+    func executeOCR(image: UIImage, layer: CALayer) {
+        executeOCR(image: image)
+    }
+    
+    private func analyzeOCRResult(input: [[String]]) {
         let dateReg = DateRecognizer()
         let brandReg = BrandRecognizer()
-        
+        let nameReg = NameRecognizer()
         for (idx, line) in input.enumerated() {
-            
             let joined = line.joined()
+    
+            if let name = nameReg.match(input: [joined]) {
+                self.name.on(.next(name))
+            }
+
             if joined.count >= 12 && Int(joined) != nil {
                 guard let n1 = input[idx - 2].first,
                       let n2 = input[idx - 1].first else { continue }
@@ -83,7 +74,7 @@ class ManualViewModel: ManualViewModelInput, ManualViewModelOutput, ManualViewMo
             }
             
             for word in line {
-                if let date = dateReg.recognize(input: word) {
+                if let date = dateReg.match(input: word) {
                     self.expirationDate.on(.next(date))
                     continue
                 }
@@ -96,24 +87,7 @@ class ManualViewModel: ManualViewModelInput, ManualViewModelOutput, ManualViewMo
         
     }
     
-    func barcodeRequestHandler(image: UIImage, payload: String) {
+    private func barcodeRequestHandler(image: UIImage, payload: String) {
         self.barcode.on(.next(payload))
-    }
-    
-    func textRequestHandler(data: [(UIImage, String)]) {
-        
-        for (_, payload) in data {
-            let dateReg = DateRecognizer()
-            let brandReg = BrandRecognizer()
-            if let date = dateReg.recognize(input: payload) {
-                self.expirationDate.on(.next(date))
-                continue
-            }
-            
-            if let brand = brandReg.match(input: payload) {
-                self.brand.on(.next(brand))
-                continue
-            }
-        }
     }
 }

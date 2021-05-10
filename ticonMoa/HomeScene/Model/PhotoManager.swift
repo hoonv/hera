@@ -66,7 +66,6 @@ final class PhotoManager {
         
         let assets = fetchResult.objects(at:
                                 IndexSet(integersIn: 0..<fetchResult.count))
-        
         PhotoCluster(data: assets).execute()
             .subscribe(onNext: { asset in
             PHImageManager.default()

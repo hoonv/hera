@@ -191,7 +191,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E02027D82628609E00AD7230 /* HomeScene */ = {
+		E02027D82628609E00AD7230 /* HomeScene (deprecated) */ = {
 			isa = PBXGroup;
 			children = (
 				E0BBB1E32638175700DC4553 /* Controller */,
@@ -199,7 +199,7 @@
 				E0BBB1E62638178C00DC4553 /* View */,
 				E0BBB1E52638176800DC4553 /* Model */,
 			);
-			path = HomeScene;
+			path = "HomeScene (deprecated)";
 			sourceTree = "<group>";
 		};
 		E02027D92628622400AD7230 /* SearchScene */ = {
@@ -276,7 +276,7 @@
 				E0AB99EB26421E3400F11602 /* tessdata */,
 				E0BDEB6526491DFE00228762 /* Module */,
 				E02027DB2628626900AD7230 /* MainTabBar */,
-				E02027D82628609E00AD7230 /* HomeScene */,
+				E02027D82628609E00AD7230 /* HomeScene (deprecated) */,
 				E0AB9A1F2642CDAD00F11602 /* MainScene */,
 				E02027DC2628628E00AD7230 /* ManualAddingScene */,
 				E0C3CFA3263FF78200483A91 /* CounponDetailScene */,

@@ -22,7 +22,7 @@ class PullUpViewController: UIViewController {
     
     @IBOutlet weak var pullUpView: UIView!
     
-    @IBOutlet weak var goButton: UIButton!
+    @IBOutlet weak var goButton: ExpandButton!
     
     var isManaul = true
     var dismissClosure: ((PullUpFinishState) -> Void)?

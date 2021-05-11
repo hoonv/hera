@@ -34,6 +34,7 @@ class ButtonAddView: UIView {
         layer.shadowOpacity = 0.15
         layer.shadowOffset = .zero
         layer.shadowRadius = bounds.height / 5
+        
     }
     
     

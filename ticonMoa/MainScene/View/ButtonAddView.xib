@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILe-b3-X83">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILe-b3-X83" customClass="FeedBackButton" customModule="ticonMoa" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                     <color key="backgroundColor" name="appColor"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>

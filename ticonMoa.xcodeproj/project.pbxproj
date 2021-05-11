@@ -227,13 +227,13 @@
 			path = ProfileScene;
 			sourceTree = "<group>";
 		};
-		E02027DB2628626900AD7230 /* MainTabBar */ = {
+		E02027DB2628626900AD7230 /* MainTabBar (deprecated) */ = {
 			isa = PBXGroup;
 			children = (
 				E0AE480426131D5C00BEC498 /* MainTabBarController.swift */,
 				E0AE480726131DF600BEC498 /* RoundTabBarView.swift */,
 			);
-			path = MainTabBar;
+			path = "MainTabBar (deprecated)";
 			sourceTree = "<group>";
 		};
 		E02027DC2628628E00AD7230 /* ManualAddingScene */ = {
@@ -280,7 +280,7 @@
 				E0AB99EB26421E3400F11602 /* tessdata */,
 				E0BDEB8A2649504B00228762 /* Common */,
 				E0BDEB6526491DFE00228762 /* Module */,
-				E02027DB2628626900AD7230 /* MainTabBar */,
+				E02027DB2628626900AD7230 /* MainTabBar (deprecated) */,
 				E02027D82628609E00AD7230 /* HomeScene (deprecated) */,
 				E0AB9A1F2642CDAD00F11602 /* MainScene */,
 				E02027DC2628628E00AD7230 /* ManualAddingScene */,

@@ -19,6 +19,7 @@ protocol ManualViewModelOutput {
     var name: BehaviorSubject<String> { get }
     var brand: BehaviorSubject<String> { get }
     var expirationDate: BehaviorSubject<Date> { get }
+    var isProccessing: PublishSubject<Bool> { get }
 }
 
 protocol ManualViewModelType {
@@ -35,7 +36,7 @@ class ManualViewModel: ManualViewModelInput, ManualViewModelOutput, ManualViewMo
     var name = BehaviorSubject<String>(value: "")
     var brand = BehaviorSubject<String>(value: "")
     var expirationDate = BehaviorSubject<Date>(value: Date())
-
+    var isProccessing = PublishSubject<Bool>()
     let ocrManager: OCRManager
     
     init() {
@@ -53,7 +54,6 @@ class ManualViewModel: ManualViewModelInput, ManualViewModelOutput, ManualViewMo
     }
     
     private func analyzeOCRResult(input: [[String]]) {
-
         let nameReg = NameRecognizer()
         for (idx, line) in input.enumerated() {
             let joined = line.joined()
@@ -62,10 +62,9 @@ class ManualViewModel: ManualViewModelInput, ManualViewModelOutput, ManualViewMo
             if let name = nameReg.match(input: joined, candidates: [n1,n2]) {
                 self.name.on(.next(name))
             }
-            
             recognizeDateBrand(line: line)
-
         }
+        isProccessing.on(.next(false))
     }
     
     private func recognizeDateBrand(line: [String]) {

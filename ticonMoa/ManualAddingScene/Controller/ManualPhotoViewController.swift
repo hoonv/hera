@@ -18,10 +18,15 @@ class ManualPhotoViewController: UIViewController {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var barcodeTextField: UITextField!
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var grayOpacityView: UIView!
+    
     var selectedImage: UIImage?
     
     var viewModel = ManualViewModel()
-    var isProccess = false
+    var oneflag = false
+    var isProccessing = false
     var bag = DisposeBag()
 
     override func viewDidLoad() {
@@ -30,16 +35,16 @@ class ManualPhotoViewController: UIViewController {
         imageView.image = selectedImage
         imageView.isUserInteractionEnabled = true
         imageView.layer.cornerRadius = 20
-        
+        grayOpacityView.layer.cornerRadius = 20
         binding()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        guard let image = selectedImage, isProccess == false else { return }
+        guard let image = selectedImage, oneflag == false else { return }
         viewModel.input.executeOCR(image: image)
-        isProccess = true
+        oneflag = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -48,6 +53,15 @@ class ManualPhotoViewController: UIViewController {
     }
     
     func binding() {
+        viewModel.output.isProccessing
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { flag in
+                if !flag {
+                    self.grayOpacityView.isHidden = true
+                    self.indicator.stopAnimating()
+                }
+            })
+            .disposed(by: bag)
         
         viewModel.output.name
             .observeOn(MainScheduler.instance)

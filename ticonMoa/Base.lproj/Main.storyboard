@@ -201,6 +201,16 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMI-Z7-ODf">
+                                <rect key="frame" x="14" y="106" width="160" height="220"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="qqk-C5-wFY">
+                                        <rect key="frame" x="70" y="100" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" name="grayOpacity"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HVO-QS-rbU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -209,11 +219,13 @@
                             <constraint firstItem="bl2-TH-xmK" firstAttribute="top" secondItem="SqY-0P-BHh" secondAttribute="bottom" constant="-4" id="8Ob-Hu-Acy"/>
                             <constraint firstItem="1ha-78-BFq" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="28" id="8e7-eq-kh3"/>
                             <constraint firstItem="kFU-EZ-glk" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="14" id="AoF-vA-HAE"/>
+                            <constraint firstItem="NMI-Z7-ODf" firstAttribute="top" secondItem="Qmd-Nc-bjh" secondAttribute="top" id="BkD-lq-GXJ"/>
                             <constraint firstItem="jmN-Pc-tQN" firstAttribute="top" secondItem="gV0-0k-HSb" secondAttribute="bottom" constant="-4" id="EHw-DE-3py"/>
                             <constraint firstItem="hnY-tH-t3a" firstAttribute="top" secondItem="KWo-JY-xr1" secondAttribute="bottom" constant="16" id="GAY-Y3-QxC"/>
                             <constraint firstItem="zrM-v0-AZ3" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="14" id="HBX-aQ-o70"/>
                             <constraint firstItem="bl2-TH-xmK" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="14" id="KCQ-ve-uFt"/>
                             <constraint firstItem="hnY-tH-t3a" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="14" id="Ldv-jh-LKV"/>
+                            <constraint firstItem="NMI-Z7-ODf" firstAttribute="trailing" secondItem="Qmd-Nc-bjh" secondAttribute="trailing" id="Mg1-Vu-E5o"/>
                             <constraint firstItem="gV0-0k-HSb" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="14" id="TTj-dn-Eao"/>
                             <constraint firstItem="gV0-0k-HSb" firstAttribute="top" secondItem="Qmd-Nc-bjh" secondAttribute="bottom" constant="16" id="Vh7-UD-3xh"/>
                             <constraint firstItem="SqY-0P-BHh" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="14" id="W3Q-Di-dnf"/>
@@ -222,7 +234,9 @@
                             <constraint firstItem="zrM-v0-AZ3" firstAttribute="top" secondItem="jmN-Pc-tQN" secondAttribute="bottom" constant="16" id="dFC-Vz-VF0"/>
                             <constraint firstItem="ge7-eX-AoA" firstAttribute="centerX" secondItem="HVO-QS-rbU" secondAttribute="centerX" id="eMs-WW-L3g"/>
                             <constraint firstItem="ge7-eX-AoA" firstAttribute="top" secondItem="HVO-QS-rbU" secondAttribute="top" constant="21" id="g7y-jM-EKp"/>
+                            <constraint firstItem="NMI-Z7-ODf" firstAttribute="leading" secondItem="Qmd-Nc-bjh" secondAttribute="leading" id="hQ9-yj-VEL"/>
                             <constraint firstItem="1ha-78-BFq" firstAttribute="top" secondItem="HVO-QS-rbU" secondAttribute="top" constant="16" id="kVl-QQ-TSq"/>
+                            <constraint firstItem="NMI-Z7-ODf" firstAttribute="bottom" secondItem="Qmd-Nc-bjh" secondAttribute="bottom" id="mCJ-2b-D7W"/>
                             <constraint firstItem="jmN-Pc-tQN" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="15" id="mPl-TE-WZs"/>
                             <constraint firstItem="HVO-QS-rbU" firstAttribute="trailing" secondItem="1Xr-lP-3fP" secondAttribute="trailing" constant="28" id="sAH-jh-nVL"/>
                             <constraint firstItem="KWo-JY-xr1" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="14" id="w5H-n7-VV1"/>
@@ -241,7 +255,9 @@
                         <outlet property="barcodeTextField" destination="bl2-TH-xmK" id="DJo-Vg-BDj"/>
                         <outlet property="brandTextField" destination="kFU-EZ-glk" id="Quc-Av-eNo"/>
                         <outlet property="dateTextField" destination="KWo-JY-xr1" id="uaO-no-ZhJ"/>
+                        <outlet property="grayOpacityView" destination="NMI-Z7-ODf" id="fxC-rr-u7d"/>
                         <outlet property="imageView" destination="Qmd-Nc-bjh" id="XWp-zh-1uI"/>
+                        <outlet property="indicator" destination="qqk-C5-wFY" id="WHZ-f6-I8T"/>
                         <outlet property="nameTextField" destination="jmN-Pc-tQN" id="e2m-qS-dgb"/>
                     </connections>
                 </viewController>
@@ -508,6 +524,9 @@
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <namedColor name="appColor">
             <color red="0.86274509803921573" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grayOpacity">
+            <color red="0.73725490196078436" green="0.73725490196078436" blue="0.73725490196078436" alpha="0.65000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -22,7 +22,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: 10, left: 0, bottom: 30, right: 0)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (view.frame.width - 50), height: 160)
+        return CGSize(width: (view.frame.width - 40), height: 160)
     }
 }
 
@@ -33,13 +33,16 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return gifticons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
-        cell.imageView.image = images[indexPath.row]
-//        cell.layer.cornerRadius = 30
+        let data = gifticons[indexPath.row]
+        cell.imageView.image = data.image
+        cell.brand.text = data.brand
+        cell.name.text = data.name
+    
         return cell
     }
     

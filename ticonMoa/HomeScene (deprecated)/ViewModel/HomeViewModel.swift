@@ -10,11 +10,14 @@ import RxSwift
 
 protocol HomeViewModelInput {
     func requestPhotoWithAuto()
+    func fetchAllGifticon()
 }
 
 protocol HomeViewModelOutput {
     var images: BehaviorSubject<[UIImage]> { get }
     var isProccess: BehaviorSubject<Bool> { get }
+    var gificons: PublishSubject<[Gifticon]> { get }
+
 }
 
 protocol HomeViewModelType {
@@ -24,12 +27,14 @@ protocol HomeViewModelType {
 
 class HomeViewModel: HomeViewModelInput, HomeViewModelOutput, HomeViewModelType {
     
+    
     var input: HomeViewModelInput { self }
     var output: HomeViewModelOutput { self }
     
     var images = BehaviorSubject<[UIImage]>(value: [])
     var isProccess = BehaviorSubject<Bool>(value: false)
-    
+    var gificons = PublishSubject<[Gifticon]>()
+
     private var _images: [UIImage] = []
     private let photoManager = PhotoManager()
 
@@ -51,6 +56,16 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput, HomeViewModelType 
                 barcodeDetector.perform()
             })
             .disposed(by: bag)
+    }
+    
+    func fetchAllGifticon() {
+        var gifty: [Gifticon] = CoreDataManager.shared.fetchAll()
+        let im = ImageManager()
+        for i in 0..<gifty.count {
+            gifty[i].image =         im.loadImageFromDiskWith(fileName: gifty[i].imageName)
+
+        }
+        gificons.onNext(gifty)
     }
 
     func requestPhotoWithAuto() {

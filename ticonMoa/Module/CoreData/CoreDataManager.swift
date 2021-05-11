@@ -36,17 +36,19 @@ class CoreDataManager {
         return taskContext
     }
     
-    func insert(gifticon: Gifticon) {
+    func insert(gifticon: Gifticon) -> Bool {
         let taskContext = self.newTaskContext()
         if isExist(gifticon: gifticon) {
-            return
+            return false
         }
         let object = Coupon(context: taskContext)
         object.configure(gifticon: gifticon)
         do {
             try taskContext.save()
+            return true
         } catch {
             print("core data save error")
+            return false
         }
     }
     
@@ -75,5 +77,17 @@ class CoreDataManager {
         } catch {
             return []
         }
+    }
+    
+    func deleteAll() {
+        let fetchRequest: NSFetchRequest<Coupon> = Coupon.fetchRequest()
+        let obj = _fetch(with: fetchRequest)
+        for o in obj {
+            mainContext.delete(o)
+        }
+        do{
+            try mainContext.save()
+        }
+        catch { print("c error") }
     }
 }

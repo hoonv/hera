@@ -79,6 +79,8 @@
 		E0BDEBAC264A846B00228762 /* Coupon+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BDEBAA264A846B00228762 /* Coupon+CoreDataClass.swift */; };
 		E0BDEBAD264A846B00228762 /* Coupon+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BDEBAB264A846B00228762 /* Coupon+CoreDataProperties.swift */; };
 		E0BDEBB1264A89AC00228762 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BDEBB0264A89AC00228762 /* CoreDataManager.swift */; };
+		E0BDEBBB264AB3CC00228762 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BDEBBA264AB3CC00228762 /* ImageManager.swift */; };
+		E0BDEBBF264AE44800228762 /* FeedBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BDEBBE264AE44800228762 /* FeedBackButton.swift */; };
 		E0C3CF90263E5E1700483A91 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3CF8F263E5E1700483A91 /* SearchViewModel.swift */; };
 		E0C3CF95263E5F0600483A91 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3CF93263E5F0600483A91 /* SearchCollectionViewCell.swift */; };
 		E0C3CF96263E5F0600483A91 /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C3CF94263E5F0600483A91 /* SearchCollectionViewCell.xib */; };
@@ -174,6 +176,8 @@
 		E0BDEBAA264A846B00228762 /* Coupon+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coupon+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		E0BDEBAB264A846B00228762 /* Coupon+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coupon+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		E0BDEBB0264A89AC00228762 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		E0BDEBBA264AB3CC00228762 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		E0BDEBBE264AE44800228762 /* FeedBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackButton.swift; sourceTree = "<group>"; };
 		E0C3CF8F263E5E1700483A91 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		E0C3CF93263E5F0600483A91 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		E0C3CF94263E5F0600483A91 /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -499,6 +503,7 @@
 			isa = PBXGroup;
 			children = (
 				E0BDEB8E264A4EBC00228762 /* ExpandButton.swift */,
+				E0BDEBBE264AE44800228762 /* FeedBackButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -510,6 +515,7 @@
 				E0BDEBAB264A846B00228762 /* Coupon+CoreDataProperties.swift */,
 				E0BDEB96264A837900228762 /* TiconMoaModel.xcdatamodeld */,
 				E0BDEBB0264A89AC00228762 /* CoreDataManager.swift */,
+				E0BDEBBA264AB3CC00228762 /* ImageManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -730,9 +736,11 @@
 				E053B63B2604FC77005FAD51 /* SceneDelegate.swift in Sources */,
 				E0BBB2162638F72600DC4553 /* BrandRecognizer.swift in Sources */,
 				E0AE48372614659500BEC498 /* IconStackView.swift in Sources */,
+				E0BDEBBB264AB3CC00228762 /* ImageManager.swift in Sources */,
 				E0AE480C2613222D00BEC498 /* Autolayout.swift in Sources */,
 				E0AB9A6B2643D6D900F11602 /* MainVC + CollectionView.swift in Sources */,
 				E0BDEBAD264A846B00228762 /* Coupon+CoreDataProperties.swift in Sources */,
+				E0BDEBBF264AE44800228762 /* FeedBackButton.swift in Sources */,
 				E0C3CFA5263FF79D00483A91 /* CouponDetailViewController.swift in Sources */,
 				E0AB9A712643D74100F11602 /* MainVC + PhotoPick.swift in Sources */,
 				E0AE484726171CE100BEC498 /* SlideAnimator.swift in Sources */,

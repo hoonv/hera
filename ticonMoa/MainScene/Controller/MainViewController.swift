@@ -21,6 +21,7 @@ class MainViewController: UIViewController {
     let viewModel = HomeViewModel()
     let bag = DisposeBag()
     var images: [UIImage] = []
+    var gifticons: [Gifticon] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +29,19 @@ class MainViewController: UIViewController {
         bind()
     }
     
-    func bind() {
+    override func viewDidAppear(_ animated: Bool) {
+        
+        viewModel.input.fetchAllGifticon()
+        super.viewDidAppear(animated)
+    }
     
-        viewModel.output.images
+    func bind() {
+        viewModel.output.gificons
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { images in
-                self.images = images
+            .subscribe(onNext: { g in
+                self.gifticons = g
                 self.collectionView.reloadData()
+                print(g.count)
             })
             .disposed(by: bag)
 
@@ -57,14 +64,14 @@ class MainViewController: UIViewController {
     }
     
     func pullUpView() {
-        guard self.pullUpVC == nil else { return }
-        guard let pullUpVC: PullUpViewController = storyboard?.instantiateViewController(withIdentifier: PullUpViewController.identifier) as? PullUpViewController else { return }
-        self.addChild(pullUpVC)
-        pullUpVC.dismissClosure = dismissPullUpView
-        pullUpVC.view.frame = view.bounds
-        self.view.addSubview(pullUpVC.view)
-        pullUpVC.didMove(toParent: self)
-        self.pullUpVC = pullUpVC
+//        guard self.pullUpVC == nil else { return }
+//        guard let pullUpVC: PullUpViewController = storyboard?.instantiateViewController(withIdentifier: PullUpViewController.identifier) as? PullUpViewController else { return }
+//        self.addChild(pullUpVC)
+//        pullUpVC.dismissClosure = dismissPullUpView
+//        pullUpVC.view.frame = view.bounds
+//        self.view.addSubview(pullUpVC.view)
+//        pullUpVC.didMove(toParent: self)
+//        self.pullUpVC = pullUpVC
     }
     
     func dismissPullUpView(state: PullUpFinishState) {

@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct Gifticon {
+struct Gifticon: Equatable {
+
     let name: String
     let expiredDate: Date
     let brand: String
     let barcode: String
     let category: Category
-}
-
-struct Category {
-    let name: String
-    let imageName: String
+    
+    static func == (lhs: Gifticon, rhs: Gifticon) -> Bool {
+        return lhs.barcode == rhs.barcode
+    }
 }

@@ -47,6 +47,7 @@ class ManualViewModel: ManualViewModelInput, ManualViewModelOutput, ManualViewMo
         ocrManager.requestBarcodeRecognition(image: image, completion: barcodeRequestHandler)
         let payloads: [[String]] = ocrManager.requestTextRecognition(image: image)
         analyzeOCRResult(input: payloads)
+        isProccessing.on(.next(false))
     }
     
     func executeOCR(image: UIImage, layer: CALayer) {
@@ -64,7 +65,6 @@ class ManualViewModel: ManualViewModelInput, ManualViewModelOutput, ManualViewMo
             }
             recognizeDateBrand(line: line)
         }
-        isProccessing.on(.next(false))
     }
     
     private func recognizeDateBrand(line: [String]) {

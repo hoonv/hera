@@ -16,11 +16,12 @@ class MainViewController: UIViewController {
     @IBOutlet weak var addView: ButtonAddView!
     
     let imagePickerController = UIImagePickerController()
-
     var pullUpVC: PullUpViewController?
+    
     let viewModel = HomeViewModel()
     let bag = DisposeBag()
     var images: [UIImage] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()

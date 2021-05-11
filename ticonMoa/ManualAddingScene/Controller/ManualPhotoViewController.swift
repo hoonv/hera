@@ -32,7 +32,6 @@ class ManualPhotoViewController: UIViewController {
         imageView.layer.cornerRadius = 20
         
         binding()
-        
     }
 
     override func viewDidAppear(_ animated: Bool) {

@@ -39,7 +39,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
         cell.imageView.image = images[indexPath.row]
-        cell.layer.cornerRadius = 30
+//        cell.layer.cornerRadius = 30
         return cell
     }
     

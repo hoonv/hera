@@ -26,17 +26,13 @@
                                 <rect key="frame" x="140" y="0.0" width="250" height="138"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="체리블라썸 아이스 초코케이크 라지" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bms-Ri-aOh">
-                                        <rect key="frame" x="20" y="51" width="210" height="43"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="62" id="BIU-9f-Z7t"/>
-                                            <constraint firstAttribute="height" constant="43" id="rBk-cs-0Lj"/>
-                                        </constraints>
+                                        <rect key="frame" x="20" y="41" width="210" height="43"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021-08-21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eca-zu-ZT3">
-                                        <rect key="frame" x="20" y="30" width="210" height="17"/>
+                                        <rect key="frame" x="20" y="20" width="210" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="20" id="6JH-dY-CGJ"/>
                                             <constraint firstAttribute="height" constant="17" id="Ivr-ss-73b"/>
@@ -46,9 +42,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스타벅스" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKA-1q-O9i">
-                                        <rect key="frame" x="20" y="98" width="210" height="20"/>
+                                        <rect key="frame" x="20" y="108" width="210" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="UTa-ql-nAj"/>
                                             <constraint firstAttribute="height" constant="20" id="kX5-sb-RwH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -59,12 +54,13 @@
                                 <color key="backgroundColor" name="grayButtonColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Eca-zu-ZT3" secondAttribute="trailing" constant="20" id="0uv-BB-gPT"/>
+                                    <constraint firstItem="nKA-1q-O9i" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Bms-Ri-aOh" secondAttribute="bottom" constant="4" id="DzZ-gK-H2B"/>
                                     <constraint firstItem="Bms-Ri-aOh" firstAttribute="top" secondItem="Eca-zu-ZT3" secondAttribute="bottom" constant="4" id="OwK-T9-bxr"/>
                                     <constraint firstItem="Bms-Ri-aOh" firstAttribute="leading" secondItem="eLW-AD-UXa" secondAttribute="leading" constant="20" id="U2T-yU-TKO"/>
-                                    <constraint firstAttribute="bottom" secondItem="nKA-1q-O9i" secondAttribute="bottom" constant="20" id="YTI-p9-L2g"/>
+                                    <constraint firstAttribute="bottom" secondItem="nKA-1q-O9i" secondAttribute="bottom" constant="10" id="YTI-p9-L2g"/>
                                     <constraint firstItem="Eca-zu-ZT3" firstAttribute="leading" secondItem="eLW-AD-UXa" secondAttribute="leading" constant="20" id="deV-oh-ohZ"/>
                                     <constraint firstAttribute="trailing" secondItem="nKA-1q-O9i" secondAttribute="trailing" constant="20" id="e4k-RC-CQQ"/>
-                                    <constraint firstItem="Eca-zu-ZT3" firstAttribute="top" secondItem="eLW-AD-UXa" secondAttribute="top" constant="30" id="hIz-6r-hQu"/>
+                                    <constraint firstItem="Eca-zu-ZT3" firstAttribute="top" secondItem="eLW-AD-UXa" secondAttribute="top" constant="20" id="hIz-6r-hQu"/>
                                     <constraint firstAttribute="trailing" secondItem="Bms-Ri-aOh" secondAttribute="trailing" constant="20" id="hq7-dk-nQ2"/>
                                     <constraint firstItem="nKA-1q-O9i" firstAttribute="leading" secondItem="eLW-AD-UXa" secondAttribute="leading" constant="20" id="zQq-r3-fJ6"/>
                                 </constraints>

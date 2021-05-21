@@ -64,14 +64,14 @@ class MainViewController: UIViewController {
     }
     
     func pullUpView() {
-//        guard self.pullUpVC == nil else { return }
-//        guard let pullUpVC: PullUpViewController = storyboard?.instantiateViewController(withIdentifier: PullUpViewController.identifier) as? PullUpViewController else { return }
-//        self.addChild(pullUpVC)
-//        pullUpVC.dismissClosure = dismissPullUpView
-//        pullUpVC.view.frame = view.bounds
-//        self.view.addSubview(pullUpVC.view)
-//        pullUpVC.didMove(toParent: self)
-//        self.pullUpVC = pullUpVC
+        guard self.pullUpVC == nil else { return }
+        guard let pullUpVC: PullUpViewController = storyboard?.instantiateViewController(withIdentifier: PullUpViewController.identifier) as? PullUpViewController else { return }
+        self.addChild(pullUpVC)
+        pullUpVC.dismissClosure = dismissPullUpView
+        pullUpVC.view.frame = view.bounds
+        self.view.addSubview(pullUpVC.view)
+        pullUpVC.didMove(toParent: self)
+        self.pullUpVC = pullUpVC
     }
     
     func dismissPullUpView(state: PullUpFinishState) {

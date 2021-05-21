@@ -21,6 +21,7 @@ class MainViewController: UIViewController {
     let viewModel = HomeViewModel()
     let bag = DisposeBag()
     var images: [UIImage] = []
+    var gifticons: [Gifticon] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +29,19 @@ class MainViewController: UIViewController {
         bind()
     }
     
-    func bind() {
+    override func viewDidAppear(_ animated: Bool) {
+        
+        viewModel.input.fetchAllGifticon()
+        super.viewDidAppear(animated)
+    }
     
-        viewModel.output.images
+    func bind() {
+        viewModel.output.gificons
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { images in
-                self.images = images
+            .subscribe(onNext: { g in
+                self.gifticons = g
                 self.collectionView.reloadData()
+                print(g.count)
             })
             .disposed(by: bag)
 

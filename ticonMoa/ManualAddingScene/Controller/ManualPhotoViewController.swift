@@ -41,7 +41,6 @@ class ManualPhotoViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         guard let image = selectedImage, oneflag == false else { return }
         viewModel.input.executeOCR(image: image)
         oneflag = true
@@ -94,6 +93,22 @@ class ManualPhotoViewController: UIViewController {
     }
 
     @IBAction func DoneTouched(_ sender: Any) {
+        guard let name = nameTextField.text,
+        let brand = brandTextField.text,
+        let barcode = barcodeTextField.text else {
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        let data = Gifticon(name: name, barcode: barcode, brand: brand, date: Date())
+        if CoreDataManager.shared.insert(gifticon: data) {
+            guard let image = imageView.image else {
+                self.dismiss(animated: true, completion: nil)
+                return
+            }
+            let im = ImageManager()
+            im.saveImage(imageName: data.imageName, image: image)
+            print("save Image")
+        }
         self.dismiss(animated: true, completion: nil)
     }
     

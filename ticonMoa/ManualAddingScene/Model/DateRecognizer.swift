@@ -16,7 +16,7 @@ class DateRecognizer {
         self.formatts = formatts
     }
     
-    func recognize(input: String) -> Date? {
+    func match(input: String) -> Date? {
         for format in formatts {
             formatter.dateFormat = format
             if let date = formatter.date(from: input) {

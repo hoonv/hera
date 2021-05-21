@@ -7,58 +7,64 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 import SwiftyTesseract
 
 class ManualPhotoViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
-
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var brandTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var barcodeTextField: UITextField!
     
     @IBOutlet weak var indicator: UIActivityIndicatorView!
-    
     @IBOutlet weak var grayOpacityView: UIView!
     
-    var selectedImage: UIImage?
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
+    var selectedImage: Observable<UIImage>?
     
     var viewModel = ManualViewModel()
-    var oneflag = false
-    var isProccessing = false
     var bag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        imageView.image = selectedImage
-        imageView.isUserInteractionEnabled = true
-        imageView.layer.cornerRadius = 20
-        grayOpacityView.layer.cornerRadius = 20
+        setupUI()
         binding()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard let image = selectedImage, oneflag == false else { return }
-        viewModel.input.executeOCR(image: image)
-        oneflag = true
+        selectedImage?
+            .subscribe(onNext: { image in
+                self.imageView.image = image
+                self.viewModel.input.executeOCR(image: image)
+            })
+            .disposed(by: bag)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        bag = DisposeBag()
-        super.viewDidDisappear(animated)
+    private func setupUI() {
+        imageView.isUserInteractionEnabled = true
+        imageView.layer.cornerRadius = 20
+        grayOpacityView.layer.cornerRadius = 20
     }
     
-    func binding() {
+    private func binding() {
+        cancelButton.rx
+            .controlEvent(.touchUpInside)
+            .subscribe(onNext: { _ in
+                self.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: bag)
+        
         viewModel.output.isProccessing
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { flag in
-                if !flag {
-                    self.grayOpacityView.isHidden = true
-                    self.indicator.stopAnimating()
-                }
+            .filter { $0 == false }
+            .subscribe(onNext: { _ in
+                self.grayOpacityView.isHidden = true
+                self.indicator.stopAnimating()
             })
             .disposed(by: bag)
         
@@ -85,12 +91,13 @@ class ManualPhotoViewController: UIViewController {
         
         viewModel.output.expirationDate
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { date in
-                let dateString = date.toStringKST(dateFormat: "yyyy.MM.dd")
-                self.dateTextField.text = dateString
+            .map { $0.toString(dateFormat: "yyyy.MM.dd") }
+            .subscribe(onNext: { str in
+                self.dateTextField.text = str
             })
             .disposed(by: bag)
     }
+
 
     @IBAction func DoneTouched(_ sender: Any) {
         guard let name = nameTextField.text,
@@ -109,10 +116,6 @@ class ManualPhotoViewController: UIViewController {
             im.saveImage(imageName: data.imageName, image: image)
             print("save Image")
         }
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func cancelTouched(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
 }

@@ -84,8 +84,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Qmd-Nc-bjh">
-                                <rect key="frame" x="14" y="106" width="160" height="218.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qmd-Nc-bjh">
+                                <rect key="frame" x="14" y="106" width="160" height="220"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="gaH-d2-dvR"/>
                                     <constraint firstAttribute="width" constant="160" id="xGY-DS-jmg"/>
@@ -147,9 +147,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="취소"/>
-                                <connections>
-                                    <action selector="cancelTouched:" destination="g2B-l1-jXX" eventType="touchUpInside" id="QEa-wY-UI5"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Xr-lP-3fP">
                                 <rect key="frame" x="356" y="60" width="30" height="30"/>
@@ -254,7 +251,9 @@
                     <connections>
                         <outlet property="barcodeTextField" destination="bl2-TH-xmK" id="DJo-Vg-BDj"/>
                         <outlet property="brandTextField" destination="kFU-EZ-glk" id="Quc-Av-eNo"/>
+                        <outlet property="cancelButton" destination="1ha-78-BFq" id="4q0-sl-xcx"/>
                         <outlet property="dateTextField" destination="KWo-JY-xr1" id="uaO-no-ZhJ"/>
+                        <outlet property="doneButton" destination="1Xr-lP-3fP" id="Rc2-h4-gTI"/>
                         <outlet property="grayOpacityView" destination="NMI-Z7-ODf" id="fxC-rr-u7d"/>
                         <outlet property="imageView" destination="Qmd-Nc-bjh" id="XWp-zh-1uI"/>
                         <outlet property="indicator" destination="qqk-C5-wFY" id="WHZ-f6-I8T"/>
@@ -521,7 +520,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <namedColor name="appColor">
             <color red="0.86274509803921573" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

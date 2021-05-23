@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l3u-8Y-9Ra">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l3u-8Y-9Ra">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -519,8 +519,59 @@
             </objects>
             <point key="canvasLocation" x="1937.68115942029" y="465.40178571428567"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="cjF-YT-bf8">
+            <objects>
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="thr-Z5-EgU" customClass="LoginViewController" customModule="ticonMoa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4N6-tZ-Abx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="hGD-hV-Cul">
+                                <rect key="frame" x="87" y="134" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="9sn-Fh-cpi"/>
+                                    <constraint firstAttribute="height" constant="128" id="bs1-K6-F6N"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jv3-1W-xL0">
+                                <rect key="frame" x="87" y="539" width="240" height="256"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="USX-NM-WKX" customClass="GIDSignInButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lze-n1-i5M">
+                                        <rect key="frame" x="0.0" y="128" width="240" height="128"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="S1B-uj-NmL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="S1B-uj-NmL" firstAttribute="trailing" secondItem="hGD-hV-Cul" secondAttribute="trailing" constant="87" id="0HP-7A-awO"/>
+                            <constraint firstItem="Jv3-1W-xL0" firstAttribute="top" secondItem="hGD-hV-Cul" secondAttribute="bottom" constant="277" id="5kg-2T-oIo"/>
+                            <constraint firstItem="S1B-uj-NmL" firstAttribute="trailing" secondItem="Jv3-1W-xL0" secondAttribute="trailing" constant="87" id="JKI-so-g4f"/>
+                            <constraint firstItem="Jv3-1W-xL0" firstAttribute="leading" secondItem="S1B-uj-NmL" secondAttribute="leading" constant="87" id="fhW-8R-UKA"/>
+                            <constraint firstItem="hGD-hV-Cul" firstAttribute="top" secondItem="S1B-uj-NmL" secondAttribute="top" constant="90" id="jTV-Ob-Ayt"/>
+                            <constraint firstItem="S1B-uj-NmL" firstAttribute="bottom" secondItem="Jv3-1W-xL0" secondAttribute="bottom" constant="67" id="xaV-v1-T3W"/>
+                            <constraint firstItem="hGD-hV-Cul" firstAttribute="leading" secondItem="S1B-uj-NmL" secondAttribute="leading" constant="87" id="zpC-H0-bLX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="appleSignInView" destination="Lze-n1-i5M" id="3qr-a3-DXO"/>
+                        <outlet property="googleSignInButton" destination="USX-NM-WKX" id="Xvs-wY-Sz9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lbz-0W-RHR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="211.59420289855075" y="464.73214285714283"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Logo" width="201" height="145"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <namedColor name="appColor">
             <color red="0.86274509803921573" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

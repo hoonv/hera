@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55679B98265A48720044434D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55679B97265A48720044434D /* GoogleService-Info.plist */; };
+		55679B9A265A487B0044434D /* Login in Resources */ = {isa = PBXBuildFile; fileRef = 55679B99265A487B0044434D /* Login */; };
+		55A3A2322661FC9E0051D2EF /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 55A3A2312661FC9E0051D2EF /* tessdata */; };
 		7B6348F1712760BB6EFD96D4 /* Pods_ticonMoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 877DF317B04331FB7E3B67F8 /* Pods_ticonMoa.framework */; };
 		E0364FF22623E007006D243E /* ImagePreProccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FF12623E007006D243E /* ImagePreProccessor.swift */; };
 		E0364FF52623EA97006D243E /* TextRecognitionWrapper(deprecated).swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FF42623EA97006D243E /* TextRecognitionWrapper(deprecated).swift */; };
@@ -18,7 +21,6 @@
 		E053B6422604FC79005FAD51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E053B6412604FC79005FAD51 /* Assets.xcassets */; };
 		E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E053B6432604FC79005FAD51 /* LaunchScreen.storyboard */; };
 		E0AB99E626421B9600F11602 /* SwiftyTesseract in Frameworks */ = {isa = PBXBuildFile; productRef = E0AB99E526421B9600F11602 /* SwiftyTesseract */; };
-		E0AB99EC26421E3400F11602 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = E0AB99EB26421E3400F11602 /* tessdata */; };
 		E0AB99F626427A6100F11602 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB99F526427A6100F11602 /* MainViewController.swift */; };
 		E0AB99FA26427B6000F11602 /* MainIconHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB99F926427B6000F11602 /* MainIconHeaderView.swift */; };
 		E0AB99FE26427B6700F11602 /* MainIconHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB99FD26427B6700F11602 /* MainIconHeaderView.xib */; };
@@ -102,6 +104,10 @@
 
 /* Begin PBXFileReference section */
 		3053155E20A9E51D8D61FD34 /* Pods-ticonMoa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ticonMoa.debug.xcconfig"; path = "Target Support Files/Pods-ticonMoa/Pods-ticonMoa.debug.xcconfig"; sourceTree = "<group>"; };
+		55679B97265A48720044434D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		55679B99265A487B0044434D /* Login */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Login; sourceTree = "<group>"; };
+		55A3A230265A49750051D2EF /* ticonMoa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ticonMoa.entitlements; sourceTree = "<group>"; };
+		55A3A2312661FC9E0051D2EF /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		79A4CD5FE06E834BF95ED000 /* Pods-ticonMoa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ticonMoa.release.xcconfig"; path = "Target Support Files/Pods-ticonMoa/Pods-ticonMoa.release.xcconfig"; sourceTree = "<group>"; };
 		877DF317B04331FB7E3B67F8 /* Pods_ticonMoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ticonMoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0364FF12623E007006D243E /* ImagePreProccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreProccessor.swift; sourceTree = "<group>"; };
@@ -115,7 +121,6 @@
 		E053B6412604FC79005FAD51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E053B6442604FC79005FAD51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E053B6462604FC79005FAD51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E0AB99EB26421E3400F11602 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = ../../../../tessdata; sourceTree = "<group>"; };
 		E0AB99F526427A6100F11602 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E0AB99F926427B6000F11602 /* MainIconHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainIconHeaderView.swift; sourceTree = "<group>"; };
 		E0AB99FD26427B6700F11602 /* MainIconHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainIconHeaderView.xib; sourceTree = "<group>"; };
@@ -289,7 +294,8 @@
 		E053B6372604FC77005FAD51 /* ticonMoa */ = {
 			isa = PBXGroup;
 			children = (
-				E0AB99EB26421E3400F11602 /* tessdata */,
+				55A3A230265A49750051D2EF /* ticonMoa.entitlements */,
+				55679B99265A487B0044434D /* Login */,
 				E0BDEB8A2649504B00228762 /* Common */,
 				E0BDEB6526491DFE00228762 /* Module */,
 				E02027DB2628626900AD7230 /* MainTabBar (deprecated) */,
@@ -300,7 +306,9 @@
 				E02027D92628622400AD7230 /* SearchScene */,
 				E02027DA2628623800AD7230 /* ProfileScene */,
 				E02027DE2628639800AD7230 /* MapScene */,
+				55A3A2312661FC9E0051D2EF /* tessdata */,
 				E053B6382604FC77005FAD51 /* AppDelegate.swift */,
+				55679B97265A48720044434D /* GoogleService-Info.plist */,
 				E053B63A2604FC77005FAD51 /* SceneDelegate.swift */,
 				E053B63E2604FC77005FAD51 /* Main.storyboard */,
 				E053B6412604FC79005FAD51 /* Assets.xcassets */,
@@ -557,6 +565,7 @@
 				E053B6322604FC77005FAD51 /* Frameworks */,
 				E053B6332604FC77005FAD51 /* Resources */,
 				16D7733897A4EBCF07F6B934 /* [CP] Embed Pods Frameworks */,
+				28305BA88F3B250213528CDB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -639,13 +648,15 @@
 				E0C3CF96263E5F0600483A91 /* SearchCollectionViewCell.xib in Resources */,
 				E0AE483A261465CA00BEC498 /* IconStackView.xib in Resources */,
 				E0AB9A532643B48F00F11602 /* ChoiceView.xib in Resources */,
+				55679B9A265A487B0044434D /* Login in Resources */,
 				E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */,
 				E0C3CFA0263FE24C00483A91 /* SearchHeaderReusableView.xib in Resources */,
 				E0AB9A41264367B700F11602 /* PullUpView.xib in Resources */,
+				55679B98265A48720044434D /* GoogleService-Info.plist in Resources */,
+				55A3A2322661FC9E0051D2EF /* tessdata in Resources */,
 				E053B6422604FC79005FAD51 /* Assets.xcassets in Resources */,
 				E0AB99FE26427B6700F11602 /* MainIconHeaderView.xib in Resources */,
 				E0AB9A142642A09F00F11602 /* MainCategoryHeaderView.xib in Resources */,
-				E0AB99EC26421E3400F11602 /* tessdata in Resources */,
 				E053B6402604FC77005FAD51 /* Main.storyboard in Resources */,
 				E0AB9A0626429A4A00F11602 /* MainCollectionViewCell.xib in Resources */,
 				E0B653B5260C40DD007C402F /* HomeCollectionViewCell.xib in Resources */,
@@ -677,6 +688,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ticonMoa/Pods-ticonMoa-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		28305BA88F3B250213528CDB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ticonMoa/Pods-ticonMoa-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ticonMoa/Pods-ticonMoa-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ticonMoa/Pods-ticonMoa-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		883A0E0AC89365E19C044AE9 /* [CP] Check Pods Manifest.lock */ = {
@@ -933,14 +961,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ticonMoa/ticonMoa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7BP3494UVW;
+				DEVELOPMENT_TEAM = 5S324MZCFD;
 				INFOPLIST_FILE = ticonMoa/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hoonv.ticonMoa;
+				PRODUCT_BUNDLE_IDENTIFIER = xis.ticonMoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -953,14 +982,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ticonMoa/ticonMoa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7BP3494UVW;
+				DEVELOPMENT_TEAM = 5S324MZCFD;
 				INFOPLIST_FILE = ticonMoa/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hoonv.ticonMoa;
+				PRODUCT_BUNDLE_IDENTIFIER = xis.ticonMoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

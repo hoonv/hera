@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l3u-8Y-9Ra">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="thr-Z5-EgU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -522,7 +522,7 @@
         <!--Login View Controller-->
         <scene sceneID="cjF-YT-bf8">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="thr-Z5-EgU" customClass="LoginViewController" customModule="ticonMoa" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="thr-Z5-EgU" customClass="LoginViewController" customModule="ticonMoa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4N6-tZ-Abx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -537,7 +537,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jv3-1W-xL0">
                                 <rect key="frame" x="87" y="539" width="240" height="256"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="USX-NM-WKX" customClass="GIDSignInButton">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="USX-NM-WKX" customClass="GIDSignInButton" customModule="ticonMoa" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
@@ -561,17 +561,17 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="appleSignInView" destination="Lze-n1-i5M" id="3qr-a3-DXO"/>
-                        <outlet property="googleSignInButton" destination="USX-NM-WKX" id="Xvs-wY-Sz9"/>
+                        <outlet property="appleSignInView" destination="Lze-n1-i5M" id="piv-oD-f8F"/>
+                        <outlet property="googleSignInButton" destination="USX-NM-WKX" id="ld9-tO-3iT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lbz-0W-RHR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="211.59420289855075" y="464.73214285714283"/>
+            <point key="canvasLocation" x="288" y="1878"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="201" height="145"/>
+        <image name="Logo" width="402" height="290"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <namedColor name="appColor">
             <color red="0.86274509803921573" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

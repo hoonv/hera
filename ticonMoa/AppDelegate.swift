@@ -38,7 +38,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         })
         return true
     }
-
+    
+    private func application(application: UIApplication,  didReceiveRemoteNotification userInfo: [NSObject : AnyObject],  fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+                
+    print("application:didReceiveRemoteNotification:fetchCompletionHandler: \(userInfo)")
+       completionHandler(.newData)
+    }
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -60,6 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
 extension AppDelegate:UNUserNotificationCenterDelegate{
     // 앱이 foreground상태 일 때, 알림이 온 경우 처리
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {

@@ -88,7 +88,7 @@ class LoginViewController: UIViewController,  GIDSignInDelegate {
             }
             else {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let tabbarVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! UITabBarController
+                let tabbarVC = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! UIViewController
                 tabbarVC.modalPresentationStyle = .fullScreen
                 self.present(tabbarVC, animated: true, completion: nil)
                 let email = Auth.auth().currentUser?.email

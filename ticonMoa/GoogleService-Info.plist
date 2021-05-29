@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1087307261306:ios:32e997d6157f2317a1e2c3</string>
+	<string>1:1087307261306:ios:6085cc65930ecd3fa1e2c3</string>
 	<key>DATABASE_URL</key>
 	<string>https://ticonmoa-default-rtdb.firebaseio.com</string>
 </dict>

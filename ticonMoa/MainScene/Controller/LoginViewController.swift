@@ -32,10 +32,8 @@ class LoginViewController: UIViewController,  GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
         
         if #available(iOS 13.2, *) {
-            print(0)
             setupLoginWithAppleButton()
         } else {
-            print(1)
             signInWithAppleButtonPressed()
         }
     }
@@ -88,7 +86,7 @@ class LoginViewController: UIViewController,  GIDSignInDelegate {
             }
             else {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let tabbarVC = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! UIViewController
+                let tabbarVC = storyboard.instantiateViewController(withIdentifier: "MainViewController")//as UIViewController?
                 tabbarVC.modalPresentationStyle = .fullScreen
                 self.present(tabbarVC, animated: true, completion: nil)
                 let email = Auth.auth().currentUser?.email

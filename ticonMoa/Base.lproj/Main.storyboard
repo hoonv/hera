@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="thr-Z5-EgU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="luO-3h-Q1w">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -355,7 +355,7 @@
         <!--Main View Controller-->
         <scene sceneID="xHR-j3-h1d">
             <objects>
-                <viewController id="l3u-8Y-9Ra" customClass="MainViewController" customModule="ticonMoa" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="l3u-8Y-9Ra" customClass="MainViewController" customModule="ticonMoa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LsE-6v-UD1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -520,54 +520,54 @@
             <point key="canvasLocation" x="1937.68115942029" y="465.40178571428567"/>
         </scene>
         <!--Login View Controller-->
-        <scene sceneID="cjF-YT-bf8">
+        <scene sceneID="biK-7N-dva">
             <objects>
-                <viewController id="thr-Z5-EgU" customClass="LoginViewController" customModule="ticonMoa" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4N6-tZ-Abx">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="luO-3h-Q1w" customClass="LoginViewController" customModule="ticonMoa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cWc-mg-xvC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="hGD-hV-Cul">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Dqw-bR-jbc">
                                 <rect key="frame" x="87" y="134" width="240" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="9sn-Fh-cpi"/>
-                                    <constraint firstAttribute="height" constant="128" id="bs1-K6-F6N"/>
+                                    <constraint firstAttribute="width" constant="240" id="KQu-Dj-nQi"/>
+                                    <constraint firstAttribute="height" constant="128" id="vAS-Go-Orp"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jv3-1W-xL0">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="J5h-hh-MeF">
                                 <rect key="frame" x="87" y="539" width="240" height="256"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="USX-NM-WKX" customClass="GIDSignInButton" customModule="ticonMoa" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dQP-YP-xeX" customClass="GIDSignInButton">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lze-n1-i5M">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xmp-RL-unA">
                                         <rect key="frame" x="0.0" y="128" width="240" height="128"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="S1B-uj-NmL"/>
+                        <viewLayoutGuide key="safeArea" id="HS6-wv-AoS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="S1B-uj-NmL" firstAttribute="trailing" secondItem="hGD-hV-Cul" secondAttribute="trailing" constant="87" id="0HP-7A-awO"/>
-                            <constraint firstItem="Jv3-1W-xL0" firstAttribute="top" secondItem="hGD-hV-Cul" secondAttribute="bottom" constant="277" id="5kg-2T-oIo"/>
-                            <constraint firstItem="S1B-uj-NmL" firstAttribute="trailing" secondItem="Jv3-1W-xL0" secondAttribute="trailing" constant="87" id="JKI-so-g4f"/>
-                            <constraint firstItem="Jv3-1W-xL0" firstAttribute="leading" secondItem="S1B-uj-NmL" secondAttribute="leading" constant="87" id="fhW-8R-UKA"/>
-                            <constraint firstItem="hGD-hV-Cul" firstAttribute="top" secondItem="S1B-uj-NmL" secondAttribute="top" constant="90" id="jTV-Ob-Ayt"/>
-                            <constraint firstItem="S1B-uj-NmL" firstAttribute="bottom" secondItem="Jv3-1W-xL0" secondAttribute="bottom" constant="67" id="xaV-v1-T3W"/>
-                            <constraint firstItem="hGD-hV-Cul" firstAttribute="leading" secondItem="S1B-uj-NmL" secondAttribute="leading" constant="87" id="zpC-H0-bLX"/>
+                            <constraint firstItem="HS6-wv-AoS" firstAttribute="trailing" secondItem="Dqw-bR-jbc" secondAttribute="trailing" constant="87" id="4rH-q7-d19"/>
+                            <constraint firstItem="Dqw-bR-jbc" firstAttribute="leading" secondItem="HS6-wv-AoS" secondAttribute="leading" constant="87" id="A2V-8H-0Fe"/>
+                            <constraint firstItem="HS6-wv-AoS" firstAttribute="bottom" secondItem="J5h-hh-MeF" secondAttribute="bottom" constant="67" id="E2v-XI-vBp"/>
+                            <constraint firstItem="Dqw-bR-jbc" firstAttribute="top" secondItem="HS6-wv-AoS" secondAttribute="top" constant="90" id="KRy-dQ-Kpw"/>
+                            <constraint firstItem="J5h-hh-MeF" firstAttribute="top" secondItem="Dqw-bR-jbc" secondAttribute="bottom" constant="277" id="T6m-Vq-VUy"/>
+                            <constraint firstItem="J5h-hh-MeF" firstAttribute="leading" secondItem="HS6-wv-AoS" secondAttribute="leading" constant="87" id="b3F-AK-CZp"/>
+                            <constraint firstItem="HS6-wv-AoS" firstAttribute="trailing" secondItem="J5h-hh-MeF" secondAttribute="trailing" constant="87" id="rcV-pD-uTb"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="appleSignInView" destination="Lze-n1-i5M" id="piv-oD-f8F"/>
-                        <outlet property="googleSignInButton" destination="USX-NM-WKX" id="ld9-tO-3iT"/>
+                        <outlet property="appleSignInView" destination="Xmp-RL-unA" id="wS1-WV-UGJ"/>
+                        <outlet property="googleSignInButton" destination="dQP-YP-xeX" id="RoO-3v-tB7"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lbz-0W-RHR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vMa-j7-yPx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="288" y="1878"/>
+            <point key="canvasLocation" x="191" y="1878"/>
         </scene>
     </scenes>
     <resources>

@@ -8,9 +8,11 @@
 import UIKit
 import RxSwift
 import SwiftyTesseract
+import FirebaseDatabase
+import Firebase
 
 class ManualPhotoViewController: UIViewController {
-
+    
     @IBOutlet weak var imageView: UIImageView!
 
     @IBOutlet weak var nameTextField: UITextField!
@@ -23,6 +25,11 @@ class ManualPhotoViewController: UIViewController {
     @IBOutlet weak var grayOpacityView: UIView!
     
     var selectedImage: UIImage?
+    //db
+    var ref = Database.database().reference()
+    let currentuser = Auth.auth().currentUser?.email?.components(separatedBy: "@")[0]
+    var text : [String] = []
+    var coupon_num: Int = 0
     
     var viewModel = ManualViewModel()
     var oneflag = false
@@ -37,6 +44,10 @@ class ManualPhotoViewController: UIViewController {
         imageView.layer.cornerRadius = 20
         grayOpacityView.layer.cornerRadius = 20
         binding()
+        
+        self.ref.child("User/\(self.currentuser!)/Coupon/").observe(.value, with: { (snapshot: DataSnapshot!) in
+                    self.coupon_num = Int(snapshot.childrenCount)
+                })
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -109,6 +120,22 @@ class ManualPhotoViewController: UIViewController {
             im.saveImage(imageName: data.imageName, image: image)
             print("save Image")
         }
+        
+        print(data)
+        
+        //쿠폰 db 입력
+        
+        coupon_num += 1
+        self.ref.child("User/\(self.currentuser!)/Coupon/").updateChildValues([String(coupon_num):""])
+        
+        let datefomatter = DateFormatter()
+        datefomatter.dateFormat = "YYYY.MM.dd"
+        self.ref.child("User/\(self.currentuser!)/Coupon/\(String(coupon_num))/").updateChildValues(["Item":name])
+        self.ref.child("User/\(self.currentuser!)/Coupon/\(String(coupon_num))/").updateChildValues(["Brand":brand])
+        self.ref.child("User/\(self.currentuser!)/Coupon/\(String(coupon_num))/").updateChildValues(["Barcode":barcode])
+        self.ref.child("User/\(self.currentuser!)/Coupon/\(String(coupon_num))/").updateChildValues(["Expire date":datefomatter.string(from:data.expiredDate)])
+        
+        
         self.dismiss(animated: true, completion: nil)
     }
     

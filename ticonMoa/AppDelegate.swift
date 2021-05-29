@@ -9,7 +9,6 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
@@ -20,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         FirebaseApp.configure()
                 
-        GIDSignIn.sharedInstance()?.clientID = "1087307261306-e9eqjp0hgqpgapfs3hlostqrkvt0stih.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance()?.delegate = self
         
         //유효기간 알림 기능

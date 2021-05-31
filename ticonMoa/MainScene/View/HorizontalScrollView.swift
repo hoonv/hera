@@ -21,6 +21,9 @@ class HorizontalScrollView: UIView {
             collectionView.reloadData()
         }
     }
+    var selectedCategory: String {
+        return names[selectedIndex.row]
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

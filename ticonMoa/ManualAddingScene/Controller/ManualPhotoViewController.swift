@@ -21,6 +21,7 @@ class ManualPhotoViewController: UIViewController {
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var grayOpacityView: UIView!
     
+    @IBOutlet weak var horizontalScrollView: HorizontalScrollView!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
@@ -131,12 +132,15 @@ class ManualPhotoViewController: UIViewController {
         guard let name = nameTextField.text,
         let brand = brandTextField.text,
         let barcode = barcodeTextField.text,
-        let date = dateTextField.text,
-        name != "", brand != "", barcode != "", date != "" else {
+        let textDate = dateTextField.text,
+        name != "", brand != "", barcode != "", textDate != "" else {
             alert(message: "fill empty text")
             return
         }
-        let data = Gifticon(name: name, barcode: barcode, brand: brand, date: Date())
+        let df = DateFormatter()
+        df.dateFormat = "yyyy.MM.dd"
+        guard let date = df.date(from: textDate) else { return }
+        let data = Gifticon(name: name, barcode: barcode, brand: brand, date: date, category: horizontalScrollView.selectedCategory)
         if CoreDataManager.shared.isExist(gifticon: data) {
             alert(message: "duplicated coupon")
             return

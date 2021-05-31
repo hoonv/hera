@@ -265,6 +265,7 @@
                         <outlet property="dateTextField" destination="KWo-JY-xr1" id="uaO-no-ZhJ"/>
                         <outlet property="doneButton" destination="1Xr-lP-3fP" id="Rc2-h4-gTI"/>
                         <outlet property="grayOpacityView" destination="NMI-Z7-ODf" id="fxC-rr-u7d"/>
+                        <outlet property="horizontalScrollView" destination="iHp-fu-Jbf" id="UYH-Ip-cVv"/>
                         <outlet property="imageView" destination="Qmd-Nc-bjh" id="XWp-zh-1uI"/>
                         <outlet property="indicator" destination="qqk-C5-wFY" id="WHZ-f6-I8T"/>
                         <outlet property="nameTextField" destination="jmN-Pc-tQN" id="e2m-qS-dgb"/>

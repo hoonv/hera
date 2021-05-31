@@ -15,7 +15,7 @@ struct Gifticon: Equatable {
     let barcode: String
     let imageName: String
     var image: UIImage?
-    let category: Category?
+    let category: String
     
     init(coupon: Coupon) {
         name = coupon.name
@@ -23,17 +23,16 @@ struct Gifticon: Equatable {
         brand = coupon.brand
         expiredDate = coupon.expiredDate
         imageName = coupon.barcode
-        category = nil
-        image = nil
+        category = coupon.category
     }
     
-    init(name: String, barcode: String, brand: String, date: Date) {
+    init(name: String, barcode: String, brand: String, date: Date, category: String) {
         self.name = name
         self.barcode = barcode
         self.brand = brand
         self.imageName = barcode
-        expiredDate = date
-        category = nil
+        self.category = category
+        self.expiredDate = date
         image = nil
     }
     

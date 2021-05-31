@@ -37,6 +37,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
         let data = gifticons[indexPath.row]
+        cell.date.text = data.expiredDate.toStringKST(dateFormat: "yyyy.MM.dd")
         cell.imageView.image = data.image
         cell.brand.text = data.brand
         cell.name.text = data.name

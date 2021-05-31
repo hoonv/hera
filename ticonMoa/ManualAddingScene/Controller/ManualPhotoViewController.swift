@@ -141,16 +141,18 @@ class ManualPhotoViewController: UIViewController {
             alert(message: "duplicated coupon")
             return
         }
-        if CoreDataManager.shared.insert(gifticon: data) {
+        let isSuccess = CoreDataManager.shared.insert(gifticon: data)
+        if isSuccess {
             guard let image = imageView.image else {
                 self.dismiss(animated: true, completion: nil)
                 return
             }
             let im = ImageManager()
             im.saveImage(imageName: data.imageName, image: image)
-            print("save Image")
+            NotificationCenter.default.post(name: .newCouponRegistered, object: nil)
+            self.dismiss(animated: true, completion: nil)
         }
-        self.dismiss(animated: true, completion: nil)
+        alert(message: "fail saving coupon")
     }
 }
 
@@ -187,4 +189,8 @@ extension UIViewController {
     alertController.addAction(OKAction)
     self.present(alertController, animated: true, completion: nil)
   }
+}
+
+extension Notification.Name {
+    static let newCouponRegistered = Notification.Name(rawValue: "newCouponRegistered")
 }

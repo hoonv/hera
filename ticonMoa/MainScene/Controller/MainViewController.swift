@@ -27,10 +27,14 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         registerCells()
         bind()
+        NotificationCenter.default.addObserver(self, selector: #selector(newCoupon), name: .newCouponRegistered, object: nil)
+    }
+    
+    @objc func newCoupon(_ notification: Notification) {
+        viewModel.input.fetchAllGifticon()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         viewModel.input.fetchAllGifticon()
         super.viewDidAppear(animated)
     }

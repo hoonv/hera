@@ -10,8 +10,7 @@ import Firebase
 import GoogleSignIn
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -40,8 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     private func application(application: UIApplication,  didReceiveRemoteNotification userInfo: [NSObject : AnyObject],  fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
                 
-    print("application:didReceiveRemoteNotification:fetchCompletionHandler: \(userInfo)")
-       completionHandler(.newData)
+        print("application:didReceiveRemoteNotification:fetchCompletionHandler: \(userInfo)")
+       completionHandler(.newData)  
     }
     
     // MARK: UISceneSession Lifecycle
@@ -71,15 +70,33 @@ extension AppDelegate:UNUserNotificationCenterDelegate{
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
 
         // 푸시가 오면 alert, badge, sound표시를 하라는 의미
-        completionHandler([.alert, .badge, .sound])
+        if #available(iOS 14.0, *) {
+            completionHandler([.list, .sound, .banner])
+        } else {
+            completionHandler([.alert, .sound, .badge])
+        }
     }
 
     // push가 온 경우 처리
+    // notrification을 누른 경우
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        guard let rootViewController = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController else {
+                       return
+                }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
         // deep link처리 시 아래 url값 가지고 처리
-        let url = response.notification.request.content.userInfo
-        print("url = \(url)")
+        if response.notification.request.identifier == "Local Notification" {
+            if let secondVC = storyboard.instantiateViewController(withIdentifier: "MainViewController") as? UIViewController,
+                let navController = rootViewController as? UINavigationController{
+
+                    navController.pushViewController(secondVC, animated: true)
+                    
+                }
+        }
+
+        completionHandler()
+
 
         // if url.containts("receipt")...
     }

@@ -14,6 +14,7 @@ import FirebaseDatabase
 
 class LoginViewController: UIViewController,  GIDSignInDelegate {
     
+
     
     @IBOutlet weak var appleSignInView: UIView!
     
@@ -25,9 +26,11 @@ class LoginViewController: UIViewController,  GIDSignInDelegate {
     
     //database
     var ref = Database.database().reference()
+
     //로그인 기능
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().delegate = self
         
@@ -114,7 +117,6 @@ class LoginViewController: UIViewController,  GIDSignInDelegate {
          }
         self.dismiss(animated: true, completion: nil)
     }
-
 }
 
 

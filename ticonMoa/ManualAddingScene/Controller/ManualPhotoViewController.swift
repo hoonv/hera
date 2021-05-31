@@ -25,11 +25,14 @@ class ManualPhotoViewController: UIViewController {
     @IBOutlet weak var grayOpacityView: UIView!
     
     var selectedImage: UIImage?
-    //db
+    // for db
     var ref = Database.database().reference()
     let currentuser = Auth.auth().currentUser?.email?.components(separatedBy: "@")[0]
     var text : [String] = []
     var coupon_num: Int = 0
+    // for notification
+    let notificationCenter = UNUserNotificationCenter.current()
+
     
     var viewModel = ManualViewModel()
     var oneflag = false
@@ -121,7 +124,6 @@ class ManualPhotoViewController: UIViewController {
             print("save Image")
         }
         
-        print(data)
         
         //쿠폰 db 입력
         
@@ -135,6 +137,10 @@ class ManualPhotoViewController: UIViewController {
         self.ref.child("User/\(self.currentuser!)/Coupon/\(String(coupon_num))/").updateChildValues(["Barcode":barcode])
         self.ref.child("User/\(self.currentuser!)/Coupon/\(String(coupon_num))/").updateChildValues(["Expire date":datefomatter.string(from:data.expiredDate)])
         
+        //local notification
+        //date 포맷 변경을 위해 string으로 유효기간을 넣어준다.
+        // 쿠폰 등록을 누를때마다 알림을 업데이트해준다.
+        generateNotification(item: data.name, expired_date_str: datefomatter.string(from : data.expiredDate))
         
         self.dismiss(animated: true, completion: nil)
     }
@@ -142,4 +148,69 @@ class ManualPhotoViewController: UIViewController {
     @IBAction func cancelTouched(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
+    
+    func generateNotification(item : String, expired_date_str : String){
+        let notificationCenter = UNUserNotificationCenter.current()
+        var expired_date_cnt : Int = 0
+        //String to Date format
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        let expired_date_dateformat = dateFormatter.date(from:expired_date_str)!
+        print(expired_date_dateformat)
+        //현재 등록하려는 쿠폰과 유효기간이 같은 요청의 쿠폰 갯수를 불러온다.
+        UNUserNotificationCenter.current().getPendingNotificationRequests {
+            (requests) in
+            var removeIdentifiers = [String]()
+            for request in requests {
+                if let trigger = request.trigger as? UNCalendarNotificationTrigger,
+                   let nexttrigger = trigger.nextTriggerDate(){
+                    //요청중에 현재 쿠폰의 expired date와 같은 요청이 있다면 cnt해준다.
+                    if nexttrigger == expired_date_dateformat{
+                        removeIdentifiers.append(request.identifier)
+                        expired_date_cnt += 1
+                    }
+                }
+            }
+            print("removeIdentifer")
+
+            print(removeIdentifiers)
+            //같은 날짜의 request들을 지워준다. -> 후에 현재 쿠폰을 더한Notificaiton을 추가해줄 예정
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: removeIdentifiers)
+        }
+        
+        let content = UNMutableNotificationContent()
+        
+        content.title = item
+        content.body = "유효기간이 1일 남은 쿠폰이 " + String(expired_date_cnt) + "개 입니다."
+        print("expired_date")
+        print(expired_date_cnt)
+        content.sound = UNNotificationSound.default
+        //화면에 보여지는 빨간색
+        content.badge = 2
+        
+        //언제 발생 시킬 것인지 알려준다.
+        let trigger_date = Calendar.current.date(byAdding: .day, value: -1, to: expired_date_dateformat)!
+        print("trigger_Date")
+        print(trigger_date)
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day], from: trigger_date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        //알림의 고유 이름
+        let identifier = "Local Notification"
+        //등록할 결과물
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        
+        
+        //UNUserNotificationCenter.current()에 등록
+        notificationCenter.add(request) { (error) in
+            if let err = error {
+                print(err.localizedDescription)
+            }
+        }
+        
+    }
+    
 }

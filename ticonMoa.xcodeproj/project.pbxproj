@@ -362,8 +362,6 @@
 		E0AE47FB2613078100BEC498 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				E0AE482C2614526600BEC498 /* CategoryCell.swift */,
-				E0AE482D2614526600BEC498 /* CategoryCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -481,6 +479,8 @@
 		E0BDEB8126494C1800228762 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				E0AE482C2614526600BEC498 /* CategoryCell.swift */,
+				E0AE482D2614526600BEC498 /* CategoryCell.xib */,
 				E0AB9A112642A09F00F11602 /* MainCategoryHeaderView.swift */,
 				E0AB9A122642A09F00F11602 /* MainCategoryHeaderView.xib */,
 				E0AB9A0426429A4A00F11602 /* MainCollectionViewCell.xib */,

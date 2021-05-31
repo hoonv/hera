@@ -16,6 +16,11 @@ class HorizontalScrollView: UIView {
     let names = ["box","coffee-cup", "cake",
                  "012-bread-2","fried-chicken-2",
                  "050-burger", "043-pizza"]
+    var selectedIndex = IndexPath(row: 0, section: 0) {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,6 +61,10 @@ extension HorizontalScrollView: UICollectionViewDelegate, UICollectionViewDataSo
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CategoryCell else { return UICollectionViewCell() }
         cell.layer.cornerRadius = (frame.height - edgeInsetConstant) / 2
         cell.imageView.image = UIImage(named: names[indexPath.row])
+        if selectedIndex == indexPath {
+            cell.layer.borderWidth = 1.4
+            cell.layer.borderColor = UIColor(named: "appColor")?.cgColor
+        }
         return cell
     }
     
@@ -63,12 +72,15 @@ extension HorizontalScrollView: UICollectionViewDelegate, UICollectionViewDataSo
         return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedIndex = indexPath
+    }
+    
 }
 extension HorizontalScrollView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let h = (frame.height - edgeInsetConstant)
-//        let w = max(items[indexPath.row].widthOfString(usingFont: .systemFont(ofSize: 17, weight: .regular)) + 30, h)
         return CGSize(width: h, height: h)
     }
     

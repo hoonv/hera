@@ -13,10 +13,10 @@ class HorizontalScrollView: UIView {
     var contentView: UIView?
     private let edgeInsetConstant: CGFloat = 10
     private let nibName = "HorizontalScrollView"
-    let items = ["All", "Coffee", "Cake", "a","bb", "ccc", "dddd"]
-    let names = ["box","coffee-cup", "cake", "012-bread-2","fried-chicken-2",
-                 "050-burger", "043-pizza"
-    ]
+    let names = ["box","coffee-cup", "cake",
+                 "012-bread-2","fried-chicken-2",
+                 "050-burger", "043-pizza"]
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -54,7 +54,6 @@ extension HorizontalScrollView: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CategoryCell else { return UICollectionViewCell() }
-//        cell.titleLabel.text = items[indexPath.row]
         cell.layer.cornerRadius = (frame.height - edgeInsetConstant) / 2
         cell.imageView.image = UIImage(named: names[indexPath.row])
         return cell

@@ -85,14 +85,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qmd-Nc-bjh">
-                                <rect key="frame" x="14" y="106" width="160" height="220"/>
+                                <rect key="frame" x="127" y="106" width="160" height="220"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="gaH-d2-dvR"/>
                                     <constraint firstAttribute="width" constant="160" id="xGY-DS-jmg"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gV0-0k-HSb">
-                                <rect key="frame" x="14" y="342" width="30" height="21"/>
+                                <rect key="frame" x="14" y="426" width="30" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="8Se-Db-0tz"/>
                                     <constraint firstAttribute="height" constant="21" id="tId-tK-qTE"/>
@@ -102,7 +102,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이름을 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmN-Pc-tQN">
-                                <rect key="frame" x="15" y="359" width="210" height="34"/>
+                                <rect key="frame" x="15" y="443" width="210" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="A8d-tg-ViQ"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="210" id="P6Q-qb-Vi6"/>
@@ -111,7 +111,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="유효기간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrM-v0-AZ3">
-                                <rect key="frame" x="14" y="409" width="59" height="21"/>
+                                <rect key="frame" x="14" y="493" width="59" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="3Q3-S2-ExG"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="59" id="Gu8-JX-nqL"/>
@@ -121,7 +121,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="유효기간을 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KWo-JY-xr1">
-                                <rect key="frame" x="14" y="426" width="210" height="34"/>
+                                <rect key="frame" x="14" y="510" width="210" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="210" id="Ul9-nL-IM4"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="eab-6S-cyF"/>
@@ -130,7 +130,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="브랜드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnY-tH-t3a">
-                                <rect key="frame" x="14" y="476" width="45" height="21"/>
+                                <rect key="frame" x="14" y="560" width="45" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="5PB-2U-dnw"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="5XZ-71-3KN"/>
@@ -171,7 +171,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="바코드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SqY-0P-BHh">
-                                <rect key="frame" x="14" y="543" width="45" height="21"/>
+                                <rect key="frame" x="14" y="627" width="45" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="4tM-Z5-Quv"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="eUP-sv-thO"/>
@@ -181,7 +181,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="바코드를 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bl2-TH-xmK">
-                                <rect key="frame" x="14" y="560" width="210" height="34"/>
+                                <rect key="frame" x="14" y="644" width="210" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="by8-kC-dWX"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="210" id="yL5-gA-eCs"/>
@@ -190,7 +190,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="브랜드를 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kFU-EZ-glk">
-                                <rect key="frame" x="14" y="493" width="210" height="34"/>
+                                <rect key="frame" x="14" y="577" width="210" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="210" id="HOK-hk-tgQ"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="khe-vT-Cqb"/>
@@ -199,7 +199,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMI-Z7-ODf">
-                                <rect key="frame" x="14" y="106" width="160" height="220"/>
+                                <rect key="frame" x="127" y="106" width="160" height="220"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="qqk-C5-wFY">
                                         <rect key="frame" x="70" y="100" width="20" height="20"/>
@@ -208,11 +208,19 @@
                                 </subviews>
                                 <color key="backgroundColor" name="grayOpacity"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iHp-fu-Jbf" customClass="HorizontalScrollView" customModule="ticonMoa" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="346" width="414" height="60"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="cwp-Of-lzh"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HVO-QS-rbU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="SqY-0P-BHh" firstAttribute="top" secondItem="kFU-EZ-glk" secondAttribute="bottom" constant="16" id="4FD-2c-Z02"/>
+                            <constraint firstItem="HVO-QS-rbU" firstAttribute="trailing" secondItem="iHp-fu-Jbf" secondAttribute="trailing" id="5j9-Dn-UuZ"/>
                             <constraint firstItem="bl2-TH-xmK" firstAttribute="top" secondItem="SqY-0P-BHh" secondAttribute="bottom" constant="-4" id="8Ob-Hu-Acy"/>
                             <constraint firstItem="1ha-78-BFq" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="28" id="8e7-eq-kh3"/>
                             <constraint firstItem="kFU-EZ-glk" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="14" id="AoF-vA-HAE"/>
@@ -223,8 +231,10 @@
                             <constraint firstItem="bl2-TH-xmK" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="14" id="KCQ-ve-uFt"/>
                             <constraint firstItem="hnY-tH-t3a" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="14" id="Ldv-jh-LKV"/>
                             <constraint firstItem="NMI-Z7-ODf" firstAttribute="trailing" secondItem="Qmd-Nc-bjh" secondAttribute="trailing" id="Mg1-Vu-E5o"/>
+                            <constraint firstItem="gV0-0k-HSb" firstAttribute="top" secondItem="iHp-fu-Jbf" secondAttribute="bottom" constant="20" id="Mia-QQ-9qj"/>
                             <constraint firstItem="gV0-0k-HSb" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="14" id="TTj-dn-Eao"/>
-                            <constraint firstItem="gV0-0k-HSb" firstAttribute="top" secondItem="Qmd-Nc-bjh" secondAttribute="bottom" constant="16" id="Vh7-UD-3xh"/>
+                            <constraint firstItem="Qmd-Nc-bjh" firstAttribute="centerX" secondItem="HVO-QS-rbU" secondAttribute="centerX" id="TVk-bL-W1l"/>
+                            <constraint firstItem="iHp-fu-Jbf" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" id="VQP-od-HUr"/>
                             <constraint firstItem="SqY-0P-BHh" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="14" id="W3Q-Di-dnf"/>
                             <constraint firstItem="Qmd-Nc-bjh" firstAttribute="top" secondItem="1ha-78-BFq" secondAttribute="bottom" constant="16" id="Z4i-UX-hGi"/>
                             <constraint firstItem="kFU-EZ-glk" firstAttribute="top" secondItem="hnY-tH-t3a" secondAttribute="bottom" constant="-4" id="atu-LO-cRo"/>
@@ -232,12 +242,12 @@
                             <constraint firstItem="ge7-eX-AoA" firstAttribute="centerX" secondItem="HVO-QS-rbU" secondAttribute="centerX" id="eMs-WW-L3g"/>
                             <constraint firstItem="ge7-eX-AoA" firstAttribute="top" secondItem="HVO-QS-rbU" secondAttribute="top" constant="21" id="g7y-jM-EKp"/>
                             <constraint firstItem="NMI-Z7-ODf" firstAttribute="leading" secondItem="Qmd-Nc-bjh" secondAttribute="leading" id="hQ9-yj-VEL"/>
+                            <constraint firstItem="iHp-fu-Jbf" firstAttribute="top" secondItem="Qmd-Nc-bjh" secondAttribute="bottom" constant="20" id="jXY-5W-YVs"/>
                             <constraint firstItem="1ha-78-BFq" firstAttribute="top" secondItem="HVO-QS-rbU" secondAttribute="top" constant="16" id="kVl-QQ-TSq"/>
                             <constraint firstItem="NMI-Z7-ODf" firstAttribute="bottom" secondItem="Qmd-Nc-bjh" secondAttribute="bottom" id="mCJ-2b-D7W"/>
                             <constraint firstItem="jmN-Pc-tQN" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="15" id="mPl-TE-WZs"/>
                             <constraint firstItem="HVO-QS-rbU" firstAttribute="trailing" secondItem="1Xr-lP-3fP" secondAttribute="trailing" constant="28" id="sAH-jh-nVL"/>
                             <constraint firstItem="KWo-JY-xr1" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="14" id="w5H-n7-VV1"/>
-                            <constraint firstItem="Qmd-Nc-bjh" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="14" id="wqd-1Y-xin"/>
                             <constraint firstItem="1Xr-lP-3fP" firstAttribute="top" secondItem="HVO-QS-rbU" secondAttribute="top" constant="16" id="x3i-93-07P"/>
                             <constraint firstItem="KWo-JY-xr1" firstAttribute="top" secondItem="zrM-v0-AZ3" secondAttribute="bottom" constant="-4" id="xIF-T2-lzA"/>
                         </constraints>
@@ -528,6 +538,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -60,12 +60,16 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput, HomeViewModelType 
     }
     
     func fetchAllGifticon() {
-        var gifty: [Gifticon] = CoreDataManager.shared.fetchAll()
+        var gifty: [Gifticon] = CoreDataManager.shared
+            .fetchAll()
+            .sorted { a, b in
+            a.expiredDate < b.expiredDate
+        }
         let im = ImageManager()
         for i in 0..<gifty.count {
             gifty[i].image =         im.loadImageFromDiskWith(fileName: gifty[i].imageName)
 
-        }
+        }        
         gificons.onNext(gifty)
     }
 

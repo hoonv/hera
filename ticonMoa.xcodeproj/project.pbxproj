@@ -17,6 +17,8 @@
 		E053B6402604FC77005FAD51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E053B63E2604FC77005FAD51 /* Main.storyboard */; };
 		E053B6422604FC79005FAD51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E053B6412604FC79005FAD51 /* Assets.xcassets */; };
 		E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E053B6432604FC79005FAD51 /* LaunchScreen.storyboard */; };
+		E05F3CF92664B27E00EF29D0 /* BrandCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F3CF72664B27E00EF29D0 /* BrandCollectionReusableView.swift */; };
+		E05F3CFA2664B27E00EF29D0 /* BrandCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05F3CF82664B27E00EF29D0 /* BrandCollectionReusableView.xib */; };
 		E0AB99E626421B9600F11602 /* SwiftyTesseract in Frameworks */ = {isa = PBXBuildFile; productRef = E0AB99E526421B9600F11602 /* SwiftyTesseract */; };
 		E0AB99EC26421E3400F11602 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = E0AB99EB26421E3400F11602 /* tessdata */; };
 		E0AB99F626427A6100F11602 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB99F526427A6100F11602 /* MainViewController.swift */; };
@@ -115,6 +117,8 @@
 		E053B6412604FC79005FAD51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E053B6442604FC79005FAD51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E053B6462604FC79005FAD51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E05F3CF72664B27E00EF29D0 /* BrandCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCollectionReusableView.swift; sourceTree = "<group>"; };
+		E05F3CF82664B27E00EF29D0 /* BrandCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrandCollectionReusableView.xib; sourceTree = "<group>"; };
 		E0AB99EB26421E3400F11602 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = ../../../../tessdata; sourceTree = "<group>"; };
 		E0AB99F526427A6100F11602 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E0AB99F926427B6000F11602 /* MainIconHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainIconHeaderView.swift; sourceTree = "<group>"; };
@@ -482,6 +486,8 @@
 				E0AE482C2614526600BEC498 /* CategoryCell.swift */,
 				E0AE482D2614526600BEC498 /* CategoryCell.xib */,
 				E0AB9A112642A09F00F11602 /* MainCategoryHeaderView.swift */,
+				E05F3CF72664B27E00EF29D0 /* BrandCollectionReusableView.swift */,
+				E05F3CF82664B27E00EF29D0 /* BrandCollectionReusableView.xib */,
 				E0AB9A122642A09F00F11602 /* MainCategoryHeaderView.xib */,
 				E0AB9A0426429A4A00F11602 /* MainCollectionViewCell.xib */,
 				E0AB9A0326429A4A00F11602 /* MainCollectionViewCell.swift */,
@@ -638,6 +644,7 @@
 				E0AE482F2614526600BEC498 /* CategoryCell.xib in Resources */,
 				E0C3CF96263E5F0600483A91 /* SearchCollectionViewCell.xib in Resources */,
 				E0AE483A261465CA00BEC498 /* IconStackView.xib in Resources */,
+				E05F3CFA2664B27E00EF29D0 /* BrandCollectionReusableView.xib in Resources */,
 				E0AB9A532643B48F00F11602 /* ChoiceView.xib in Resources */,
 				E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */,
 				E0C3CFA0263FE24C00483A91 /* SearchHeaderReusableView.xib in Resources */,
@@ -731,6 +738,7 @@
 				E0AE4826261442D400BEC498 /* HorizontalScrollView.swift in Sources */,
 				E0BDEBAC264A846B00228762 /* Coupon+CoreDataClass.swift in Sources */,
 				E0AB9A4F2643B47100F11602 /* ChoiceView.swift in Sources */,
+				E05F3CF92664B27E00EF29D0 /* BrandCollectionReusableView.swift in Sources */,
 				E0BDEB6E264939F700228762 /* TessearctEngine.swift in Sources */,
 				E0364FFE26247CC4006D243E /* ManualPhotoViewController.swift in Sources */,
 				E053B63B2604FC77005FAD51 /* SceneDelegate.swift in Sources */,

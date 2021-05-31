@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
     let viewModel = HomeViewModel()
     let bag = DisposeBag()
     var images: [UIImage] = []
-    var gifticons: [Gifticon] = []
+    var gifticons: [[Gifticon]] = []
     var allGifticons: [Gifticon] = []
 
     override func viewDidLoad() {
@@ -44,7 +44,13 @@ class MainViewController: UIViewController {
         viewModel.output.gificons
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { coupons in
-                self.gifticons = coupons
+                var groupedGifticon: [[Gifticon]] = [[]]
+                let gifticonbyBrand = Dictionary(grouping: coupons, by: { $0.brand })
+                
+                for (_, value) in gifticonbyBrand {
+                    groupedGifticon.append(value)
+                }
+                self.gifticons = groupedGifticon
                 self.allGifticons = coupons
                 self.collectionView.reloadData()
             })
@@ -52,7 +58,13 @@ class MainViewController: UIViewController {
         viewModel.output.filteredGificons
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { coupons in
-                self.gifticons = coupons
+                var groupedGifticon: [[Gifticon]] = [[]]
+                let gifticonbyBrand = Dictionary(grouping: coupons, by: { $0.brand })
+                
+                for (_, value) in gifticonbyBrand {
+                    groupedGifticon.append(value)
+                }
+                self.gifticons = groupedGifticon
                 self.collectionView.reloadData()
             })
             .disposed(by: bag)

@@ -11,13 +11,14 @@ import RxSwift
 protocol HomeViewModelInput {
     func requestPhotoWithAuto()
     func fetchAllGifticon()
+    func changeCategory(gifticons: [Gifticon], category: String)
 }
 
 protocol HomeViewModelOutput {
     var images: BehaviorSubject<[UIImage]> { get }
     var isProccess: BehaviorSubject<Bool> { get }
     var gificons: PublishSubject<[Gifticon]> { get }
-
+    var filteredGificons: PublishSubject<[Gifticon]> { get }
 }
 
 protocol HomeViewModelType {
@@ -26,14 +27,14 @@ protocol HomeViewModelType {
 }
 
 class HomeViewModel: HomeViewModelInput, HomeViewModelOutput, HomeViewModelType {
-    
-    
+ 
     var input: HomeViewModelInput { self }
     var output: HomeViewModelOutput { self }
     
     var images = BehaviorSubject<[UIImage]>(value: [])
     var isProccess = BehaviorSubject<Bool>(value: false)
     var gificons = PublishSubject<[Gifticon]>()
+    var filteredGificons =  PublishSubject<[Gifticon]>()
 
     private var _images: [UIImage] = []
     private let photoManager = PhotoManager()
@@ -72,5 +73,13 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput, HomeViewModelType 
         isProccess.on(.next(true))
         photoManager.requestAuthorization()
     }
-    
+    func changeCategory(gifticons: [Gifticon], category: String) {
+        if category == "box" {
+            filteredGificons.onNext(gifticons)
+            return
+        }
+        filteredGificons
+            .onNext(gifticons.filter { $0.category == category})
+    }
+
 }

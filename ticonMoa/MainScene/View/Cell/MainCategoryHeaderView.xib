@@ -27,6 +27,9 @@
                 <constraint firstItem="QAv-Qy-Z1F" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="Oed-0b-3PO"/>
                 <constraint firstItem="QAv-Qy-Z1F" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="xgg-6m-MDS"/>
             </constraints>
+            <connections>
+                <outlet property="horizontalScrollView" destination="QAv-Qy-Z1F" id="1g8-LV-xA8"/>
+            </connections>
             <point key="canvasLocation" x="-30" y="66"/>
         </collectionReusableView>
     </objects>

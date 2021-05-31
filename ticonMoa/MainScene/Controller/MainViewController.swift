@@ -22,7 +22,8 @@ class MainViewController: UIViewController {
     let bag = DisposeBag()
     var images: [UIImage] = []
     var gifticons: [Gifticon] = []
-    
+    var allGifticons: [Gifticon] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
@@ -42,12 +43,19 @@ class MainViewController: UIViewController {
     func bind() {
         viewModel.output.gificons
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { g in
-                self.gifticons = g
+            .subscribe(onNext: { coupons in
+                self.gifticons = coupons
+                self.allGifticons = coupons
                 self.collectionView.reloadData()
             })
             .disposed(by: bag)
-
+        viewModel.output.filteredGificons
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { coupons in
+                self.gifticons = coupons
+                self.collectionView.reloadData()
+            })
+            .disposed(by: bag)
         addView.addButton.rx.tap
             .bind { [weak self] in
                 self?.pullUpView()

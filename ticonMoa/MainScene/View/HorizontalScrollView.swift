@@ -7,13 +7,17 @@
 
 import UIKit
 
+protocol HorizontalScrollViewDelegate: class {
+    func horizontalScrollView(_ horizontal: HorizontalScrollView, didSelected category: String)
+}
+
 class HorizontalScrollView: UIView {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var contentView: UIView?
     private let edgeInsetConstant: CGFloat = 10
     private let nibName = "HorizontalScrollView"
-    let names = ["box","coffee-cup", "cake",
+    var names = ["box","coffee-cup", "cake",
                  "012-bread-2","fried-chicken-2",
                  "050-burger", "043-pizza"]
     var selectedIndex = IndexPath(row: 0, section: 0) {
@@ -24,6 +28,7 @@ class HorizontalScrollView: UIView {
     var selectedCategory: String {
         return names[selectedIndex.row]
     }
+    weak var delegate: HorizontalScrollViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,6 +38,11 @@ class HorizontalScrollView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
+    }
+    
+    func setCategory(categories: [String]) {
+        names = categories
+        collectionView.reloadData()
     }
     
     private func setup() {
@@ -77,6 +87,8 @@ extension HorizontalScrollView: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedIndex = indexPath
+        let category = names[indexPath.row]
+        delegate?.horizontalScrollView(self, didSelected: category)
     }
     
 }

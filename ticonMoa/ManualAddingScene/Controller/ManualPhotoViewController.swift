@@ -58,6 +58,8 @@ class ManualPhotoViewController: UIViewController {
         imageView.isUserInteractionEnabled = true
         imageView.layer.cornerRadius = 20
         grayOpacityView.layer.cornerRadius = 20
+        let categories = horizontalScrollView.names.dropFirst().map { String($0) }
+        horizontalScrollView.setCategory(categories: categories)
     }
     
     private func binding() {
@@ -155,6 +157,7 @@ class ManualPhotoViewController: UIViewController {
             im.saveImage(imageName: data.imageName, image: image)
             NotificationCenter.default.post(name: .newCouponRegistered, object: nil)
             self.dismiss(animated: true, completion: nil)
+            return 
         }
         alert(message: "fail saving coupon")
     }

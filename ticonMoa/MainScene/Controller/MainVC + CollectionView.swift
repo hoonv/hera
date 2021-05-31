@@ -38,15 +38,16 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
         let data = gifticons[indexPath.row]
         cell.date.text = data.expiredDate.toStringKST(dateFormat: "yyyy.MM.dd")
+        cell.categoryImageView.image = UIImage(named: data.category)
         cell.imageView.image = data.image
         cell.brand.text = data.brand
         cell.name.text = data.name
-    
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "MainCategoryHeaderView", for: indexPath) as? MainCategoryHeaderView else { return UICollectionReusableView() }
+        header.horizontalScrollView.delegate = self
         return header
     }
     
@@ -57,3 +58,8 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
 }
 
 
+extension MainViewController: HorizontalScrollViewDelegate {
+    func horizontalScrollView(_ horizontal: HorizontalScrollView, didSelected category: String) {
+        viewModel.input.changeCategory(gifticons: allGifticons, category: category)
+    }
+}

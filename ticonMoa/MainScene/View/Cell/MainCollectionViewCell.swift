@@ -11,6 +11,7 @@ class MainCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var categoryImageView: UIImageView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var brand: UILabel!

@@ -27,7 +27,6 @@ class ImageManager {
 
         do {
             try data.write(to: fileURL)
-            print(fileURL)
         } catch let error {
             print("error saving file with error", error)
         }

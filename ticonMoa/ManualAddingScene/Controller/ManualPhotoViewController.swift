@@ -131,16 +131,18 @@ class ManualPhotoViewController: UIViewController {
         self.ref.child("User/\(self.currentuser!)/Coupon/").updateChildValues([String(coupon_num):""])
         
         let datefomatter = DateFormatter()
+        
         datefomatter.dateFormat = "YYYY.MM.dd"
         self.ref.child("User/\(self.currentuser!)/Coupon/\(String(coupon_num))/").updateChildValues(["Item":name])
         self.ref.child("User/\(self.currentuser!)/Coupon/\(String(coupon_num))/").updateChildValues(["Brand":brand])
         self.ref.child("User/\(self.currentuser!)/Coupon/\(String(coupon_num))/").updateChildValues(["Barcode":barcode])
         self.ref.child("User/\(self.currentuser!)/Coupon/\(String(coupon_num))/").updateChildValues(["Expire date":datefomatter.string(from:data.expiredDate)])
         
+        print(datefomatter.string(from:data.expiredDate))
         //local notification
         //date 포맷 변경을 위해 string으로 유효기간을 넣어준다.
         // 쿠폰 등록을 누를때마다 알림을 업데이트해준다.
-        generateNotification(item: data.name, expired_date_str: datefomatter.string(from : data.expiredDate))
+        generateNotification(notificationCenter: notificationCenter, item: data.name, expired_date_dateformat: data.expiredDate)
         
         self.dismiss(animated: true, completion: nil)
     }
@@ -151,25 +153,22 @@ class ManualPhotoViewController: UIViewController {
     
     
     
-    func generateNotification(item : String, expired_date_str : String){
-        let notificationCenter = UNUserNotificationCenter.current()
+    func generateNotification(notificationCenter : UNUserNotificationCenter ,item : String, expired_date_dateformat : Date){
         var expired_date_cnt : Int = 0
         //String to Date format
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-        dateFormatter.dateFormat = "yyyy.MM.dd"
-        let expired_date_dateformat = dateFormatter.date(from:expired_date_str)!
         print(expired_date_dateformat)
+        
         //현재 등록하려는 쿠폰과 유효기간이 같은 요청의 쿠폰 갯수를 불러온다.
-        UNUserNotificationCenter.current().getPendingNotificationRequests {
+        notificationCenter.getPendingNotificationRequests {
             (requests) in
             var removeIdentifiers = [String]()
+            
+            print(requests)
             for request in requests {
                 if let trigger = request.trigger as? UNCalendarNotificationTrigger,
                    let nexttrigger = trigger.nextTriggerDate(){
                     //요청중에 현재 쿠폰의 expired date와 같은 요청이 있다면 cnt해준다.
-                    if nexttrigger == expired_date_dateformat{
+                    if self.convertDateFormatter(date: nexttrigger) == self.convertDateFormatter(date: expired_date_dateformat) {
                         removeIdentifiers.append(request.identifier)
                         expired_date_cnt += 1
                     }
@@ -179,15 +178,13 @@ class ManualPhotoViewController: UIViewController {
 
             print(removeIdentifiers)
             //같은 날짜의 request들을 지워준다. -> 후에 현재 쿠폰을 더한Notificaiton을 추가해줄 예정
-            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: removeIdentifiers)
+            notificationCenter.removePendingNotificationRequests(withIdentifiers: removeIdentifiers)
         }
         
         let content = UNMutableNotificationContent()
         
         content.title = item
-        content.body = "유효기간이 1일 남은 쿠폰이 " + String(expired_date_cnt) + "개 입니다."
-        print("expired_date")
-        print(expired_date_cnt)
+        content.body = "유효기간이 1일 남은 쿠폰이 " + String(expired_date_cnt + 1) + "개 입니다."
         content.sound = UNNotificationSound.default
         //화면에 보여지는 빨간색
         content.badge = 2
@@ -195,8 +192,10 @@ class ManualPhotoViewController: UIViewController {
         //언제 발생 시킬 것인지 알려준다.
         let trigger_date = Calendar.current.date(byAdding: .day, value: -1, to: expired_date_dateformat)!
         print("trigger_Date")
-        print(trigger_date)
+        print(self.convertDateFormatter(date: trigger_date))
         let dateComponents = Calendar.current.dateComponents([.year, .month, .day], from: trigger_date)
+        print("datecomponent")
+        print(dateComponents)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
         //알림의 고유 이름
         let identifier = "Local Notification"
@@ -212,5 +211,12 @@ class ManualPhotoViewController: UIViewController {
         }
         
     }
+    func convertDateFormatter(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY.MM.dd"///this is what you want to convert format
+        let timeStamp = dateFormatter.string(from: date)
+        print(timeStamp)
+        return timeStamp
+     }
     
 }

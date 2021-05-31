@@ -99,7 +99,8 @@ class MainViewController: UIViewController {
     }
 
     func showAuto() {
-        viewModel.input.requestPhotoWithAuto()
+        guard let controller: AutoPhotoViewController = UIStoryboard.main.instantiate() else { return }
+        self.present(controller, animated: true)
     }
     
     func showManual() {
@@ -115,7 +116,7 @@ class MainViewController: UIViewController {
               let image = image else { return }
         
         controller.selectedImage = Observable.just(image)
-        self.show(controller, sender: self)
+        self.present(controller, animated: true)
     }
     
 }

@@ -19,6 +19,11 @@
 		E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E053B6432604FC79005FAD51 /* LaunchScreen.storyboard */; };
 		E05F3CF92664B27E00EF29D0 /* BrandCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F3CF72664B27E00EF29D0 /* BrandCollectionReusableView.swift */; };
 		E05F3CFA2664B27E00EF29D0 /* BrandCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05F3CF82664B27E00EF29D0 /* BrandCollectionReusableView.xib */; };
+		E05F3CFF2664BCE900EF29D0 /* AutoPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F3CFE2664BCE900EF29D0 /* AutoPhotoViewController.swift */; };
+		E05F3D082664C8BE00EF29D0 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F3D062664C8BE00EF29D0 /* PhotoCollectionViewCell.swift */; };
+		E05F3D092664C8BE00EF29D0 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05F3D072664C8BE00EF29D0 /* PhotoCollectionViewCell.xib */; };
+		E05F3D0D2665A3F400EF29D0 /* InputForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F3D0C2665A3F400EF29D0 /* InputForm.swift */; };
+		E05F3D112665A40100EF29D0 /* InputForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05F3D102665A40100EF29D0 /* InputForm.xib */; };
 		E0AB99E626421B9600F11602 /* SwiftyTesseract in Frameworks */ = {isa = PBXBuildFile; productRef = E0AB99E526421B9600F11602 /* SwiftyTesseract */; };
 		E0AB99EC26421E3400F11602 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = E0AB99EB26421E3400F11602 /* tessdata */; };
 		E0AB99F626427A6100F11602 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB99F526427A6100F11602 /* MainViewController.swift */; };
@@ -119,6 +124,11 @@
 		E053B6462604FC79005FAD51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E05F3CF72664B27E00EF29D0 /* BrandCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCollectionReusableView.swift; sourceTree = "<group>"; };
 		E05F3CF82664B27E00EF29D0 /* BrandCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrandCollectionReusableView.xib; sourceTree = "<group>"; };
+		E05F3CFE2664BCE900EF29D0 /* AutoPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoPhotoViewController.swift; sourceTree = "<group>"; };
+		E05F3D062664C8BE00EF29D0 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		E05F3D072664C8BE00EF29D0 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		E05F3D0C2665A3F400EF29D0 /* InputForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputForm.swift; sourceTree = "<group>"; };
+		E05F3D102665A40100EF29D0 /* InputForm.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputForm.xib; sourceTree = "<group>"; };
 		E0AB99EB26421E3400F11602 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = ../../../../tessdata; sourceTree = "<group>"; };
 		E0AB99F526427A6100F11602 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E0AB99F926427B6000F11602 /* MainIconHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainIconHeaderView.swift; sourceTree = "<group>"; };
@@ -300,6 +310,7 @@
 				E02027D82628609E00AD7230 /* HomeScene (deprecated) */,
 				E0AB9A1F2642CDAD00F11602 /* MainScene */,
 				E02027DC2628628E00AD7230 /* ManualAddingScene */,
+				E05F3CFD2664BCD300EF29D0 /* AutoAddingScene */,
 				E0C3CFA3263FF78200483A91 /* CounponDetailScene */,
 				E02027D92628622400AD7230 /* SearchScene */,
 				E02027DA2628623800AD7230 /* ProfileScene */,
@@ -312,6 +323,18 @@
 				E053B6462604FC79005FAD51 /* Info.plist */,
 			);
 			path = ticonMoa;
+			sourceTree = "<group>";
+		};
+		E05F3CFD2664BCD300EF29D0 /* AutoAddingScene */ = {
+			isa = PBXGroup;
+			children = (
+				E05F3CFE2664BCE900EF29D0 /* AutoPhotoViewController.swift */,
+				E05F3D062664C8BE00EF29D0 /* PhotoCollectionViewCell.swift */,
+				E05F3D072664C8BE00EF29D0 /* PhotoCollectionViewCell.xib */,
+				E05F3D0C2665A3F400EF29D0 /* InputForm.swift */,
+				E05F3D102665A40100EF29D0 /* InputForm.xib */,
+			);
+			path = AutoAddingScene;
 			sourceTree = "<group>";
 		};
 		E0AB9A1F2642CDAD00F11602 /* MainScene */ = {
@@ -642,12 +665,14 @@
 				E0AB9A272642CDEE00F11602 /* ButtonAddView.xib in Resources */,
 				E0AE482A261442FC00BEC498 /* HorizontalScrollView.xib in Resources */,
 				E0AE482F2614526600BEC498 /* CategoryCell.xib in Resources */,
+				E05F3D092664C8BE00EF29D0 /* PhotoCollectionViewCell.xib in Resources */,
 				E0C3CF96263E5F0600483A91 /* SearchCollectionViewCell.xib in Resources */,
 				E0AE483A261465CA00BEC498 /* IconStackView.xib in Resources */,
 				E05F3CFA2664B27E00EF29D0 /* BrandCollectionReusableView.xib in Resources */,
 				E0AB9A532643B48F00F11602 /* ChoiceView.xib in Resources */,
 				E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */,
 				E0C3CFA0263FE24C00483A91 /* SearchHeaderReusableView.xib in Resources */,
+				E05F3D112665A40100EF29D0 /* InputForm.xib in Resources */,
 				E0AB9A41264367B700F11602 /* PullUpView.xib in Resources */,
 				E053B6422604FC79005FAD51 /* Assets.xcassets in Resources */,
 				E0AB99FE26427B6700F11602 /* MainIconHeaderView.xib in Resources */,
@@ -718,6 +743,7 @@
 				E0C3CF90263E5E1700483A91 /* SearchViewModel.swift in Sources */,
 				E0BBB1B326378ADE00DC4553 /* PhotoCluster.swift in Sources */,
 				E0364FF52623EA97006D243E /* TextRecognitionWrapper(deprecated).swift in Sources */,
+				E05F3CFF2664BCE900EF29D0 /* AutoPhotoViewController.swift in Sources */,
 				E0AE481F26143C9000BEC498 /* UIStoryboard.swift in Sources */,
 				E0BBB1D42637F50900DC4553 /* HomeViewModel.swift in Sources */,
 				E0BBB1F326381F2400DC4553 /* HomeVC + ImagePicker.swift in Sources */,
@@ -728,6 +754,7 @@
 				E0AB9A182642CC2500F11602 /* Gifticon.swift in Sources */,
 				E053B63D2604FC77005FAD51 /* HomeViewController.swift in Sources */,
 				E0AE482E2614526600BEC498 /* CategoryCell.swift in Sources */,
+				E05F3D0D2665A3F400EF29D0 /* InputForm.swift in Sources */,
 				E0AB99F626427A6100F11602 /* MainViewController.swift in Sources */,
 				E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */,
 				E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */,
@@ -746,6 +773,7 @@
 				E0AE48372614659500BEC498 /* IconStackView.swift in Sources */,
 				E0BDEBBB264AB3CC00228762 /* ImageManager.swift in Sources */,
 				E0AE480C2613222D00BEC498 /* Autolayout.swift in Sources */,
+				E05F3D082664C8BE00EF29D0 /* PhotoCollectionViewCell.swift in Sources */,
 				E0AB9A6B2643D6D900F11602 /* MainVC + CollectionView.swift in Sources */,
 				E0BDEBAD264A846B00228762 /* Coupon+CoreDataProperties.swift in Sources */,
 				E0BDEBBF264AE44800228762 /* FeedBackButton.swift in Sources */,

@@ -102,10 +102,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이름을 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmN-Pc-tQN">
-                                <rect key="frame" x="15" y="443" width="210" height="34"/>
+                                <rect key="frame" x="15" y="443" width="379" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="A8d-tg-ViQ"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="210" id="P6Q-qb-Vi6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -121,9 +120,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="유효기간을 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KWo-JY-xr1">
-                                <rect key="frame" x="14" y="510" width="210" height="34"/>
+                                <rect key="frame" x="14" y="510" width="380" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="210" id="Ul9-nL-IM4"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="eab-6S-cyF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
@@ -181,18 +179,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="바코드를 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bl2-TH-xmK">
-                                <rect key="frame" x="14" y="644" width="210" height="34"/>
+                                <rect key="frame" x="14" y="644" width="380" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="by8-kC-dWX"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="210" id="yL5-gA-eCs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="브랜드를 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kFU-EZ-glk">
-                                <rect key="frame" x="14" y="577" width="210" height="34"/>
+                                <rect key="frame" x="14" y="577" width="380" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="210" id="HOK-hk-tgQ"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="khe-vT-Cqb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
@@ -221,6 +217,7 @@
                         <constraints>
                             <constraint firstItem="SqY-0P-BHh" firstAttribute="top" secondItem="kFU-EZ-glk" secondAttribute="bottom" constant="16" id="4FD-2c-Z02"/>
                             <constraint firstItem="HVO-QS-rbU" firstAttribute="trailing" secondItem="iHp-fu-Jbf" secondAttribute="trailing" id="5j9-Dn-UuZ"/>
+                            <constraint firstItem="HVO-QS-rbU" firstAttribute="trailing" secondItem="bl2-TH-xmK" secondAttribute="trailing" constant="20" id="7vA-al-gqx"/>
                             <constraint firstItem="bl2-TH-xmK" firstAttribute="top" secondItem="SqY-0P-BHh" secondAttribute="bottom" constant="-4" id="8Ob-Hu-Acy"/>
                             <constraint firstItem="1ha-78-BFq" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="28" id="8e7-eq-kh3"/>
                             <constraint firstItem="kFU-EZ-glk" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="14" id="AoF-vA-HAE"/>
@@ -236,6 +233,7 @@
                             <constraint firstItem="Qmd-Nc-bjh" firstAttribute="centerX" secondItem="HVO-QS-rbU" secondAttribute="centerX" id="TVk-bL-W1l"/>
                             <constraint firstItem="iHp-fu-Jbf" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" id="VQP-od-HUr"/>
                             <constraint firstItem="SqY-0P-BHh" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="14" id="W3Q-Di-dnf"/>
+                            <constraint firstItem="HVO-QS-rbU" firstAttribute="trailing" secondItem="KWo-JY-xr1" secondAttribute="trailing" constant="20" id="Wm4-WJ-ZRP"/>
                             <constraint firstItem="Qmd-Nc-bjh" firstAttribute="top" secondItem="1ha-78-BFq" secondAttribute="bottom" constant="16" id="Z4i-UX-hGi"/>
                             <constraint firstItem="kFU-EZ-glk" firstAttribute="top" secondItem="hnY-tH-t3a" secondAttribute="bottom" constant="-4" id="atu-LO-cRo"/>
                             <constraint firstItem="zrM-v0-AZ3" firstAttribute="top" secondItem="jmN-Pc-tQN" secondAttribute="bottom" constant="16" id="dFC-Vz-VF0"/>
@@ -247,9 +245,11 @@
                             <constraint firstItem="NMI-Z7-ODf" firstAttribute="bottom" secondItem="Qmd-Nc-bjh" secondAttribute="bottom" id="mCJ-2b-D7W"/>
                             <constraint firstItem="jmN-Pc-tQN" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="15" id="mPl-TE-WZs"/>
                             <constraint firstItem="HVO-QS-rbU" firstAttribute="trailing" secondItem="1Xr-lP-3fP" secondAttribute="trailing" constant="28" id="sAH-jh-nVL"/>
+                            <constraint firstItem="HVO-QS-rbU" firstAttribute="trailing" secondItem="jmN-Pc-tQN" secondAttribute="trailing" constant="20" id="u5i-g9-1bN"/>
                             <constraint firstItem="KWo-JY-xr1" firstAttribute="leading" secondItem="HVO-QS-rbU" secondAttribute="leading" constant="14" id="w5H-n7-VV1"/>
                             <constraint firstItem="1Xr-lP-3fP" firstAttribute="top" secondItem="HVO-QS-rbU" secondAttribute="top" constant="16" id="x3i-93-07P"/>
                             <constraint firstItem="KWo-JY-xr1" firstAttribute="top" secondItem="zrM-v0-AZ3" secondAttribute="bottom" constant="-4" id="xIF-T2-lzA"/>
+                            <constraint firstItem="HVO-QS-rbU" firstAttribute="trailing" secondItem="kFU-EZ-glk" secondAttribute="trailing" constant="20" id="yqL-AS-9jd"/>
                         </constraints>
                     </view>
                     <toolbarItems/>

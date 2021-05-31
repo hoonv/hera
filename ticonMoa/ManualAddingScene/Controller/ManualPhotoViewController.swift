@@ -46,6 +46,13 @@ class ManualPhotoViewController: UIViewController {
     }
     
     private func setupUI() {
+        nameTextField.delegate = self
+        nameTextField.returnKeyType = .next
+        brandTextField.delegate = self
+        brandTextField.returnKeyType = .next
+        dateTextField.delegate = self
+        dateTextField.returnKeyType = .next
+        barcodeTextField.delegate = self
         imageView.isUserInteractionEnabled = true
         imageView.layer.cornerRadius = 20
         grayOpacityView.layer.cornerRadius = 20
@@ -91,13 +98,30 @@ class ManualPhotoViewController: UIViewController {
         
         viewModel.output.expirationDate
             .observeOn(MainScheduler.instance)
-            .map { $0.toString(dateFormat: "yyyy.MM.dd") }
+//            .map { $0.toString(dateFormat: "yyyy.MM.dd") }
             .subscribe(onNext: { str in
                 self.dateTextField.text = str
             })
             .disposed(by: bag)
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>,
+                               with event: UIEvent?){
+         self.view.endEditing(true)
+   }
+    
+    func keyboardWillShow() {
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= 200
+        }
+    }
+
+    func keyboardWillHide() {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
 
     @IBAction func DoneTouched(_ sender: Any) {
         guard let name = nameTextField.text,
@@ -117,5 +141,31 @@ class ManualPhotoViewController: UIViewController {
             print("save Image")
         }
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ManualPhotoViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.isEqual(nameTextField) {
+            dateTextField.becomeFirstResponder()
+        }
+        if textField.isEqual(dateTextField) {
+            brandTextField.becomeFirstResponder()
+        }
+        if textField.isEqual(brandTextField) {
+            barcodeTextField.becomeFirstResponder()
+        }
+        if textField.isEqual(barcodeTextField) {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        keyboardWillHide()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        keyboardWillShow()
     }
 }

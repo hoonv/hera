@@ -23,7 +23,8 @@ class ManualPhotoViewController: UIViewController {
     
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
-    
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+
     var selectedImage: Observable<UIImage>?
     
     var viewModel = ManualViewModel()
@@ -104,21 +105,24 @@ class ManualPhotoViewController: UIViewController {
             })
             .disposed(by: bag)
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>,
                                with event: UIEvent?){
          self.view.endEditing(true)
    }
     
     func keyboardWillShow() {
-        if self.view.frame.origin.y == 0 {
-            self.view.frame.origin.y -= 200
+        if topConstraint.constant != -260 {
+            topConstraint.constant = -260
+            UIView.animate(withDuration: 0.20, animations: {
+                self.view.layoutIfNeeded()
+            })
         }
     }
 
     func keyboardWillHide() {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
+        if topConstraint.constant != 20 {
+            topConstraint.constant = 20
         }
     }
     
@@ -126,11 +130,17 @@ class ManualPhotoViewController: UIViewController {
     @IBAction func DoneTouched(_ sender: Any) {
         guard let name = nameTextField.text,
         let brand = brandTextField.text,
-        let barcode = barcodeTextField.text else {
-            self.dismiss(animated: true, completion: nil)
+        let barcode = barcodeTextField.text,
+        let date = dateTextField.text,
+        name != "", brand != "", barcode != "", date != "" else {
+            alert(message: "fill empty text")
             return
         }
         let data = Gifticon(name: name, barcode: barcode, brand: brand, date: Date())
+        if CoreDataManager.shared.isExist(gifticon: data) {
+            alert(message: "duplicated coupon")
+            return
+        }
         if CoreDataManager.shared.insert(gifticon: data) {
             guard let image = imageView.image else {
                 self.dismiss(animated: true, completion: nil)
@@ -168,4 +178,13 @@ extension ManualPhotoViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         keyboardWillShow()
     }
+}
+
+extension UIViewController {
+  func alert(message: String, title: String = "") {
+    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+    alertController.addAction(OKAction)
+    self.present(alertController, animated: true, completion: nil)
+  }
 }

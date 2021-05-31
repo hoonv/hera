@@ -41,7 +41,6 @@ class MainViewController: UIViewController {
             .subscribe(onNext: { g in
                 self.gifticons = g
                 self.collectionView.reloadData()
-                print(g.count)
             })
             .disposed(by: bag)
 

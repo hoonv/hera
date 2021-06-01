@@ -189,12 +189,14 @@ class ManualPhotoViewController: UIViewController {
                 print(removeIdentifiers)
                 //같은 날짜의 request들을 지워준다. -> 후에 현재 쿠폰을 더한 Notificaiton을 추가해줄 예정
                 notificationCenter.removePendingNotificationRequests(withIdentifiers: removeIdentifiers)
+                
+                
+                print("expire_date_cnt.  " + String(expired_date_cnt))
+                //for test(쿠폰 등록 후 2분 뒤에 알람)
+                self.day137_request(day_idx: 0, notificationCenter: notificationCenter, item: item, expired_date_cnt: expired_date_cnt, expired_date_dateformat: expired_date_dateformat)
             }
             
             
-            print("expire_date_cnt.  " + String(expired_date_cnt))
-            //for test(쿠폰 등록 후 2분 뒤에 알람)
-            self.day137_request(day_idx: 0, notificationCenter: notificationCenter, item: item, expired_date_cnt: expired_date_cnt, expired_date_dateformat: expired_date_dateformat)
             
             /*
              
@@ -219,14 +221,14 @@ class ManualPhotoViewController: UIViewController {
      }
     func day137_request(day_idx : Int,notificationCenter : UNUserNotificationCenter,item : String, expired_date_cnt : Int,expired_date_dateformat : Date){
         
-        let content = UNMutableNotificationContent()
         
-        content.title = "유효기간 알림"
         
         //화면에 보여지는 빨간색
         //content.badge = 2
         if day_idx == 1{
+            let content = UNMutableNotificationContent()
             
+            content.title = "유효기간 알림"
             content.body = "유효기간이 1일 남은 쿠폰이 " + String(expired_date_cnt) + "개 입니다."
             content.sound = UNNotificationSound.default
             
@@ -247,7 +249,9 @@ class ManualPhotoViewController: UIViewController {
             }
         }
         else if day_idx == 3{
+            let content = UNMutableNotificationContent()
             
+            content.title = "유효기간 알림"
             content.body = "유효기간이 3일 남은 쿠폰이 " + String(expired_date_cnt) + "개 입니다."
             content.sound = UNNotificationSound.default
             
@@ -268,6 +272,9 @@ class ManualPhotoViewController: UIViewController {
             }
         }
         else if day_idx == 7{
+            let content = UNMutableNotificationContent()
+            
+            content.title = "유효기간 알림"
             content.body = "유효기간이 7일 남은 쿠폰이 " + String(expired_date_cnt) + "개 입니다."
             content.sound = UNNotificationSound.default
             
@@ -290,6 +297,11 @@ class ManualPhotoViewController: UIViewController {
             }
         }
         else{//for test
+            let content = UNMutableNotificationContent()
+            
+            content.title = "유효기간 알림"
+            content.body = "유효기간이 7일 남은 쿠폰이 " + String(expired_date_cnt) + "개 있습니다.\n기한 안에 사용해주세요!"
+            content.sound = UNNotificationSound.default
             
             let current_date = Date()
             let test_day = Calendar.current.component(.day, from: current_date)
@@ -304,7 +316,7 @@ class ManualPhotoViewController: UIViewController {
             //등록할 결과물
             let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
             
-            
+            print(dateComponents)
             //UNUserNotificationCenter.current()에 등록
             notificationCenter.add(request) { (error) in
                 if let err = error {

@@ -18,6 +18,8 @@ class AutoPhotoViewController: UIViewController {
     @IBOutlet weak var trashButton: UIButton!
     @IBOutlet weak var checkButton: UIButton!
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    @IBOutlet weak var grayView: UIView!
     let photoManager = PhotoManager()
     let bag = DisposeBag()
     var imageBarcode = PublishSubject<(UIImage,String)>()

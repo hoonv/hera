@@ -14,7 +14,7 @@ extension AutoPhotoViewController {
         inputForm.delegate = self
         trashButton.layer.cornerRadius = 10
         checkButton.layer.cornerRadius = 10
-        
+        grayView.layer.cornerRadius = 10
         collectionView.register(UINib(nibName: "PhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PhotoCollectionViewCell")
         let categories = horizontalScrollView.names.dropFirst().map { String($0) }
         horizontalScrollView.setCategory(categories: categories)
@@ -25,8 +25,15 @@ extension AutoPhotoViewController {
         let barcodes: [String] = CoreDataManager.shared.fetchAll()
             .map { (c: Gifticon) -> String in
             c.barcode }
+        photoManager.isProccess
+            .subscribeOn(MainScheduler.instance)
+            .subscribe(onNext: { f in
+                print(f)
+            })
+            .disposed(by: bag)
+        
         photoManager.imageOutput
-            .observeOn(ConcurrentMainScheduler.instance)
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .subscribe(onNext: { image in
                 let barcodeDetector = BarcodeRequestWrapper(image: image) { [weak self] uiimage, payload  in
                     guard let self = self else { return }
@@ -40,28 +47,38 @@ extension AutoPhotoViewController {
             .disposed(by: bag)
         
         imageBarcode
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .map { (image, barcode) -> Gifticon in
+                self.makeCoupon(image: image, barcode: barcode)
+            }
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { image, barcode in
-                let ocr = OCRManager()
-                let payloads: [[String]] = ocr.requestTextRecognition(image: image)
-
-                let b = self.recognizeBrand(input: payloads) ?? ""
-                let d = self.recognizeDate(input: payloads) ?? Date(timeIntervalSince1970: 0)
-                let n = self.recognizeName(input: payloads) ?? ""
-                var g = Gifticon(name: n,
-                                 barcode: barcode,
-                                 brand: b,
-                                 date: d,
-                                 category: self.horizontalScrollView.names[0])
-                g.image = image
+            .subscribe(onNext: { coupon in
                 if self.gificons.count == 0 {
-                    self.inputForm.configure(g)
-                    self.imageView.image = g.image
+                    self.inputForm.configure(coupon)
+                    self.imageView.image = coupon.image
+                    self.grayView.isHidden = true
+                    self.indicator.stopAnimating()
                 }
-                self.gificons.append(g)
+                self.gificons.append(coupon)
                 self.collectionView.reloadData()
             })
             .disposed(by: bag)
+    }
+    
+    private func makeCoupon(image: UIImage, barcode: String) -> Gifticon {
+        let ocr = OCRManager()
+        let payloads: [[String]] = ocr.requestTextRecognition(image: image)
+
+        let b = self.recognizeBrand(input: payloads) ?? ""
+        let d = self.recognizeDate(input: payloads) ?? Date(timeIntervalSince1970: 0)
+        let n = self.recognizeName(input: payloads) ?? ""
+        var g = Gifticon(name: n,
+                         barcode: barcode,
+                         brand: b,
+                         date: d,
+                         category: self.horizontalScrollView.names[0])
+        g.image = image
+        return g
     }
     
     private func recognizeName(input: [[String]]) -> String? {

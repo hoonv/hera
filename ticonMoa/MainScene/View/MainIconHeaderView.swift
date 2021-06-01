@@ -30,7 +30,6 @@ class MainIconHeaderView: UIView {
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(view)
-        
         searchButton.layer.cornerRadius = 12
         mapButton.layer.cornerRadius = 12
     }

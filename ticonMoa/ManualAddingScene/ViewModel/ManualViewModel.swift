@@ -18,7 +18,7 @@ protocol ManualViewModelOutput {
     var barcode: BehaviorSubject<String> { get }
     var name: BehaviorSubject<String> { get }
     var brand: BehaviorSubject<String> { get }
-    var expirationDate: BehaviorSubject<Date> { get }
+    var expirationDate: BehaviorSubject<String> { get }
     var isProccessing: PublishSubject<Bool> { get }
 }
 
@@ -35,7 +35,7 @@ class ManualViewModel: ManualViewModelInput, ManualViewModelOutput, ManualViewMo
     var barcode = BehaviorSubject<String>(value: "")
     var name = BehaviorSubject<String>(value: "")
     var brand = BehaviorSubject<String>(value: "")
-    var expirationDate = BehaviorSubject<Date>(value: Date())
+    var expirationDate = BehaviorSubject<String>(value: "")
     var isProccessing = PublishSubject<Bool>()
     let ocrManager: OCRManager
     
@@ -72,7 +72,7 @@ class ManualViewModel: ManualViewModelInput, ManualViewModelOutput, ManualViewMo
         let brandReg = BrandRecognizer()
         for word in line {
             if let date = dateReg.match(input: word) {
-                self.expirationDate.on(.next(date))
+                self.expirationDate.on(.next(date.toString(dateFormat: "yyyy.MM.dd")))
                 continue
             }
             if let brand = brandReg.match(input: word) {

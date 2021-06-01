@@ -9,6 +9,7 @@ import UIKit
 
 class MainCategoryHeaderView: UICollectionReusableView {
 
+    @IBOutlet weak var horizontalScrollView: HorizontalScrollView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

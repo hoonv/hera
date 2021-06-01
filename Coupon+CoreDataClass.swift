@@ -12,11 +12,12 @@ import CoreData
 @objc(Coupon)
 public class Coupon: NSManagedObject {
 
-    func configure(name: String, barcode: String, brand: String, expired: Date) {
+    func configure(name: String, barcode: String, brand: String, expired: Date, category: String) {
         self.name = name
         self.brand = brand
         self.barcode = barcode
         self.expiredDate = expired
+        self.category = category
     }
     
     func configure(gifticon: Gifticon) {
@@ -24,5 +25,7 @@ public class Coupon: NSManagedObject {
         self.brand = gifticon.brand
         self.barcode = gifticon.barcode
         self.expiredDate = gifticon.expiredDate
+        self.category = gifticon.category
+
     }
 }

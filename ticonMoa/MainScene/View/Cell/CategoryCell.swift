@@ -11,12 +11,15 @@ class CategoryCell: UICollectionViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
-    
     @IBOutlet weak var imageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-//        containerView.backgroundColor = .black
-//        titleLabel.textColor = .white
+    }
+    
+    override func prepareForReuse() {
+        self.layer.borderWidth = 0
+        self.layer.borderColor = nil
     }
 
 }

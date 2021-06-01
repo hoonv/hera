@@ -9,31 +9,28 @@ import UIKit
 
 struct Gifticon: Equatable {
 
-    let name: String
-    let expiredDate: Date
-    let brand: String
-    let barcode: String
-    let imageName: String
+    var name: String
+    var expiredDate: Date
+    var brand: String
+    var barcode: String
+    var imageName: String { barcode }
     var image: UIImage?
-    let category: Category?
+    var category: String
     
     init(coupon: Coupon) {
         name = coupon.name
         barcode = coupon.barcode
         brand = coupon.brand
         expiredDate = coupon.expiredDate
-        imageName = coupon.barcode
-        category = nil
-        image = nil
+        category = coupon.category
     }
     
-    init(name: String, barcode: String, brand: String, date: Date) {
+    init(name: String, barcode: String, brand: String, date: Date, category: String) {
         self.name = name
         self.barcode = barcode
         self.brand = brand
-        self.imageName = barcode
-        expiredDate = date
-        category = nil
+        self.category = category
+        self.expiredDate = date
         image = nil
     }
     

@@ -7,16 +7,29 @@
 
 import UIKit
 
+protocol HorizontalScrollViewDelegate: class {
+    func horizontalScrollView(_ horizontal: HorizontalScrollView, didSelected category: String)
+}
+
 class HorizontalScrollView: UIView {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var contentView: UIView?
     private let edgeInsetConstant: CGFloat = 10
     private let nibName = "HorizontalScrollView"
-    let items = ["All", "Coffee", "Cake", "a","bb", "ccc", "dddd"]
-    let names = ["box","coffee-cup", "cake", "012-bread-2","fried-chicken-2",
-                 "050-burger", "043-pizza"
-    ]
+    var names = ["box","coffee-cup", "cake",
+                 "012-bread-2","fried-chicken-2",
+                 "050-burger", "043-pizza"]
+    var selectedIndex = IndexPath(row: 0, section: 0) {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    var selectedCategory: String {
+        return names[selectedIndex.row]
+    }
+    weak var delegate: HorizontalScrollViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -25,6 +38,16 @@ class HorizontalScrollView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
+    }
+    
+    func setCategory(categories: [String]) {
+        names = categories
+        collectionView.reloadData()
+    }
+    
+    func selectCell(category: String) {
+        guard let idx = names.firstIndex(of: category) else { return }
+        selectedIndex = IndexPath(row: idx, section: 0)
     }
     
     private func setup() {
@@ -54,9 +77,12 @@ extension HorizontalScrollView: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CategoryCell else { return UICollectionViewCell() }
-//        cell.titleLabel.text = items[indexPath.row]
         cell.layer.cornerRadius = (frame.height - edgeInsetConstant) / 2
         cell.imageView.image = UIImage(named: names[indexPath.row])
+        if selectedIndex == indexPath {
+            cell.layer.borderWidth = 1.4
+            cell.layer.borderColor = UIColor(named: "appColor")?.cgColor
+        }
         return cell
     }
     
@@ -64,12 +90,17 @@ extension HorizontalScrollView: UICollectionViewDelegate, UICollectionViewDataSo
         return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedIndex = indexPath
+        let category = names[indexPath.row]
+        delegate?.horizontalScrollView(self, didSelected: category)
+    }
+    
 }
 extension HorizontalScrollView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let h = (frame.height - edgeInsetConstant)
-//        let w = max(items[indexPath.row].widthOfString(usingFont: .systemFont(ofSize: 17, weight: .regular)) + 30, h)
         return CGSize(width: h, height: h)
     }
     

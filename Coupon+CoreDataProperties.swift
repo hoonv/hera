@@ -20,6 +20,8 @@ extension Coupon {
     @NSManaged public var barcode: String
     @NSManaged public var expiredDate: Date
     @NSManaged public var brand: String
+    @NSManaged public var category: String
+
 }
 
 extension Coupon : Identifiable {

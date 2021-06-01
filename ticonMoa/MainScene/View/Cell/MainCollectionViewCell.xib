@@ -50,6 +50,13 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="box" translatesAutoresizingMaskIntoConstraints="NO" id="fcp-zK-L2Y">
+                                        <rect key="frame" x="215" y="15" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="4cE-dk-gf3"/>
+                                            <constraint firstAttribute="width" constant="20" id="IEE-2K-0kd"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="grayButtonColor"/>
                                 <constraints>
@@ -58,10 +65,12 @@
                                     <constraint firstItem="Bms-Ri-aOh" firstAttribute="top" secondItem="Eca-zu-ZT3" secondAttribute="bottom" constant="4" id="OwK-T9-bxr"/>
                                     <constraint firstItem="Bms-Ri-aOh" firstAttribute="leading" secondItem="eLW-AD-UXa" secondAttribute="leading" constant="20" id="U2T-yU-TKO"/>
                                     <constraint firstAttribute="bottom" secondItem="nKA-1q-O9i" secondAttribute="bottom" constant="10" id="YTI-p9-L2g"/>
+                                    <constraint firstAttribute="trailing" secondItem="fcp-zK-L2Y" secondAttribute="trailing" constant="15" id="Yy3-Jd-6fq"/>
                                     <constraint firstItem="Eca-zu-ZT3" firstAttribute="leading" secondItem="eLW-AD-UXa" secondAttribute="leading" constant="20" id="deV-oh-ohZ"/>
                                     <constraint firstAttribute="trailing" secondItem="nKA-1q-O9i" secondAttribute="trailing" constant="20" id="e4k-RC-CQQ"/>
                                     <constraint firstItem="Eca-zu-ZT3" firstAttribute="top" secondItem="eLW-AD-UXa" secondAttribute="top" constant="20" id="hIz-6r-hQu"/>
                                     <constraint firstAttribute="trailing" secondItem="Bms-Ri-aOh" secondAttribute="trailing" constant="20" id="hq7-dk-nQ2"/>
+                                    <constraint firstItem="fcp-zK-L2Y" firstAttribute="top" secondItem="eLW-AD-UXa" secondAttribute="top" constant="15" id="nsb-yg-8Cc"/>
                                     <constraint firstItem="nKA-1q-O9i" firstAttribute="leading" secondItem="eLW-AD-UXa" secondAttribute="leading" constant="20" id="zQq-r3-fJ6"/>
                                 </constraints>
                             </view>
@@ -95,6 +104,7 @@
             <size key="customSize" width="385" height="181"/>
             <connections>
                 <outlet property="brand" destination="nKA-1q-O9i" id="fyd-gK-i8B"/>
+                <outlet property="categoryImageView" destination="fcp-zK-L2Y" id="ezg-1x-WPC"/>
                 <outlet property="containerView" destination="Yk1-cN-OqG" id="zqL-Cg-ABi"/>
                 <outlet property="date" destination="Eca-zu-ZT3" id="yJi-L1-d0x"/>
                 <outlet property="imageView" destination="oae-Hr-xDy" id="GPI-EU-42n"/>
@@ -104,6 +114,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="box" width="512" height="512"/>
         <namedColor name="grayButtonColor">
             <color red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

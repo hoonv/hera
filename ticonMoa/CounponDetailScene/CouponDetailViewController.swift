@@ -9,7 +9,11 @@ import UIKit
 
 class CouponDetailViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    var gifticon: Gifticon?
+    
     override func viewDidLoad() {
+        imageView.image = gifticon?.image
         super.viewDidLoad()
     }
 }

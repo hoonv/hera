@@ -64,8 +64,9 @@ class HomeViewController: UIViewController {
     }
     
     func presentManualViewController(image: UIImage?) {
-        guard let controller: ManualPhotoViewController = UIStoryboard.main.instantiate() else { return }
-        controller.selectedImage = image
+        guard let controller: ManualPhotoViewController = UIStoryboard.main.instantiate(),
+              let image = image else { return }
+        controller.selectedImage = Observable.just(image)
         self.show(controller, sender: self)
     }
     

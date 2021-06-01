@@ -21,16 +21,21 @@ class MainViewController: UIViewController {
     let viewModel = HomeViewModel()
     let bag = DisposeBag()
     var images: [UIImage] = []
-    var gifticons: [Gifticon] = []
-    
+    var gifticons: [[Gifticon]] = []
+    var allGifticons: [[Gifticon]] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
         bind()
+        NotificationCenter.default.addObserver(self, selector: #selector(newCoupon), name: .newCouponRegistered, object: nil)
+    }
+    
+    @objc func newCoupon(_ notification: Notification) {
+        viewModel.input.fetchAllGifticon()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         viewModel.input.fetchAllGifticon()
         super.viewDidAppear(animated)
     }
@@ -38,13 +43,19 @@ class MainViewController: UIViewController {
     func bind() {
         viewModel.output.gificons
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { g in
-                self.gifticons = g
+            .subscribe(onNext: { coupons in
+                self.gifticons = coupons
+                self.allGifticons = coupons
                 self.collectionView.reloadData()
-                print(g.count)
             })
             .disposed(by: bag)
-
+        viewModel.output.filteredGificons
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { coupons in
+                self.gifticons = coupons
+                self.collectionView.reloadData()
+            })
+            .disposed(by: bag)
         addView.addButton.rx.tap
             .bind { [weak self] in
                 self?.pullUpView()
@@ -88,7 +99,8 @@ class MainViewController: UIViewController {
     }
 
     func showAuto() {
-        viewModel.input.requestPhotoWithAuto()
+        guard let controller: AutoPhotoViewController = UIStoryboard.main.instantiate() else { return }
+        self.present(controller, animated: true)
     }
     
     func showManual() {
@@ -100,9 +112,11 @@ class MainViewController: UIViewController {
     }
     
     func presentManualViewController(image: UIImage?) {
-        guard let controller: ManualPhotoViewController = UIStoryboard.main.instantiate() else { return }
-        controller.selectedImage = image
-        self.show(controller, sender: self)
+        guard let controller: ManualPhotoViewController = UIStoryboard.main.instantiate(),
+              let image = image else { return }
+        
+        controller.selectedImage = Observable.just(image)
+        self.present(controller, animated: true)
     }
     
 }

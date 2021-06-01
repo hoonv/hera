@@ -71,7 +71,13 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             return CGSize(width: view.frame.width - 40, height: 64)
         }
         return CGSize(width: view.frame.width - 40, height: 50)
-
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let coupon = gifticons[indexPath.section][indexPath.row]
+        guard let controller: CouponDetailViewController = UIStoryboard.main.instantiate() else { return }
+        controller.gifticon = coupon
+        self.present(controller, animated: true)
     }
 }
 

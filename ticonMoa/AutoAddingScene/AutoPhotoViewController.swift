@@ -37,22 +37,7 @@ class AutoPhotoViewController: UIViewController {
         horizontalScrollView.delegate = self
         super.viewDidLoad()
     }
-    
-    @objc func MyTapMethod(sender: UITapGestureRecognizer) {
-        self.view.endEditing(true)
-    }
 
-    private func validGificons() -> Bool {
-        let filtered = gificons.filter {
-            $0.expiredDate == Date(timeIntervalSince1970: 0)
-                || $0.name == ""
-                || $0.barcode == ""
-                || $0.brand == ""
-        }
-        if filtered.count > 0 { return false }
-        return true
-    }
-    
     private func updateUI() {
         let c = gificons[selectedIndex.row]
         self.inputForm.configure(c)
@@ -88,6 +73,17 @@ class AutoPhotoViewController: UIViewController {
         }
         NotificationCenter.default.post(name: .newCouponRegistered, object: nil)
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func validGificons() -> Bool {
+        let filtered = gificons.filter {
+            $0.expiredDate == Date(timeIntervalSince1970: 0)
+                || $0.name == ""
+                || $0.barcode == ""
+                || $0.brand == ""
+        }
+        if filtered.count > 0 { return false }
+        return true
     }
     
     @IBAction func trashButtonTouched(_ sender: Any) {

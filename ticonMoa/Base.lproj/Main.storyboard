@@ -447,7 +447,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1x-Cg-xns" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4386" y="483"/>
+            <point key="canvasLocation" x="4386" y="446"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="xHR-j3-h1d">
@@ -543,7 +543,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bt-uf-EC9" customClass="ExpandButton" customModule="ticonMoa" customModuleProvider="target">
-                                        <rect key="frame" x="96" y="266" width="173" height="56"/>
+                                        <rect key="frame" x="106" y="261" width="173" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" name="appColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>

@@ -65,8 +65,7 @@ final class PhotoManager {
         
         let assets = fetchResult.objects(at:
                                 IndexSet(integersIn: 0..<fetchResult.count))
-        let aa: [PHAsset] = PhotoCluster(data: assets).execute()
-        print(assets.count, aa.count)
+        
         PhotoCluster(data: assets).execute()
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
             .subscribe(onNext: { asset in

@@ -25,13 +25,7 @@ extension AutoPhotoViewController {
         let barcodes: [String] = CoreDataManager.shared.fetchAll()
             .map { (c: Gifticon) -> String in
             c.barcode }
-        photoManager.isProccess
-            .subscribeOn(MainScheduler.instance)
-            .subscribe(onNext: { f in
-                print(f)
-            })
-            .disposed(by: bag)
-        
+
         photoManager.imageOutput
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .subscribe(onNext: { image in

@@ -59,6 +59,17 @@ class InputForm: UIView {
         self.contentView?.endEditing(true)
     }
     
+    func configure(_ gifticon: Gifticon) {
+        print(gifticon)
+        nameTextField.text = gifticon.name
+        brandTextField.text = gifticon.brand
+        let date = gifticon.expiredDate.toString(dateFormat: "yyyy.MM.dd")
+        let dateText =  date == "1970.01.01" ? "" : date
+        dateTextField.text = dateText
+        barcodeTextField.text = gifticon.barcode
+
+    }
+    
     func keyboardWillShow() {
         delegate?.inputForm(self, keyboardWillShow: true)
     }

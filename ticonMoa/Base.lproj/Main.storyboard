@@ -304,13 +304,13 @@
                                 <rect key="frame" x="10" y="98" width="355" height="590"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QY8-N2-Abo">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="539"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="509"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zPP-HN-zHL">
-                                                <rect key="frame" x="0.0" y="12" width="355" height="100"/>
+                                                <rect key="frame" x="0.0" y="12" width="355" height="60"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="QWX-VJ-nt9"/>
+                                                    <constraint firstAttribute="height" constant="60" id="QWX-VJ-nt9"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xTk-v6-vlt">
                                                     <size key="itemSize" width="128" height="128"/>
@@ -320,7 +320,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nHV-Gg-3gR">
-                                                        <rect key="frame" x="0.0" y="-14" width="128" height="128"/>
+                                                        <rect key="frame" x="0.0" y="-34" width="128" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rhx-Xg-MSt">
                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -333,42 +333,51 @@
                                                     <outlet property="delegate" destination="IB4-0O-4tn" id="B66-Tp-kuo"/>
                                                 </connections>
                                             </collectionView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lp1-ax-fBF">
-                                                <rect key="frame" x="0.0" y="127" width="355" height="2"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lp1-ax-fBF" userLabel="spaceView">
+                                                <rect key="frame" x="0.0" y="87" width="355" height="2"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="egi-I5-LyP"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRh-QG-2eB" customClass="HorizontalScrollView" customModule="ticonMoa" customModuleProvider="target">
-                                                <rect key="frame" x="-10" y="159" width="365" height="60"/>
+                                                <rect key="frame" x="-10" y="429" width="365" height="60"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="LCz-hG-sJ1"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgK-Ks-ubs" customClass="InputForm" customModule="ticonMoa" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="239" width="355" height="300"/>
+                                                <rect key="frame" x="180" y="109" width="175" height="300"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="xF2-f0-ZHl"/>
                                                 </constraints>
                                             </view>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H1d-Ts-AQU">
+                                                <rect key="frame" x="0.0" y="109" width="180" height="300"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="180" id="nXn-5c-pDZ"/>
+                                                    <constraint firstAttribute="height" constant="300" id="srP-hR-3QY"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="WRh-QG-2eB" firstAttribute="top" secondItem="lp1-ax-fBF" secondAttribute="bottom" constant="30" id="4vO-Bn-siu"/>
+                                            <constraint firstItem="WRh-QG-2eB" firstAttribute="top" secondItem="pgK-Ks-ubs" secondAttribute="bottom" constant="20" id="4vO-Bn-siu"/>
+                                            <constraint firstItem="pgK-Ks-ubs" firstAttribute="leading" secondItem="H1d-Ts-AQU" secondAttribute="trailing" id="6Vw-cP-cqO"/>
                                             <constraint firstAttribute="trailing" secondItem="lp1-ax-fBF" secondAttribute="trailing" id="AbZ-kn-epG"/>
                                             <constraint firstItem="lp1-ax-fBF" firstAttribute="top" secondItem="zPP-HN-zHL" secondAttribute="bottom" constant="15" id="DF0-8B-nda"/>
-                                            <constraint firstItem="pgK-Ks-ubs" firstAttribute="leading" secondItem="QY8-N2-Abo" secondAttribute="leading" id="JV1-SC-haX"/>
+                                            <constraint firstItem="H1d-Ts-AQU" firstAttribute="leading" secondItem="QY8-N2-Abo" secondAttribute="leading" id="J5d-Qg-Czf"/>
                                             <constraint firstAttribute="trailing" secondItem="zPP-HN-zHL" secondAttribute="trailing" id="SC0-ex-pOZ"/>
                                             <constraint firstAttribute="trailing" secondItem="pgK-Ks-ubs" secondAttribute="trailing" id="Sar-KY-az8"/>
+                                            <constraint firstItem="H1d-Ts-AQU" firstAttribute="top" secondItem="lp1-ax-fBF" secondAttribute="bottom" constant="20" id="Uqk-db-7nP"/>
                                             <constraint firstItem="zPP-HN-zHL" firstAttribute="top" secondItem="QY8-N2-Abo" secondAttribute="top" constant="12" id="VBB-4U-dA7"/>
-                                            <constraint firstAttribute="bottom" secondItem="pgK-Ks-ubs" secondAttribute="bottom" id="ZxX-Lk-NAp"/>
-                                            <constraint firstItem="pgK-Ks-ubs" firstAttribute="top" secondItem="WRh-QG-2eB" secondAttribute="bottom" constant="20" id="dgi-TL-Qk0"/>
+                                            <constraint firstItem="pgK-Ks-ubs" firstAttribute="top" secondItem="lp1-ax-fBF" secondAttribute="bottom" constant="20" id="dgi-TL-Qk0"/>
                                             <constraint firstItem="lp1-ax-fBF" firstAttribute="leading" secondItem="QY8-N2-Abo" secondAttribute="leading" id="ft7-Dt-6yU"/>
                                             <constraint firstAttribute="trailing" secondItem="WRh-QG-2eB" secondAttribute="trailing" id="o5j-xI-h4s"/>
                                             <constraint firstItem="zPP-HN-zHL" firstAttribute="leading" secondItem="QY8-N2-Abo" secondAttribute="leading" id="r8w-O3-F6v"/>
+                                            <constraint firstAttribute="bottom" secondItem="WRh-QG-2eB" secondAttribute="bottom" constant="20" id="u6E-qw-gqz"/>
                                             <constraint firstItem="WRh-QG-2eB" firstAttribute="leading" secondItem="QY8-N2-Abo" secondAttribute="leading" constant="-10" id="xuU-e1-ggz"/>
                                         </constraints>
                                     </view>
@@ -392,12 +401,18 @@
                                 </constraints>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" image="trash" catalog="system"/>
+                                <connections>
+                                    <action selector="trashButtonTouched:" destination="IB4-0O-4tn" eventType="touchUpInside" id="OwR-jX-2oM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muv-Yb-wgr">
                                 <rect key="frame" x="85" y="703" width="270" height="55"/>
                                 <color key="backgroundColor" name="checkColor"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="checkmark" catalog="system"/>
+                                <connections>
+                                    <action selector="checkButtonTouched:" destination="IB4-0O-4tn" eventType="touchUpInside" id="NKq-nI-eC4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6WS-Q9-g6x"/>
@@ -425,10 +440,13 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" id="dpS-f1-S3f"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="checkButton" destination="muv-Yb-wgr" id="EJi-Gf-GRK"/>
                         <outlet property="collectionView" destination="zPP-HN-zHL" id="aPh-PA-i0k"/>
                         <outlet property="horizontalScrollView" destination="WRh-QG-2eB" id="ZAm-be-zI2"/>
+                        <outlet property="imageView" destination="H1d-Ts-AQU" id="Rk4-eE-vZz"/>
                         <outlet property="inputForm" destination="pgK-Ks-ubs" id="dca-eg-3BG"/>
                         <outlet property="scrollView" destination="u4N-RK-1cw" id="yoW-Xg-7QH"/>
+                        <outlet property="trashButton" destination="NCb-mD-m1V" id="7nK-6K-9nu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9sI-FH-iok" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -57,7 +57,7 @@ final class PhotoManager {
         option.deliveryMode = .highQualityFormat
         return option
     }()
-    var targetSize = CGSize(width: 300, height: 500)
+    var targetSize = CGSize(width: 800, height: 2000)
     var contentMode: PHImageContentMode = .aspectFit
      
     private func requestPhotos() {

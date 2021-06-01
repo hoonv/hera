@@ -16,4 +16,8 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 
+    override func prepareForReuse() {
+        self.layer.borderColor = nil
+        self.layer.borderWidth = 0
+    }
 }

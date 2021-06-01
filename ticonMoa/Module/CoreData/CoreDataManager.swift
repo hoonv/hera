@@ -90,4 +90,20 @@ class CoreDataManager {
         }
         catch { print("c error") }
     }
+    
+    func delete(gifticon: Gifticon?) {
+        guard let coupon = gifticon else { return }
+        let fetchRequest: NSFetchRequest<Coupon> = Coupon.fetchRequest()
+        let barcode = coupon.barcode
+        let barcodePredict = NSPredicate(format: "barcode == %@", barcode)
+        fetchRequest.predicate = barcodePredict
+        let ret = _fetch(with: fetchRequest)
+        for o in ret {
+            mainContext.delete(o)
+        }
+        do{
+            try mainContext.save()
+        }
+        catch { print("c error") }
+    }
 }

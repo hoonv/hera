@@ -16,6 +16,7 @@ struct Gifticon: Equatable {
     var imageName: String { barcode }
     var image: UIImage?
     var category: String
+    var checked = false
     
     init(coupon: Coupon) {
         name = coupon.name

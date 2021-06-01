@@ -231,6 +231,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="04x-R9-cv7"/>
                                     <constraint firstAttribute="height" constant="30" id="EXs-DC-DOa"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="취소"/>
                                 <connections>
                                     <action selector="cancelButtonTouched:" destination="IB4-0O-4tn" eventType="touchUpInside" id="Hhr-pQ-ndK"/>
@@ -242,6 +243,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="5dM-XK-QU2"/>
                                     <constraint firstAttribute="height" constant="30" id="dki-jj-2H3"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="확인"/>
                                 <connections>
                                     <action selector="doneButtonTouched:" destination="IB4-0O-4tn" eventType="touchUpInside" id="mIr-7Q-leu"/>
@@ -364,16 +366,25 @@
                                     <constraint firstAttribute="width" secondItem="NCb-mD-m1V" secondAttribute="height" multiplier="1:1" id="fbE-cX-xXX"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="systemRedColor"/>
-                                <state key="normal" image="trash" catalog="system"/>
+                                <state key="normal" image="trash" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="large" weight="semibold">
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                    </preferredSymbolConfiguration>
+                                </state>
                                 <connections>
                                     <action selector="trashButtonTouched:" destination="IB4-0O-4tn" eventType="touchUpInside" id="OwR-jX-2oM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muv-Yb-wgr">
                                 <rect key="frame" x="85" y="703" width="270" height="55"/>
-                                <color key="backgroundColor" name="checkColor"/>
+                                <color key="backgroundColor" name="appColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="checkmark" catalog="system"/>
+                                <state key="normal" title="Let's Check">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="large" weight="heavy">
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                    </preferredSymbolConfiguration>
+                                </state>
                                 <connections>
                                     <action selector="checkButtonTouched:" destination="IB4-0O-4tn" eventType="touchUpInside" id="NKq-nI-eC4"/>
                                 </connections>
@@ -429,8 +440,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jdb-7R-BuJ">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="634"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krV-YT-pDT">
+                                <rect key="frame" x="50" y="698" width="275" height="60"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="사용완료"/>
+                                <connections>
+                                    <action selector="deleteButtonTouched:" destination="v5n-C8-JTE" eventType="touchUpInside" id="5AY-2c-ovK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I2L-74-Zum"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -438,10 +459,15 @@
                             <constraint firstItem="jdb-7R-BuJ" firstAttribute="top" secondItem="I2L-74-Zum" secondAttribute="top" id="8ov-GH-gL1"/>
                             <constraint firstItem="I2L-74-Zum" firstAttribute="trailing" secondItem="jdb-7R-BuJ" secondAttribute="trailing" id="H49-GA-T0I"/>
                             <constraint firstItem="jdb-7R-BuJ" firstAttribute="leading" secondItem="I2L-74-Zum" secondAttribute="leading" id="PvN-n4-WPk"/>
-                            <constraint firstItem="I2L-74-Zum" firstAttribute="bottom" secondItem="jdb-7R-BuJ" secondAttribute="bottom" id="hTO-RT-hcR"/>
+                            <constraint firstItem="krV-YT-pDT" firstAttribute="leading" secondItem="I2L-74-Zum" secondAttribute="leading" constant="50" id="Qrg-Ln-9Z4"/>
+                            <constraint firstItem="I2L-74-Zum" firstAttribute="bottom" secondItem="krV-YT-pDT" secondAttribute="bottom" constant="20" id="bO2-ZA-RO4"/>
+                            <constraint firstItem="I2L-74-Zum" firstAttribute="bottom" secondItem="jdb-7R-BuJ" secondAttribute="bottom" constant="100" id="hTO-RT-hcR"/>
+                            <constraint firstItem="I2L-74-Zum" firstAttribute="trailing" secondItem="krV-YT-pDT" secondAttribute="trailing" constant="50" id="qLK-LH-Ztb"/>
+                            <constraint firstItem="krV-YT-pDT" firstAttribute="top" secondItem="jdb-7R-BuJ" secondAttribute="bottom" constant="20" id="xWd-r9-N1g"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="deleteButton" destination="krV-YT-pDT" id="LD1-wG-6up"/>
                         <outlet property="imageView" destination="jdb-7R-BuJ" id="ydc-FI-Wbj"/>
                     </connections>
                 </viewController>
@@ -573,13 +599,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="trash" catalog="system" width="121" height="128"/>
         <namedColor name="appColor">
             <color red="0.86274509803921573" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="checkColor">
-            <color red="0.27450980392156865" green="0.62745098039215685" blue="0.35294117647058826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="grayOpacity">
             <color red="0.73725490196078436" green="0.73725490196078436" blue="0.73725490196078436" alpha="0.64999997615814209" colorSpace="custom" customColorSpace="sRGB"/>

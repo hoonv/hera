@@ -71,7 +71,39 @@ class InputForm: UIView {
         let dateText =  date == "1970.01.01" ? "" : date
         dateTextField.text = dateText
         barcodeTextField.text = gifticon.barcode
-
+    }
+    
+    func conform() {
+        dateTextField.isEnabled = false
+        nameTextField.isEnabled = false
+        brandTextField.isEnabled = false
+        barcodeTextField.isEnabled = false
+        barcodeTextField.textColor = .systemGray3
+        dateTextField.textColor = .systemGray3
+        nameTextField.textColor = .systemGray3
+        brandTextField.textColor = .systemGray3
+    }
+    
+    func unlock() {
+        dateTextField.isEnabled = true
+        nameTextField.isEnabled = true
+        brandTextField.isEnabled = true
+        barcodeTextField.isEnabled = true
+        barcodeTextField.textColor = .black
+        dateTextField.textColor = .black
+        nameTextField.textColor = .black
+        brandTextField.textColor = .black
+    }
+    func isValid() -> Bool {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy.MM.dd"
+        if nameTextField.text != ""
+            && brandTextField.text != ""
+            && barcodeTextField.text != ""
+            && df.date(from: dateTextField.text ?? "") != nil {
+            return true
+        }
+        return false
     }
     
     func keyboardWillShow() {

@@ -43,11 +43,34 @@ class AutoPhotoViewController: UIViewController {
         self.inputForm.configure(c)
         self.imageView.image = c.image
         horizontalScrollView.selectCell(category: c.category)
+        let flag = c.checked
+        if flag {
+            inputForm.conform()
+            horizontalScrollView.isUserInteractionEnabled = false
+            checkButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
+            checkButton.setTitle("", for: .normal)
+            checkButton.backgroundColor = UIColor(named: "checkColor")
+        } else {
+            inputForm.unlock()
+            horizontalScrollView.isUserInteractionEnabled = true
+            checkButton.setTitle("Let's Check", for: .normal)
+            checkButton.setImage(nil, for: .normal)
+            checkButton.backgroundColor = UIColor(named: "appColor")
+        }
         self.collectionView.reloadData()
     }
     
     @IBAction func checkButtonTouched(_ sender: Any) {
-
+        if gificons.count <= 0 {
+            return
+        }
+        if !inputForm.isValid() {
+            alert(message: "빈칸을 입력하세요",
+                  title: "체크 할 수 없습니다.")
+            return
+        }
+        gificons[selectedIndex.row].checked.toggle()
+        updateUI()
     }
     
     @IBAction func cancelButtonTouched(_ sender: Any) {
@@ -56,7 +79,8 @@ class AutoPhotoViewController: UIViewController {
     
     @IBAction func doneButtonTouched(_ sender: Any) {
         if !validGificons() {
-            alert(message: "값을 입력하거나 올바른 값을 입력해주세요", title: "쿠폰을 등록할 수 없습니다.")
+            alert(message: "모든 쿠폰을 체크하세요",
+                  title: "쿠폰을 저장할 수 없습니다.")
             return
         }
         
@@ -76,12 +100,7 @@ class AutoPhotoViewController: UIViewController {
     }
     
     private func validGificons() -> Bool {
-        let filtered = gificons.filter {
-            $0.expiredDate == Date(timeIntervalSince1970: 0)
-                || $0.name == ""
-                || $0.barcode == ""
-                || $0.brand == ""
-        }
+        let filtered = gificons.filter { !$0.checked }
         if filtered.count > 0 { return false }
         return true
     }
@@ -108,6 +127,9 @@ extension AutoPhotoViewController: UICollectionViewDataSource, UICollectionViewD
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell()}
         cell.imageView.image = gificons[indexPath.row].image
         cell.layer.cornerRadius = 10
+        if gificons[indexPath.row].checked {
+            cell.setCheckmark()
+        }
         if selectedIndex == indexPath {
             cell.layer.borderWidth = 2
             cell.layer.borderColor = UIColor(named: "checkColor")?.cgColor

@@ -291,6 +291,9 @@
                                     <constraint firstAttribute="height" constant="30" id="EXs-DC-DOa"/>
                                 </constraints>
                                 <state key="normal" title="취소"/>
+                                <connections>
+                                    <action selector="cancelButtonTouched:" destination="IB4-0O-4tn" eventType="touchUpInside" id="Hhr-pQ-ndK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrG-DE-lQ6">
                                 <rect key="frame" x="317" y="60" width="30" height="30"/>
@@ -299,6 +302,9 @@
                                     <constraint firstAttribute="height" constant="30" id="dki-jj-2H3"/>
                                 </constraints>
                                 <state key="normal" title="확인"/>
+                                <connections>
+                                    <action selector="doneButtonTouched:" destination="IB4-0O-4tn" eventType="touchUpInside" id="mIr-7Q-leu"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceVertical="YES" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4N-RK-1cw">
                                 <rect key="frame" x="10" y="98" width="355" height="590"/>

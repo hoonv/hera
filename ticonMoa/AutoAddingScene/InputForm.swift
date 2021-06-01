@@ -65,7 +65,6 @@ class InputForm: UIView {
     }
     
     func configure(_ gifticon: Gifticon) {
-        print(gifticon)
         nameTextField.text = gifticon.name
         brandTextField.text = gifticon.brand
         let date = gifticon.expiredDate.toString(dateFormat: "yyyy.MM.dd")

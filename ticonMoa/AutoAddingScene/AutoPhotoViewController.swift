@@ -42,9 +42,31 @@ class AutoPhotoViewController: UIViewController {
         self.view.endEditing(true)
     }
 
-
+    private func validGificons() -> Bool {
+        let filtered = gificons.filter {
+            $0.expiredDate == Date(timeIntervalSince1970: 0)
+                || $0.name == ""
+                || $0.barcode == ""
+                || $0.brand == ""
+        }
+        if filtered.count > 0 { return false }
+        return true
+    }
+    
     @IBAction func checkButtonTouched(_ sender: Any) {
-        
+
+    }
+    
+    @IBAction func cancelButtonTouched(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func doneButtonTouched(_ sender: Any) {
+        if !validGificons() {
+            alert(message: "값을 입력하거나 올바른 값을 입력해주세요", title: "쿠폰을 등록할 수 없습니다.")
+            return
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func trashButtonTouched(_ sender: Any) {
@@ -56,6 +78,9 @@ class AutoPhotoViewController: UIViewController {
         if selectedIndex.row == gificons.count {
             selectedIndex = IndexPath(row: gificons.count - 1, section: 0)
         }
+        let data = gificons[selectedIndex.row]
+        inputForm.configure(data)
+        imageView.image = data.image
         collectionView.reloadData()
     }
 }

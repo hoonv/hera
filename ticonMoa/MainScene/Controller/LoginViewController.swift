@@ -45,7 +45,7 @@ class LoginViewController: UIViewController,  GIDSignInDelegate {
     @available(iOS 13.2, *)
     private func setupLoginWithAppleButton() {
         let appleSignInButton = ASAuthorizationAppleIDButton(authorizationButtonType: .default, authorizationButtonStyle: .black)
-        appleSignInButton.layer.frame = CGRect(x : 0, y : 0, width: googleSignInButton.layer.preferredFrameSize().width - 40, height: googleSignInButton.layer.preferredFrameSize().height)
+        appleSignInButton.layer.frame = CGRect(x : 0, y : 0, width: googleSignInButton.layer.preferredFrameSize().width-20, height: googleSignInButton.layer.preferredFrameSize().height)
         appleSignInButton.cornerRadius = 5
         appleSignInButton.addTarget(self, action: #selector(signInWithAppleButtonPressed), for: .touchUpInside)
         appleSignInView.addSubview(appleSignInButton)

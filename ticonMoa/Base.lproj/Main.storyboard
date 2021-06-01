@@ -534,15 +534,15 @@
                                     <constraint firstAttribute="height" constant="128" id="vAS-Go-Orp"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="J5h-hh-MeF">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="J5h-hh-MeF">
                                 <rect key="frame" x="87" y="539" width="240" height="256"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dQP-YP-xeX" customClass="GIDSignInButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xmp-RL-unA">
-                                        <rect key="frame" x="0.0" y="128" width="240" height="128"/>
+                                        <rect key="frame" x="0.0" y="100" width="240" height="156"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -567,7 +567,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vMa-j7-yPx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="191" y="1878"/>
+            <point key="canvasLocation" x="189.85507246376812" y="1877.6785714285713"/>
         </scene>
     </scenes>
     <resources>

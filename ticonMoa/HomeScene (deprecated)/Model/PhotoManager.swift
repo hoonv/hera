@@ -40,7 +40,7 @@ final class PhotoManager {
         formatter.dateFormat = "yyyy-MM-dd"
         let options = PHFetchOptions()
         options.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
-//        options.fetchLimit = 500
+        options.fetchLimit = 1000
         let end = formatter.string(from: Date(timeIntervalSinceNow: -180*24*60*60))
         let today = formatter.string(from: Date(timeIntervalSinceNow: 24*60*60))
         if let startDate = formatter.date(from: end),
@@ -57,7 +57,7 @@ final class PhotoManager {
         option.deliveryMode = .highQualityFormat
         return option
     }()
-    var targetSize = CGSize(width: 800, height: 2000)
+    var targetSize = CGSize(width: 500, height: 1000)
     var contentMode: PHImageContentMode = .aspectFit
      
     private func requestPhotos() {
@@ -67,6 +67,7 @@ final class PhotoManager {
         let assets = fetchResult.objects(at:
                                 IndexSet(integersIn: 0..<fetchResult.count))
         PhotoCluster(data: assets).execute()
+            .observeOn(ConcurrentMainScheduler.instance)
             .subscribe(onNext: { asset in
             PHImageManager.default()
                 .requestImage(for: asset,

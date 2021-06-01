@@ -25,16 +25,14 @@ class AutoPhotoViewController: UIViewController {
     
     private var selectedIndex = IndexPath(row: 0, section: 0) {
         didSet {
-            let c = gificons[selectedIndex.row]
-            self.inputForm.configure(c)
-            self.imageView.image = c.image
-            self.collectionView.reloadData()
+            updateUI()
         }
     }
     
     override func viewDidLoad() {
         setupUI()
         binding()
+        horizontalScrollView.delegate = self
         super.viewDidLoad()
     }
     
@@ -53,6 +51,14 @@ class AutoPhotoViewController: UIViewController {
         return true
     }
     
+    private func updateUI() {
+        let c = gificons[selectedIndex.row]
+        self.inputForm.configure(c)
+        self.imageView.image = c.image
+        horizontalScrollView.selectCell(category: c.category)
+        self.collectionView.reloadData()
+    }
+    
     @IBAction func checkButtonTouched(_ sender: Any) {
 
     }
@@ -66,6 +72,19 @@ class AutoPhotoViewController: UIViewController {
             alert(message: "값을 입력하거나 올바른 값을 입력해주세요", title: "쿠폰을 등록할 수 없습니다.")
             return
         }
+        
+        for data in gificons {
+            let isSuccess = CoreDataManager.shared.insert(gifticon: data)
+            if isSuccess {
+                guard let image = data.image else {
+                    self.dismiss(animated: true, completion: nil)
+                    return
+                }
+                let im = ImageManager()
+                im.saveImage(imageName: data.imageName, image: image)
+            }
+        }
+        NotificationCenter.default.post(name: .newCouponRegistered, object: nil)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -78,10 +97,7 @@ class AutoPhotoViewController: UIViewController {
         if selectedIndex.row == gificons.count {
             selectedIndex = IndexPath(row: gificons.count - 1, section: 0)
         }
-        let data = gificons[selectedIndex.row]
-        inputForm.configure(data)
-        imageView.image = data.image
-        collectionView.reloadData()
+        updateUI()
     }
 }
 
@@ -142,4 +158,11 @@ extension AutoPhotoViewController: InputFormDelegate {
     func inputForm(_ inputForm: InputForm, keyboardWillHide: Bool) {
         self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
+}
+
+extension AutoPhotoViewController: HorizontalScrollViewDelegate {
+    func horizontalScrollView(_ horizontal: HorizontalScrollView, didSelected category: String) {
+        gificons[selectedIndex.row].category = category
+    }
+
 }

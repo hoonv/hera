@@ -45,6 +45,11 @@ class HorizontalScrollView: UIView {
         collectionView.reloadData()
     }
     
+    func selectCell(category: String) {
+        guard let idx = names.firstIndex(of: category) else { return }
+        selectedIndex = IndexPath(row: idx, section: 0)
+    }
+    
     private func setup() {
         guard let view = loadViewFromNib() else { return }
         view.frame = self.bounds

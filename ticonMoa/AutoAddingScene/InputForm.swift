@@ -10,6 +10,11 @@ import UIKit
 protocol InputFormDelegate: class {
     func inputForm(_ inputForm: InputForm, keyboardWillShow: Bool)
     func inputForm(_ inputForm: InputForm, keyboardWillHide: Bool)
+    func inputForm(_ inputForm: InputForm, nameDidChange: String)
+    func inputForm(_ inputForm: InputForm, dateDidChange: String)
+    func inputForm(_ inputForm: InputForm, brandDidChange: String)
+    func inputForm(_ inputForm: InputForm, barcodeDidChange: String)
+
 }
 
 class InputForm: UIView {
@@ -97,6 +102,22 @@ extension InputForm: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        let text = textField.text ?? ""
+        if textField == nameTextField {
+            delegate?.inputForm(self, nameDidChange: text)
+        }
+        
+        if textField == dateTextField {
+            delegate?.inputForm(self, dateDidChange: text)
+        }
+        
+        if textField == brandTextField {
+            delegate?.inputForm(self, brandDidChange: text)
+        }
+        
+        if textField == barcodeTextField {
+            delegate?.inputForm(self, barcodeDidChange: text)
+        }
         keyboardWillHide()
     }
     

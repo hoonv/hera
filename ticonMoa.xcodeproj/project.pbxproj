@@ -24,6 +24,7 @@
 		E05F3D092664C8BE00EF29D0 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05F3D072664C8BE00EF29D0 /* PhotoCollectionViewCell.xib */; };
 		E05F3D0D2665A3F400EF29D0 /* InputForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F3D0C2665A3F400EF29D0 /* InputForm.swift */; };
 		E05F3D112665A40100EF29D0 /* InputForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05F3D102665A40100EF29D0 /* InputForm.xib */; };
+		E05F3D152665D6A300EF29D0 /* AutoPhotoVC + Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F3D142665D6A300EF29D0 /* AutoPhotoVC + Setup.swift */; };
 		E0AB99E626421B9600F11602 /* SwiftyTesseract in Frameworks */ = {isa = PBXBuildFile; productRef = E0AB99E526421B9600F11602 /* SwiftyTesseract */; };
 		E0AB99EC26421E3400F11602 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = E0AB99EB26421E3400F11602 /* tessdata */; };
 		E0AB99F626427A6100F11602 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB99F526427A6100F11602 /* MainViewController.swift */; };
@@ -129,6 +130,7 @@
 		E05F3D072664C8BE00EF29D0 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		E05F3D0C2665A3F400EF29D0 /* InputForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputForm.swift; sourceTree = "<group>"; };
 		E05F3D102665A40100EF29D0 /* InputForm.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputForm.xib; sourceTree = "<group>"; };
+		E05F3D142665D6A300EF29D0 /* AutoPhotoVC + Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AutoPhotoVC + Setup.swift"; sourceTree = "<group>"; };
 		E0AB99EB26421E3400F11602 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = ../../../../tessdata; sourceTree = "<group>"; };
 		E0AB99F526427A6100F11602 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E0AB99F926427B6000F11602 /* MainIconHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainIconHeaderView.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				E05F3CFE2664BCE900EF29D0 /* AutoPhotoViewController.swift */,
+				E05F3D142665D6A300EF29D0 /* AutoPhotoVC + Setup.swift */,
 				E05F3D062664C8BE00EF29D0 /* PhotoCollectionViewCell.swift */,
 				E05F3D072664C8BE00EF29D0 /* PhotoCollectionViewCell.xib */,
 				E05F3D0C2665A3F400EF29D0 /* InputForm.swift */,
@@ -748,6 +751,7 @@
 				E0BBB1D42637F50900DC4553 /* HomeViewModel.swift in Sources */,
 				E0BBB1F326381F2400DC4553 /* HomeVC + ImagePicker.swift in Sources */,
 				E0AE4854261BE6EB00BEC498 /* TransitioningDelegate.swift in Sources */,
+				E05F3D152665D6A300EF29D0 /* AutoPhotoVC + Setup.swift in Sources */,
 				E0BDEB98264A837900228762 /* TiconMoaModel.xcdatamodeld in Sources */,
 				E0BDEB8526494C7600228762 /* Array.swift in Sources */,
 				E0AE4817261438AE00BEC498 /* SearchViewController.swift in Sources */,

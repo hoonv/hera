@@ -34,6 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
                 UIApplication.shared.registerForRemoteNotifications()
             }
         })
+        
+        
+        center.delegate = self
+
         return true
     }
     

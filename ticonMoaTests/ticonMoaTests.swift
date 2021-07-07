@@ -16,17 +16,6 @@ class ticonMoaDateTests: XCTestCase {
         let d = after20.timeIntervalSince(after10)
         XCTAssertEqual(d, 10)
     }
-    
-    func testCreateDate() {
-//        let dr = DateRecognizer()
-//        let input = "2020.02.01"
-//        guard let date = dr.recognize(input: input) else {
-//            XCTAssert(false)
-//            return
-//        }
-//        let dateString = date.toStringKST(dateFormat: "yyyy.MM.dd")
-//        XCTAssertEqual(dateString, input)
-    }
 }
 
 

@@ -84,8 +84,6 @@
 		E0BDEB8526494C7600228762 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BDEB8426494C7600228762 /* Array.swift */; };
 		E0BDEB8F264A4EBC00228762 /* ExpandButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BDEB8E264A4EBC00228762 /* ExpandButton.swift */; };
 		E0BDEB98264A837900228762 /* TiconMoaModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0BDEB96264A837900228762 /* TiconMoaModel.xcdatamodeld */; };
-		E0BDEBAC264A846B00228762 /* Coupon+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BDEBAA264A846B00228762 /* Coupon+CoreDataClass.swift */; };
-		E0BDEBAD264A846B00228762 /* Coupon+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BDEBAB264A846B00228762 /* Coupon+CoreDataProperties.swift */; };
 		E0BDEBB1264A89AC00228762 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BDEBB0264A89AC00228762 /* CoreDataManager.swift */; };
 		E0BDEBBB264AB3CC00228762 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BDEBBA264AB3CC00228762 /* ImageManager.swift */; };
 		E0BDEBBF264AE44800228762 /* FeedBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BDEBBE264AE44800228762 /* FeedBackButton.swift */; };
@@ -96,6 +94,8 @@
 		E0C3CF9F263FE24C00483A91 /* SearchHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3CF9D263FE24C00483A91 /* SearchHeaderReusableView.swift */; };
 		E0C3CFA0263FE24C00483A91 /* SearchHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C3CF9E263FE24C00483A91 /* SearchHeaderReusableView.xib */; };
 		E0C3CFA5263FF79D00483A91 /* CouponDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3CFA4263FF79D00483A91 /* CouponDetailViewController.swift */; };
+		E0C58D232686C10C003F7611 /* Coupon+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C58D212686C10C003F7611 /* Coupon+CoreDataProperties.swift */; };
+		E0C58D242686C10C003F7611 /* Coupon+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C58D222686C10C003F7611 /* Coupon+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,8 +189,6 @@
 		E0BDEB8426494C7600228762 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		E0BDEB8E264A4EBC00228762 /* ExpandButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandButton.swift; sourceTree = "<group>"; };
 		E0BDEB97264A837900228762 /* TiconMoaModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TiconMoaModel.xcdatamodel; sourceTree = "<group>"; };
-		E0BDEBAA264A846B00228762 /* Coupon+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coupon+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		E0BDEBAB264A846B00228762 /* Coupon+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coupon+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		E0BDEBB0264A89AC00228762 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E0BDEBBA264AB3CC00228762 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		E0BDEBBE264AE44800228762 /* FeedBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackButton.swift; sourceTree = "<group>"; };
@@ -201,6 +199,8 @@
 		E0C3CF9D263FE24C00483A91 /* SearchHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderReusableView.swift; sourceTree = "<group>"; };
 		E0C3CF9E263FE24C00483A91 /* SearchHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHeaderReusableView.xib; sourceTree = "<group>"; };
 		E0C3CFA4263FF79D00483A91 /* CouponDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponDetailViewController.swift; sourceTree = "<group>"; };
+		E0C58D212686C10C003F7611 /* Coupon+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Coupon+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E0C58D222686C10C003F7611 /* Coupon+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Coupon+CoreDataClass.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -543,8 +543,8 @@
 		E0BDEB9B264A840500228762 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				E0BDEBAA264A846B00228762 /* Coupon+CoreDataClass.swift */,
-				E0BDEBAB264A846B00228762 /* Coupon+CoreDataProperties.swift */,
+				E0C58D222686C10C003F7611 /* Coupon+CoreDataClass.swift */,
+				E0C58D212686C10C003F7611 /* Coupon+CoreDataProperties.swift */,
 				E0BDEB96264A837900228762 /* TiconMoaModel.xcdatamodeld */,
 				E0BDEBB0264A89AC00228762 /* CoreDataManager.swift */,
 				E0BDEBBA264AB3CC00228762 /* ImageManager.swift */,
@@ -752,6 +752,7 @@
 				E0BBB1F326381F2400DC4553 /* HomeVC + ImagePicker.swift in Sources */,
 				E0AE4854261BE6EB00BEC498 /* TransitioningDelegate.swift in Sources */,
 				E05F3D152665D6A300EF29D0 /* AutoPhotoVC + Setup.swift in Sources */,
+				E0C58D232686C10C003F7611 /* Coupon+CoreDataProperties.swift in Sources */,
 				E0BDEB98264A837900228762 /* TiconMoaModel.xcdatamodeld in Sources */,
 				E0BDEB8526494C7600228762 /* Array.swift in Sources */,
 				E0AE4817261438AE00BEC498 /* SearchViewController.swift in Sources */,
@@ -767,7 +768,6 @@
 				E0BDEB7C2649476F00228762 /* NameRecognizer.swift in Sources */,
 				E0AB9A4B2643707200F11602 /* PullUpViewController.swift in Sources */,
 				E0AE4826261442D400BEC498 /* HorizontalScrollView.swift in Sources */,
-				E0BDEBAC264A846B00228762 /* Coupon+CoreDataClass.swift in Sources */,
 				E0AB9A4F2643B47100F11602 /* ChoiceView.swift in Sources */,
 				E05F3CF92664B27E00EF29D0 /* BrandCollectionReusableView.swift in Sources */,
 				E0BDEB6E264939F700228762 /* TessearctEngine.swift in Sources */,
@@ -779,12 +779,12 @@
 				E0AE480C2613222D00BEC498 /* Autolayout.swift in Sources */,
 				E05F3D082664C8BE00EF29D0 /* PhotoCollectionViewCell.swift in Sources */,
 				E0AB9A6B2643D6D900F11602 /* MainVC + CollectionView.swift in Sources */,
-				E0BDEBAD264A846B00228762 /* Coupon+CoreDataProperties.swift in Sources */,
 				E0BDEBBF264AE44800228762 /* FeedBackButton.swift in Sources */,
 				E0C3CFA5263FF79D00483A91 /* CouponDetailViewController.swift in Sources */,
 				E0AB9A712643D74100F11602 /* MainVC + PhotoPick.swift in Sources */,
 				E0AE484726171CE100BEC498 /* SlideAnimator.swift in Sources */,
 				E0BBB20F2638F70200DC4553 /* Date+toString.swift in Sources */,
+				E0C58D242686C10C003F7611 /* Coupon+CoreDataClass.swift in Sources */,
 				E0364FF22623E007006D243E /* ImagePreProccessor.swift in Sources */,
 				E0BDEB8F264A4EBC00228762 /* ExpandButton.swift in Sources */,
 				E0AE481B261438BA00BEC498 /* ProfileViewController.swift in Sources */,
@@ -980,7 +980,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hoonv.ticonMoa;
+				PRODUCT_BUNDLE_IDENTIFIER = hoonv.ticonMoa2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1000,7 +1000,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hoonv.ticonMoa;
+				PRODUCT_BUNDLE_IDENTIFIER = hoonv.ticonMoa2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

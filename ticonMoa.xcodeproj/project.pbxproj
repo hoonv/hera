@@ -282,6 +282,48 @@
 			path = MapScene;
 			sourceTree = "<group>";
 		};
+		E02F082726966FA90092B05A /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E0AB9A1F2642CDAD00F11602 /* MainScene */,
+				E02027DC2628628E00AD7230 /* ManualAddingScene */,
+				E05F3CFD2664BCD300EF29D0 /* AutoAddingScene */,
+				E0C3CFA3263FF78200483A91 /* CounponDetailScene */,
+				E02027D92628622400AD7230 /* SearchScene */,
+				E02027DA2628623800AD7230 /* ProfileScene */,
+				E02027DE2628639800AD7230 /* MapScene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E02F082A269670430092B05A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E0364FF12623E007006D243E /* ImagePreProccessor.swift */,
+				E0AB9A172642CC2500F11602 /* Gifticon.swift */,
+				E0AB9A1B2642CC2A00F11602 /* Category.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E02F082B2696704C0092B05A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E0BDEB9B264A840500228762 /* CoreData */,
+				E0BDEB6626491E0700228762 /* OCR */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E02F082C269670A10092B05A /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				E02027DB2628626900AD7230 /* MainTabBar (deprecated) */,
+				E02027D82628609E00AD7230 /* HomeScene (deprecated) */,
+			);
+			path = Deprecated;
+			sourceTree = "<group>";
+		};
 		E053B62C2604FC77005FAD51 = {
 			isa = PBXGroup;
 			children = (
@@ -306,17 +348,12 @@
 			isa = PBXGroup;
 			children = (
 				E0AB99EB26421E3400F11602 /* tessdata */,
-				E0BDEB8A2649504B00228762 /* Common */,
-				E0BDEB6526491DFE00228762 /* Module */,
-				E02027DB2628626900AD7230 /* MainTabBar (deprecated) */,
-				E02027D82628609E00AD7230 /* HomeScene (deprecated) */,
-				E0AB9A1F2642CDAD00F11602 /* MainScene */,
-				E02027DC2628628E00AD7230 /* ManualAddingScene */,
-				E05F3CFD2664BCD300EF29D0 /* AutoAddingScene */,
-				E0C3CFA3263FF78200483A91 /* CounponDetailScene */,
-				E02027D92628622400AD7230 /* SearchScene */,
-				E02027DA2628623800AD7230 /* ProfileScene */,
-				E02027DE2628639800AD7230 /* MapScene */,
+				E02F082A269670430092B05A /* Models */,
+				E02F082B2696704C0092B05A /* Services */,
+				E02F082726966FA90092B05A /* Scenes */,
+				E0AE480A2613222600BEC498 /* Extensions */,
+				E0BDEB8D264A4EAA00228762 /* View */,
+				E02F082C269670A10092B05A /* Deprecated */,
 				E053B6382604FC77005FAD51 /* AppDelegate.swift */,
 				E053B63A2604FC77005FAD51 /* SceneDelegate.swift */,
 				E053B63E2604FC77005FAD51 /* Main.storyboard */,
@@ -377,16 +414,6 @@
 				E0AE483C2615AFEA00BEC498 /* IconButton.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		E0AE47F926104F6D00BEC498 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E0364FF12623E007006D243E /* ImagePreProccessor.swift */,
-				E0AB9A172642CC2500F11602 /* Gifticon.swift */,
-				E0AB9A1B2642CC2A00F11602 /* Category.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		E0AE47FB2613078100BEC498 /* Cell */ = {
@@ -486,15 +513,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		E0BDEB6526491DFE00228762 /* Module */ = {
-			isa = PBXGroup;
-			children = (
-				E0BDEB9B264A840500228762 /* CoreData */,
-				E0BDEB6626491E0700228762 /* OCR */,
-			);
-			path = Module;
-			sourceTree = "<group>";
-		};
 		E0BDEB6626491E0700228762 /* OCR */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,16 +537,6 @@
 				E0AB9A0326429A4A00F11602 /* MainCollectionViewCell.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		E0BDEB8A2649504B00228762 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				E0BDEB8D264A4EAA00228762 /* View */,
-				E0AE480A2613222600BEC498 /* Extensions */,
-				E0AE47F926104F6D00BEC498 /* Model */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		E0BDEB8D264A4EAA00228762 /* View */ = {

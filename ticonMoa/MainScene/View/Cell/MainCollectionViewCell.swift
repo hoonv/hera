@@ -20,12 +20,13 @@ class MainCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.layer.shadowRadius = 3
-        self.layer.shadowOpacity = 0.2
-        self.layer.masksToBounds = false
-        
+//        self.layer.shadowColor = UIColor.black.cgColor
+//        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+//        self.layer.shadowRadius = 3
+//        self.layer.shadowOpacity = 0.2
+//        self.layer.masksToBounds = false
+//        self.layer.borderWidth = 2
+//        self.layer.borderColor = UIColor.white.cgColor
         self.containerView.layer.cornerRadius = 10
         self.containerView.layer.masksToBounds = true
 

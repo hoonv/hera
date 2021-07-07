@@ -58,7 +58,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" name="grayButtonColor"/>
+                                <color key="backgroundColor" name="grayBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Eca-zu-ZT3" secondAttribute="trailing" constant="20" id="0uv-BB-gPT"/>
                                     <constraint firstItem="nKA-1q-O9i" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Bms-Ri-aOh" secondAttribute="bottom" constant="4" id="DzZ-gK-H2B"/>
@@ -115,8 +115,8 @@
     </objects>
     <resources>
         <image name="box" width="512" height="512"/>
-        <namedColor name="grayButtonColor">
-            <color red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="grayBackground">
+            <color red="0.97254901960784312" green="0.98039215686274506" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Gifticon: Equatable {
+struct Coupon: Equatable {
 
     var name: String
     var expiredDate: Date
@@ -35,7 +35,7 @@ struct Gifticon: Equatable {
         image = nil
     }
     
-    static func == (lhs: Gifticon, rhs: Gifticon) -> Bool {
+    static func == (lhs: Coupon, rhs: Coupon) -> Bool {
         return lhs.barcode == rhs.barcode
     }
 }

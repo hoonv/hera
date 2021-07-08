@@ -11,14 +11,14 @@ import RxSwift
 protocol HomeViewModelInput {
     func requestPhotoWithAuto()
     func fetchAllGifticon()
-    func changeCategory(gifticons: [[Gifticon]], category: String)
+    func changeCategory(gifticons: [[Coupon]], category: String)
 }
 
 protocol HomeViewModelOutput {
     var images: BehaviorSubject<[UIImage]> { get }
     var isProccess: BehaviorSubject<Bool> { get }
-    var gificons: PublishSubject<[[Gifticon]]> { get }
-    var filteredGificons: PublishSubject<[[Gifticon]]> { get }
+    var gificons: PublishSubject<[[Coupon]]> { get }
+    var filteredGificons: PublishSubject<[[Coupon]]> { get }
 }
 
 protocol HomeViewModelType {
@@ -33,8 +33,8 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput, HomeViewModelType 
     
     var images = BehaviorSubject<[UIImage]>(value: [])
     var isProccess = BehaviorSubject<Bool>(value: false)
-    var gificons = PublishSubject<[[Gifticon]]>()
-    var filteredGificons =  PublishSubject<[[Gifticon]]>()
+    var gificons = PublishSubject<[[Coupon]]>()
+    var filteredGificons =  PublishSubject<[[Coupon]]>()
 
     private var _images: [UIImage] = []
     private let photoManager = PhotoManager()
@@ -60,7 +60,7 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput, HomeViewModelType 
     }
     
     func fetchAllGifticon() {
-        var gifty: [Gifticon] = CoreDataManager.shared
+        var gifty: [Coupon] = CoreDataManager.shared
             .fetchAll()
             .sorted { a, b in
             a.expiredDate < b.expiredDate
@@ -70,7 +70,7 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput, HomeViewModelType 
             gifty[i].image =         im.loadImageFromDiskWith(fileName: gifty[i].imageName)
 
         }
-        var groupedGifticon: [[Gifticon]] = [[]]
+        var groupedGifticon: [[Coupon]] = [[]]
         let gifticonbyBrand = Dictionary(grouping: gifty, by: { $0.brand })
         
         for (_, value) in gifticonbyBrand {
@@ -83,14 +83,14 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput, HomeViewModelType 
         isProccess.on(.next(true))
         photoManager.requestAuthorization()
     }
-    func changeCategory(gifticons: [[Gifticon]], category: String) {
+    func changeCategory(gifticons: [[Coupon]], category: String) {
         if category == "box" {
             filteredGificons.onNext(gifticons)
             return
         }
         let gifty = gifticons.joined().filter { $0.category == category }
         
-        var groupedGifticon: [[Gifticon]] = [[]]
+        var groupedGifticon: [[Coupon]] = [[]]
         let gifticonbyBrand = Dictionary(grouping: gifty, by: { $0.brand })
         
         for (_, value) in gifticonbyBrand {

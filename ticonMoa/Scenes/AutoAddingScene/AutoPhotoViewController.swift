@@ -23,7 +23,7 @@ class AutoPhotoViewController: UIViewController {
     let photoManager = PhotoManager()
     let bag = DisposeBag()
     var imageBarcode = PublishSubject<(UIImage,String)>()
-    var gificons: [Gifticon] = []
+    var gificons: [Coupon] = []
     
     private var selectedIndex = IndexPath(row: 0, section: 0) {
         didSet {

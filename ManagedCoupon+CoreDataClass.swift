@@ -21,7 +21,7 @@ public class ManagedCoupon: NSManagedObject {
         self.category = category
     }
     
-    func configure(gifticon: Gifticon) {
+    func configure(gifticon: Coupon) {
         self.name = gifticon.name
         self.brand = gifticon.brand
         self.barcode = gifticon.barcode

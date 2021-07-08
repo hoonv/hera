@@ -10,7 +10,7 @@ import UIKit
 class CouponDetailViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
-    var gifticon: Gifticon?
+    var gifticon: Coupon?
     
     @IBOutlet weak var deleteButton: UIButton!
     override func viewDidLoad() {

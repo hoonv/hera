@@ -23,7 +23,7 @@ extension AutoPhotoViewController {
     
     func binding() {
         let barcodes: [String] = CoreDataManager.shared.fetchAll()
-            .map { (c: Gifticon) -> String in
+            .map { (c: Coupon) -> String in
             c.barcode }
 
         photoManager.imageOutput
@@ -42,7 +42,7 @@ extension AutoPhotoViewController {
         
         imageBarcode
             .observe(on: SerialDispatchQueueScheduler(qos: .background))
-            .map { (image, barcode) -> Gifticon in
+            .map { (image, barcode) -> Coupon in
                 self.makeCoupon(image: image, barcode: barcode)
             }
             .observe(on: MainScheduler.instance)
@@ -59,14 +59,14 @@ extension AutoPhotoViewController {
             .disposed(by: bag)
     }
     
-    private func makeCoupon(image: UIImage, barcode: String) -> Gifticon {
+    private func makeCoupon(image: UIImage, barcode: String) -> Coupon {
         let ocr = OCRManager()
         let payloads: [[String]] = ocr.requestTextRecognition(image: image)
 
         let b = self.recognizeBrand(input: payloads) ?? ""
         let d = self.recognizeDate(input: payloads) ?? Date(timeIntervalSince1970: 0)
         let n = self.recognizeName(input: payloads) ?? ""
-        var g = Gifticon(name: n,
+        var g = Coupon(name: n,
                          barcode: barcode,
                          brand: b,
                          date: d,

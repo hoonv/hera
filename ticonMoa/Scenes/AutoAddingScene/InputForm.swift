@@ -64,7 +64,7 @@ class InputForm: UIView {
         self.contentView?.endEditing(true)
     }
     
-    func configure(_ gifticon: Gifticon) {
+    func configure(_ gifticon: Coupon) {
         nameTextField.text = gifticon.name
         brandTextField.text = gifticon.brand
         let date = gifticon.expiredDate.toString(dateFormat: "yyyy.MM.dd")

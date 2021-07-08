@@ -21,8 +21,8 @@ class MainViewController: UIViewController {
     let viewModel = HomeViewModel()
     let bag = DisposeBag()
     var images: [UIImage] = []
-    var gifticons: [[Gifticon]] = []
-    var allGifticons: [[Gifticon]] = []
+    var gifticons: [[Coupon]] = []
+    var allGifticons: [[Coupon]] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()

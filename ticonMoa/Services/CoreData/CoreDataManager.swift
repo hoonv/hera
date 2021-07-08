@@ -41,7 +41,7 @@ class CoreDataManager {
         if isExist(gifticon: gifticon) {
             return false
         }
-        let object = Coupon(context: taskContext)
+        let object = ManagedCoupon(context: taskContext)
         object.configure(gifticon: gifticon)
         do {
             try taskContext.save()
@@ -52,18 +52,18 @@ class CoreDataManager {
         }
     }
     
-    func fetchAll() -> [Coupon] {
-        let fetchRequest: NSFetchRequest<Coupon> = Coupon.fetchRequest()
+    func fetchAll() -> [ManagedCoupon] {
+        let fetchRequest: NSFetchRequest<ManagedCoupon> = ManagedCoupon.fetchRequest()
         return _fetch(with: fetchRequest)
     }
     
     func fetchAll() -> [Gifticon] {
-        let coupons: [Coupon] = fetchAll()
+        let coupons: [ManagedCoupon] = fetchAll()
         return coupons.map { Gifticon(coupon: $0) }
     }
     
     func isExist(gifticon: Gifticon) -> Bool {
-        let fetchRequest: NSFetchRequest<Coupon> = Coupon.fetchRequest()
+        let fetchRequest: NSFetchRequest<ManagedCoupon> = ManagedCoupon.fetchRequest()
         let barcode = gifticon.barcode
         let barcodePredict = NSPredicate(format: "barcode == %@", barcode)
         fetchRequest.predicate = barcodePredict
@@ -71,7 +71,7 @@ class CoreDataManager {
         return ret.count > 0 ? true : false
     }
     
-    private func _fetch(with request: NSFetchRequest<Coupon>) -> [Coupon] {
+    private func _fetch(with request: NSFetchRequest<ManagedCoupon>) -> [ManagedCoupon] {
         do {
             return try mainContext.fetch(request)
         } catch {
@@ -80,7 +80,7 @@ class CoreDataManager {
     }
     
     func deleteAll() {
-        let fetchRequest: NSFetchRequest<Coupon> = Coupon.fetchRequest()
+        let fetchRequest: NSFetchRequest<ManagedCoupon> = ManagedCoupon.fetchRequest()
         let obj = _fetch(with: fetchRequest)
         for o in obj {
             mainContext.delete(o)
@@ -93,7 +93,7 @@ class CoreDataManager {
     
     func delete(gifticon: Gifticon?) {
         guard let coupon = gifticon else { return }
-        let fetchRequest: NSFetchRequest<Coupon> = Coupon.fetchRequest()
+        let fetchRequest: NSFetchRequest<ManagedCoupon> = ManagedCoupon.fetchRequest()
         let barcode = coupon.barcode
         let barcodePredict = NSPredicate(format: "barcode == %@", barcode)
         fetchRequest.predicate = barcodePredict

@@ -10,6 +10,8 @@
 		E026F1F72696D1E400EF300C /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E026F1F62696D1E400EF300C /* RxSwift */; };
 		E026F1F92696D1E400EF300C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E026F1F82696D1E400EF300C /* RxCocoa */; };
 		E026F2132696DD7E00EF300C /* Button+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E026F2122696DD7E00EF300C /* Button+Animation.swift */; };
+		E026F21C2696E24B00EF300C /* ManagedCoupon+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E026F21A2696E24B00EF300C /* ManagedCoupon+CoreDataClass.swift */; };
+		E026F21D2696E24B00EF300C /* ManagedCoupon+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E026F21B2696E24B00EF300C /* ManagedCoupon+CoreDataProperties.swift */; };
 		E02F085B2696787A0092B05A /* CouponListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08552696787A0092B05A /* CouponListPresenter.swift */; };
 		E02F085C2696787A0092B05A /* CouponListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08562696787A0092B05A /* CouponListWorker.swift */; };
 		E02F085D2696787A0092B05A /* CouponListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08572696787A0092B05A /* CouponListRouter.swift */; };
@@ -122,6 +124,8 @@
 
 /* Begin PBXFileReference section */
 		E026F2122696DD7E00EF300C /* Button+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Animation.swift"; sourceTree = "<group>"; };
+		E026F21A2696E24B00EF300C /* ManagedCoupon+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedCoupon+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		E026F21B2696E24B00EF300C /* ManagedCoupon+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedCoupon+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		E02F08552696787A0092B05A /* CouponListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListPresenter.swift; sourceTree = "<group>"; };
 		E02F08562696787A0092B05A /* CouponListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListWorker.swift; sourceTree = "<group>"; };
 		E02F08572696787A0092B05A /* CouponListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListRouter.swift; sourceTree = "<group>"; };
@@ -340,6 +344,8 @@
 		E02F082C269670A10092B05A /* Deprecated */ = {
 			isa = PBXGroup;
 			children = (
+				E0C58D222686C10C003F7611 /* Coupon+CoreDataClass.swift */,
+				E0C58D212686C10C003F7611 /* Coupon+CoreDataProperties.swift */,
 				E0AB9A5A2643D50700F11602 /* Controller(dep) */,
 				E0AB9A5B2643D51500F11602 /* View(dep) */,
 				E02027D82628609E00AD7230 /* HomeScene (deprecated) */,
@@ -588,8 +594,8 @@
 		E0BDEB9B264A840500228762 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				E0C58D222686C10C003F7611 /* Coupon+CoreDataClass.swift */,
-				E0C58D212686C10C003F7611 /* Coupon+CoreDataProperties.swift */,
+				E026F21A2696E24B00EF300C /* ManagedCoupon+CoreDataClass.swift */,
+				E026F21B2696E24B00EF300C /* ManagedCoupon+CoreDataProperties.swift */,
 				E0BDEB96264A837900228762 /* TiconMoaModel.xcdatamodeld */,
 				E0BDEBB0264A89AC00228762 /* CoreDataManager.swift */,
 				E0BDEBBA264AB3CC00228762 /* ImageManager.swift */,
@@ -773,6 +779,7 @@
 				E0AE48372614659500BEC498 /* IconStackView.swift in Sources */,
 				E0BDEBBB264AB3CC00228762 /* ImageManager.swift in Sources */,
 				E02F085C2696787A0092B05A /* CouponListWorker.swift in Sources */,
+				E026F21D2696E24B00EF300C /* ManagedCoupon+CoreDataProperties.swift in Sources */,
 				E02F085D2696787A0092B05A /* CouponListRouter.swift in Sources */,
 				E0AE480C2613222D00BEC498 /* Autolayout.swift in Sources */,
 				E05F3D082664C8BE00EF29D0 /* PhotoCollectionViewCell.swift in Sources */,
@@ -804,6 +811,7 @@
 				E0AB9A0526429A4A00F11602 /* MainCollectionViewCell.swift in Sources */,
 				E0BBB2002638268400DC4553 /* ManualViewModel.swift in Sources */,
 				E0AE480826131DF600BEC498 /* RoundTabBarView.swift in Sources */,
+				E026F21C2696E24B00EF300C /* ManagedCoupon+CoreDataClass.swift in Sources */,
 				E0BDEBB1264A89AC00228762 /* CoreDataManager.swift in Sources */,
 				E0B653B4260C40DD007C402F /* HomeCollectionViewCell.swift in Sources */,
 				E0BBB2082638EB6A00DC4553 /* DateRecognizer.swift in Sources */,

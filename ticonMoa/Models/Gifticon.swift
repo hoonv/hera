@@ -18,7 +18,7 @@ struct Gifticon: Equatable {
     var category: String
     var checked = false
     
-    init(coupon: Coupon) {
+    init(coupon: ManagedCoupon) {
         name = coupon.name
         barcode = coupon.barcode
         brand = coupon.brand

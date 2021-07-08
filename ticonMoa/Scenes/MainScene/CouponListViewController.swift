@@ -114,10 +114,10 @@ extension CouponListViewController {
         }
         
         addButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(24)
-            make.trailing.equalToSuperview().offset(-24)
+            make.leading.equalToSuperview().offset(48)
+            make.trailing.equalToSuperview().offset(-48)
             make.bottom.equalToSuperview().offset(-24)
-            make.height.equalTo(64)
+            make.height.equalTo(56)
         }
         
         header.snp.makeConstraints { make in

@@ -67,7 +67,7 @@ final class PhotoManager {
                                 IndexSet(integersIn: 0..<fetchResult.count))
         
         PhotoCluster(data: assets).execute()
-            .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
+            .observe(on: ConcurrentDispatchQueueScheduler(qos: .default))
             .subscribe(onNext: { asset in
             PHImageManager.default()
                 .requestImage(for: asset,

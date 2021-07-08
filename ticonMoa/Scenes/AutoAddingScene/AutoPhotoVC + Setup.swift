@@ -27,7 +27,7 @@ extension AutoPhotoViewController {
             c.barcode }
 
         photoManager.imageOutput
-            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .observe(on: SerialDispatchQueueScheduler(qos: .background))
             .subscribe(onNext: { image in
                 let barcodeDetector = BarcodeRequestWrapper(image: image) { [weak self] uiimage, payload  in
                     guard let self = self else { return }
@@ -41,11 +41,11 @@ extension AutoPhotoViewController {
             .disposed(by: bag)
         
         imageBarcode
-            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .observe(on: SerialDispatchQueueScheduler(qos: .background))
             .map { (image, barcode) -> Gifticon in
                 self.makeCoupon(image: image, barcode: barcode)
             }
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext: { coupon in
                 if self.gificons.count == 0 {
                     self.inputForm.configure(coupon)

@@ -71,7 +71,7 @@ class ManualPhotoViewController: UIViewController {
             .disposed(by: bag)
         
         viewModel.output.isProccessing
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .filter { $0 == false }
             .subscribe(onNext: { _ in
                 self.grayOpacityView.isHidden = true
@@ -80,28 +80,28 @@ class ManualPhotoViewController: UIViewController {
             .disposed(by: bag)
         
         viewModel.output.name
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext: { payload in
                 self.nameTextField.text = payload
             })
             .disposed(by: bag)
         
         viewModel.output.barcode
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext: { payload in
                 self.barcodeTextField.text = payload
             })
             .disposed(by: bag)
         
         viewModel.output.brand
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext: { payload in
                 self.brandTextField.text = payload
             })
             .disposed(by: bag)
         
         viewModel.output.expirationDate
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
 //            .map { $0.toString(dateFormat: "yyyy.MM.dd") }
             .subscribe(onNext: { str in
                 self.dateTextField.text = str

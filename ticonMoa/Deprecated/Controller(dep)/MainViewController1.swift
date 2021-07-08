@@ -42,7 +42,7 @@ class MainViewController: UIViewController {
     
     func bind() {
         viewModel.output.gificons
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext: { coupons in
                 self.gifticons = coupons
                 self.allGifticons = coupons
@@ -50,7 +50,7 @@ class MainViewController: UIViewController {
             })
             .disposed(by: bag)
         viewModel.output.filteredGificons
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext: { coupons in
                 self.gifticons = coupons
                 self.collectionView.reloadData()

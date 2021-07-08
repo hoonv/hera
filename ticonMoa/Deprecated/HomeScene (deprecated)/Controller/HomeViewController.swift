@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
             .disposed(by: bag)
         
         viewModel.output.isProccess
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext: { b in
                 if b {
                     self.indicator.startAnimating()

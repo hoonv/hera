@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B6348F1712760BB6EFD96D4 /* Pods_ticonMoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 877DF317B04331FB7E3B67F8 /* Pods_ticonMoa.framework */; };
+		E026F1F72696D1E400EF300C /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E026F1F62696D1E400EF300C /* RxSwift */; };
+		E026F1F92696D1E400EF300C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E026F1F82696D1E400EF300C /* RxCocoa */; };
 		E02F085B2696787A0092B05A /* CouponListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08552696787A0092B05A /* CouponListPresenter.swift */; };
 		E02F085C2696787A0092B05A /* CouponListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08562696787A0092B05A /* CouponListWorker.swift */; };
 		E02F085D2696787A0092B05A /* CouponListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08572696787A0092B05A /* CouponListRouter.swift */; };
@@ -119,9 +120,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3053155E20A9E51D8D61FD34 /* Pods-ticonMoa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ticonMoa.debug.xcconfig"; path = "Target Support Files/Pods-ticonMoa/Pods-ticonMoa.debug.xcconfig"; sourceTree = "<group>"; };
-		79A4CD5FE06E834BF95ED000 /* Pods-ticonMoa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ticonMoa.release.xcconfig"; path = "Target Support Files/Pods-ticonMoa/Pods-ticonMoa.release.xcconfig"; sourceTree = "<group>"; };
-		877DF317B04331FB7E3B67F8 /* Pods_ticonMoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ticonMoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E02F08552696787A0092B05A /* CouponListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListPresenter.swift; sourceTree = "<group>"; };
 		E02F08562696787A0092B05A /* CouponListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListWorker.swift; sourceTree = "<group>"; };
 		E02F08572696787A0092B05A /* CouponListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListRouter.swift; sourceTree = "<group>"; };
@@ -228,8 +226,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E02F086526967B1D0092B05A /* SnapKit in Frameworks */,
-				7B6348F1712760BB6EFD96D4 /* Pods_ticonMoa.framework in Frameworks */,
 				E0AB99E626421B9600F11602 /* SwiftyTesseract in Frameworks */,
+				E026F1F92696D1E400EF300C /* RxCocoa in Frameworks */,
+				E026F1F72696D1E400EF300C /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,8 +362,6 @@
 				E053B6372604FC77005FAD51 /* ticonMoa */,
 				E0BBB1BE2637C55E00DC4553 /* ticonMoaTests */,
 				E053B6362604FC77005FAD51 /* Products */,
-				FFEBC3EBBEA75BCB46C73955 /* Pods */,
-				EAA2D1BEF8CE5C294F1D0B9C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -382,10 +379,10 @@
 			children = (
 				E0AB99EB26421E3400F11602 /* tessdata */,
 				E02F082A269670430092B05A /* Models */,
+				E0BDEB8D264A4EAA00228762 /* View */,
 				E02F082B2696704C0092B05A /* Services */,
 				E02F082726966FA90092B05A /* Scenes */,
 				E0AE480A2613222600BEC498 /* Extensions */,
-				E0BDEB8D264A4EAA00228762 /* View */,
 				E02F082C269670A10092B05A /* Deprecated */,
 				E053B6382604FC77005FAD51 /* AppDelegate.swift */,
 				E053B63A2604FC77005FAD51 /* SceneDelegate.swift */,
@@ -605,23 +602,6 @@
 			path = CounponDetailScene;
 			sourceTree = "<group>";
 		};
-		EAA2D1BEF8CE5C294F1D0B9C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				877DF317B04331FB7E3B67F8 /* Pods_ticonMoa.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FFEBC3EBBEA75BCB46C73955 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3053155E20A9E51D8D61FD34 /* Pods-ticonMoa.debug.xcconfig */,
-				79A4CD5FE06E834BF95ED000 /* Pods-ticonMoa.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -629,11 +609,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E053B6492604FC79005FAD51 /* Build configuration list for PBXNativeTarget "ticonMoa" */;
 			buildPhases = (
-				883A0E0AC89365E19C044AE9 /* [CP] Check Pods Manifest.lock */,
 				E053B6312604FC77005FAD51 /* Sources */,
 				E053B6322604FC77005FAD51 /* Frameworks */,
 				E053B6332604FC77005FAD51 /* Resources */,
-				16D7733897A4EBCF07F6B934 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -643,6 +621,8 @@
 			packageProductDependencies = (
 				E0AB99E526421B9600F11602 /* SwiftyTesseract */,
 				E02F086426967B1D0092B05A /* SnapKit */,
+				E026F1F62696D1E400EF300C /* RxSwift */,
+				E026F1F82696D1E400EF300C /* RxCocoa */,
 			);
 			productName = ticonMoa;
 			productReference = E053B6352604FC77005FAD51 /* ticonMoa.app */;
@@ -697,6 +677,7 @@
 			packageReferences = (
 				E0AB99E426421B9600F11602 /* XCRemoteSwiftPackageReference "SwiftyTesseract" */,
 				E02F086326967B1D0092B05A /* XCRemoteSwiftPackageReference "SnapKit" */,
+				E026F1F52696D1E400EF300C /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = E053B6362604FC77005FAD51 /* Products */;
 			projectDirPath = "";
@@ -743,48 +724,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		16D7733897A4EBCF07F6B934 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ticonMoa/Pods-ticonMoa-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ticonMoa/Pods-ticonMoa-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ticonMoa/Pods-ticonMoa-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		883A0E0AC89365E19C044AE9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ticonMoa-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E053B6312604FC77005FAD51 /* Sources */ = {
@@ -1026,7 +965,6 @@
 		};
 		E053B64A2604FC79005FAD51 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3053155E20A9E51D8D61FD34 /* Pods-ticonMoa.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1046,7 +984,6 @@
 		};
 		E053B64B2604FC79005FAD51 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 79A4CD5FE06E834BF95ED000 /* Pods-ticonMoa.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1139,6 +1076,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E026F1F52696D1E400EF300C /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.2.0;
+			};
+		};
 		E02F086326967B1D0092B05A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -1158,6 +1103,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E026F1F62696D1E400EF300C /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E026F1F52696D1E400EF300C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		E026F1F82696D1E400EF300C /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E026F1F52696D1E400EF300C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
 		E02F086426967B1D0092B05A /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E02F086326967B1D0092B05A /* XCRemoteSwiftPackageReference "SnapKit" */;

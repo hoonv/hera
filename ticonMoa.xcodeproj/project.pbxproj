@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		7B6348F1712760BB6EFD96D4 /* Pods_ticonMoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 877DF317B04331FB7E3B67F8 /* Pods_ticonMoa.framework */; };
+		E02F085B2696787A0092B05A /* CouponListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08552696787A0092B05A /* CouponListPresenter.swift */; };
+		E02F085C2696787A0092B05A /* CouponListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08562696787A0092B05A /* CouponListWorker.swift */; };
+		E02F085D2696787A0092B05A /* CouponListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08572696787A0092B05A /* CouponListRouter.swift */; };
+		E02F085E2696787A0092B05A /* CouponListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08582696787A0092B05A /* CouponListModels.swift */; };
+		E02F085F2696787A0092B05A /* CouponListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08592696787A0092B05A /* CouponListViewController.swift */; };
+		E02F08602696787A0092B05A /* CouponListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F085A2696787A0092B05A /* CouponListInteractor.swift */; };
+		E02F086526967B1D0092B05A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E02F086426967B1D0092B05A /* SnapKit */; };
+		E02F0869269686000092B05A /* CouponListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F0868269686000092B05A /* CouponListCell.swift */; };
 		E0364FF22623E007006D243E /* ImagePreProccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FF12623E007006D243E /* ImagePreProccessor.swift */; };
 		E0364FF52623EA97006D243E /* TextRecognitionWrapper(deprecated).swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FF42623EA97006D243E /* TextRecognitionWrapper(deprecated).swift */; };
 		E0364FFE26247CC4006D243E /* ManualPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FFD26247CC4006D243E /* ManualPhotoViewController.swift */; };
@@ -27,7 +35,7 @@
 		E05F3D152665D6A300EF29D0 /* AutoPhotoVC + Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F3D142665D6A300EF29D0 /* AutoPhotoVC + Setup.swift */; };
 		E0AB99E626421B9600F11602 /* SwiftyTesseract in Frameworks */ = {isa = PBXBuildFile; productRef = E0AB99E526421B9600F11602 /* SwiftyTesseract */; };
 		E0AB99EC26421E3400F11602 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = E0AB99EB26421E3400F11602 /* tessdata */; };
-		E0AB99F626427A6100F11602 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB99F526427A6100F11602 /* MainViewController.swift */; };
+		E0AB99F626427A6100F11602 /* MainViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB99F526427A6100F11602 /* MainViewController1.swift */; };
 		E0AB99FA26427B6000F11602 /* MainIconHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB99F926427B6000F11602 /* MainIconHeaderView.swift */; };
 		E0AB99FE26427B6700F11602 /* MainIconHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AB99FD26427B6700F11602 /* MainIconHeaderView.xib */; };
 		E0AB9A0526429A4A00F11602 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A0326429A4A00F11602 /* MainCollectionViewCell.swift */; };
@@ -112,6 +120,13 @@
 		3053155E20A9E51D8D61FD34 /* Pods-ticonMoa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ticonMoa.debug.xcconfig"; path = "Target Support Files/Pods-ticonMoa/Pods-ticonMoa.debug.xcconfig"; sourceTree = "<group>"; };
 		79A4CD5FE06E834BF95ED000 /* Pods-ticonMoa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ticonMoa.release.xcconfig"; path = "Target Support Files/Pods-ticonMoa/Pods-ticonMoa.release.xcconfig"; sourceTree = "<group>"; };
 		877DF317B04331FB7E3B67F8 /* Pods_ticonMoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ticonMoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E02F08552696787A0092B05A /* CouponListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListPresenter.swift; sourceTree = "<group>"; };
+		E02F08562696787A0092B05A /* CouponListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListWorker.swift; sourceTree = "<group>"; };
+		E02F08572696787A0092B05A /* CouponListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListRouter.swift; sourceTree = "<group>"; };
+		E02F08582696787A0092B05A /* CouponListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListModels.swift; sourceTree = "<group>"; };
+		E02F08592696787A0092B05A /* CouponListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListViewController.swift; sourceTree = "<group>"; };
+		E02F085A2696787A0092B05A /* CouponListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListInteractor.swift; sourceTree = "<group>"; };
+		E02F0868269686000092B05A /* CouponListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListCell.swift; sourceTree = "<group>"; };
 		E0364FF12623E007006D243E /* ImagePreProccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreProccessor.swift; sourceTree = "<group>"; };
 		E0364FF42623EA97006D243E /* TextRecognitionWrapper(deprecated).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextRecognitionWrapper(deprecated).swift"; sourceTree = "<group>"; };
 		E0364FFD26247CC4006D243E /* ManualPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualPhotoViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +147,7 @@
 		E05F3D102665A40100EF29D0 /* InputForm.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputForm.xib; sourceTree = "<group>"; };
 		E05F3D142665D6A300EF29D0 /* AutoPhotoVC + Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AutoPhotoVC + Setup.swift"; sourceTree = "<group>"; };
 		E0AB99EB26421E3400F11602 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = ../../../../tessdata; sourceTree = "<group>"; };
-		E0AB99F526427A6100F11602 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E0AB99F526427A6100F11602 /* MainViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController1.swift; sourceTree = "<group>"; };
 		E0AB99F926427B6000F11602 /* MainIconHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainIconHeaderView.swift; sourceTree = "<group>"; };
 		E0AB99FD26427B6700F11602 /* MainIconHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainIconHeaderView.xib; sourceTree = "<group>"; };
 		E0AB9A0326429A4A00F11602 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -208,6 +223,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E02F086526967B1D0092B05A /* SnapKit in Frameworks */,
 				7B6348F1712760BB6EFD96D4 /* Pods_ticonMoa.framework in Frameworks */,
 				E0AB99E626421B9600F11602 /* SwiftyTesseract in Frameworks */,
 			);
@@ -382,6 +398,13 @@
 			children = (
 				E0AB9A5A2643D50700F11602 /* Controller */,
 				E0AB9A5B2643D51500F11602 /* View */,
+				E02F08552696787A0092B05A /* CouponListPresenter.swift */,
+				E02F08562696787A0092B05A /* CouponListWorker.swift */,
+				E02F08572696787A0092B05A /* CouponListRouter.swift */,
+				E02F08582696787A0092B05A /* CouponListModels.swift */,
+				E02F08592696787A0092B05A /* CouponListViewController.swift */,
+				E02F085A2696787A0092B05A /* CouponListInteractor.swift */,
+				E02F0868269686000092B05A /* CouponListCell.swift */,
 			);
 			path = MainScene;
 			sourceTree = "<group>";
@@ -389,7 +412,7 @@
 		E0AB9A5A2643D50700F11602 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E0AB99F526427A6100F11602 /* MainViewController.swift */,
+				E0AB99F526427A6100F11602 /* MainViewController1.swift */,
 				E0AB9A6A2643D6D900F11602 /* MainVC + CollectionView.swift */,
 				E0AB9A702643D74100F11602 /* MainVC + PhotoPick.swift */,
 				E0AB9A4A2643707200F11602 /* PullUpViewController.swift */,
@@ -605,6 +628,7 @@
 			name = ticonMoa;
 			packageProductDependencies = (
 				E0AB99E526421B9600F11602 /* SwiftyTesseract */,
+				E02F086426967B1D0092B05A /* SnapKit */,
 			);
 			productName = ticonMoa;
 			productReference = E053B6352604FC77005FAD51 /* ticonMoa.app */;
@@ -636,6 +660,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
+				ORGANIZATIONNAME = hoon;
 				TargetAttributes = {
 					E053B6342604FC77005FAD51 = {
 						CreatedOnToolsVersion = 12.4;
@@ -657,6 +682,7 @@
 			mainGroup = E053B62C2604FC77005FAD51;
 			packageReferences = (
 				E0AB99E426421B9600F11602 /* XCRemoteSwiftPackageReference "SwiftyTesseract" */,
+				E02F086326967B1D0092B05A /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = E053B6362604FC77005FAD51 /* Products */;
 			projectDirPath = "";
@@ -764,13 +790,15 @@
 				E0BDEB98264A837900228762 /* TiconMoaModel.xcdatamodeld in Sources */,
 				E0BDEB8526494C7600228762 /* Array.swift in Sources */,
 				E0AE4817261438AE00BEC498 /* SearchViewController.swift in Sources */,
+				E02F08602696787A0092B05A /* CouponListInteractor.swift in Sources */,
 				E0AB9A182642CC2500F11602 /* Gifticon.swift in Sources */,
 				E053B63D2604FC77005FAD51 /* HomeViewController.swift in Sources */,
 				E0AE482E2614526600BEC498 /* CategoryCell.swift in Sources */,
 				E05F3D0D2665A3F400EF29D0 /* InputForm.swift in Sources */,
-				E0AB99F626427A6100F11602 /* MainViewController.swift in Sources */,
+				E0AB99F626427A6100F11602 /* MainViewController1.swift in Sources */,
 				E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */,
 				E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */,
+				E02F085F2696787A0092B05A /* CouponListViewController.swift in Sources */,
 				E0AB9A3D264367B200F11602 /* PullUpView.swift in Sources */,
 				E0BBB1E02638113D00DC4553 /* HomeVC + IconStackViewDelegate.swift in Sources */,
 				E0BDEB7C2649476F00228762 /* NameRecognizer.swift in Sources */,
@@ -784,8 +812,12 @@
 				E0BBB2162638F72600DC4553 /* BrandRecognizer.swift in Sources */,
 				E0AE48372614659500BEC498 /* IconStackView.swift in Sources */,
 				E0BDEBBB264AB3CC00228762 /* ImageManager.swift in Sources */,
+				E02F085C2696787A0092B05A /* CouponListWorker.swift in Sources */,
+				E02F085D2696787A0092B05A /* CouponListRouter.swift in Sources */,
 				E0AE480C2613222D00BEC498 /* Autolayout.swift in Sources */,
 				E05F3D082664C8BE00EF29D0 /* PhotoCollectionViewCell.swift in Sources */,
+				E02F0869269686000092B05A /* CouponListCell.swift in Sources */,
+				E02F085E2696787A0092B05A /* CouponListModels.swift in Sources */,
 				E0AB9A6B2643D6D900F11602 /* MainVC + CollectionView.swift in Sources */,
 				E0BDEBBF264AE44800228762 /* FeedBackButton.swift in Sources */,
 				E0C3CFA5263FF79D00483A91 /* CouponDetailViewController.swift in Sources */,
@@ -795,6 +827,7 @@
 				E0C58D242686C10C003F7611 /* Coupon+CoreDataClass.swift in Sources */,
 				E0364FF22623E007006D243E /* ImagePreProccessor.swift in Sources */,
 				E0BDEB8F264A4EBC00228762 /* ExpandButton.swift in Sources */,
+				E02F085B2696787A0092B05A /* CouponListPresenter.swift in Sources */,
 				E0AE481B261438BA00BEC498 /* ProfileViewController.swift in Sources */,
 				E0AE48412616875F00BEC498 /* MapViewController.swift in Sources */,
 				E0AE483326145A8200BEC498 /* String+widthHeight.swift in Sources */,
@@ -988,7 +1021,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hoonv.ticonMoa2;
+				PRODUCT_BUNDLE_IDENTIFIER = hoonv.TiconMoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1008,7 +1041,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hoonv.ticonMoa2;
+				PRODUCT_BUNDLE_IDENTIFIER = hoonv.TiconMoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1090,6 +1123,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E02F086326967B1D0092B05A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 		E0AB99E426421B9600F11602 /* XCRemoteSwiftPackageReference "SwiftyTesseract" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyTesseract/SwiftyTesseract";
@@ -1101,6 +1142,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E02F086426967B1D0092B05A /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E02F086326967B1D0092B05A /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		E0AB99E526421B9600F11602 /* SwiftyTesseract */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E0AB99E426421B9600F11602 /* XCRemoteSwiftPackageReference "SwiftyTesseract" */;

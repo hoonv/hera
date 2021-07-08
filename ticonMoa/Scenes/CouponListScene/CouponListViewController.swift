@@ -105,6 +105,7 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
 extension CouponListViewController {
     
     func setupUI() {
+        view.backgroundColor = .systemBackground
         collectionView.delegate = self
         collectionView.dataSource = self
   

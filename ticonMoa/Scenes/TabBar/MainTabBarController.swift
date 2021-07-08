@@ -9,7 +9,7 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
-    private let floatingTabbarView = RoundTabBarView(["house", "magnifyingglass", "person"])
+    private let floatingTabbarView = RoundTabBarView(["house", "plus.square","magnifyingglass", "person"])
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +19,9 @@ class MainTabBarController: UITabBarController {
     }
     
     private func setupViewControllers() {
-        guard let homeVC: HomeViewController = UIStoryboard.main.instantiate(),
-              let searchVC: SearchViewController = UIStoryboard.main.instantiate() ,
-              let profileVC: ProfileViewController = UIStoryboard.main.instantiate()
-        else { return }
+        let homeVC = CouponListViewController()
+        let searchVC = CouponListViewController()
+        let profileVC =  CouponListViewController()
         self.viewControllers = [homeVC, searchVC, profileVC]
     }
 

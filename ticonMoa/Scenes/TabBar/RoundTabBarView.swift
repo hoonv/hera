@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol RoundTabBarViewDelegate: AnyObject {
+protocol RoundTabBarViewDelegate: class {
     func roundTabBarView(_ roundTabBarView: RoundTabBarView, didSelected index : Int)
 }
 
@@ -48,9 +48,10 @@ class RoundTabBarView: UIView {
 
     func setupStackView(_ items: [String]) {
         
-        let symbolConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .bold, scale: .medium)
-        
+        let buttonSizes: [CGFloat] = [20,25,20,20]
+
         for (index, item) in items.enumerated() {
+            let symbolConfig = UIImage.SymbolConfiguration(pointSize: buttonSizes[index], weight: .bold, scale: .medium)
             guard let normalImage = UIImage(systemName: item, withConfiguration: symbolConfig) else { continue }
             let selectedImage = UIImage(systemName: "\(item).fill", withConfiguration: symbolConfig)
             let button = createButton(normalImage: normalImage, selectedImage: selectedImage ?? normalImage, index: index)

@@ -22,7 +22,6 @@ class CouponListHeader: UIView {
     }
     
     func setupUI() {
-        
         iconStackView.addArrangedSubview(filterIcon)
         iconStackView.addArrangedSubview(bellIcon)
 

@@ -28,8 +28,32 @@ class MainTabBarController: UITabBarController {
     private func setupFloatingTabBar() {
         floatingTabbarView.delegate = self
         view.addSubview(floatingTabbarView)
-        floatingTabbarView.centerXInSuperview()
-        floatingTabbarView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        floatingTabbarView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+    }
+    
+    func hideTabBar() {
+        floatingTabbarView.snp.remakeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+            self.floatingTabbarView.alpha = 0
+        }
+    }
+    
+    func showTabBar() {
+        floatingTabbarView.snp.remakeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+            self.floatingTabbarView.alpha = 1
+        }
     }
 }
 

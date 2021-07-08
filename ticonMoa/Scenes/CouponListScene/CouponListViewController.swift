@@ -98,6 +98,10 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
         let header = CouponListHeader()
         return header
     }()
+    
+    // MARK: Scroll Animation
+    
+    var currentOffset: CGFloat = 0
 }
 
 // MARK: setupUI
@@ -145,6 +149,30 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
             return CouponListCell()
         }
         return cell
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        currentOffset = scrollView.contentOffset.y
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y < 0 {
+            return
+        }
+        
+        let differ = scrollView.contentOffset.y - currentOffset
+        
+        if differ > 100 {
+            currentOffset = scrollView.contentOffset.y
+            let controller = tabBarController as? MainTabBarController
+            controller?.hideTabBar()
+        }
+        
+        if differ < -100 {
+            currentOffset = scrollView.contentOffset.y
+            let controller = tabBarController as? MainTabBarController
+            controller?.showTabBar()
+        }
     }
 }
 

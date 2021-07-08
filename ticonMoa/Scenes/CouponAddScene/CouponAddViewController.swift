@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol CouponAddDisplayLogic: class {
     func displaySomething(viewModel: CouponAdd.Something.ViewModel)
@@ -78,10 +79,49 @@ class CouponAddViewController: UIViewController, CouponAddDisplayLogic {
     func displaySomething(viewModel: CouponAdd.Something.ViewModel) {
         //nameTextField.text = viewModel.name
     }
+    
+    let header: CouponListHeader = {
+        let header = CouponListHeader()
+        return header
+    }()
+    
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .systemGray3
+        return imageView
+    }()
+    
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.backgroundColor = .systemGray2
+        return collection
+    }()
 }
 
 extension CouponAddViewController {
     func setupUI() {
         view.backgroundColor = .systemBackground
+        
+        view.addSubview(header)
+        view.addSubview(imageView)
+        view.addSubview(collectionView)
+
+        imageView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(header.snp.bottom)
+            make.height.equalTo(300)
+        }
+        
+        header.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(43)
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        collectionView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(imageView.snp.bottom)
+        }
     }
 }

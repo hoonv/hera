@@ -328,6 +328,15 @@
 			path = CouponAddScene;
 			sourceTree = "<group>";
 		};
+		E026F239269719C200EF300C /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				E0B653B7260C497B007C402F /* PhotoManager.swift */,
+				E0BBB1B226378ADE00DC4553 /* PhotoCluster.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
 		E02F082726966FA90092B05A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +366,7 @@
 		E02F082B2696704C0092B05A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E026F239269719C200EF300C /* Photo */,
 				E0BDEB9B264A840500228762 /* CoreData */,
 				E0BDEB6626491E0700228762 /* OCR */,
 			);
@@ -532,8 +542,6 @@
 		E0BBB1E52638176800DC4553 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E0B653B7260C497B007C402F /* PhotoManager.swift */,
-				E0BBB1B226378ADE00DC4553 /* PhotoCluster.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

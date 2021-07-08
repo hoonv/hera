@@ -16,6 +16,8 @@
 		E02F08602696787A0092B05A /* CouponListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F085A2696787A0092B05A /* CouponListInteractor.swift */; };
 		E02F086526967B1D0092B05A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E02F086426967B1D0092B05A /* SnapKit */; };
 		E02F0869269686000092B05A /* CouponListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F0868269686000092B05A /* CouponListCell.swift */; };
+		E02F08732696B7690092B05A /* CouponListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08722696B7690092B05A /* CouponListHeader.swift */; };
+		E02F08772696C04B0092B05A /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08762696C04B0092B05A /* IconButton.swift */; };
 		E0364FF22623E007006D243E /* ImagePreProccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FF12623E007006D243E /* ImagePreProccessor.swift */; };
 		E0364FF52623EA97006D243E /* TextRecognitionWrapper(deprecated).swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FF42623EA97006D243E /* TextRecognitionWrapper(deprecated).swift */; };
 		E0364FFE26247CC4006D243E /* ManualPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FFD26247CC4006D243E /* ManualPhotoViewController.swift */; };
@@ -66,7 +68,7 @@
 		E0AE483326145A8200BEC498 /* String+widthHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE483226145A8200BEC498 /* String+widthHeight.swift */; };
 		E0AE48372614659500BEC498 /* IconStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE48362614659500BEC498 /* IconStackView.swift */; };
 		E0AE483A261465CA00BEC498 /* IconStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AE4839261465CA00BEC498 /* IconStackView.xib */; };
-		E0AE483D2615AFEA00BEC498 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE483C2615AFEA00BEC498 /* IconButton.swift */; };
+		E0AE483D2615AFEA00BEC498 /* IconButton2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE483C2615AFEA00BEC498 /* IconButton2.swift */; };
 		E0AE48412616875F00BEC498 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE48402616875F00BEC498 /* MapViewController.swift */; };
 		E0AE484726171CE100BEC498 /* SlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE484626171CE100BEC498 /* SlideAnimator.swift */; };
 		E0AE4854261BE6EB00BEC498 /* TransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE4853261BE6EB00BEC498 /* TransitioningDelegate.swift */; };
@@ -127,6 +129,8 @@
 		E02F08592696787A0092B05A /* CouponListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListViewController.swift; sourceTree = "<group>"; };
 		E02F085A2696787A0092B05A /* CouponListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListInteractor.swift; sourceTree = "<group>"; };
 		E02F0868269686000092B05A /* CouponListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListCell.swift; sourceTree = "<group>"; };
+		E02F08722696B7690092B05A /* CouponListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListHeader.swift; sourceTree = "<group>"; };
+		E02F08762696C04B0092B05A /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		E0364FF12623E007006D243E /* ImagePreProccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreProccessor.swift; sourceTree = "<group>"; };
 		E0364FF42623EA97006D243E /* TextRecognitionWrapper(deprecated).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextRecognitionWrapper(deprecated).swift"; sourceTree = "<group>"; };
 		E0364FFD26247CC4006D243E /* ManualPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualPhotoViewController.swift; sourceTree = "<group>"; };
@@ -178,7 +182,7 @@
 		E0AE483226145A8200BEC498 /* String+widthHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+widthHeight.swift"; sourceTree = "<group>"; };
 		E0AE48362614659500BEC498 /* IconStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconStackView.swift; sourceTree = "<group>"; };
 		E0AE4839261465CA00BEC498 /* IconStackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconStackView.xib; sourceTree = "<group>"; };
-		E0AE483C2615AFEA00BEC498 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		E0AE483C2615AFEA00BEC498 /* IconButton2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton2.swift; sourceTree = "<group>"; };
 		E0AE48402616875F00BEC498 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E0AE484626171CE100BEC498 /* SlideAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideAnimator.swift; sourceTree = "<group>"; };
 		E0AE4853261BE6EB00BEC498 /* TransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitioningDelegate.swift; sourceTree = "<group>"; };
@@ -405,6 +409,8 @@
 				E02F08592696787A0092B05A /* CouponListViewController.swift */,
 				E02F085A2696787A0092B05A /* CouponListInteractor.swift */,
 				E02F0868269686000092B05A /* CouponListCell.swift */,
+				E02F08722696B7690092B05A /* CouponListHeader.swift */,
+				E02F08762696C04B0092B05A /* IconButton.swift */,
 			);
 			path = MainScene;
 			sourceTree = "<group>";
@@ -434,7 +440,7 @@
 				E0AB9A40264367B700F11602 /* PullUpView.xib */,
 				E0AE4825261442D400BEC498 /* HorizontalScrollView.swift */,
 				E0AE4829261442FC00BEC498 /* HorizontalScrollView.xib */,
-				E0AE483C2615AFEA00BEC498 /* IconButton.swift */,
+				E0AE483C2615AFEA00BEC498 /* IconButton2.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -784,6 +790,7 @@
 				E0AE481F26143C9000BEC498 /* UIStoryboard.swift in Sources */,
 				E0BBB1D42637F50900DC4553 /* HomeViewModel.swift in Sources */,
 				E0BBB1F326381F2400DC4553 /* HomeVC + ImagePicker.swift in Sources */,
+				E02F08732696B7690092B05A /* CouponListHeader.swift in Sources */,
 				E0AE4854261BE6EB00BEC498 /* TransitioningDelegate.swift in Sources */,
 				E05F3D152665D6A300EF29D0 /* AutoPhotoVC + Setup.swift in Sources */,
 				E0C58D232686C10C003F7611 /* Coupon+CoreDataProperties.swift in Sources */,
@@ -798,6 +805,7 @@
 				E0AB99F626427A6100F11602 /* MainViewController1.swift in Sources */,
 				E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */,
 				E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */,
+				E02F08772696C04B0092B05A /* IconButton.swift in Sources */,
 				E02F085F2696787A0092B05A /* CouponListViewController.swift in Sources */,
 				E0AB9A3D264367B200F11602 /* PullUpView.swift in Sources */,
 				E0BBB1E02638113D00DC4553 /* HomeVC + IconStackViewDelegate.swift in Sources */,
@@ -843,7 +851,7 @@
 				E0AB9A132642A09F00F11602 /* MainCategoryHeaderView.swift in Sources */,
 				E0AB9A0526429A4A00F11602 /* MainCollectionViewCell.swift in Sources */,
 				E0BBB2002638268400DC4553 /* ManualViewModel.swift in Sources */,
-				E0AE483D2615AFEA00BEC498 /* IconButton.swift in Sources */,
+				E0AE483D2615AFEA00BEC498 /* IconButton2.swift in Sources */,
 				E0AE480826131DF600BEC498 /* RoundTabBarView.swift in Sources */,
 				E0BDEBB1264A89AC00228762 /* CoreDataManager.swift in Sources */,
 				E0B653B4260C40DD007C402F /* HomeCollectionViewCell.swift in Sources */,

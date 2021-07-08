@@ -92,9 +92,8 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
         return collection
     }()
 
-    var header: UIView = {
-        let header = UIView()
-        header.backgroundColor = .systemBackground
+    var header: CouponListHeader = {
+        let header = CouponListHeader()
         return header
     }()
 }
@@ -110,7 +109,7 @@ extension CouponListViewController {
         }
         header.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(60)
+            make.height.equalTo(43)
             make.leading.trailing.equalToSuperview()
         }
         collectionView.snp.makeConstraints { make in

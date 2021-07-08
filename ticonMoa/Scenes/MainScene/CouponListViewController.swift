@@ -96,6 +96,11 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
         let header = CouponListHeader()
         return header
     }()
+    
+    var addButton: CouponAddButton = {
+        let button = CouponAddButton()
+        return button
+    }()
 }
 
 extension CouponListViewController {
@@ -104,9 +109,17 @@ extension CouponListViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        [collectionView, header].forEach {
+        [collectionView, header, addButton].forEach {
             view.addSubview($0)
         }
+        
+        addButton.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(24)
+            make.trailing.equalToSuperview().offset(-24)
+            make.bottom.equalToSuperview().offset(-24)
+            make.height.equalTo(64)
+        }
+        
         header.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(43)

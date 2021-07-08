@@ -49,7 +49,6 @@ class CouponListHeader: UIView {
             make.leading.trailing.bottom.equalToSuperview()
             make.height.equalTo(0.8)
         }
-        
     }
     
     let iconStackView: UIStackView = {

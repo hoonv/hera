@@ -124,7 +124,7 @@ class CouponListCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 5
-        imageView.backgroundColor = .red
+        imageView.backgroundColor = .systemGray
         return imageView
     }()
     

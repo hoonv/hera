@@ -23,19 +23,19 @@ class CouponListHeader: UIView {
     
     func setupUI() {
         
-        iconStackView.addArrangedSubview(searchIcon)
         iconStackView.addArrangedSubview(filterIcon)
+        iconStackView.addArrangedSubview(bellIcon)
 
         [separator, iconStackView].forEach {
             addSubview($0)
         }
         
-        searchIcon.snp.makeConstraints { make in
-            make.width.equalTo(searchIcon.snp.height)
-        }
-        
         filterIcon.snp.makeConstraints { make in
             make.width.equalTo(filterIcon.snp.height)
+        }
+        
+        bellIcon.snp.makeConstraints { make in
+            make.width.equalTo(bellIcon.snp.height)
         }
 
         iconStackView.snp.makeConstraints { make in
@@ -63,13 +63,13 @@ class CouponListHeader: UIView {
         return view
     }()
     
-    let searchIcon: IconButton = {
-        let button = IconButton(systemName: "magnifyingglass")
+    let filterIcon: IconButton = {
+        let button = IconButton(systemName: "slider.horizontal.3")
         return button
     }()
     
-    let filterIcon: IconButton = {
-        let button = IconButton(systemName: "slider.horizontal.3")
+    let bellIcon: IconButton = {
+        let button = IconButton(systemName: "bell")
         return button
     }()
 

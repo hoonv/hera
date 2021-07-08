@@ -69,8 +69,10 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
     }
     
     // MARK: Do something
-    
-    //@IBOutlet weak var nameTextField: UITextField!
+
+    @objc func addButtonTouched() {
+        print("xx")
+    }
     
     func doSomething() {
         let request = CouponList.Something.Request()
@@ -96,28 +98,18 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
         let header = CouponListHeader()
         return header
     }()
-    
-    var addButton: CouponAddButton = {
-        let button = CouponAddButton()
-        return button
-    }()
 }
 
+// MARK: setupUI
+
 extension CouponListViewController {
-     
+    
     func setupUI() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        [collectionView, header, addButton].forEach {
+  
+        [collectionView, header].forEach {
             view.addSubview($0)
-        }
-        
-        addButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(48)
-            make.trailing.equalToSuperview().offset(-48)
-            make.bottom.equalToSuperview().offset(-24)
-            make.height.equalTo(56)
         }
         
         header.snp.makeConstraints { make in
@@ -125,12 +117,15 @@ extension CouponListViewController {
             make.height.equalTo(43)
             make.leading.trailing.equalToSuperview()
         }
+        
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(header.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
 }
+
+// MARK: CollectionView
 
 extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     

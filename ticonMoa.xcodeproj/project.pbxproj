@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E026F1F72696D1E400EF300C /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E026F1F62696D1E400EF300C /* RxSwift */; };
 		E026F1F92696D1E400EF300C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E026F1F82696D1E400EF300C /* RxCocoa */; };
+		E026F2132696DD7E00EF300C /* Button+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E026F2122696DD7E00EF300C /* Button+Animation.swift */; };
 		E02F085B2696787A0092B05A /* CouponListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08552696787A0092B05A /* CouponListPresenter.swift */; };
 		E02F085C2696787A0092B05A /* CouponListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08562696787A0092B05A /* CouponListWorker.swift */; };
 		E02F085D2696787A0092B05A /* CouponListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08572696787A0092B05A /* CouponListRouter.swift */; };
@@ -120,6 +121,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E026F2122696DD7E00EF300C /* Button+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Animation.swift"; sourceTree = "<group>"; };
 		E02F08552696787A0092B05A /* CouponListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListPresenter.swift; sourceTree = "<group>"; };
 		E02F08562696787A0092B05A /* CouponListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListWorker.swift; sourceTree = "<group>"; };
 		E02F08572696787A0092B05A /* CouponListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListRouter.swift; sourceTree = "<group>"; };
@@ -351,7 +353,6 @@
 				E02F0868269686000092B05A /* CouponListCell.swift */,
 				E02F08722696B7690092B05A /* CouponListHeader.swift */,
 				E02F08762696C04B0092B05A /* IconButton.swift */,
-				E02F08812696C8F10092B05A /* CouponAddButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -435,6 +436,7 @@
 		E0AB9A5B2643D51500F11602 /* View(dep) */ = {
 			isa = PBXGroup;
 			children = (
+				E02F08812696C8F10092B05A /* CouponAddButton.swift */,
 				E0BDEB8126494C1800228762 /* Cell */,
 				E0AB9A4E2643B47100F11602 /* ChoiceView.swift */,
 				E0AB9A522643B48F00F11602 /* ChoiceView.xib */,
@@ -465,6 +467,7 @@
 				E0AE483226145A8200BEC498 /* String+widthHeight.swift */,
 				E0BBB20E2638F70200DC4553 /* Date+toString.swift */,
 				E0BDEB8426494C7600228762 /* Array.swift */,
+				E026F2122696DD7E00EF300C /* Button+Animation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -740,6 +743,7 @@
 				E02F08732696B7690092B05A /* CouponListHeader.swift in Sources */,
 				E0AE4854261BE6EB00BEC498 /* TransitioningDelegate.swift in Sources */,
 				E05F3D152665D6A300EF29D0 /* AutoPhotoVC + Setup.swift in Sources */,
+				E026F2132696DD7E00EF300C /* Button+Animation.swift in Sources */,
 				E0C58D232686C10C003F7611 /* Coupon+CoreDataProperties.swift in Sources */,
 				E02F08822696C8F10092B05A /* CouponAddButton.swift in Sources */,
 				E0BDEB98264A837900228762 /* TiconMoaModel.xcdatamodeld in Sources */,
@@ -971,6 +975,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7BP3494UVW;
 				INFOPLIST_FILE = ticonMoa/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -978,7 +983,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = hoonv.TiconMoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -990,6 +995,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7BP3494UVW;
 				INFOPLIST_FILE = ticonMoa/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -997,7 +1003,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = hoonv.TiconMoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

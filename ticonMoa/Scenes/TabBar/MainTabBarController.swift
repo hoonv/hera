@@ -19,10 +19,10 @@ class MainTabBarController: UITabBarController {
     }
     
     private func setupViewControllers() {
-        let homeVC = CouponListViewController()
-        let searchVC = CouponListViewController()
+        let listVC = CouponListViewController()
+        let addVC = CouponAddViewController()
         let profileVC =  CouponListViewController()
-        self.viewControllers = [homeVC, searchVC, profileVC]
+        self.viewControllers = [listVC, addVC, profileVC]
     }
 
     private func setupFloatingTabBar() {

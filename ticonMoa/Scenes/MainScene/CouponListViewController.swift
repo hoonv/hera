@@ -94,7 +94,7 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
 
     var header: UIView = {
         let header = UIView()
-        header.backgroundColor = .red
+        header.backgroundColor = .systemBackground
         return header
     }()
 }

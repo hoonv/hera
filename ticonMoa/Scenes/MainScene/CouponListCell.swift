@@ -22,6 +22,8 @@ class CouponListCell: UICollectionViewCell {
     }
     
     private func setup() {
+        let xPadding = 10
+        let yPadding = 16
         [imageView, separator, descStackView, dateStackView].forEach {
             contentView.addSubview($0)
         }
@@ -37,22 +39,22 @@ class CouponListCell: UICollectionViewCell {
         dateStackView.snp.makeConstraints { make in
             make.height.lessThanOrEqualTo(20)
             make.bottom.equalTo(imageView.snp.bottom)
-            make.leading.greaterThanOrEqualTo(imageView.snp.trailing).offset(10)
-            make.trailing.equalToSuperview().offset(-10)
+            make.leading.greaterThanOrEqualTo(imageView.snp.trailing).offset(xPadding)
+            make.trailing.equalToSuperview().offset(-xPadding)
         }
         
         descStackView.snp.makeConstraints { make in
-            make.top.equalTo(contentView).offset(12)
+            make.top.equalTo(contentView).offset(yPadding)
             make.bottom.lessThanOrEqualTo(dateStackView)
-            make.leading.equalTo(imageView.snp.trailing).offset(14)
-            make.trailing.equalToSuperview().offset(-10)
+            make.leading.equalTo(imageView.snp.trailing).offset(xPadding)
+            make.trailing.equalToSuperview().offset(-xPadding)
         }
         
         imageView.snp.makeConstraints { make in
             make.width.equalTo(imageView.snp.height)
             make.leading.equalToSuperview()
-            make.top.equalTo(contentView).offset(12)
-            make.bottom.equalTo(separator).offset(-12)
+            make.top.equalTo(contentView).offset(yPadding)
+            make.bottom.equalTo(separator).offset(-yPadding)
         }
         
         separator.snp.makeConstraints { make in

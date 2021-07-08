@@ -305,7 +305,7 @@
 		E02F082726966FA90092B05A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				E0AB9A1F2642CDAD00F11602 /* MainScene */,
+				E0AB9A1F2642CDAD00F11602 /* CouponListScene */,
 				E02027DC2628628E00AD7230 /* ManualAddingScene */,
 				E05F3CFD2664BCD300EF29D0 /* AutoAddingScene */,
 				E0C3CFA3263FF78200483A91 /* CounponDetailScene */,
@@ -346,7 +346,7 @@
 			path = Deprecated;
 			sourceTree = "<group>";
 		};
-		E02F087C2696C1160092B05A /* NewView */ = {
+		E02F087C2696C1160092B05A /* View */ = {
 			isa = PBXGroup;
 			children = (
 				E02F0868269686000092B05A /* CouponListCell.swift */,
@@ -354,7 +354,7 @@
 				E02F08762696C04B0092B05A /* IconButton.swift */,
 				E02F08812696C8F10092B05A /* CouponAddButton.swift */,
 			);
-			path = NewView;
+			path = View;
 			sourceTree = "<group>";
 		};
 		E053B62C2604FC77005FAD51 = {
@@ -410,10 +410,10 @@
 			path = AutoAddingScene;
 			sourceTree = "<group>";
 		};
-		E0AB9A1F2642CDAD00F11602 /* MainScene */ = {
+		E0AB9A1F2642CDAD00F11602 /* CouponListScene */ = {
 			isa = PBXGroup;
 			children = (
-				E02F087C2696C1160092B05A /* NewView */,
+				E02F087C2696C1160092B05A /* View */,
 				E02F08552696787A0092B05A /* CouponListPresenter.swift */,
 				E02F08562696787A0092B05A /* CouponListWorker.swift */,
 				E02F08572696787A0092B05A /* CouponListRouter.swift */,
@@ -421,7 +421,7 @@
 				E02F08592696787A0092B05A /* CouponListViewController.swift */,
 				E02F085A2696787A0092B05A /* CouponListInteractor.swift */,
 			);
-			path = MainScene;
+			path = CouponListScene;
 			sourceTree = "<group>";
 		};
 		E0AB9A5A2643D50700F11602 /* Controller(dep) */ = {

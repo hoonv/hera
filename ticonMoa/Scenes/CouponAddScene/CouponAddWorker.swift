@@ -22,7 +22,7 @@ class CouponAddWorker {
         return option
     }()
     private var targetSize = CGSize(width: 300, height: 300)
-    private var highTargetSize = CGSize(width: 600, height: 600)
+    private var highTargetSize = CGSize(width: 900, height: 900)
 
     private var contentMode: PHImageContentMode = .aspectFit
     

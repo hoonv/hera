@@ -88,6 +88,8 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
         imageView.backgroundColor = .systemGray
         return imageView
     }()
@@ -96,17 +98,21 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
 extension CouponScanViewController {
     
     func setupUI() {
+        guard let image = router?.dataStore?.image else { return }
+        let ratio = image.size.height / image.size.width
+
         self.view.backgroundColor = .systemBackground
-        imageView.image = router?.dataStore?.image
+        imageView.image = image
+        
         [header, imageView].forEach {
             view.addSubview($0)
         }
         
         imageView.snp.makeConstraints { make in
-            make.top.equalTo(header.snp.bottom)
+            make.top.equalTo(header.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.5)
-            make.height.equalTo(200)
+            make.height.equalTo(imageView.snp.width).multipliedBy(ratio)
         }
         
         header.snp.makeConstraints { make in

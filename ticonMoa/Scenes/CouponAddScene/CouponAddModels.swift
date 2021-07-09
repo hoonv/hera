@@ -31,16 +31,16 @@ enum CouponAdd {
     
     enum fetchOnePhoto {
         struct Request {
-            let index: Int
+            let index: IndexPath
         }
         
         struct Response {
-            let index: Int
+            let index: IndexPath
             let image: UIImage
         }
         
         struct ViewModel {
-            let index: Int
+            let index: IndexPath
             let image: UIImage
         }
     }

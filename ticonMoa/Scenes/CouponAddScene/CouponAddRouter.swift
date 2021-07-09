@@ -13,7 +13,7 @@
 import UIKit
 
 @objc protocol CouponAddRoutingLogic {
-    func routeToCouponScan(index: Int)
+    func routeToCouponScan(index: IndexPath)
 }
 
 protocol CouponAddDataPassing {
@@ -26,7 +26,7 @@ class CouponAddRouter: NSObject, CouponAddRoutingLogic, CouponAddDataPassing {
     
     // MARK: Routing
     
-    func routeToCouponScan(index: Int) {
+    func routeToCouponScan(index: IndexPath) {
         let controller = CouponScanViewController()
         guard
             let sourceDataStore = dataStore,
@@ -37,7 +37,7 @@ class CouponAddRouter: NSObject, CouponAddRoutingLogic, CouponAddDataPassing {
     
     // MARK: Passing data
     
-    func passDataToSomewhere(source: CouponAddDataStore, destination: inout CouponScanDataStore, index: Int) {
-        destination.image = source.images[index]
+    func passDataToSomewhere(source: CouponAddDataStore, destination: inout CouponScanDataStore, index: IndexPath) {
+        destination.image = source.images[index.row]
     }
 }

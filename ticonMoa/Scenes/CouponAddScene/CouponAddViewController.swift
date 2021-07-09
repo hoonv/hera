@@ -87,12 +87,16 @@ class CouponAddViewController: UIViewController, CouponAddDisplayLogic {
     
     // MARK: fetch One Photos
     
-    var selectedIndex: Int = 0
+    var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
     
     func displayLargeImageView(viewModel: CouponAdd.fetchOnePhoto.ViewModel) {
+        let prevIndex = selectedIndex
         self.selectedIndex = viewModel.index
+        UIView.performWithoutAnimation {
+            self.collectionView.reloadItems(at: [prevIndex, selectedIndex])
+        }
         self.imageView.image = viewModel.image
-        self.collectionView.reloadData()
+//        self.collectionView.reloadData()
     }
     
     // MARK: View
@@ -175,7 +179,7 @@ extension CouponAddViewController: UICollectionViewDelegate, UICollectionViewDat
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as? PhotoCell else {
             return PhotoCell()
         }
-        if selectedIndex == indexPath.row {
+        if selectedIndex.row == indexPath.row {
             cell.setSelectedCell()
         }
         cell.imageView.image = displayedPhoto[indexPath.row]
@@ -187,8 +191,9 @@ extension CouponAddViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard indexPath != selectedIndex else { return }
         imageView.image = displayedPhoto[indexPath.row]
-        let request = CouponAdd.fetchOnePhoto.Request(index: indexPath.row)
+        let request = CouponAdd.fetchOnePhoto.Request(index: indexPath)
         interactor?.changeSelectedImage(request: request)
     }
     

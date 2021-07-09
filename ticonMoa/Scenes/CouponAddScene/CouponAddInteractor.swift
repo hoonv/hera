@@ -42,15 +42,15 @@ class CouponAddInteractor: CouponAddBusinessLogic, CouponAddDataStore {
     }
     
     func fetchOnePhoto(request: CouponAdd.fetchOnePhoto.Request) {
-        worker?.requestImage(asset: assets[request.index]) { image in
+        worker?.requestImage(asset: assets[request.index.row]) { image in
             let response = CouponAdd.fetchOnePhoto.Response(index: request.index, image: image)
-            self.images[request.index] = image
+            self.images[request.index.row] = image
             self.presenter?.presentFetchOnePhoto(response: response)
         }
     }
     
     func changeSelectedImage(request: CouponAdd.fetchOnePhoto.Request) {
-        let image = images[request.index]
+        let image = images[request.index.row]
         let imageSize = image.size
         if imageSize.width <= 360 && imageSize.height <= 360 {
             fetchOnePhoto(request: request)

@@ -10,7 +10,13 @@ import UIKit
 
 class PhotoCell: UICollectionViewCell {
     
-    let imageView = UIImageView()
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 10
+        return imageView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

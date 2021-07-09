@@ -14,10 +14,12 @@ import UIKit
 import SnapKit
 
 protocol CouponAddDisplayLogic: class {
-    func displayFetchedPhoto(viewModel: CouponAdd.fetchPhoto.ViewModel)
+    func displayFetchedPhotos(viewModel: CouponAdd.fetchPhoto.ViewModel)
+    func displayLargeImageView(viewModel: CouponAdd.fetchOnePhoto.ViewModel)
 }
 
 class CouponAddViewController: UIViewController, CouponAddDisplayLogic {
+
     var interactor: CouponAddBusinessLogic?
     var router: (NSObjectProtocol & CouponAddRoutingLogic & CouponAddDataPassing)?
     
@@ -77,8 +79,17 @@ class CouponAddViewController: UIViewController, CouponAddDisplayLogic {
         interactor?.fetchPhotos(request: request)
     }
     
-    func displayFetchedPhoto(viewModel: CouponAdd.fetchPhoto.ViewModel) {
+    func displayFetchedPhotos(viewModel: CouponAdd.fetchPhoto.ViewModel) {
+        displayedPhoto = viewModel.images
+        imageView.image = viewModel.images.first
         collectionView.reloadData()
+    }
+    
+    // MARK: fetch One Photos
+
+    
+    func displayLargeImageView(viewModel: CouponAdd.fetchOnePhoto.ViewModel) {
+        self.imageView.image = viewModel.image
     }
     
     let header: CouponAddHeader = {
@@ -88,14 +99,15 @@ class CouponAddViewController: UIViewController, CouponAddDisplayLogic {
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .systemGray3
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .systemBackground
         return imageView
     }()
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.backgroundColor = .systemGray2
+        collection.backgroundColor = .systemBackground
         return collection
     }()
 }
@@ -130,7 +142,7 @@ extension CouponAddViewController {
         
         collectionView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
-            make.top.equalTo(imageView.snp.bottom)
+            make.top.equalTo(imageView.snp.bottom).offset(2)
         }
     }
 }
@@ -147,14 +159,32 @@ extension CouponAddViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return displayedPhoto.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as? PhotoCell else {
             return PhotoCell()
         }
-        cell.backgroundColor = .white
+        cell.imageView.image = displayedPhoto[indexPath.row]
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        imageView.image = displayedPhoto[indexPath.row]
+        let request = CouponAdd.fetchOnePhoto.Request(index: indexPath.row)
+        interactor?.fetchOnePhoto(request: request)
+    }
+    
+}
+
+extension CouponAddViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let w = (view.frame.width - 50) / 4
+        return CGSize(width: w, height: w)
     }
 }

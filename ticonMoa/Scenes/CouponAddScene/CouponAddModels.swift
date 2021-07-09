@@ -21,9 +21,25 @@ enum CouponAdd {
         }
         
         struct Response {
+            let images: [UIImage]
         }
         
         struct ViewModel {
+            let images: [UIImage]
+        }
+    }
+    
+    enum fetchOnePhoto {
+        struct Request {
+            let index: Int
+        }
+        
+        struct Response {
+            let image: UIImage
+        }
+        
+        struct ViewModel {
+            let image: UIImage
         }
     }
 }

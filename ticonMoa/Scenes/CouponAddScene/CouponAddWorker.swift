@@ -11,8 +11,48 @@
 //
 
 import UIKit
+import Photos
 
 class CouponAddWorker {
-    func doSomeWork() {
+    
+    private var requestOptions: PHImageRequestOptions = {
+        let option = PHImageRequestOptions()
+        option.isSynchronous = false
+        option.deliveryMode = .highQualityFormat
+        return option
+    }()
+    private var targetSize = CGSize(width: 300, height: 300)
+    private var highTargetSize = CGSize(width: 600, height: 600)
+
+    private var contentMode: PHImageContentMode = .aspectFit
+    
+    private var images: [UIImage] = []
+    private var completionHandler: (([PHAsset], [UIImage]) -> Void)?
+    
+    init(completionHandler: (([PHAsset], [UIImage]) -> Void)?) {
+        self.completionHandler = completionHandler
+    }
+    
+    func fetchPhotos() {
+        PhotoManager(completionHandler: requestImages).requestAuthorization()
+    }
+    
+    private func requestImages(assets: [PHAsset]) {
+        for asset in assets {
+            PHImageManager.default().requestImage(for: asset, targetSize: self.targetSize, contentMode: self.contentMode, options: self.requestOptions, resultHandler: {image, hash in
+                guard let image = image else { return }
+                self.images.append(image)
+                if self.images.count == assets.count {
+                    self.completionHandler?(assets, self.images)
+                }
+            })
+        }
+    }
+    
+    func requestImage(asset: PHAsset, completionHandler: @escaping (UIImage) -> Void) {
+        PHImageManager.default().requestImage(for: asset, targetSize: self.highTargetSize, contentMode: self.contentMode, options: self.requestOptions, resultHandler: {image, hash in
+            guard let image = image else { return }
+            completionHandler(image)
+        })
     }
 }

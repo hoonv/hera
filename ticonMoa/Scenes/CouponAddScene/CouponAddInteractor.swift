@@ -11,28 +11,37 @@
 //
 
 import UIKit
+import Photos
 
 protocol CouponAddBusinessLogic {
     func fetchPhotos(request: CouponAdd.fetchPhoto.Request)
+    func fetchOnePhoto(request: CouponAdd.fetchOnePhoto.Request)
 }
 
 protocol CouponAddDataStore {
-    //var name: String { get set }
+    var assets: [PHAsset] { get set }
 }
 
 class CouponAddInteractor: CouponAddBusinessLogic, CouponAddDataStore {
     var presenter: CouponAddPresentationLogic?
     var worker: CouponAddWorker?
-    //var name: String = ""
+    var assets: [PHAsset] = []
     
-    // MARK: Do something
+    // MARK: fetchPhotos
     
     func fetchPhotos(request: CouponAdd.fetchPhoto.Request) {
-        worker = CouponAddWorker()
-        worker?.doSomeWork()
-        
-        
-        let response = CouponAdd.fetchPhoto.Response()
-        presenter?.presentFetchedPhoto(response: response)
+        worker = CouponAddWorker() { assets, images in
+            self.assets = assets
+            let response = CouponAdd.fetchPhoto.Response(images: images)
+            self.presenter?.presentFetchedPhoto(response: response)
+        }
+        worker?.fetchPhotos()
+    }
+    
+    func fetchOnePhoto(request: CouponAdd.fetchOnePhoto.Request) {
+        worker?.requestImage(asset: assets[request.index]) { image in
+            let response = CouponAdd.fetchOnePhoto.Response(image: image)
+            self.presenter?.presentFetchOnePhoto(response: response)
+        }
     }
 }

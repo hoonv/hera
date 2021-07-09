@@ -11,12 +11,12 @@ import RxSwift
 
 final class PhotoManager {
 
-    
-    typealias Completion = ([UIImage]) -> ()
+    typealias Completion = ([PHAsset]) -> ()
+
     let imageOutput = PublishSubject<UIImage>()
     let isProccess = PublishSubject<Bool>()
-    let bag = DisposeBag()
-    var completionHandler: Completion?
+    private let bag = DisposeBag()
+    private var completionHandler: Completion?
     
     init (completionHandler: Completion?) {
         self.completionHandler = completionHandler
@@ -73,8 +73,7 @@ final class PhotoManager {
                                 IndexSet(integersIn: 0..<fetchResult.count))
         
         let photos: [PHAsset] = PhotoCluster(data: assets).execute()
-        
-        
-
+    
+        completionHandler?(photos)
     }
 }

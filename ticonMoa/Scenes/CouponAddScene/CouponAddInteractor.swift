@@ -40,7 +40,7 @@ class CouponAddInteractor: CouponAddBusinessLogic, CouponAddDataStore {
     
     func fetchOnePhoto(request: CouponAdd.fetchOnePhoto.Request) {
         worker?.requestImage(asset: assets[request.index]) { image in
-            let response = CouponAdd.fetchOnePhoto.Response(image: image)
+            let response = CouponAdd.fetchOnePhoto.Response(index: request.index, image: image)
             self.presenter?.presentFetchOnePhoto(response: response)
         }
     }

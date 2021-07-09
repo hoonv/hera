@@ -130,10 +130,13 @@ extension CouponListViewController {
     
     @objc func addIconTouched() {
         let controller = CouponAddViewController()
+        let navController = UINavigationController()
+        navController.viewControllers = [controller]
+        navController.navigationBar.isHidden = true
+        navController.modalPresentationStyle = .fullScreen
         controller.modalPresentationStyle = .fullScreen
-        present(controller, animated: true, completion: nil)
+        present(navController, animated: true, completion: nil)
     }
- 
 }
 
 // MARK: CollectionView

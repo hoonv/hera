@@ -86,10 +86,13 @@ class CouponAddViewController: UIViewController, CouponAddDisplayLogic {
     }
     
     // MARK: fetch One Photos
-
+    
+    var selectedIndex: Int = 0
     
     func displayLargeImageView(viewModel: CouponAdd.fetchOnePhoto.ViewModel) {
+        self.selectedIndex = viewModel.index
         self.imageView.image = viewModel.image
+        self.collectionView.reloadData()
     }
     
     let header: CouponAddHeader = {
@@ -118,13 +121,18 @@ extension CouponAddViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @objc func nextIconTouched() {
+        let controller = CouponScanViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
     func setupUI() {
         view.backgroundColor = .systemBackground
         [header, imageView, collectionView].forEach {
             view.addSubview($0)
         }
         header.xmarkIcon.addTarget(self, action: #selector(xmarkTouched), for: .touchUpInside)
- 
+        header.nextIcon.addTarget(self, action: #selector(nextIconTouched), for: .touchUpInside)
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -165,6 +173,9 @@ extension CouponAddViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as? PhotoCell else {
             return PhotoCell()
+        }
+        if selectedIndex == indexPath.row {
+            cell.setSelectedCell()
         }
         cell.imageView.image = displayedPhoto[indexPath.row]
         return cell

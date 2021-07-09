@@ -29,7 +29,7 @@ class CouponAddPresenter: CouponAddPresentationLogic {
     }
     
     func presentFetchOnePhoto(response: CouponAdd.fetchOnePhoto.Response) {
-        let viewModel = CouponAdd.fetchOnePhoto.ViewModel(image: response.image)
+        let viewModel = CouponAdd.fetchOnePhoto.ViewModel(index: response.index, image: response.image)
         viewController?.displayLargeImageView(viewModel: viewModel)
     }
 }

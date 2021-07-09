@@ -35,10 +35,12 @@ enum CouponAdd {
         }
         
         struct Response {
+            let index: Int
             let image: UIImage
         }
         
         struct ViewModel {
+            let index: Int
             let image: UIImage
         }
     }

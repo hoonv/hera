@@ -27,6 +27,8 @@ class CouponAddWorker {
     private var contentMode: PHImageContentMode = .aspectFit
     
     private var images: [UIImage] = []
+    private var assets: [PHAsset] = []
+
     private var completionHandler: (([PHAsset], [UIImage]) -> Void)?
     
     init(completionHandler: (([PHAsset], [UIImage]) -> Void)?) {
@@ -42,8 +44,9 @@ class CouponAddWorker {
             PHImageManager.default().requestImage(for: asset, targetSize: self.targetSize, contentMode: self.contentMode, options: self.requestOptions, resultHandler: {image, hash in
                 guard let image = image else { return }
                 self.images.append(image)
+                self.assets.append(asset)
                 if self.images.count == assets.count {
-                    self.completionHandler?(assets, self.images)
+                    self.completionHandler?(self.assets, self.images)
                 }
             })
         }

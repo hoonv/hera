@@ -24,9 +24,19 @@ class CouponAddHeader: UIView {
         [xmarkIcon].forEach {
             leftIconStackView.addArrangedSubview($0)
         }
+        [nextIcon].forEach {
+            iconStackView.addArrangedSubview($0)
+        }
         
-        [separator, leftIconStackView].forEach {
+        [separator, leftIconStackView, iconStackView].forEach {
             addSubview($0)
+        }
+        
+        iconStackView.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-12)
+            make.bottom.equalTo(separator)
+            make.top.equalToSuperview()
+            make.width.greaterThanOrEqualTo(60)
         }
         
         leftIconStackView.snp.makeConstraints { make in
@@ -67,14 +77,11 @@ class CouponAddHeader: UIView {
         return button
     }()
     
-    let bellIcon: IconButton = {
-        let button = IconButton(systemName: "bell")
+    let nextIcon: UIButton = {
+        let button = UIButton()
+        button.setTitle("다음", for: .normal)
+        button.setTitleColor(.label, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         return button
     }()
-
-    let addIcon: IconButton = {
-        let button = IconButton(systemName: "plus.app", size: 23)
-        return button
-    }()
-
 }

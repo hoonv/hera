@@ -13,9 +13,10 @@
 import UIKit
 
 enum CouponAdd {
-    // MARK: Use cases
     
-    enum Something {
+    // MARK: fetchPhoto
+    
+    enum fetchPhoto {
         struct Request {
         }
         

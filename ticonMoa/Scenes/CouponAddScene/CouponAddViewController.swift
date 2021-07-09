@@ -14,7 +14,7 @@ import UIKit
 import SnapKit
 
 protocol CouponAddDisplayLogic: class {
-    func displaySomething(viewModel: CouponAdd.Something.ViewModel)
+    func displayFetchedPhoto(viewModel: CouponAdd.fetchPhoto.ViewModel)
 }
 
 class CouponAddViewController: UIViewController, CouponAddDisplayLogic {
@@ -64,24 +64,25 @@ class CouponAddViewController: UIViewController, CouponAddDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        doSomething()
+        setupCollectionView()
+        fetchPhotos()
     }
     
-    // MARK: Do something
+    // MARK: fetch Photos
     
-    //@IBOutlet weak var nameTextField: UITextField!
+    var displayedPhoto: [UIImage] = []
     
-    func doSomething() {
-        let request = CouponAdd.Something.Request()
-        interactor?.doSomething(request: request)
+    func fetchPhotos() {
+        let request = CouponAdd.fetchPhoto.Request()
+        interactor?.fetchPhotos(request: request)
     }
     
-    func displaySomething(viewModel: CouponAdd.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displayFetchedPhoto(viewModel: CouponAdd.fetchPhoto.ViewModel) {
+        collectionView.reloadData()
     }
     
-    let header: CouponListHeader = {
-        let header = CouponListHeader()
+    let header: CouponAddHeader = {
+        let header = CouponAddHeader()
         return header
     }()
     
@@ -100,13 +101,21 @@ class CouponAddViewController: UIViewController, CouponAddDisplayLogic {
 }
 
 extension CouponAddViewController {
+    
+    @objc func xmarkTouched() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func setupUI() {
         view.backgroundColor = .systemBackground
+        [header, imageView, collectionView].forEach {
+            view.addSubview($0)
+        }
+        header.xmarkIcon.addTarget(self, action: #selector(xmarkTouched), for: .touchUpInside)
+ 
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
-        view.addSubview(header)
-        view.addSubview(imageView)
-        view.addSubview(collectionView)
-
         imageView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(header.snp.bottom)
@@ -123,5 +132,29 @@ extension CouponAddViewController {
             make.leading.trailing.bottom.equalToSuperview()
             make.top.equalTo(imageView.snp.bottom)
         }
+    }
+}
+
+extension CouponAddViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    var cellName: String { "PhotoCell" }
+    
+    func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.alwaysBounceVertical = true
+        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: cellName)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as? PhotoCell else {
+            return PhotoCell()
+        }
+        cell.backgroundColor = .white
+        return cell
     }
 }

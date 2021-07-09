@@ -13,7 +13,7 @@
 import UIKit
 
 protocol CouponAddPresentationLogic {
-    func presentSomething(response: CouponAdd.Something.Response)
+    func presentFetchedPhoto(response: CouponAdd.fetchPhoto.Response)
 }
 
 class CouponAddPresenter: CouponAddPresentationLogic {
@@ -21,8 +21,8 @@ class CouponAddPresenter: CouponAddPresentationLogic {
     
     // MARK: Do something
     
-    func presentSomething(response: CouponAdd.Something.Response) {
-        let viewModel = CouponAdd.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentFetchedPhoto(response: CouponAdd.fetchPhoto.Response) {
+        let viewModel = CouponAdd.fetchPhoto.ViewModel()
+        viewController?.displayFetchedPhoto(viewModel: viewModel)
     }
 }

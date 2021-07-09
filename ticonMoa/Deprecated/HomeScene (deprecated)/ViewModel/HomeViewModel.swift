@@ -37,7 +37,7 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput, HomeViewModelType 
     var filteredGificons =  PublishSubject<[[Coupon]]>()
 
     private var _images: [UIImage] = []
-    private let photoManager = PhotoManager()
+    private let photoManager = PhotoManager(completionHandler: nil)
 
     let bag = DisposeBag()
     

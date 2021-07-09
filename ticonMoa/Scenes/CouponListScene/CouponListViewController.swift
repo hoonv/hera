@@ -104,15 +104,14 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
     var currentOffset: CGFloat = 0
 }
 
+
 // MARK: setupUI
 
 extension CouponListViewController {
     
     func setupUI() {
         view.backgroundColor = .systemBackground
-        collectionView.delegate = self
-        collectionView.dataSource = self
-  
+        header.addIcon.addTarget(self, action: #selector(addIconTouched), for: .touchUpInside)
         [collectionView, header].forEach {
             view.addSubview($0)
         }
@@ -128,6 +127,13 @@ extension CouponListViewController {
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
+    
+    @objc func addIconTouched() {
+        let controller = CouponAddViewController()
+        controller.modalPresentationStyle = .fullScreen
+        present(controller, animated: true, completion: nil)
+    }
+ 
 }
 
 // MARK: CollectionView
@@ -137,6 +143,8 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
     var cellName: String { "CouponListCell" }
     
     func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
         collectionView.register(CouponListCell.self, forCellWithReuseIdentifier: cellName)
     }
     

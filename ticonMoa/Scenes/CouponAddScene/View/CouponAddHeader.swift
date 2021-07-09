@@ -1,15 +1,14 @@
 //
-//  CouponListHeader.swift
+//  CouponAddHeader.swift
 //  ticonMoa
 //
-//  Created by 채훈기 on 2021/07/08.
+//  Created by 채훈기 on 2021/07/09.
 //  Copyright © 2021 hoon. All rights reserved.
 //
 
 import UIKit
-import SnapKit
 
-class CouponListHeader: UIView {
+class CouponAddHeader: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,29 +21,21 @@ class CouponListHeader: UIView {
     }
     
     func setupUI() {
-        [addIcon, filterIcon, bellIcon].forEach {
-            iconStackView.addArrangedSubview($0)
+        [xmarkIcon].forEach {
+            leftIconStackView.addArrangedSubview($0)
         }
         
-        [separator, iconStackView].forEach {
+        [separator, leftIconStackView].forEach {
             addSubview($0)
         }
         
-        filterIcon.snp.makeConstraints { make in
-            make.width.equalTo(filterIcon.snp.height)
-        }
-        
-        bellIcon.snp.makeConstraints { make in
-            make.width.equalTo(bellIcon.snp.height)
-        }
-
-        iconStackView.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().offset(-12)
+        leftIconStackView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(12)
             make.bottom.equalTo(separator)
             make.top.equalToSuperview()
             make.width.greaterThanOrEqualTo(60)
         }
-        
+    
         separator.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
             make.height.equalTo(0.8)
@@ -58,14 +49,21 @@ class CouponListHeader: UIView {
         return stack
     }()
     
+    let leftIconStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.distribution = .fillEqually
+        return stack
+    }()
+    
     let separator: UIView = {
         let view = UIView()
         view.backgroundColor = .systemGray5
         return view
     }()
     
-    let filterIcon: IconButton = {
-        let button = IconButton(systemName: "slider.horizontal.3")
+    let xmarkIcon: IconButton = {
+        let button = IconButton(systemName: "xmark")
         return button
     }()
     
@@ -78,4 +76,5 @@ class CouponListHeader: UIView {
         let button = IconButton(systemName: "plus.app", size: 23)
         return button
     }()
+
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
-    private let floatingTabbarView = RoundTabBarView(["house", "plus.square","magnifyingglass", "person"])
+    private let floatingTabbarView = RoundTabBarView(["house", "magnifyingglass", "person"])
 
     override func viewDidLoad() {
         super.viewDidLoad()

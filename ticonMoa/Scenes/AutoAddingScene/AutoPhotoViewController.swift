@@ -20,7 +20,7 @@ class AutoPhotoViewController: UIViewController {
     
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var grayView: UIView!
-    let photoManager = PhotoManager()
+    let photoManager = PhotoManager(completionHandler: nil)
     let bag = DisposeBag()
     var imageBarcode = PublishSubject<(UIImage,String)>()
     var gificons: [Coupon] = []

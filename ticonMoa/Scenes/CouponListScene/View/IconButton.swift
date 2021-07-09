@@ -17,10 +17,11 @@ class IconButton: UIButton {
         }
     }
     private var iconName: String = ""
-    
-    convenience init(systemName: String) {
+    var size: CGFloat = 0
+    convenience init(systemName: String, size: CGFloat = 20) {
         self.init(frame: .zero)
         iconName = systemName
+        self.size = size
         setupUI()
     }
     
@@ -36,7 +37,7 @@ class IconButton: UIButton {
     
     func setupUI() {
         setImage(UIImage.init(systemName: iconName), for: .normal)
-        setPreferredSymbolConfiguration(.init(pointSize: 20, weight: .regular), forImageIn: .normal)
+        setPreferredSymbolConfiguration(.init(pointSize: size, weight: .semibold), forImageIn: .normal)
         tintColor = .label
     }
 }

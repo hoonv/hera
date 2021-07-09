@@ -13,7 +13,7 @@
 import UIKit
 
 protocol CouponAddBusinessLogic {
-    func doSomething(request: CouponAdd.Something.Request)
+    func fetchPhotos(request: CouponAdd.fetchPhoto.Request)
 }
 
 protocol CouponAddDataStore {
@@ -27,11 +27,12 @@ class CouponAddInteractor: CouponAddBusinessLogic, CouponAddDataStore {
     
     // MARK: Do something
     
-    func doSomething(request: CouponAdd.Something.Request) {
+    func fetchPhotos(request: CouponAdd.fetchPhoto.Request) {
         worker = CouponAddWorker()
         worker?.doSomeWork()
         
-        let response = CouponAdd.Something.Response()
-        presenter?.presentSomething(response: response)
+        
+        let response = CouponAdd.fetchPhoto.Response()
+        presenter?.presentFetchedPhoto(response: response)
     }
 }

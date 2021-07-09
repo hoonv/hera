@@ -11,9 +11,16 @@ import RxSwift
 
 final class PhotoManager {
 
+    
+    typealias Completion = ([UIImage]) -> ()
     let imageOutput = PublishSubject<UIImage>()
     let isProccess = PublishSubject<Bool>()
     let bag = DisposeBag()
+    var completionHandler: Completion?
+    
+    init (completionHandler: Completion?) {
+        self.completionHandler = completionHandler
+    }
     
     func requestAuthorization() {
         if #available(iOS 14, *) {
@@ -62,23 +69,12 @@ final class PhotoManager {
      
     private func requestPhotos() {
         let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: self.fetchOptions)
-        
         let assets = fetchResult.objects(at:
                                 IndexSet(integersIn: 0..<fetchResult.count))
         
-        PhotoCluster(data: assets).execute()
-            .observe(on: ConcurrentDispatchQueueScheduler(qos: .default))
-            .subscribe(onNext: { asset in
-            PHImageManager.default()
-                .requestImage(for: asset,
-                              targetSize: self.targetSize,
-                              contentMode: self.contentMode,
-                              options: self.requestOptions,
-                              resultHandler: { image, _ in
-                guard let image = image else { return }
-                self.imageOutput.on(.next(image))
-            })
-            }, onCompleted: { self.isProccess.on(.next(false)) })
-        .disposed(by: bag)
+        let photos: [PHAsset] = PhotoCluster(data: assets).execute()
+        
+        
+
     }
 }

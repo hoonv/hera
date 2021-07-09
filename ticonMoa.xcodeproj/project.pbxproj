@@ -18,6 +18,8 @@
 		E026F2302696EE4000EF300C /* CouponAddModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E026F22A2696EE4000EF300C /* CouponAddModels.swift */; };
 		E026F2312696EE4000EF300C /* CouponAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E026F22B2696EE4000EF300C /* CouponAddViewController.swift */; };
 		E026F2322696EE4000EF300C /* CouponAddInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E026F22C2696EE4000EF300C /* CouponAddInteractor.swift */; };
+		E026F23F26971B5100EF300C /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E026F23E26971B5100EF300C /* PhotoCell.swift */; };
+		E026F2462697D91E00EF300C /* CouponAddHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E026F2452697D91E00EF300C /* CouponAddHeader.swift */; };
 		E02F085B2696787A0092B05A /* CouponListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08552696787A0092B05A /* CouponListPresenter.swift */; };
 		E02F085C2696787A0092B05A /* CouponListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08562696787A0092B05A /* CouponListWorker.swift */; };
 		E02F085D2696787A0092B05A /* CouponListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08572696787A0092B05A /* CouponListRouter.swift */; };
@@ -136,6 +138,8 @@
 		E026F22A2696EE4000EF300C /* CouponAddModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponAddModels.swift; sourceTree = "<group>"; };
 		E026F22B2696EE4000EF300C /* CouponAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponAddViewController.swift; sourceTree = "<group>"; };
 		E026F22C2696EE4000EF300C /* CouponAddInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponAddInteractor.swift; sourceTree = "<group>"; };
+		E026F23E26971B5100EF300C /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		E026F2452697D91E00EF300C /* CouponAddHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponAddHeader.swift; sourceTree = "<group>"; };
 		E02F08552696787A0092B05A /* CouponListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListPresenter.swift; sourceTree = "<group>"; };
 		E02F08562696787A0092B05A /* CouponListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListWorker.swift; sourceTree = "<group>"; };
 		E02F08572696787A0092B05A /* CouponListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListRouter.swift; sourceTree = "<group>"; };
@@ -318,6 +322,7 @@
 		E026F2262696EE3100EF300C /* CouponAddScene */ = {
 			isa = PBXGroup;
 			children = (
+				E026F2492697DAD800EF300C /* View */,
 				E026F2272696EE4000EF300C /* CouponAddPresenter.swift */,
 				E026F2282696EE4000EF300C /* CouponAddWorker.swift */,
 				E026F2292696EE4000EF300C /* CouponAddRouter.swift */,
@@ -337,12 +342,21 @@
 			path = Photo;
 			sourceTree = "<group>";
 		};
+		E026F2492697DAD800EF300C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E026F23E26971B5100EF300C /* PhotoCell.swift */,
+				E026F2452697D91E00EF300C /* CouponAddHeader.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E02F082726966FA90092B05A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				E02027DB2628626900AD7230 /* TabBar */,
-				E026F2262696EE3100EF300C /* CouponAddScene */,
 				E0AB9A1F2642CDAD00F11602 /* CouponListScene */,
+				E026F2262696EE3100EF300C /* CouponAddScene */,
 				E02027DC2628628E00AD7230 /* ManualAddingScene */,
 				E05F3CFD2664BCD300EF29D0 /* AutoAddingScene */,
 				E0C3CFA3263FF78200483A91 /* CounponDetailScene */,
@@ -791,6 +805,7 @@
 				E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */,
 				E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */,
 				E02F08772696C04B0092B05A /* IconButton.swift in Sources */,
+				E026F23F26971B5100EF300C /* PhotoCell.swift in Sources */,
 				E02F085F2696787A0092B05A /* CouponListViewController.swift in Sources */,
 				E0AB9A3D264367B200F11602 /* PullUpView.swift in Sources */,
 				E0BBB1E02638113D00DC4553 /* HomeVC + IconStackViewDelegate.swift in Sources */,
@@ -834,6 +849,7 @@
 				E0BBB1DA263810DC00DC4553 /* HomeVC + TransitioningDelegate.swift in Sources */,
 				E0B653BB260C5833007C402F /* BarcodeRequestWrapper.swift in Sources */,
 				E0C3CF9A263F955D00483A91 /* HomeVC + UI.swift in Sources */,
+				E026F2462697D91E00EF300C /* CouponAddHeader.swift in Sources */,
 				E026F2322696EE4000EF300C /* CouponAddInteractor.swift in Sources */,
 				E026F22F2696EE4000EF300C /* CouponAddRouter.swift in Sources */,
 				E026F2312696EE4000EF300C /* CouponAddViewController.swift in Sources */,

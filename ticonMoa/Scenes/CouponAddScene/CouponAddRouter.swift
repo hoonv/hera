@@ -13,7 +13,7 @@
 import UIKit
 
 @objc protocol CouponAddRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToCouponScan(index: Int)
 }
 
 protocol CouponAddDataPassing {
@@ -26,32 +26,18 @@ class CouponAddRouter: NSObject, CouponAddRoutingLogic, CouponAddDataPassing {
     
     // MARK: Routing
     
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
-    //{
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
-    
-    // MARK: Navigation
-    
-    //func navigateToSomewhere(source: CouponAddViewController, destination: SomewhereViewController)
-    //{
-    //  source.show(destination, sender: nil)
-    //}
+    func routeToCouponScan(index: Int) {
+        let controller = CouponScanViewController()
+        guard
+            let sourceDataStore = dataStore,
+            var destDataStore = controller.router?.dataStore else { return }
+        passDataToSomewhere(source: sourceDataStore, destination: &destDataStore, index: index)
+        viewController?.navigationController?.pushViewController(controller, animated: true)
+    }
     
     // MARK: Passing data
     
-    //func passDataToSomewhere(source: CouponAddDataStore, destination: inout SomewhereDataStore)
-    //{
-    //  destination.name = source.name
-    //}
+    func passDataToSomewhere(source: CouponAddDataStore, destination: inout CouponScanDataStore, index: Int) {
+        destination.image = source.images[index]
+    }
 }

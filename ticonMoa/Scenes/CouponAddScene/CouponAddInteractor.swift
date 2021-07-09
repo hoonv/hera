@@ -15,23 +15,26 @@ import Photos
 
 protocol CouponAddBusinessLogic {
     func fetchPhotos(request: CouponAdd.fetchPhoto.Request)
+    func changeSelectedImage(request: CouponAdd.fetchOnePhoto.Request)
     func fetchOnePhoto(request: CouponAdd.fetchOnePhoto.Request)
 }
 
 protocol CouponAddDataStore {
     var assets: [PHAsset] { get set }
+    var images: [UIImage] { get set }
 }
 
 class CouponAddInteractor: CouponAddBusinessLogic, CouponAddDataStore {
     var presenter: CouponAddPresentationLogic?
     var worker: CouponAddWorker?
     var assets: [PHAsset] = []
-    
+    var images: [UIImage] = []
     // MARK: fetchPhotos
     
     func fetchPhotos(request: CouponAdd.fetchPhoto.Request) {
         worker = CouponAddWorker() { assets, images in
             self.assets = assets
+            self.images = images
             let response = CouponAdd.fetchPhoto.Response(images: images)
             self.presenter?.presentFetchedPhoto(response: response)
         }
@@ -41,7 +44,20 @@ class CouponAddInteractor: CouponAddBusinessLogic, CouponAddDataStore {
     func fetchOnePhoto(request: CouponAdd.fetchOnePhoto.Request) {
         worker?.requestImage(asset: assets[request.index]) { image in
             let response = CouponAdd.fetchOnePhoto.Response(index: request.index, image: image)
+            self.images[request.index] = image
             self.presenter?.presentFetchOnePhoto(response: response)
         }
     }
+    
+    func changeSelectedImage(request: CouponAdd.fetchOnePhoto.Request) {
+        let image = images[request.index]
+        let imageSize = image.size
+        if imageSize.width <= 360 && imageSize.height <= 360 {
+            fetchOnePhoto(request: request)
+        } else {
+            let response = CouponAdd.fetchOnePhoto.Response(index: request.index, image: image)
+            self.presenter?.presentFetchOnePhoto(response: response)
+        }
+    }
+    
 }

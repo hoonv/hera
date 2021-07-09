@@ -95,6 +95,8 @@ class CouponAddViewController: UIViewController, CouponAddDisplayLogic {
         self.collectionView.reloadData()
     }
     
+    // MARK: View
+    
     let header: CouponAddHeader = {
         let header = CouponAddHeader()
         return header
@@ -122,8 +124,7 @@ extension CouponAddViewController {
     }
     
     @objc func nextIconTouched() {
-        let controller = CouponScanViewController()
-        self.navigationController?.pushViewController(controller, animated: true)
+        router?.routeToCouponScan(index: selectedIndex)
     }
     
     func setupUI() {
@@ -188,7 +189,7 @@ extension CouponAddViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         imageView.image = displayedPhoto[indexPath.row]
         let request = CouponAdd.fetchOnePhoto.Request(index: indexPath.row)
-        interactor?.fetchOnePhoto(request: request)
+        interactor?.changeSelectedImage(request: request)
     }
     
 }

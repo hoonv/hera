@@ -17,13 +17,13 @@ protocol CouponScanBusinessLogic {
 }
 
 protocol CouponScanDataStore {
-    //var name: String { get set }
+    var image: UIImage? { get set }
 }
 
 class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
     var presenter: CouponScanPresentationLogic?
     var worker: CouponScanWorker?
-    //var name: String = ""
+    var image: UIImage?
     
     // MARK: Do something
     

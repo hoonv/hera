@@ -63,7 +63,7 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         doSomething()
-        self.view.backgroundColor = .systemBackground
+        setupUI()
     }
     
     // MARK: Do something
@@ -77,5 +77,43 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
     
     func displaySomething(viewModel: CouponScan.Something.ViewModel) {
         //nameTextField.text = viewModel.name
+    }
+    
+    // MARK: View
+    
+    let header: CouponAddHeader = {
+        let header = CouponAddHeader()
+        return header
+    }()
+    
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .systemGray
+        return imageView
+    }()
+}
+
+extension CouponScanViewController {
+    
+    func setupUI() {
+        self.view.backgroundColor = .systemBackground
+        imageView.image = router?.dataStore?.image
+        [header, imageView].forEach {
+            view.addSubview($0)
+        }
+        
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(header.snp.bottom)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.5)
+            make.height.equalTo(200)
+        }
+        
+        header.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(43)
+            make.leading.trailing.equalToSuperview()
+        }
+        
     }
 }

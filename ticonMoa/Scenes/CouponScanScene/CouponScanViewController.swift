@@ -93,6 +93,38 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
         imageView.backgroundColor = .systemGray
         return imageView
     }()
+    
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "name"
+        return label
+    }()
+    
+    let nameInput: UITextField = {
+        let input = UITextField()
+        input.layer.borderWidth = 2
+        input.layer.cornerRadius = 4
+        input.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        return input
+    }()
+    
+    let brandLabel: UILabel = {
+        let label = UILabel()
+        label.text = "name"
+        return label
+    }()
+    
+    let brandInput: UITextField = {
+        let input = UITextField()
+        input.layer.borderWidth = 2
+        input.layer.cornerRadius = 4
+        input.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        return input
+    }()
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
 
 extension CouponScanViewController {
@@ -100,12 +132,34 @@ extension CouponScanViewController {
     func setupUI() {
         guard let image = router?.dataStore?.image else { return }
         let ratio = image.size.height / image.size.width
+        nameInput.delegate = self
+        brandInput.delegate = self
 
         self.view.backgroundColor = .systemBackground
         imageView.image = image
         
-        [header, imageView].forEach {
+        [imageView, nameLabel, nameInput, brandLabel, brandInput, header].forEach {
             view.addSubview($0)
+        }
+        
+        nameLabel.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom)
+            make.leading.equalToSuperview().offset(10)
+        }
+        nameInput.snp.makeConstraints { make in
+            make.top.equalTo(nameLabel.snp.bottom)
+            make.leading.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().offset(-10)
+        }
+        
+        brandLabel.snp.makeConstraints { make in
+            make.top.equalTo(nameInput.snp.bottom).offset(30)
+            make.leading.equalToSuperview().offset(10)
+        }
+        brandInput.snp.makeConstraints { make in
+            make.top.equalTo(brandLabel.snp.bottom)
+            make.leading.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().offset(-10)
         }
         
         imageView.snp.makeConstraints { make in
@@ -121,5 +175,32 @@ extension CouponScanViewController {
             make.leading.trailing.equalToSuperview()
         }
         
+    }
+}
+
+extension CouponScanViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == nameInput {
+            print("nameinput touched")
+        }
+        if textField == brandInput {
+            guard let image = router?.dataStore?.image else { return }
+            let ratio = image.size.height / image.size.width
+            imageView.removeConstraints(imageView.constraints)
+            NSLayoutConstraint.activate([
+                imageView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: -50),
+                imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
+                imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: ratio)
+            ])
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
     }
 }

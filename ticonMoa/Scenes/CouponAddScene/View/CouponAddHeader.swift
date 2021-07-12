@@ -21,6 +21,7 @@ class CouponAddHeader: UIView {
     }
     
     func setupUI() {
+        self.backgroundColor = .systemBackground
         [xmarkIcon].forEach {
             leftIconStackView.addArrangedSubview($0)
         }

@@ -489,6 +489,21 @@
             </objects>
             <point key="canvasLocation" x="-1090" y="499"/>
         </scene>
+        <!--Test Collection View Controller-->
+        <scene sceneID="hfZ-j9-Gf0">
+            <objects>
+                <viewController id="f3U-Fu-D6O" customClass="testCollectionViewController" customModule="ticonMoa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YlM-Kj-8RL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="XL6-cp-Es9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IYb-RB-luI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1126" y="1187"/>
+        </scene>
         <!--Coupon List View Controller-->
         <scene sceneID="fae-Iy-bE1">
             <objects>

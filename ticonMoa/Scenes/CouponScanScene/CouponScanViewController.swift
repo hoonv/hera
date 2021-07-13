@@ -62,15 +62,19 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        scanImageOCR()
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     // MARK: Do something
     
     //@IBOutlet weak var nameTextField: UITextField!
     
-    func doSomething() {
+    func scanImageOCR() {
         let request = CouponScan.Something.Request()
         interactor?.doSomething(request: request)
     }

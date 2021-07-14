@@ -21,7 +21,7 @@ class CouponAddWorker {
         option.deliveryMode = .highQualityFormat
         return option
     }()
-    private var targetSize = CGSize(width: 300, height: 300)
+    private var targetSize = CGSize(width: 500, height: 500)
     private var highTargetSize = CGSize(width: 900, height: 900)
 
     private var contentMode: PHImageContentMode = .aspectFit

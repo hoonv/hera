@@ -20,9 +20,11 @@ enum CouponScan {
         }
         
         struct Response {
+            let boxes: [CGRect]
         }
         
         struct ViewModel {
+            let boxes: [CGRect]
         }
     }
 }

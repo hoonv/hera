@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import Vision
 
 protocol CouponScanBusinessLogic {
     func doSomething(request: CouponScan.Something.Request)
@@ -24,14 +25,49 @@ class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
     var presenter: CouponScanPresentationLogic?
     var worker: CouponScanWorker?
     var image: UIImage?
-    
+    let manager = OCRManager()
     // MARK: Do something
     
     func doSomething(request: CouponScan.Something.Request) {
         worker = CouponScanWorker()
         worker?.doSomeWork()
+
+        let requestHandler = VNImageRequestHandler(cgImage: image!.cgImage!)
+        let request = VNRecognizeTextRequest(completionHandler: recognizeTextHandler)
+        let a: [String] = manager.requestTextRecognition(image: image!)
+        print(a)
+        do {
+            try requestHandler.perform([request])
+        } catch {
+            print("Error")
+        }
+
+    }
+    
+    func recognizeTextHandler(request: VNRequest, error: Error?) {
+        guard let results = request.results as? [VNRecognizedTextObservation] else { return }
         
-        let response = CouponScan.Something.Response()
+        for result in results {
+            
+            guard let payload = result.topCandidates(1).first?.string else {  continue }
+            var transform = CGAffineTransform.identity
+            transform = transform.scaledBy(x: image!.size.width, y: -image!.size.height)
+            transform = transform.translatedBy(x: 0, y: -1)
+            let rect = result.boundingBox.applying(transform)
+            print(rect)
+
+            guard let cropped = image!.crop(rect: rect) else { continue }
+            
+            let p: [String] = manager.requestTextRecognition(image: cropped)
+            print(p)
+        }
+
+        
+        let response = CouponScan.Something.Response(boxes: [])
         presenter?.presentSomething(response: response)
+    }
+    
+    func imageHandler(image: UIImage, pay: OCRManager.Payload) {
+        print(pay)
     }
 }

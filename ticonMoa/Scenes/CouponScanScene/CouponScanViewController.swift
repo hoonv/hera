@@ -62,8 +62,13 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scanImageOCR()
         setupUI()
+    }
+    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        scanImageOCR()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,7 +85,14 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
     }
     
     func displaySomething(viewModel: CouponScan.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+        for box in viewModel.boxes {
+            let view = UIView(frame: box)
+            view.backgroundColor = .clear
+            view.layer.borderWidth = 1
+            view.layer.borderColor = UIColor.red.cgColor
+            imageView.addSubview(view)
+            print(box)
+        }
     }
     
     // MARK: View

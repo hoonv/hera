@@ -13,7 +13,7 @@ protocol OCRManagerType {
     
     var ocrEngine: OCREngineType { get }
     
-    func requestBarcodeRecognition(image: UIImage, completion:  @escaping (UIImage, Payload) -> ())
+    func requestBarcodeRecognition(image: UIImage, completion:  @escaping (UIImage, Payload?) -> ())
     
     func requestTextRecognition(image: UIImage) -> [Payload]
     func requestTextRecognition(image: UIImage) -> [[Payload]]
@@ -41,7 +41,7 @@ class OCRManager: OCRManagerType {
         return ocrEngine.recognition(image: image)
     }
     
-    func requestBarcodeRecognition(image: UIImage, completion: @escaping (UIImage, Payload) -> ()) {
+    func requestBarcodeRecognition(image: UIImage, completion: @escaping (UIImage, String?) -> ()) {
         let brw = BarcodeRequestWrapper(image: image, completion: completion)
         brw.perform()
     }

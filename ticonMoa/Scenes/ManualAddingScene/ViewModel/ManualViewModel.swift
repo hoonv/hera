@@ -82,7 +82,7 @@ class ManualViewModel: ManualViewModelInput, ManualViewModelOutput, ManualViewMo
         }
     }
     
-    private func barcodeRequestHandler(image: UIImage, payload: String) {
-        self.barcode.on(.next(payload))
+    private func barcodeRequestHandler(image: UIImage, payload: String?) {
+        self.barcode.on(.next(payload!))
     }
 }

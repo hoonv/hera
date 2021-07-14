@@ -29,16 +29,36 @@ class CouponAddInteractor: CouponAddBusinessLogic, CouponAddDataStore {
     var worker: CouponAddWorker?
     var assets: [PHAsset] = []
     var images: [UIImage] = []
+    var ocrManager = OCRManager()
     // MARK: fetchPhotos
     
     func fetchPhotos(request: CouponAdd.fetchPhoto.Request) {
         worker = CouponAddWorker() { assets, images in
             self.assets = assets
             self.images = images
-            let response = CouponAdd.fetchPhoto.Response(images: images)
-            self.presenter?.presentFetchedPhoto(response: response)
+            self.filterBarcore(images: images)
         }
         worker?.fetchPhotos()
+    }
+    
+    func filterBarcore(images: [UIImage]) {
+        var count = 0
+        var tempImage: [UIImage] = []
+        images.forEach {
+            ocrManager.requestBarcodeRecognition(image: $0, completion: { image, payload in
+                count += 1
+                if let _ = payload {
+                    tempImage.append(image)
+                }
+                if count == images.count {
+                    self.images =  tempImage
+                    let response = CouponAdd.fetchPhoto.Response(images: tempImage)
+                    self.presenter?.presentFetchedPhoto(response: response)
+                }
+                
+            })
+
+        }
     }
     
     func fetchOnePhoto(request: CouponAdd.fetchOnePhoto.Request) {

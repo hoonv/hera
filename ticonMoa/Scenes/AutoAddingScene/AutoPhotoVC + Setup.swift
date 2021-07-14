@@ -31,10 +31,10 @@ extension AutoPhotoViewController {
             .subscribe(onNext: { image in
                 let barcodeDetector = BarcodeRequestWrapper(image: image) { [weak self] uiimage, payload  in
                     guard let self = self else { return }
-                    if barcodes.contains(payload) {
+                    if barcodes.contains(payload!) {
                         return
                     }
-                    self.imageBarcode.onNext((image, payload))
+                    self.imageBarcode.onNext((image, payload!))
                 }
                 barcodeDetector.perform()
             })

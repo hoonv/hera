@@ -126,7 +126,7 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
     
     let brandLabel: UILabel = {
         let label = UILabel()
-        label.text = "name"
+        label.text = "brand"
         return label
     }()
     

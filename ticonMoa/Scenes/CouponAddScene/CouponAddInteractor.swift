@@ -30,13 +30,14 @@ class CouponAddInteractor: CouponAddBusinessLogic, CouponAddDataStore {
     var assets: [PHAsset] = []
     var images: [UIImage] = []
     var ocrManager = OCRManager()
+    
     // MARK: fetchPhotos
     
     func fetchPhotos(request: CouponAdd.fetchPhoto.Request) {
-        worker = CouponAddWorker() { assets, images in
-            self.assets = assets
-            self.images = images
-            self.filterBarcore(images: images)
+        worker = CouponAddWorker() { [weak self] assets, images in
+            self?.assets = assets
+            self?.images = images
+            self?.filterBarcore(images: images)
         }
         worker?.fetchPhotos()
     }
@@ -62,10 +63,10 @@ class CouponAddInteractor: CouponAddBusinessLogic, CouponAddDataStore {
     }
     
     func fetchOnePhoto(request: CouponAdd.fetchOnePhoto.Request) {
-        worker?.requestImage(asset: assets[request.index.row]) { image in
+        worker?.requestImage(asset: assets[request.index.row]) { [weak self] image in
             let response = CouponAdd.fetchOnePhoto.Response(index: request.index, image: image)
-            self.images[request.index.row] = image
-            self.presenter?.presentFetchOnePhoto(response: response)
+            self?.images[request.index.row] = image
+            self?.presenter?.presentFetchOnePhoto(response: response)
         }
     }
     

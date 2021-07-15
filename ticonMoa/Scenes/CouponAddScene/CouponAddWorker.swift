@@ -21,7 +21,7 @@ class CouponAddWorker {
         option.deliveryMode = .highQualityFormat
         return option
     }()
-    private var targetSize = CGSize(width: 500, height: 500)
+    private var targetSize = CGSize(width: 300, height: 300)
     private var highTargetSize = CGSize(width: 900, height: 900)
 
     private var contentMode: PHImageContentMode = .aspectFit
@@ -41,6 +41,9 @@ class CouponAddWorker {
     
     private func requestImages(assets: [PHAsset]) {
         for asset in assets {
+            PHCachingImageManager().startCachingImages(for: assets, targetSize: targetSize, contentMode: .aspectFit, options: nil)
+            
+            PHCachingImageManager().startCachingImages(for: <#T##[PHAsset]#>, targetSize: <#T##CGSize#>, contentMode: <#T##PHImageContentMode#>, options: <#T##PHImageRequestOptions?#>)
             PHImageManager.default().requestImage(for: asset, targetSize: self.targetSize, contentMode: self.contentMode, options: self.requestOptions, resultHandler: {image, hash in
                 guard let image = image else { return }
                 self.images.append(image)

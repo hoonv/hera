@@ -85,20 +85,18 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
     }
     
     func displayScanResult(viewModel: CouponScan.PhotoScan.ViewModel) {
-        for box in viewModel.boxes {
-            let view = UIView(frame: box)
-            view.backgroundColor = .clear
-            view.layer.borderWidth = 1
-            view.layer.borderColor = UIColor.red.cgColor
-            imageView.addSubview(view)
-            print(box)
+        DispatchQueue.main.async {
+            self.nameInput.text = viewModel.name
+            self.brandInput.text = viewModel.brand
+            self.barcodeInput.text = viewModel.barcode
+            self.expiredInput.text = viewModel.expiredDate
         }
     }
     
     // MARK: View
     
-    let header: CouponAddHeader = {
-        let header = CouponAddHeader()
+    let header: CouponScanHeader = {
+        let header = CouponScanHeader()
         return header
     }()
     
@@ -167,11 +165,22 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
 
 extension CouponScanViewController {
     
+    @objc func touchedBackIcon() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func touchedCompleteIcon() {
+        self.dismiss(animated: true, completion: nil)
+
+    }
+    
     func setupUI() {
         guard let image = router?.dataStore?.image else { return }
         let ratio = image.size.height / image.size.width
         nameInput.delegate = self
         brandInput.delegate = self
+        header.backIcon.addTarget(self, action: #selector(touchedBackIcon), for: .touchUpInside)
+        header.completeIcon.addTarget(self, action: #selector(touchedCompleteIcon), for: .touchUpInside)
 
         self.view.backgroundColor = .systemBackground
         imageView.image = image
@@ -245,20 +254,6 @@ extension CouponScanViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == nameInput {
             print("nameinput touched")
-        }
-        if textField == brandInput {
-            guard let image = router?.dataStore?.image else { return }
-            let ratio = image.size.height / image.size.width
-            imageView.removeConstraints(imageView.constraints)
-            NSLayoutConstraint.activate([
-                imageView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: -50),
-                imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
-                imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: ratio)
-            ])
-            UIView.animate(withDuration: 0.3) {
-                self.view.layoutIfNeeded()
-            }
         }
     }
     

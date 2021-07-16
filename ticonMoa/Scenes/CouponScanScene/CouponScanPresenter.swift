@@ -22,7 +22,7 @@ class CouponScanPresenter: CouponScanPresentationLogic {
     // MARK: Do something
     
     func presentScanResult(response: CouponScan.PhotoScan.Response) {
-        let viewModel = CouponScan.PhotoScan.ViewModel(boxes: response.boxes)
+        let viewModel = CouponScan.PhotoScan.ViewModel(name: response.name, brand: response.brand, barcode: response.barcode, expiredDate: response.expiredDate)
         viewController?.displayScanResult(viewModel: viewModel)
     }
 }

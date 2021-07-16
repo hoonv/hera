@@ -43,27 +43,29 @@ class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
     }
     
     func recognizeTextHandler(request: VNRequest, error: Error?) {
-        guard let results = request.results as? [VNRecognizedTextObservation] else { return }
+        guard let results = request.results as? [VNRecognizedTextObservation],
+              results.count < 20 else { return }
         
-        for result in results {
-            
-            guard let payload = result.topCandidates(1).first?.string else {  continue }
+        let recognized = results.map { result -> [String] in
             var transform = CGAffineTransform.identity
             transform = transform.scaledBy(x: image!.size.width, y: -image!.size.height)
             transform = transform.translatedBy(x: 0, y: -1)
             let rect = result.boundingBox.applying(transform)
-
-            guard let cropped = image!.crop(rect: rect) else { continue }
-            
-            let p: [String] = manager.requestTextRecognition(image: cropped)
-            print(p)
+            guard let cropped = image?.crop(rect: rect) else { return [] }
+            return manager.requestTextRecognition(image: cropped)
         }
+        if let _ = recognized.last?[0].contains("kakao") {
+            // 유효기간 -3
+            let date = recognized[recognized.index(recognized.endIndex, offsetBy: -4)]
+            let brand = recognized[recognized.index(recognized.endIndex, offsetBy: -6)]
+            let barcode = recognized[recognized.index(recognized.endIndex, offsetBy: -8)]
+            let name = recognized[recognized.index(recognized.endIndex, offsetBy: -9)]
 
-        
-        let response = CouponScan.PhotoScan.Response(boxes: [])
-        presenter?.presentScanResult(response: response)
+            let response = CouponScan.PhotoScan.Response(name: name[0], brand: brand[0], barcode: barcode[0], expiredDate: date[0])
+            presenter?.presentScanResult(response: response)
+        }
     }
-    
+
     func imageHandler(image: UIImage, pay: OCRManager.Payload) {
         print(pay)
     }

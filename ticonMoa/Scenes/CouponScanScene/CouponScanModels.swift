@@ -20,11 +20,17 @@ enum CouponScan {
         }
         
         struct Response {
-            let boxes: [CGRect]
+            let name: String?
+            let brand: String?
+            let barcode: String?
+            let expiredDate: String?
         }
         
         struct ViewModel {
-            let boxes: [CGRect]
+            let name: String?
+            let brand: String?
+            let barcode: String?
+            let expiredDate: String?
         }
     }
 }

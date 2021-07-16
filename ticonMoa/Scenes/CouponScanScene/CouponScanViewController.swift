@@ -117,11 +117,8 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
         return label
     }()
     
-    let nameInput: UITextField = {
-        let input = UITextField()
-        input.placeholder = "이름 입력하세요"
-        
-        input.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+    let nameInput: InputFieldView = {
+        let input = InputFieldView(placeHolder: "이름 입력하세요")
         return input
     }()
     
@@ -133,25 +130,20 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
         return label
     }()
     
-    let brandInput: UITextField = {
-        let input = UITextField()
-        input.placeholder = "브랜드를 입력하세요"
-        input.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+    let brandInput: InputFieldView = {
+        let input = InputFieldView(placeHolder: "브랜드를 입력하세요")
         return input
     }()
     
     let expiredLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-
         label.text = "유효기간"
         return label
     }()
     
-    let expiredInput: UITextField = {
-        let input = UITextField()
-        input.placeholder = "유효기간을 입력하세요"
-        input.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+    let expiredInput: InputFieldView = {
+        let input = InputFieldView(placeHolder: "유효기간을 입력하세요")
         return input
     }()
     
@@ -162,10 +154,8 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
         return label
     }()
     
-    let barcodeInput: UITextField = {
-        let input = UITextField()
-        input.placeholder = "바코드를 입력하세요"
-        input.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+    let barcodeInput: InputFieldView = {
+        let input = InputFieldView(placeHolder: "바코드를 입력하세요")
         return input
     }()
     

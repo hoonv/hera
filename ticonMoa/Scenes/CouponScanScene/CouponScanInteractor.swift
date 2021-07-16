@@ -34,8 +34,6 @@ class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
 
         let requestHandler = VNImageRequestHandler(cgImage: image!.cgImage!)
         let request = VNRecognizeTextRequest(completionHandler: recognizeTextHandler)
-        let a: [String] = manager.requestTextRecognition(image: image!)
-        print(a)
         do {
             try requestHandler.perform([request])
         } catch {

@@ -13,7 +13,7 @@
 import UIKit
 
 protocol CouponScanDisplayLogic: class {
-    func displaySomething(viewModel: CouponScan.Something.ViewModel)
+    func displaySomething(viewModel: CouponScan.PhotoScan.ViewModel)
 }
 
 class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
@@ -80,11 +80,11 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
     //@IBOutlet weak var nameTextField: UITextField!
     
     func scanImageOCR() {
-        let request = CouponScan.Something.Request()
+        let request = CouponScan.PhotoScan.Request()
         interactor?.doSomething(request: request)
     }
     
-    func displaySomething(viewModel: CouponScan.Something.ViewModel) {
+    func displaySomething(viewModel: CouponScan.PhotoScan.ViewModel) {
         for box in viewModel.boxes {
             let view = UIView(frame: box)
             view.backgroundColor = .clear
@@ -112,28 +112,59 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "name"
+        label.text = "이름"
+        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         return label
     }()
     
     let nameInput: UITextField = {
         let input = UITextField()
-        input.layer.borderWidth = 2
-        input.layer.cornerRadius = 4
+        input.placeholder = "이름 입력하세요"
+        
         input.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return input
     }()
     
     let brandLabel: UILabel = {
         let label = UILabel()
-        label.text = "brand"
+        label.text = "브랜드"
+        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+
         return label
     }()
     
     let brandInput: UITextField = {
         let input = UITextField()
-        input.layer.borderWidth = 2
-        input.layer.cornerRadius = 4
+        input.placeholder = "브랜드를 입력하세요"
+        input.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        return input
+    }()
+    
+    let expiredLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+
+        label.text = "유효기간"
+        return label
+    }()
+    
+    let expiredInput: UITextField = {
+        let input = UITextField()
+        input.placeholder = "유효기간을 입력하세요"
+        input.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        return input
+    }()
+    
+    let barcodeLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        label.text = "바코드"
+        return label
+    }()
+    
+    let barcodeInput: UITextField = {
+        let input = UITextField()
+        input.placeholder = "바코드를 입력하세요"
         input.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return input
     }()
@@ -154,14 +185,15 @@ extension CouponScanViewController {
         self.view.backgroundColor = .systemBackground
         imageView.image = image
         
-        [imageView, nameLabel, nameInput, brandLabel, brandInput, header].forEach {
+        [imageView, nameLabel, nameInput, brandLabel, brandInput, header, expiredLabel, expiredInput, barcodeLabel, barcodeInput].forEach {
             view.addSubview($0)
         }
         
         nameLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom)
+            make.top.equalTo(imageView.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(10)
         }
+        
         nameInput.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom)
             make.leading.equalToSuperview().offset(10)
@@ -172,8 +204,31 @@ extension CouponScanViewController {
             make.top.equalTo(nameInput.snp.bottom).offset(30)
             make.leading.equalToSuperview().offset(10)
         }
+        
         brandInput.snp.makeConstraints { make in
             make.top.equalTo(brandLabel.snp.bottom)
+            make.leading.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().offset(-10)
+        }
+        
+        expiredLabel.snp.makeConstraints { make in
+            make.top.equalTo(brandInput.snp.bottom).offset(30)
+            make.leading.equalToSuperview().offset(10)
+        }
+        
+        expiredInput.snp.makeConstraints { make in
+            make.top.equalTo(expiredLabel.snp.bottom)
+            make.leading.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().offset(-10)
+        }
+        
+        barcodeLabel.snp.makeConstraints { make in
+            make.top.equalTo(expiredInput.snp.bottom).offset(30)
+            make.leading.equalToSuperview().offset(10)
+        }
+        
+        barcodeInput.snp.makeConstraints { make in
+            make.top.equalTo(barcodeLabel.snp.bottom)
             make.leading.equalToSuperview().offset(10)
             make.trailing.equalToSuperview().offset(-10)
         }

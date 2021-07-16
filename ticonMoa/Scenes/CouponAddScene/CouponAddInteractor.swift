@@ -37,7 +37,9 @@ class CouponAddInteractor: CouponAddBusinessLogic, CouponAddDataStore {
         worker = CouponAddWorker() { [weak self] assets, images in
             self?.assets = assets
             self?.images = images
-            self?.filterBarcore(images: images)
+            let response = CouponAdd.fetchPhoto.Response(images: images)
+            self?.presenter?.presentFetchedPhoto(response: response)
+//            self?.filterBarcore(images: images)
         }
         worker?.fetchPhotos()
     }

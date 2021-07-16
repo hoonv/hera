@@ -15,7 +15,7 @@ import UIKit
 enum CouponScan {
     // MARK: Use cases
     
-    enum Something {
+    enum PhotoScan {
         struct Request {
         }
         

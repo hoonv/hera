@@ -14,7 +14,7 @@ import UIKit
 import Vision
 
 protocol CouponScanBusinessLogic {
-    func doSomething(request: CouponScan.Something.Request)
+    func doSomething(request: CouponScan.PhotoScan.Request)
 }
 
 protocol CouponScanDataStore {
@@ -28,7 +28,7 @@ class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
     let manager = OCRManager()
     // MARK: Do something
     
-    func doSomething(request: CouponScan.Something.Request) {
+    func doSomething(request: CouponScan.PhotoScan.Request) {
         worker = CouponScanWorker()
         worker?.doSomeWork()
 
@@ -63,7 +63,7 @@ class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
         }
 
         
-        let response = CouponScan.Something.Response(boxes: [])
+        let response = CouponScan.PhotoScan.Response(boxes: [])
         presenter?.presentSomething(response: response)
     }
     

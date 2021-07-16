@@ -22,7 +22,7 @@ extension AutoPhotoViewController {
     }
     
     func binding() {
-        let barcodes: [String] = CoreDataManager.shared.fetchAll()
+        let barcodes: [String] = CoreDataManager.shared.fetchAllCoupons()
             .map { (c: Coupon) -> String in
             c.barcode }
 

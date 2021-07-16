@@ -57,7 +57,7 @@ class CoreDataManager {
         return _fetch(with: fetchRequest)
     }
     
-    func fetchAll() -> [Coupon] {
+    func fetchAllCoupons() -> [Coupon] {
         let coupons: [ManagedCoupon] = fetchAll()
         return coupons.map { Coupon(coupon: $0) }
     }

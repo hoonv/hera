@@ -61,7 +61,7 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput, HomeViewModelType 
     
     func fetchAllGifticon() {
         var gifty: [Coupon] = CoreDataManager.shared
-            .fetchAll()
+            .fetchAllCoupons()
             .sorted { a, b in
             a.expiredDate < b.expiredDate
         }

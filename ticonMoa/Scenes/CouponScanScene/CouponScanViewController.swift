@@ -13,7 +13,7 @@
 import UIKit
 
 protocol CouponScanDisplayLogic: class {
-    func displaySomething(viewModel: CouponScan.PhotoScan.ViewModel)
+    func displayScanResult(viewModel: CouponScan.PhotoScan.ViewModel)
 }
 
 class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
@@ -81,10 +81,10 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
     
     func scanImageOCR() {
         let request = CouponScan.PhotoScan.Request()
-        interactor?.doSomething(request: request)
+        interactor?.scanPhoto(request: request)
     }
     
-    func displaySomething(viewModel: CouponScan.PhotoScan.ViewModel) {
+    func displayScanResult(viewModel: CouponScan.PhotoScan.ViewModel) {
         for box in viewModel.boxes {
             let view = UIView(frame: box)
             view.backgroundColor = .clear

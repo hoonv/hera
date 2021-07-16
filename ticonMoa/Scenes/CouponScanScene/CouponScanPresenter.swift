@@ -13,7 +13,7 @@
 import UIKit
 
 protocol CouponScanPresentationLogic {
-    func presentSomething(response: CouponScan.PhotoScan.Response)
+    func presentScanResult(response: CouponScan.PhotoScan.Response)
 }
 
 class CouponScanPresenter: CouponScanPresentationLogic {
@@ -21,8 +21,8 @@ class CouponScanPresenter: CouponScanPresentationLogic {
     
     // MARK: Do something
     
-    func presentSomething(response: CouponScan.PhotoScan.Response) {
+    func presentScanResult(response: CouponScan.PhotoScan.Response) {
         let viewModel = CouponScan.PhotoScan.ViewModel(boxes: response.boxes)
-        viewController?.displaySomething(viewModel: viewModel)
+        viewController?.displayScanResult(viewModel: viewModel)
     }
 }

@@ -103,7 +103,6 @@
 		E0BBB1F326381F2400DC4553 /* HomeVC + ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBB1F226381F2400DC4553 /* HomeVC + ImagePicker.swift */; };
 		E0BBB2002638268400DC4553 /* ManualViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBB1FF2638268400DC4553 /* ManualViewModel.swift */; };
 		E0BBB2082638EB6A00DC4553 /* DateRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBB2072638EB6A00DC4553 /* DateRecognizer.swift */; };
-		E0BBB20B2638ED6C00DC4553 /* DateRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBB2072638EB6A00DC4553 /* DateRecognizer.swift */; };
 		E0BBB20F2638F70200DC4553 /* Date+toString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBB20E2638F70200DC4553 /* Date+toString.swift */; };
 		E0BBB2122638F70600DC4553 /* Date+toString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBB20E2638F70200DC4553 /* Date+toString.swift */; };
 		E0BBB2162638F72600DC4553 /* BrandRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBB2152638F72600DC4553 /* BrandRecognizer.swift */; };
@@ -320,7 +319,6 @@
 			children = (
 				E0BBB1F82638255C00DC4553 /* Controller */,
 				E0BBB1FE2638266800DC4553 /* ViewModel */,
-				E0BBB1F92638256600DC4553 /* Model */,
 			);
 			path = ManualAddingScene;
 			sourceTree = "<group>";
@@ -601,16 +599,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		E0BBB1F92638256600DC4553 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E0BBB2072638EB6A00DC4553 /* DateRecognizer.swift */,
-				E0BBB2152638F72600DC4553 /* BrandRecognizer.swift */,
-				E0BDEB7B2649476F00228762 /* NameRecognizer.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		E0BBB1FE2638266800DC4553 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -626,6 +614,9 @@
 				E0364FF42623EA97006D243E /* TextRecognitionWrapper(deprecated).swift */,
 				E0B653BA260C5833007C402F /* BarcodeRequestWrapper.swift */,
 				E0BDEB6D264939F700228762 /* TessearctEngine.swift */,
+				E0BBB2072638EB6A00DC4553 /* DateRecognizer.swift */,
+				E0BBB2152638F72600DC4553 /* BrandRecognizer.swift */,
+				E0BDEB7B2649476F00228762 /* NameRecognizer.swift */,
 			);
 			path = OCR;
 			sourceTree = "<group>";
@@ -901,7 +892,6 @@
 			files = (
 				E0BBB2122638F70600DC4553 /* Date+toString.swift in Sources */,
 				E0BBB1C02637C55E00DC4553 /* ticonMoaTests.swift in Sources */,
-				E0BBB20B2638ED6C00DC4553 /* DateRecognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

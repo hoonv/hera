@@ -106,7 +106,8 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .systemGray
+        imageView.backgroundColor = .systemBackground
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -227,9 +228,9 @@ extension CouponScanViewController {
             make.top.equalTo(header.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.5)
-            make.height.equalTo(imageView.snp.width).multipliedBy(ratio)
+            make.height.equalTo(imageView.snp.width).multipliedBy(min(ratio, 1.6))
         }
-        
+        print(ratio)
         header.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(43)

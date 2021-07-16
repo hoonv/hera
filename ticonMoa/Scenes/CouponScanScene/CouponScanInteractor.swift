@@ -52,7 +52,6 @@ class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
             transform = transform.scaledBy(x: image!.size.width, y: -image!.size.height)
             transform = transform.translatedBy(x: 0, y: -1)
             let rect = result.boundingBox.applying(transform)
-            print(rect)
 
             guard let cropped = image!.crop(rect: rect) else { continue }
             

@@ -90,6 +90,9 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
             self.brandInput.text = viewModel.brand
             self.barcodeInput.text = viewModel.barcode
             self.expiredInput.text = viewModel.expiredDate
+            self.imageView.image = self.router?.dataStore?.image
+            self.imageView.backgroundColor = .systemBackground
+            self.indicator.stopAnimating()
         }
     }
     
@@ -100,11 +103,18 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
         return header
     }()
     
+    let indicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.hidesWhenStopped = true
+        indicator.startAnimating()
+        return indicator
+    }()
+    
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .systemBackground
+        imageView.backgroundColor = .systemGray
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -158,6 +168,12 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
         return input
     }()
     
+    let whiteView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemBackground
+        return view
+    }()
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -171,7 +187,6 @@ extension CouponScanViewController {
     
     @objc func touchedCompleteIcon() {
         self.dismiss(animated: true, completion: nil)
-
     }
     
     func setupUI() {
@@ -179,14 +194,23 @@ extension CouponScanViewController {
         let ratio = image.size.height / image.size.width
         nameInput.delegate = self
         brandInput.delegate = self
+        expiredInput.delegate = self
+        barcodeInput.delegate = self
+        [nameInput, brandInput, expiredInput].forEach {
+            $0.returnKeyType = .next
+        }
         header.backIcon.addTarget(self, action: #selector(touchedBackIcon), for: .touchUpInside)
         header.completeIcon.addTarget(self, action: #selector(touchedCompleteIcon), for: .touchUpInside)
-
-        self.view.backgroundColor = .systemBackground
-        imageView.image = image
         
-        [imageView, nameLabel, nameInput, brandLabel, brandInput, header, expiredLabel, expiredInput, barcodeLabel, barcodeInput].forEach {
+        self.view.backgroundColor = .systemBackground
+        
+        [imageView, nameLabel, nameInput, brandLabel, brandInput, header, whiteView, expiredLabel, expiredInput, barcodeLabel, barcodeInput, indicator].forEach {
             view.addSubview($0)
+        }
+        
+        indicator.snp.makeConstraints { make in
+            make.centerX.equalTo(imageView)
+            make.centerY.equalTo(imageView)
         }
         
         nameLabel.snp.makeConstraints { make in
@@ -239,25 +263,77 @@ extension CouponScanViewController {
             make.width.equalToSuperview().multipliedBy(0.5)
             make.height.equalTo(imageView.snp.width).multipliedBy(min(ratio, 1.6))
         }
-        print(ratio)
+
         header.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(43)
             make.leading.trailing.equalToSuperview()
         }
         
+        whiteView.snp.makeConstraints { make in
+            make.top.equalTo(view.snp.top)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(header.snp.top)
+        }
     }
 }
 
 extension CouponScanViewController: UITextFieldDelegate {
     
+    var ratio: CGFloat {
+        let size = self.router?.dataStore?.image?.size
+        let ratio = size?.height ?? 1.6 / (size?.width ?? 1.0)
+        return ratio
+    }
+    
+    func keyboardWillShow() {
+        imageView.snp.remakeConstraints { make in
+            make.top.equalTo(header.snp.bottom).offset(-200)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.5)
+            make.height.equalTo(imageView.snp.width).multipliedBy(min(ratio, 1.6))
+        }
+        
+    }
+    
+    
+    func keyboardWillHide() {
+        imageView.snp.remakeConstraints { make in
+            make.top.equalTo(header.snp.bottom).offset(10)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.5)
+            make.height.equalTo(imageView.snp.width).multipliedBy(min(ratio, 1.6))
+        }
+    }
+    
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == nameInput {
-            print("nameinput touched")
+        keyboardWillShow()
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        keyboardWillHide()
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
         }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        if textField.isEqual(nameInput) {
+            brandInput.becomeFirstResponder()
+        }
+        if textField.isEqual(brandInput) {
+            expiredInput.becomeFirstResponder()
+        }
+        if textField.isEqual(expiredInput) {
+            barcodeInput.becomeFirstResponder()
+        }
+        if textField.isEqual(barcodeInput) {
+            textField.resignFirstResponder()
+        }
+        return true
     }
 }

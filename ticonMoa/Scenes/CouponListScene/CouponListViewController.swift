@@ -162,6 +162,10 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+    }
+    
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         currentOffset = scrollView.contentOffset.y
     }

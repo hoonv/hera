@@ -13,7 +13,7 @@
 import UIKit
 
 protocol CouponScanDisplayLogic: class {
-    func displayScanResult(viewModel: CouponScan.PhotoScan.ViewModel)
+    func displayScanResult(viewModel: CouponScan.ScanPhoto.ViewModel)
 }
 
 class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
@@ -75,21 +75,22 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
         super.viewWillAppear(animated)
     }
     
-    // MARK: Do something
-    
-    //@IBOutlet weak var nameTextField: UITextField!
+    // MARK: ScanImage OCR
+
+    var ratio: CGFloat {
+        let size = self.router?.dataStore?.image?.size
+        let ratio = size?.height ?? 1.6 / (size?.width ?? 1.0)
+        return ratio
+    }
     
     func scanImageOCR() {
-        let request = CouponScan.PhotoScan.Request()
+        let request = CouponScan.ScanPhoto.Request()
         interactor?.scanPhoto(request: request)
     }
     
-    func displayScanResult(viewModel: CouponScan.PhotoScan.ViewModel) {
+    func displayScanResult(viewModel: CouponScan.ScanPhoto.ViewModel) {
         DispatchQueue.main.async {
-            self.nameInput.text = viewModel.name
-            self.brandInput.text = viewModel.brand
-            self.barcodeInput.text = viewModel.barcode
-            self.expiredInput.text = viewModel.expiredDate
+            self.inputForm.configureTextFeild(viewModel: viewModel)
             self.imageView.image = self.router?.dataStore?.image
             self.imageView.backgroundColor = .systemBackground
             self.indicator.stopAnimating()
@@ -110,6 +111,11 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
         return indicator
     }()
     
+    let inputForm: PhotoScanInputForm = {
+        let view = PhotoScanInputForm()
+        return view
+    }()
+    
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 10
@@ -117,55 +123,6 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
         imageView.backgroundColor = .systemGray
         imageView.contentMode = .scaleAspectFit
         return imageView
-    }()
-    
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "이름"
-        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        return label
-    }()
-    
-    let nameInput: InputFieldView = {
-        let input = InputFieldView(placeHolder: "이름 입력하세요")
-        return input
-    }()
-    
-    let brandLabel: UILabel = {
-        let label = UILabel()
-        label.text = "브랜드"
-        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-
-        return label
-    }()
-    
-    let brandInput: InputFieldView = {
-        let input = InputFieldView(placeHolder: "브랜드를 입력하세요")
-        return input
-    }()
-    
-    let expiredLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        label.text = "유효기간"
-        return label
-    }()
-    
-    let expiredInput: InputFieldView = {
-        let input = InputFieldView(placeHolder: "유효기간을 입력하세요")
-        return input
-    }()
-    
-    let barcodeLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        label.text = "바코드"
-        return label
-    }()
-    
-    let barcodeInput: InputFieldView = {
-        let input = InputFieldView(placeHolder: "바코드를 입력하세요")
-        return input
     }()
     
     let whiteView: UIView = {
@@ -186,75 +143,53 @@ extension CouponScanViewController {
     }
     
     @objc func touchedCompleteIcon() {
-        self.dismiss(animated: true, completion: nil)
+        interactor?.registerCoupon(request: .init(name: "", brand: "", barcode: "", expiredDate: "", image: imageView.image!))
+        //        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func keyboardWillShow() {
+        imageView.snp.remakeConstraints { make in
+            make.top.equalTo(header.snp.bottom).offset(-200)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.5)
+            make.height.equalTo(imageView.snp.width).multipliedBy(min(ratio, 1.6))
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    func keyboardWillHide() {
+        imageView.snp.remakeConstraints { make in
+            make.top.equalTo(header.snp.bottom).offset(10)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.5)
+            make.height.equalTo(imageView.snp.width).multipliedBy(min(ratio, 1.6))
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     func setupUI() {
-        guard let image = router?.dataStore?.image else { return }
-        let ratio = image.size.height / image.size.width
-        nameInput.delegate = self
-        brandInput.delegate = self
-        expiredInput.delegate = self
-        barcodeInput.delegate = self
-        [nameInput, brandInput, expiredInput].forEach {
-            $0.returnKeyType = .next
-        }
         header.backIcon.addTarget(self, action: #selector(touchedBackIcon), for: .touchUpInside)
         header.completeIcon.addTarget(self, action: #selector(touchedCompleteIcon), for: .touchUpInside)
-        
+        inputForm.keyboardWillShow = keyboardWillShow
+        inputForm.keyboardWillHide = keyboardWillHide
         self.view.backgroundColor = .systemBackground
         
-        [imageView, nameLabel, nameInput, brandLabel, brandInput, header, whiteView, expiredLabel, expiredInput, barcodeLabel, barcodeInput, indicator].forEach {
+        [imageView, indicator, header, whiteView, inputForm].forEach {
             view.addSubview($0)
+        }
+        
+        inputForm.snp.makeConstraints { make in
+            make.bottom.equalToSuperview()
+            make.top.equalTo(imageView.snp.bottom).offset(30)
+            make.leading.trailing.equalToSuperview()
         }
         
         indicator.snp.makeConstraints { make in
             make.centerX.equalTo(imageView)
             make.centerY.equalTo(imageView)
-        }
-        
-        nameLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(10)
-        }
-        
-        nameInput.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom)
-            make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
-        }
-        
-        brandLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameInput.snp.bottom).offset(30)
-            make.leading.equalToSuperview().offset(10)
-        }
-        
-        brandInput.snp.makeConstraints { make in
-            make.top.equalTo(brandLabel.snp.bottom)
-            make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
-        }
-        
-        expiredLabel.snp.makeConstraints { make in
-            make.top.equalTo(brandInput.snp.bottom).offset(30)
-            make.leading.equalToSuperview().offset(10)
-        }
-        
-        expiredInput.snp.makeConstraints { make in
-            make.top.equalTo(expiredLabel.snp.bottom)
-            make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
-        }
-        
-        barcodeLabel.snp.makeConstraints { make in
-            make.top.equalTo(expiredInput.snp.bottom).offset(30)
-            make.leading.equalToSuperview().offset(10)
-        }
-        
-        barcodeInput.snp.makeConstraints { make in
-            make.top.equalTo(barcodeLabel.snp.bottom)
-            make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
         }
         
         imageView.snp.makeConstraints { make in
@@ -275,65 +210,5 @@ extension CouponScanViewController {
             make.leading.trailing.equalToSuperview()
             make.bottom.equalTo(header.snp.top)
         }
-    }
-}
-
-extension CouponScanViewController: UITextFieldDelegate {
-    
-    var ratio: CGFloat {
-        let size = self.router?.dataStore?.image?.size
-        let ratio = size?.height ?? 1.6 / (size?.width ?? 1.0)
-        return ratio
-    }
-    
-    func keyboardWillShow() {
-        imageView.snp.remakeConstraints { make in
-            make.top.equalTo(header.snp.bottom).offset(-200)
-            make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.5)
-            make.height.equalTo(imageView.snp.width).multipliedBy(min(ratio, 1.6))
-        }
-        
-    }
-    
-    
-    func keyboardWillHide() {
-        imageView.snp.remakeConstraints { make in
-            make.top.equalTo(header.snp.bottom).offset(10)
-            make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.5)
-            make.height.equalTo(imageView.snp.width).multipliedBy(min(ratio, 1.6))
-        }
-    }
-    
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        keyboardWillShow()
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        keyboardWillHide()
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField.isEqual(nameInput) {
-            brandInput.becomeFirstResponder()
-        }
-        if textField.isEqual(brandInput) {
-            expiredInput.becomeFirstResponder()
-        }
-        if textField.isEqual(expiredInput) {
-            barcodeInput.becomeFirstResponder()
-        }
-        if textField.isEqual(barcodeInput) {
-            textField.resignFirstResponder()
-        }
-        return true
     }
 }

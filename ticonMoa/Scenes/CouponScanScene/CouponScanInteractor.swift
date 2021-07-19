@@ -14,7 +14,8 @@ import UIKit
 import Vision
 
 protocol CouponScanBusinessLogic {
-    func scanPhoto(request: CouponScan.PhotoScan.Request)
+    func scanPhoto(request: CouponScan.ScanPhoto.Request)
+    func registerCoupon(request: CouponScan.RegisterCoupon.Request)
 }
 
 protocol CouponScanDataStore {
@@ -24,14 +25,15 @@ protocol CouponScanDataStore {
 class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
     var presenter: CouponScanPresentationLogic?
     var worker: CouponScanWorker?
-    var image: UIImage?
     let manager = OCRManager()
-    // MARK: Do something
     
-    func scanPhoto(request: CouponScan.PhotoScan.Request) {
-        worker = CouponScanWorker()
-        worker?.doSomeWork()
+    // MARK: DataStore
+    
+    var image: UIImage?
 
+    // MARK: Scan Photo
+    
+    func scanPhoto(request: CouponScan.ScanPhoto.Request) {
         let requestHandler = VNImageRequestHandler(cgImage: image!.cgImage!)
         let request = VNRecognizeTextRequest(completionHandler: recognizeTextHandler)
         do {
@@ -39,13 +41,22 @@ class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
         } catch {
             print("Error")
         }
+    }
+    
+    // MARK: Register Coupon
+    
+    func registerCoupon(request: CouponScan.RegisterCoupon.Request) {
+        worker = CouponScanWorker()
+        worker?.isVaildCoupon(request: request)
 
+        // date 형식이 안맞으면 alert
+        
+        // 정상 처리
     }
     
     func recognizeTextHandler(request: VNRequest, error: Error?) {
-        print(request.results?.count)
         guard let results = request.results as? [VNRecognizedTextObservation],
-              results.count < 20 else { return }
+              results.count < 15 else { return }
         
         let recognized = results.map { result -> [String] in
             var transform = CGAffineTransform.identity
@@ -62,7 +73,7 @@ class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
             let barcode = recognized[recognized.index(recognized.endIndex, offsetBy: -8)]
             let name = recognized[recognized.index(recognized.endIndex, offsetBy: -9)]
 
-            let response = CouponScan.PhotoScan.Response(name: name[0], brand: brand[0], barcode: barcode[0], expiredDate: date[0])
+            let response = CouponScan.ScanPhoto.Response(name: name[0], brand: brand[0], barcode: barcode[0], expiredDate: date[0])
             presenter?.presentScanResult(response: response)
         }
     }

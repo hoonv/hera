@@ -15,7 +15,7 @@ import UIKit
 enum CouponScan {
     // MARK: Use cases
     
-    enum PhotoScan {
+    enum ScanPhoto {
         struct Request {
         }
         
@@ -31,6 +31,22 @@ enum CouponScan {
             let brand: String?
             let barcode: String?
             let expiredDate: String?
+        }
+    }
+    
+    enum RegisterCoupon {
+        struct Request {
+            let name: String?
+            let brand: String?
+            let barcode: String?
+            let expiredDate: String?
+            let image: UIImage
+        }
+        
+        struct Response {
+        }
+        
+        struct ViewModel {
         }
     }
 }

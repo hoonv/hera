@@ -24,118 +24,59 @@ class PhotoScanInputForm: UIView {
     }
     
     private func setupUI() {
-        [nameInput, brandInput, expiredInput, barcodeInput].forEach {
-            if $0 == barcodeInput {
-                $0.delegate = self
+        [nameInputLine, brandInputLine, dateInputLine, barcodeInputLine].forEach {
+            if $0 == barcodeInputLine {
+                $0.input.delegate = self
                 return
             }
-            $0.delegate = self
-            $0.returnKeyType = .next
+            $0.input.delegate = self
+            $0.input.returnKeyType = .next
         }
-
-        [nameLabel, nameInput, brandLabel, brandInput,
-         expiredLabel, expiredInput, barcodeLabel, barcodeInput].forEach {
-            self.addSubview($0)
+        [nameInputLine, brandInputLine, dateInputLine, barcodeInputLine].forEach {
+            stackView.addArrangedSubview($0)
         }
         
-        nameLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.leading.equalToSuperview().offset(10)
-        }
-
-        nameInput.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom)
-            make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
-        }
-
-        brandLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameInput.snp.bottom).offset(30)
-            make.leading.equalToSuperview().offset(10)
-        }
-
-        brandInput.snp.makeConstraints { make in
-            make.top.equalTo(brandLabel.snp.bottom)
-            make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
-        }
-
-        expiredLabel.snp.makeConstraints { make in
-            make.top.equalTo(brandInput.snp.bottom).offset(30)
-            make.leading.equalToSuperview().offset(10)
-        }
-
-        expiredInput.snp.makeConstraints { make in
-            make.top.equalTo(expiredLabel.snp.bottom)
-            make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
-        }
-
-        barcodeLabel.snp.makeConstraints { make in
-            make.top.equalTo(expiredInput.snp.bottom).offset(30)
-            make.leading.equalToSuperview().offset(10)
-        }
-
-        barcodeInput.snp.makeConstraints { make in
-            make.top.equalTo(barcodeLabel.snp.bottom)
-            make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
+        addSubview(stackView)
+        
+        stackView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+            make.bottom.lessThanOrEqualTo(snp.bottom)
         }
     }
     
     func configureTextFeild(viewModel: CouponScan.ScanPhoto.ViewModel) {
-        self.nameInput.text = viewModel.name
-        self.brandInput.text = viewModel.brand
-        self.expiredInput.text = viewModel.expiredDate
-        self.barcodeInput.text = viewModel.barcode
+        self.nameInputLine.input.text = viewModel.name
+        self.brandInputLine.input.text = viewModel.brand
+        self.dateInputLine.input.text = viewModel.expiredDate
+        self.barcodeInputLine.input.text = viewModel.barcode
     }
     
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "이름"
-        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        return label
+    let stackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.distribution = .equalSpacing
+        view.spacing = 16
+        return view
     }()
     
-    let nameInput: InputFieldView = {
-        let input = InputFieldView(placeHolder: "이름 입력하세요")
-        return input
+    let nameInputLine: InputWithLabel = {
+        let view = InputWithLabel(label: "이름", placeHolder: "이름을 입력하세요")
+        return view
     }()
     
-    let brandLabel: UILabel = {
-        let label = UILabel()
-        label.text = "브랜드"
-        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        return label
+    let barcodeInputLine: InputWithLabel = {
+        let view = InputWithLabel(label: "바코드", placeHolder: "바코드를 입력하세요")
+        return view
     }()
     
-    let brandInput: InputFieldView = {
-        let input = InputFieldView(placeHolder: "브랜드를 입력하세요")
-        return input
+    let brandInputLine: InputWithLabel = {
+        let view = InputWithLabel(label: "브랜드", placeHolder: "브랜드를 입력하세요")
+        return view
     }()
     
-    let expiredLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        label.text = "유효기간"
-        return label
-    }()
-    
-    let expiredInput: InputFieldView = {
-        let input = InputFieldView(placeHolder: "유효기간을 입력하세요")
-        return input
-    }()
-    
-    let barcodeLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        label.text = "바코드"
-        return label
-    }()
-    
-    let barcodeInput: InputFieldView = {
-        let input = InputFieldView(placeHolder: "바코드를 입력하세요")
-        return input
+    let dateInputLine: InputWithLabel = {
+        let view = InputWithLabel(label: "유효기간", placeHolder: "유효기간을 입력하세요")
+        return view
     }()
 }
 
@@ -150,16 +91,16 @@ extension PhotoScanInputForm: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField.isEqual(nameInput) {
-            brandInput.becomeFirstResponder()
+        if textField.isEqual(nameInputLine.input) {
+            brandInputLine.becomeFirstResponder()
         }
-        if textField.isEqual(brandInput) {
-            expiredInput.becomeFirstResponder()
+        if textField.isEqual(brandInputLine.input) {
+            dateInputLine.becomeFirstResponder()
         }
-        if textField.isEqual(expiredInput) {
-            barcodeInput.becomeFirstResponder()
+        if textField.isEqual(dateInputLine.input) {
+            barcodeInputLine.becomeFirstResponder()
         }
-        if textField.isEqual(barcodeInput) {
+        if textField.isEqual(barcodeInputLine.input) {
             textField.resignFirstResponder()
         }
         return true

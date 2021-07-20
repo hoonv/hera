@@ -126,6 +126,7 @@
 		E0C3CF9F263FE24C00483A91 /* SearchHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3CF9D263FE24C00483A91 /* SearchHeaderReusableView.swift */; };
 		E0C3CFA0263FE24C00483A91 /* SearchHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C3CF9E263FE24C00483A91 /* SearchHeaderReusableView.xib */; };
 		E0C3CFA5263FF79D00483A91 /* CouponDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3CFA4263FF79D00483A91 /* CouponDetailViewController.swift */; };
+		E0F3524B26A6DA2300A6F608 /* InputWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3524A26A6DA2300A6F608 /* InputWithLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -257,6 +258,7 @@
 		E0C3CF9D263FE24C00483A91 /* SearchHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderReusableView.swift; sourceTree = "<group>"; };
 		E0C3CF9E263FE24C00483A91 /* SearchHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHeaderReusableView.xib; sourceTree = "<group>"; };
 		E0C3CFA4263FF79D00483A91 /* CouponDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponDetailViewController.swift; sourceTree = "<group>"; };
+		E0F3524A26A6DA2300A6F608 /* InputWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputWithLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -558,6 +560,7 @@
 				E0B4555026A133770044E0E3 /* InputFieldView.swift */,
 				E0B4555426A1505E0044E0E3 /* CouponScanHeader.swift */,
 				E04723BA26A59D0200706684 /* PhotoScanInputForm.swift */,
+				E0F3524A26A6DA2300A6F608 /* InputWithLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -842,6 +845,7 @@
 				E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */,
 				E02F08772696C04B0092B05A /* IconButton.swift in Sources */,
 				E026F23F26971B5100EF300C /* PhotoCell.swift in Sources */,
+				E0F3524B26A6DA2300A6F608 /* InputWithLabel.swift in Sources */,
 				E02F085F2696787A0092B05A /* CouponListViewController.swift in Sources */,
 				E0AB9A3D264367B200F11602 /* PullUpView.swift in Sources */,
 				E026F257269814B500EF300C /* CouponScanModels.swift in Sources */,

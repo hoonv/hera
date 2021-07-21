@@ -21,6 +21,15 @@ class CouponListCell: UICollectionViewCell {
         setup()
     }
     
+    func configure(viewModel: CouponList.FetchCoupon.ViewModel.DisplayedCoupon) {
+        brandLabel.text = viewModel.brand
+        nameLabel.text = viewModel.name
+        dateLabel.text = viewModel.date
+        dateTag.setTitle(viewModel.remainDay, for: .normal)
+        dateTag.backgroundColor = viewModel.tagColor
+        imageView.image = viewModel.image
+    }
+    
     private func setup() {
         let xPadding = 10
         let yPadding = 16
@@ -87,7 +96,7 @@ class CouponListCell: UICollectionViewCell {
         name.text = "촉촉한 카스테라와 함꼐하는 아메리카노 2잔"
         name.numberOfLines = 2
         name.lineBreakMode = .byCharWrapping
-        name.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        name.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         return name
     }()
     
@@ -120,7 +129,7 @@ class CouponListCell: UICollectionViewCell {
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "sampleCoupon")
+        imageView.image = UIImage()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 5

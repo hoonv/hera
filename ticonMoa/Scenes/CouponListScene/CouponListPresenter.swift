@@ -13,7 +13,7 @@
 import UIKit
 
 protocol CouponListPresentationLogic {
-    func presentSomething(response: CouponList.Something.Response)
+    func presentCoupons(response: CouponList.FetchCoupon.Response)
 }
 
 class CouponListPresenter: CouponListPresentationLogic {
@@ -21,8 +21,33 @@ class CouponListPresenter: CouponListPresentationLogic {
     
     // MARK: Do something
     
-    func presentSomething(response: CouponList.Something.Response) {
-        let viewModel = CouponList.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentCoupons(response: CouponList.FetchCoupon.Response) {
+        let manager = ImageManager()
+        let displayed = response.coupons.map { c -> CouponList.FetchCoupon.ViewModel.DisplayedCoupon in
+            let date = c.expiredDate.toStringKST(dateFormat: "yyyy.MM.dd") + "까지"
+            let image = manager.loadImageFromDiskWith(fileName: c.barcode)
+            let temp = CouponList.FetchCoupon
+                .ViewModel.DisplayedCoupon(name: c.name,
+                                           brand: c.brand,
+                                           date: date,
+                                           remainDay: calcuateRemainDays(c.expiredDate),
+                                           image: image,
+                                           tagColor: defineTagColor(c.expiredDate))
+            return temp
+        }
+        let viewModel = CouponList.FetchCoupon.ViewModel(coupons: displayed)
+        viewController?.displayCouponList(viewModel: viewModel)
+    }
+    
+    func calcuateRemainDays(_ date: Date) -> String {
+        let remain = Int(ceil(date.timeIntervalSince(Date()) / (24 * 60 * 60)))
+        if remain < 0 { return "기간만료" }
+        return "D-\(remain)"
+    }
+    
+    func defineTagColor(_ date: Date) -> UIColor {
+        let remain = Int(ceil(date.timeIntervalSince(Date()) / (24 * 60 * 60)))
+        if remain < 0 { return .gray}
+        return .orange
     }
 }

@@ -360,6 +360,7 @@
 		E026F239269719C200EF300C /* Photo */ = {
 			isa = PBXGroup;
 			children = (
+				E0BDEBBA264AB3CC00228762 /* ImageManager.swift */,
 				E0B653B7260C497B007C402F /* PhotoManager.swift */,
 				E0BBB1B226378ADE00DC4553 /* PhotoCluster.swift */,
 			);
@@ -396,12 +397,9 @@
 				E0AB9A1F2642CDAD00F11602 /* CouponListScene */,
 				E026F2262696EE3100EF300C /* CouponAddScene */,
 				E026F25C269814BD00EF300C /* CouponScanScene */,
-				E02027DC2628628E00AD7230 /* ManualAddingScene */,
-				E05F3CFD2664BCD300EF29D0 /* AutoAddingScene */,
 				E0C3CFA3263FF78200483A91 /* CounponDetailScene */,
 				E02027D92628622400AD7230 /* SearchScene */,
 				E02027DA2628623800AD7230 /* ProfileScene */,
-				E02027DE2628639800AD7230 /* MapScene */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -429,6 +427,9 @@
 		E02F082C269670A10092B05A /* Deprecated */ = {
 			isa = PBXGroup;
 			children = (
+				E02027DE2628639800AD7230 /* MapScene */,
+				E02027DC2628628E00AD7230 /* ManualAddingScene */,
+				E05F3CFD2664BCD300EF29D0 /* AutoAddingScene */,
 				E0AB9A5A2643D50700F11602 /* Controller(dep) */,
 				E0AB9A5B2643D51500F11602 /* View(dep) */,
 				E02027D82628609E00AD7230 /* HomeScene (deprecated) */,
@@ -678,7 +679,6 @@
 				E026F2CA269BD7B400EF300C /* ManagedCoupon+CoreDataProperties.swift */,
 				E0BDEB96264A837900228762 /* TiconMoaModel.xcdatamodeld */,
 				E0BDEBB0264A89AC00228762 /* CoreDataManager.swift */,
-				E0BDEBBA264AB3CC00228762 /* ImageManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";

@@ -13,25 +13,24 @@
 import UIKit
 
 protocol CouponListBusinessLogic {
-    func doSomething(request: CouponList.Something.Request)
+    func fetchCoupons(request: CouponList.FetchCoupon.Request)
 }
 
 protocol CouponListDataStore {
-    //var name: String { get set }
+
 }
 
 class CouponListInteractor: CouponListBusinessLogic, CouponListDataStore {
     var presenter: CouponListPresentationLogic?
     var worker: CouponListWorker?
-    //var name: String = ""
+
+    // MARK: fetch Coupons
     
-    // MARK: Do something
-    
-    func doSomething(request: CouponList.Something.Request) {
+    func fetchCoupons(request: CouponList.FetchCoupon.Request) {
         worker = CouponListWorker()
         worker?.doSomeWork()
-        
-        let response = CouponList.Something.Response()
-        presenter?.presentSomething(response: response)
+        let coupons: [Coupon] = CoreDataManager.shared.fetchAllCoupons()
+        let response = CouponList.FetchCoupon.Response(coupons: coupons)
+        presenter?.presentCoupons(response: response)
     }
 }

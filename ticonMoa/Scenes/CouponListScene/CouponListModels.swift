@@ -15,14 +15,24 @@ import UIKit
 enum CouponList {
     // MARK: Use cases
     
-    enum Something {
+    enum FetchCoupon {
         struct Request {
         }
         
         struct Response {
+            let coupons: [Coupon]
         }
         
         struct ViewModel {
+            struct DisplayedCoupon {
+                let name: String
+                let brand: String
+                let date: String
+                let remainDay: String
+                let image: UIImage?
+                let tagColor: UIColor
+            }
+            let coupons: [DisplayedCoupon]
         }
     }
 }

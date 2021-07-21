@@ -14,7 +14,7 @@ import UIKit
 import SnapKit
 
 protocol CouponListDisplayLogic: class {
-    func displaySomething(viewModel: CouponList.Something.ViewModel)
+    func displayCouponList(viewModel: CouponList.FetchCoupon.ViewModel)
 }
 
 class CouponListViewController: UIViewController, CouponListDisplayLogic {
@@ -63,24 +63,22 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        fetchCoupons()
         setupCollectionView()
         setupUI()
     }
     
-    // MARK: Do something
-
-    @objc func addButtonTouched() {
-        print("xx")
+    // MARK: fetch Coupons
+    var coupons: [CouponList.FetchCoupon.ViewModel.DisplayedCoupon] = []
+    
+    func fetchCoupons() {
+        let request = CouponList.FetchCoupon.Request()
+        interactor?.fetchCoupons(request: request)
     }
     
-    func doSomething() {
-        let request = CouponList.Something.Request()
-        interactor?.doSomething(request: request)
-    }
-    
-    func displaySomething(viewModel: CouponList.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displayCouponList(viewModel: CouponList.FetchCoupon.ViewModel) {
+        self.coupons = viewModel.coupons
+        collectionView.reloadData()
     }
     
     // MARK: View
@@ -146,19 +144,23 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
     var cellName: String { "CouponListCell" }
     
     func setupCollectionView() {
+        collectionView.isSpringLoaded = true
+        collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CouponListCell.self, forCellWithReuseIdentifier: cellName)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return coupons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as? CouponListCell else {
             return CouponListCell()
         }
+        let coupon = coupons[indexPath.row]
+        cell.configure(viewModel: coupon)
         return cell
     }
     

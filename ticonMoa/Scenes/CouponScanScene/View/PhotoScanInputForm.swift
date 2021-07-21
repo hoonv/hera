@@ -43,12 +43,17 @@ class PhotoScanInputForm: UIView {
             make.bottom.lessThanOrEqualTo(snp.bottom)
         }
     }
+    var textsInInput: [String?] {
+        [nameInputLine, brandInputLine, barcodeInputLine, dateInputLine].map {
+            return $0.input.text
+        }
+    }
     
     func configureTextFeild(viewModel: CouponScan.ScanPhoto.ViewModel) {
         self.nameInputLine.input.text = viewModel.name
         self.brandInputLine.input.text = viewModel.brand
-        self.dateInputLine.input.text = viewModel.expiredDate
         self.barcodeInputLine.input.text = viewModel.barcode
+        self.dateInputLine.input.text = viewModel.expiredDate
     }
     
     let stackView: UIStackView = {
@@ -60,22 +65,26 @@ class PhotoScanInputForm: UIView {
     }()
     
     let nameInputLine: InputWithLabel = {
-        let view = InputWithLabel(label: "이름", placeHolder: "이름을 입력하세요")
+        let view = InputWithLabel(label: "이름",
+                                  placeHolder: "이름을 입력하세요")
         return view
     }()
     
     let barcodeInputLine: InputWithLabel = {
-        let view = InputWithLabel(label: "바코드", placeHolder: "바코드를 입력하세요")
+        let view = InputWithLabel(label: "바코드",
+                                  placeHolder: "바코드를 입력하세요")
         return view
     }()
     
     let brandInputLine: InputWithLabel = {
-        let view = InputWithLabel(label: "브랜드", placeHolder: "브랜드를 입력하세요")
+        let view = InputWithLabel(label: "브랜드",
+                                  placeHolder: "브랜드를 입력하세요")
         return view
     }()
     
     let dateInputLine: InputWithLabel = {
-        let view = InputWithLabel(label: "유효기간", placeHolder: "유효기간을 입력하세요")
+        let view = InputWithLabel(label: "유효기간",
+                                  placeHolder: "유효기간을 입력하세요")
         return view
     }()
 }

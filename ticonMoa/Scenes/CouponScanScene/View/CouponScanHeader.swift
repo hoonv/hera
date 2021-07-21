@@ -23,6 +23,7 @@ class CouponScanHeader: UIView {
     
     func setupUI() {
         self.backgroundColor = .systemBackground
+        
         [backIcon].forEach {
             leftIconStackView.addArrangedSubview($0)
         }

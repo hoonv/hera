@@ -143,8 +143,12 @@ extension CouponScanViewController {
     }
     
     @objc func touchedCompleteIcon() {
-        interactor?.registerCoupon(request: .init(name: "", brand: "", barcode: "", expiredDate: "", image: imageView.image!))
-        //        self.dismiss(animated: true, completion: nil)
+        let texts = inputForm.textsInInput
+        interactor?.registerCoupon(request: .init(name: texts[0],
+                                                  brand: texts[1],
+                                                  barcode: texts[2],
+                                                  expiredDate: texts[3],
+                                                  image: imageView.image!))
     }
     
     func keyboardWillShow() {
@@ -175,6 +179,7 @@ extension CouponScanViewController {
         header.completeIcon.addTarget(self, action: #selector(touchedCompleteIcon), for: .touchUpInside)
         inputForm.keyboardWillShow = keyboardWillShow
         inputForm.keyboardWillHide = keyboardWillHide
+        
         self.view.backgroundColor = .systemBackground
         
         [imageView, indicator, header, whiteView, inputForm].forEach {

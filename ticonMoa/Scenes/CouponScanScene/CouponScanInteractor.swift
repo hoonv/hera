@@ -66,7 +66,7 @@ class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
             guard let cropped = image?.crop(rect: rect) else { return [] }
             return manager.requestTextRecognition(image: cropped)
         }
-        if let _ = recognized.last?.first?.contains("kakao") {
+        if let a = recognized.last?.first?.contains("kakao") {
             // 유효기간 -3
             let date = recognized[recognized.index(recognized.endIndex, offsetBy: -4)]
             let brand = recognized[recognized.index(recognized.endIndex, offsetBy: -6)]

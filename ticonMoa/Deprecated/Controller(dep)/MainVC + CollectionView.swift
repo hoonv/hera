@@ -74,10 +74,10 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let coupon = gifticons[indexPath.section][indexPath.row]
-        guard let controller: CouponDetailViewController = UIStoryboard.main.instantiate() else { return }
-        controller.gifticon = coupon
-        self.present(controller, animated: true)
+//        let coupon = gifticons[indexPath.section][indexPath.row]
+//        guard let controller: CouponDetailViewController = UIStoryboard.main.instantiate() else { return }
+//        controller.gifticon = coupon
+//        self.present(controller, animated: true)
     }
 }
 

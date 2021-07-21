@@ -127,13 +127,7 @@ extension CouponListViewController {
     }
     
     @objc func addIconTouched() {
-        let controller = CouponAddViewController()
-        let navController = UINavigationController()
-        navController.viewControllers = [controller]
-        navController.navigationBar.isHidden = true
-        navController.modalPresentationStyle = .fullScreen
-        controller.modalPresentationStyle = .fullScreen
-        present(navController, animated: true, completion: nil)
+        router?.routeToCouponAdd()
     }
 }
 
@@ -165,7 +159,7 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+        router?.routeToCouponDetail()
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {

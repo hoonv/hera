@@ -27,8 +27,6 @@ class CouponListInteractor: CouponListBusinessLogic, CouponListDataStore {
     // MARK: fetch Coupons
     
     func fetchCoupons(request: CouponList.FetchCoupon.Request) {
-        worker = CouponListWorker()
-        worker?.doSomeWork()
         let coupons: [Coupon] = CoreDataManager.shared.fetchAllCoupons()
         let response = CouponList.FetchCoupon.Response(coupons: coupons)
         presenter?.presentCoupons(response: response)

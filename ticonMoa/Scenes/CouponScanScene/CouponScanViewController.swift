@@ -14,6 +14,7 @@ import UIKit
 
 protocol CouponScanDisplayLogic: class {
     func displayScanResult(viewModel: CouponScan.ScanPhoto.ViewModel)
+    func displayAlert(viewModel: CouponScan.Alert.ViewModel)
 }
 
 class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
@@ -97,6 +98,21 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
         }
     }
     
+    // MARK: Register Coupon
+    
+    func registerCoupon() {
+        let texts = inputForm.textsInInput
+        interactor?.registerCoupon(request: .init(name: texts[0],
+                                                  brand: texts[1],
+                                                  barcode: texts[2],
+                                                  expiredDate: texts[3],
+                                                  image: imageView.image!))
+    }
+    
+    func displayAlert(viewModel: CouponScan.Alert.ViewModel) {
+        alert(message: viewModel.message)
+    }
+    
     // MARK: View
     
     let header: CouponScanHeader = {
@@ -143,12 +159,7 @@ extension CouponScanViewController {
     }
     
     @objc func touchedCompleteIcon() {
-        let texts = inputForm.textsInInput
-        interactor?.registerCoupon(request: .init(name: texts[0],
-                                                  brand: texts[1],
-                                                  barcode: texts[2],
-                                                  expiredDate: texts[3],
-                                                  image: imageView.image!))
+        self.registerCoupon()
     }
     
     func keyboardWillShow() {

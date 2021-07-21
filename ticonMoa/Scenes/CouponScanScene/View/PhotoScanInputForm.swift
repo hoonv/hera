@@ -101,13 +101,13 @@ extension PhotoScanInputForm: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.isEqual(nameInputLine.input) {
-            brandInputLine.becomeFirstResponder()
+            brandInputLine.input.becomeFirstResponder()
         }
         if textField.isEqual(brandInputLine.input) {
-            dateInputLine.becomeFirstResponder()
+            dateInputLine.input.becomeFirstResponder()
         }
         if textField.isEqual(dateInputLine.input) {
-            barcodeInputLine.becomeFirstResponder()
+            barcodeInputLine.input.becomeFirstResponder()
         }
         if textField.isEqual(barcodeInputLine.input) {
             textField.resignFirstResponder()

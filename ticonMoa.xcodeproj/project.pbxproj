@@ -56,6 +56,7 @@
 		E05F3D0D2665A3F400EF29D0 /* InputForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F3D0C2665A3F400EF29D0 /* InputForm.swift */; };
 		E05F3D112665A40100EF29D0 /* InputForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05F3D102665A40100EF29D0 /* InputForm.xib */; };
 		E05F3D152665D6A300EF29D0 /* AutoPhotoVC + Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F3D142665D6A300EF29D0 /* AutoPhotoVC + Setup.swift */; };
+		E098DF8C26A7D6C0005B77C7 /* String + Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098DF8B26A7D6C0005B77C7 /* String + Date.swift */; };
 		E0AB99E626421B9600F11602 /* SwiftyTesseract in Frameworks */ = {isa = PBXBuildFile; productRef = E0AB99E526421B9600F11602 /* SwiftyTesseract */; };
 		E0AB99EC26421E3400F11602 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = E0AB99EB26421E3400F11602 /* tessdata */; };
 		E0AB99F626427A6100F11602 /* MainViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB99F526427A6100F11602 /* MainViewController1.swift */; };
@@ -188,6 +189,7 @@
 		E05F3D0C2665A3F400EF29D0 /* InputForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputForm.swift; sourceTree = "<group>"; };
 		E05F3D102665A40100EF29D0 /* InputForm.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputForm.xib; sourceTree = "<group>"; };
 		E05F3D142665D6A300EF29D0 /* AutoPhotoVC + Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AutoPhotoVC + Setup.swift"; sourceTree = "<group>"; };
+		E098DF8B26A7D6C0005B77C7 /* String + Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Date.swift"; sourceTree = "<group>"; };
 		E0AB99EB26421E3400F11602 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = ../../../../tessdata; sourceTree = "<group>"; };
 		E0AB99F526427A6100F11602 /* MainViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController1.swift; sourceTree = "<group>"; };
 		E0AB99F926427B6000F11602 /* MainIconHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainIconHeaderView.swift; sourceTree = "<group>"; };
@@ -546,6 +548,7 @@
 				E0AE480B2613222D00BEC498 /* Autolayout.swift */,
 				E0AE481E26143C9000BEC498 /* UIStoryboard.swift */,
 				E0AE483226145A8200BEC498 /* String+widthHeight.swift */,
+				E098DF8B26A7D6C0005B77C7 /* String + Date.swift */,
 				E0BBB20E2638F70200DC4553 /* Date+toString.swift */,
 				E0BDEB8426494C7600228762 /* Array.swift */,
 				E026F2122696DD7E00EF300C /* Button+Animation.swift */,
@@ -862,6 +865,7 @@
 				E05F3CF92664B27E00EF29D0 /* BrandCollectionReusableView.swift in Sources */,
 				E0BDEB6E264939F700228762 /* TessearctEngine.swift in Sources */,
 				E0364FFE26247CC4006D243E /* ManualPhotoViewController.swift in Sources */,
+				E098DF8C26A7D6C0005B77C7 /* String + Date.swift in Sources */,
 				E053B63B2604FC77005FAD51 /* SceneDelegate.swift in Sources */,
 				E0BBB2162638F72600DC4553 /* BrandRecognizer.swift in Sources */,
 				E026F22E2696EE4000EF300C /* CouponAddWorker.swift in Sources */,

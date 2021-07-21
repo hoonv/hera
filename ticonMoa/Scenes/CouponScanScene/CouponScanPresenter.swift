@@ -14,15 +14,19 @@ import UIKit
 
 protocol CouponScanPresentationLogic {
     func presentScanResult(response: CouponScan.ScanPhoto.Response)
+    func presentAlert(response: CouponScan.Alert.ViewModel)
+
 }
 
 class CouponScanPresenter: CouponScanPresentationLogic {
     weak var viewController: CouponScanDisplayLogic?
     
-    // MARK: Do something
-    
     func presentScanResult(response: CouponScan.ScanPhoto.Response) {
         let viewModel = CouponScan.ScanPhoto.ViewModel(name: response.name, brand: response.brand, barcode: response.barcode, expiredDate: response.expiredDate)
         viewController?.displayScanResult(viewModel: viewModel)
+    }
+    
+    func presentAlert(response: CouponScan.Alert.ViewModel) {
+        viewController?.displayAlert(viewModel: response)
     }
 }

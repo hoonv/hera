@@ -36,22 +36,27 @@ class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
     func scanPhoto(request: CouponScan.ScanPhoto.Request) {
         let requestHandler = VNImageRequestHandler(cgImage: image!.cgImage!)
         let request = VNRecognizeTextRequest(completionHandler: recognizeTextHandler)
-        do {
-            try requestHandler.perform([request])
-        } catch {
-            print("Error")
-        }
+        try? requestHandler.perform([request])
     }
     
     // MARK: Register Coupon
     
     func registerCoupon(request: CouponScan.RegisterCoupon.Request) {
         worker = CouponScanWorker()
-        worker?.isVaildCoupon(request: request)
-
-        // date 형식이 안맞으면 alert
+        let result = worker?.isVaildCoupon(request: request)
         
-        // 정상 처리
+        switch result {
+        case .success:
+            print("s")
+        case .dateFormatError:
+            let msg = "날짜의 형식이 맞지 않습니다."
+            presenter?.presentAlert(response: .init(title: nil, message: msg))
+        case .inputValueError:
+            let msg = "빈칸을 모두 입력하세요"
+            presenter?.presentAlert(response: .init(title: nil, message: msg))
+        case .none:
+            print("nil")
+        }
     }
     
     func recognizeTextHandler(request: VNRequest, error: Error?) {

@@ -49,4 +49,11 @@ enum CouponScan {
         struct ViewModel {
         }
     }
+    
+    enum Alert {
+        struct ViewModel {
+            let title: String?
+            let message: String
+        }
+    }
 }

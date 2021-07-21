@@ -12,23 +12,23 @@
 
 import UIKit
 
-enum CouponScanError: Error {
-    case inputValueIsNil
+enum CouponScanState {
+    case success
+    case dateFormatError
+    case inputValueError
 }
 
 class CouponScanWorker {
-    func isVaildCoupon(request: CouponScan.RegisterCoupon.Request) -> (Bool, String) {
-        guard let _ = request.name,
-              let _ = request.brand,
-              let date = request.expiredDate,
-              let _ = request.barcode else {
-            //alert
-            return (false, "inputValueisNil") }
-        
-        let df = DateFormatter()
-        df.dateFormat = "yyyy.MM.dd"
-        print(df.date(from: date))
-        print(date)
-        return (true, "")
+    func isVaildCoupon(request: CouponScan.RegisterCoupon.Request) -> CouponScanState {
+        guard request.name != "",
+              request.brand != "",
+              request.barcode != "",
+              let date = request.expiredDate
+        else {
+            return .inputValueError }
+        guard let _ = date.toDate(format: "yyyy.MM.dd") else {
+            return .dateFormatError
+        }
+        return .success
     }
 }

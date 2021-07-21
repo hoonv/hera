@@ -36,22 +36,14 @@ enum CouponScan {
     
     enum RegisterCoupon {
         struct Request {
-            let name: String?
-            let brand: String?
-            let barcode: String?
-            let expiredDate: String?
+            let name: String
+            let brand: String
+            let barcode: String
+            let expiredDate: String
             let image: UIImage
         }
         
-        struct Response {
-        }
-        
-        struct ViewModel {
-        }
-    }
-    
-    enum Alert {
-        struct ViewModel {
+        struct Alert {
             let title: String?
             let message: String
         }

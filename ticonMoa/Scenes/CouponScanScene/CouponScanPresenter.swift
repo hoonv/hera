@@ -14,8 +14,8 @@ import UIKit
 
 protocol CouponScanPresentationLogic {
     func presentScanResult(response: CouponScan.ScanPhoto.Response)
-    func presentAlert(response: CouponScan.Alert.ViewModel)
-
+    func presentAlert(response: CouponScan.RegisterCoupon.Alert)
+    func finishCouponSave()
 }
 
 class CouponScanPresenter: CouponScanPresentationLogic {
@@ -26,7 +26,11 @@ class CouponScanPresenter: CouponScanPresentationLogic {
         viewController?.displayScanResult(viewModel: viewModel)
     }
     
-    func presentAlert(response: CouponScan.Alert.ViewModel) {
+    func presentAlert(response: CouponScan.RegisterCoupon.Alert) {
         viewController?.displayAlert(viewModel: response)
+    }
+    
+    func finishCouponSave() {
+        viewController?.finishCouponSave()
     }
 }

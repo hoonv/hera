@@ -47,7 +47,9 @@ class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
         
         switch result {
         case .success:
-            print("s")
+            worker?.saveCouponToCoreData(request: request)
+            worker?.saveCouponImage(name: request.barcode, image: image)
+            presenter?.finishCouponSave()
         case .dateFormatError:
             let msg = "날짜의 형식이 맞지 않습니다."
             presenter?.presentAlert(response: .init(title: nil, message: msg))

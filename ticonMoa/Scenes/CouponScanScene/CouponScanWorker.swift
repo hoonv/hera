@@ -23,12 +23,27 @@ class CouponScanWorker {
         guard request.name != "",
               request.brand != "",
               request.barcode != "",
-              let date = request.expiredDate
+              request.expiredDate != ""
         else {
             return .inputValueError }
-        guard let _ = date.toDate(format: "yyyy.MM.dd") else {
+        guard let _ = request.expiredDate.toDate(format: "yyyy.MM.dd") else {
             return .dateFormatError
         }
         return .success
+    }
+    
+    func saveCouponToCoreData(request: CouponScan.RegisterCoupon.Request) {
+        guard let form = request.expiredDate.toDate(format: "yyyy.MM.dd") else { return }
+        let data = Coupon(name: request.name, barcode: request.barcode, brand: request.brand, date: form, category: "")
+        if CoreDataManager.shared.isExist(gifticon: data) {
+            return
+        }
+        let _ = CoreDataManager.shared.insert(gifticon: data)
+    }
+    
+    func saveCouponImage(name: String, image: UIImage?) {
+        guard let image = image else { return }
+        let manager = ImageManager()
+        manager.saveImage(imageName: name, image: image)
     }
 }

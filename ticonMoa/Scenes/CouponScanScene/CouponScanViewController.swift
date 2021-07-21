@@ -14,7 +14,8 @@ import UIKit
 
 protocol CouponScanDisplayLogic: class {
     func displayScanResult(viewModel: CouponScan.ScanPhoto.ViewModel)
-    func displayAlert(viewModel: CouponScan.Alert.ViewModel)
+    func displayAlert(viewModel: CouponScan.RegisterCoupon.Alert)
+    func finishCouponSave()
 }
 
 class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
@@ -102,17 +103,20 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
     
     func registerCoupon() {
         let texts = inputForm.textsInInput
-        interactor?.registerCoupon(request: .init(name: texts[0],
-                                                  brand: texts[1],
-                                                  barcode: texts[2],
-                                                  expiredDate: texts[3],
+        interactor?.registerCoupon(request: .init(name: texts[0] ?? "",
+                                                  brand: texts[1] ?? "",
+                                                  barcode: texts[2] ?? "",
+                                                  expiredDate: texts[3] ?? "",
                                                   image: imageView.image!))
     }
     
-    func displayAlert(viewModel: CouponScan.Alert.ViewModel) {
+    func displayAlert(viewModel: CouponScan.RegisterCoupon.Alert) {
         alert(message: viewModel.message)
     }
     
+    func finishCouponSave() {
+        self.dismiss(animated: true, completion: nil)
+    }
     // MARK: View
     
     let header: CouponScanHeader = {

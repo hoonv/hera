@@ -14,7 +14,7 @@ import UIKit
 
 @objc protocol CouponListRoutingLogic {
     func routeToCouponAdd()
-    func routeToCouponDetail()
+    func routeToCouponDetail(image: UIImage?)
 }
 
 protocol CouponListDataPassing {
@@ -37,8 +37,9 @@ class CouponListRouter: NSObject, CouponListRoutingLogic, CouponListDataPassing 
         viewController?.present(navController, animated: true, completion: nil)
     }
     
-    func routeToCouponDetail() {
+    func routeToCouponDetail(image: UIImage?) {
         let controller = CouponDetailViewController()
+        controller.image = image
         viewController?.present(controller, animated: true, completion: nil)
     }
 }

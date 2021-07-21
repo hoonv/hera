@@ -69,7 +69,7 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
     }
     
     // MARK: fetch Coupons
-    var coupons: [CouponList.FetchCoupon.ViewModel.DisplayedCoupon] = []
+    var coupons: [CouponList.DisplayedCoupon] = []
     
     func fetchCoupons() {
         let request = CouponList.FetchCoupon.Request()
@@ -159,32 +159,32 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        router?.routeToCouponDetail()
+        router?.routeToCouponDetail(image: coupons[indexPath.row].image)
     }
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        currentOffset = scrollView.contentOffset.y
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y < 0 {
-            return
-        }
-        
-        let differ = scrollView.contentOffset.y - currentOffset
-        
-        if differ > 100 {
-            currentOffset = scrollView.contentOffset.y
-            let controller = tabBarController as? MainTabBarController
-            controller?.hideTabBar()
-        }
-        
-        if differ < -100 {
-            currentOffset = scrollView.contentOffset.y
-            let controller = tabBarController as? MainTabBarController
-            controller?.showTabBar()
-        }
-    }
+//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+//        currentOffset = scrollView.contentOffset.y
+//    }
+//
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        if scrollView.contentOffset.y < 0 {
+//            return
+//        }
+//
+//        let differ = scrollView.contentOffset.y - currentOffset
+//        
+//        if differ > 100 {
+//            currentOffset = scrollView.contentOffset.y
+//            let controller = tabBarController as? MainTabBarController
+//            controller?.hideTabBar()
+//        }
+//
+//        if differ < -100 {
+//            currentOffset = scrollView.contentOffset.y
+//            let controller = tabBarController as? MainTabBarController
+//            controller?.showTabBar()
+//        }
+//    }
 }
 
 extension CouponListViewController: UICollectionViewDelegateFlowLayout {

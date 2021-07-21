@@ -21,7 +21,7 @@ class CouponListCell: UICollectionViewCell {
         setup()
     }
     
-    func configure(viewModel: CouponList.FetchCoupon.ViewModel.DisplayedCoupon) {
+    func configure(viewModel: CouponList.DisplayedCoupon) {
         brandLabel.text = viewModel.brand
         nameLabel.text = viewModel.name
         dateLabel.text = viewModel.date

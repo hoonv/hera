@@ -63,7 +63,7 @@ class CouponDetailViewController: UIViewController, CouponDetailDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         doSomething()
-        self.view.backgroundColor = .systemBackground
+        setupUI()
     }
     
     // MARK: Do something
@@ -78,4 +78,23 @@ class CouponDetailViewController: UIViewController, CouponDetailDisplayLogic {
     func displaySomething(viewModel: CouponDetail.Something.ViewModel) {
         //nameTextField.text = viewModel.name
     }
+    
+    func setupUI() {
+        self.view.backgroundColor = .systemBackground
+        self.imageView.image = image
+        view.addSubview(imageView)
+        
+        imageView.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalToSuperview()
+        }
+    }
+    // MARK: Views
+    
+    var image: UIImage?
+    
+    let imageView: UIImageView = {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+        return view
+    }()
 }

@@ -23,11 +23,10 @@ class CouponListPresenter: CouponListPresentationLogic {
     
     func presentCoupons(response: CouponList.FetchCoupon.Response) {
         let manager = ImageManager()
-        let displayed = response.coupons.map { c -> CouponList.FetchCoupon.ViewModel.DisplayedCoupon in
+        let displayed = response.coupons.map { c -> CouponList.DisplayedCoupon in
             let date = c.expiredDate.toStringKST(dateFormat: "yyyy.MM.dd") + "까지"
             let image = manager.loadImageFromDiskWith(fileName: c.barcode)
-            let temp = CouponList.FetchCoupon
-                .ViewModel.DisplayedCoupon(name: c.name,
+            let temp = CouponList.DisplayedCoupon(name: c.name,
                                            brand: c.brand,
                                            date: date,
                                            remainDay: calcuateRemainDays(c.expiredDate),

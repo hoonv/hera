@@ -63,6 +63,7 @@ class FilterViewController: UIViewController, FilterDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         doSomething()
+        setupUI()
     }
     
     // MARK: Do something
@@ -77,4 +78,47 @@ class FilterViewController: UIViewController, FilterDisplayLogic {
     func displaySomething(viewModel: Filter.Something.ViewModel) {
         //nameTextField.text = viewModel.name
     }
+    
+    func setupUI() {
+        self.view.backgroundColor = .systemBackground
+        
+        stackView.addArrangedSubview(tempView)
+        
+        scrollView.addSubview(stackView)
+        
+        [scrollView].forEach {
+            view.addSubview($0)
+        }
+        
+        scrollView.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalToSuperview()
+        }
+        
+        stackView.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalToSuperview()
+        }
+        tempView.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            
+        }
+    }
+    
+    let scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.backgroundColor = .gray
+        return view
+    }()
+    
+    let stackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.backgroundColor = .green
+        return view
+    }()
+    
+    let tempView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .red
+        return view
+    }()
 }

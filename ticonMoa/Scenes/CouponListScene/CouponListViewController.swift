@@ -111,6 +111,7 @@ extension CouponListViewController {
         view.backgroundColor = .systemBackground
         NotificationCenter.default.addObserver(self, selector: #selector(newCoupon), name: .newCouponRegistered, object: nil)
         header.addIcon.addTarget(self, action: #selector(addIconTouched), for: .touchUpInside)
+        header.filterIcon.addTarget(self, action: #selector(filterIconTouched), for: .touchUpInside)
         [collectionView, header].forEach {
             view.addSubview($0)
         }
@@ -133,6 +134,10 @@ extension CouponListViewController {
     
     @objc func addIconTouched() {
         router?.routeToCouponAdd()
+    }
+    
+    @objc func filterIconTouched() {
+        router?.routeToFilter()
     }
 }
 

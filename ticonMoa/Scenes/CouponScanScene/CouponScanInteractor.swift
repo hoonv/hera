@@ -83,6 +83,8 @@ class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
             presenter?.finishCouponSave()
         case .dateFormatError:
             createAlertMessage(type: .notMatchDateFormat)
+        case .barcodeDuplicated:
+            createAlertMessage(type: .barcodeDuplicated)
         case .inputValueError:
             createAlertMessage(type: .inputValueEmpty)
         }
@@ -93,6 +95,7 @@ class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
         case notMatchDateFormat
         case notContainBarcode
         case failRecognizePhoto
+        case barcodeDuplicated
     }
     
     func createAlertMessage(type: AlertMessage) {
@@ -106,6 +109,8 @@ class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
             message = "바코드를 인식하지 못했습니다."
         case .notMatchDateFormat:
             message = "날짜의 형식이 맞지 않습니다."
+        case .barcodeDuplicated:
+            message = "이미 등록된 쿠폰 입니다."
         }
         presenter?.presentAlert(response: .init(title: nil, message: message))
         presenter?.presentScanResult(response: .empty)

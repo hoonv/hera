@@ -143,7 +143,7 @@ class ManualPhotoViewController: UIViewController {
         df.dateFormat = "yyyy.MM.dd"
         guard let date = df.date(from: textDate) else { return }
         let data = Coupon(name: name, barcode: barcode, brand: brand, date: date, category: horizontalScrollView.selectedCategory)
-        if CoreDataManager.shared.isExist(gifticon: data) {
+        if CoreDataManager.shared.isExist(barcode: data.barcode) {
             alert(message: "duplicated coupon")
             return
         }

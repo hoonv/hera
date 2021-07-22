@@ -22,6 +22,7 @@ enum CouponScanState {
     case success
     case dateFormatError
     case inputValueError
+    case barcodeDuplicated
 }
 
 class CouponScanWorker {
@@ -121,6 +122,10 @@ class CouponScanWorker {
         guard let _ = request.expiredDate.toDate(format: "yyyy.MM.dd") else {
             return .dateFormatError
         }
+        
+        if CoreDataManager.shared.isExist(barcode: request.barcode) {
+            return .barcodeDuplicated
+        }
         return .success
     }
     
@@ -130,9 +135,7 @@ class CouponScanWorker {
                           barcode: request.barcode,
                           brand: request.brand,
                           date: form, category: "")
-        if CoreDataManager.shared.isExist(gifticon: data) {
-            return
-        }
+        
         let _ = CoreDataManager.shared.insert(gifticon: data)
     }
     

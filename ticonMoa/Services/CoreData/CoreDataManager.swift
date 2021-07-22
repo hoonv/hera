@@ -38,7 +38,7 @@ class CoreDataManager {
     
     func insert(gifticon: Coupon) -> Bool {
         let taskContext = self.newTaskContext()
-        if isExist(gifticon: gifticon) {
+        if isExist(barcode: gifticon.barcode) {
             return false
         }
         let object = ManagedCoupon(context: taskContext)
@@ -62,9 +62,8 @@ class CoreDataManager {
         return coupons.map { Coupon(coupon: $0) }
     }
     
-    func isExist(gifticon: Coupon) -> Bool {
+    func isExist(barcode: String) -> Bool {
         let fetchRequest: NSFetchRequest<ManagedCoupon> = ManagedCoupon.fetchRequest()
-        let barcode = gifticon.barcode
         let barcodePredict = NSPredicate(format: "barcode == %@", barcode)
         fetchRequest.predicate = barcodePredict
         let ret = _fetch(with: fetchRequest)

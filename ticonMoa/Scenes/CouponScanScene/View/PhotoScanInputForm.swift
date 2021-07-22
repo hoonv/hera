@@ -84,7 +84,7 @@ class PhotoScanInputForm: UIView {
     
     let dateInputLine: InputWithLabel = {
         let view = InputWithLabel(label: "유효기간",
-                                  placeHolder: "유효기간을 입력하세요")
+                                  placeHolder: "유효기간을 입력하세요 yyyy.mm.dd")
         return view
     }()
 }

@@ -83,7 +83,8 @@ class FilterViewController: UIViewController, FilterDisplayLogic {
         self.view.backgroundColor = .systemBackground
         
         stackView.addArrangedSubview(tempView)
-        
+        stackView.addArrangedSubview(tempView2)
+
         scrollView.addSubview(stackView)
         
         [scrollView].forEach {
@@ -92,33 +93,36 @@ class FilterViewController: UIViewController, FilterDisplayLogic {
         
         scrollView.snp.makeConstraints { make in
             make.top.bottom.leading.trailing.equalToSuperview()
+            make.width.equalToSuperview()
         }
         
         stackView.snp.makeConstraints { make in
             make.top.bottom.leading.trailing.equalToSuperview()
+            make.width.equalToSuperview()
         }
         tempView.snp.makeConstraints { make in
-            make.height.equalTo(50)
-            
+
         }
     }
     
     let scrollView: UIScrollView = {
         let view = UIScrollView()
-        view.backgroundColor = .gray
         return view
     }()
     
     let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
-        view.backgroundColor = .green
         return view
     }()
     
-    let tempView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
+    let tempView: SettingFormView = {
+        let view = SettingFormView()
+        return view
+    }()
+    
+    let tempView2: SettingFormView = {
+        let view = SettingFormView()
         return view
     }()
 }

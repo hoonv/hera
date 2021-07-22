@@ -70,8 +70,6 @@ class OptionView: UIView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .label
-        let symbolConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .bold, scale: .medium)
-        imageView.image = UIImage(systemName: "checkmark", withConfiguration: symbolConfig)
         return imageView
     }()
     

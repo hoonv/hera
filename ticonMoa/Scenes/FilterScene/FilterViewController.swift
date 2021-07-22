@@ -117,12 +117,13 @@ class FilterViewController: UIViewController, FilterDisplayLogic {
     }()
     
     let tempView: SettingFormView = {
-        let view = SettingFormView()
+        let view = SettingFormView(options: ["보이기", "숨기기"])
         return view
     }()
     
     let tempView2: SettingFormView = {
-        let view = SettingFormView()
+        let view = SettingFormView(options: ["등록순", "남은기간순"])
+        view.title.text = "쿠폰순서"
         return view
     }()
 }

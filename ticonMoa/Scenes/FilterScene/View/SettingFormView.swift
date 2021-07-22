@@ -35,6 +35,7 @@ class SettingFormView: UIView {
             view.optionLabel.text = text
             return view
         }
+        optionView.first?.isChecked = true
         
         optionView.forEach {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(optionSelected))

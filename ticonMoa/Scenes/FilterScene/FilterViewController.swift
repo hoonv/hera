@@ -82,9 +82,9 @@ class FilterViewController: UIViewController, FilterDisplayLogic {
     func setupUI() {
         self.view.backgroundColor = .systemBackground
         
-        stackView.addArrangedSubview(tempView)
-        stackView.addArrangedSubview(tempView2)
-
+        [expiredSetting, orderSetting].forEach {
+            stackView.addArrangedSubview($0)
+        }
         scrollView.addSubview(stackView)
         
         [scrollView].forEach {
@@ -100,9 +100,6 @@ class FilterViewController: UIViewController, FilterDisplayLogic {
             make.top.bottom.leading.trailing.equalToSuperview()
             make.width.equalToSuperview()
         }
-        tempView.snp.makeConstraints { make in
-
-        }
     }
     
     let scrollView: UIScrollView = {
@@ -116,14 +113,15 @@ class FilterViewController: UIViewController, FilterDisplayLogic {
         return view
     }()
     
-    let tempView: SettingFormView = {
-        let view = SettingFormView(options: ["보이기", "숨기기"])
+    let expiredSetting: SettingFormView = {
+        let view = SettingFormView(title: FilterOption.expired.rawValue,
+                                   options: ["보이기", "숨기기"])
         return view
     }()
     
-    let tempView2: SettingFormView = {
-        let view = SettingFormView(options: ["등록순", "남은기간순"])
-        view.title.text = "쿠폰순서"
+    let orderSetting: SettingFormView = {
+        let view = SettingFormView(title: FilterOption.order.rawValue,
+                                   options: ["등록순", "남은기간순"])
         return view
     }()
 }

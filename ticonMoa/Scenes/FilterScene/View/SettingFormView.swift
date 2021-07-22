@@ -12,30 +12,31 @@ class SettingFormView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupUI()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupUI()
     }
     
-    convenience init(options: [String]) {
+    convenience init(title: String, options: [String]) {
         self.init()
         self.options = options
+        self.titleText = title
         setupUI()
     }
     
     var options: [String] = []
     var optionView: [OptionView] = []
+    var titleText: String? = ""
     func setupUI() {
-        
+        title.text = titleText
         optionView = options.map { text -> OptionView in
             let view = OptionView()
             view.optionLabel.text = text
             return view
         }
-        optionView.first?.isChecked = true
+        let idx = UserDefaults.standard.integer(forKey: titleText ?? "")
+        optionView[idx].isChecked = true
         
         optionView.forEach {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(optionSelected))
@@ -67,6 +68,9 @@ class SettingFormView: UIView {
         for i in 0..<optionView.count {
             if gesture.view == optionView[i] {
                 optionView[i].isChecked = true
+                guard let key = title.text else { return }
+                UserDefaults.standard.set(i, forKey: key)
+                print("seeting", i, key)
                 continue
             }
             optionView[i].isChecked = false
@@ -76,7 +80,7 @@ class SettingFormView: UIView {
     let title: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        label.text = "사용완료쿠폰"
+        label.text = "title"
         return label
     }()
     

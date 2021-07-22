@@ -139,6 +139,7 @@
 		E0E99B1526A9166B00A4F3B1 /* FilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E99B0F26A9166B00A4F3B1 /* FilterInteractor.swift */; };
 		E0E99B1C26A93CC900A4F3B1 /* SettingFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E99B1B26A93CC900A4F3B1 /* SettingFormView.swift */; };
 		E0E99B2226A943A100A4F3B1 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E99B2126A943A100A4F3B1 /* OptionView.swift */; };
+		E0E99B2626A9595800A4F3B1 /* FilterOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E99B2526A9595800A4F3B1 /* FilterOption.swift */; };
 		E0F3524B26A6DA2300A6F608 /* InputWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3524A26A6DA2300A6F608 /* InputWithLabel.swift */; };
 /* End PBXBuildFile section */
 
@@ -284,6 +285,7 @@
 		E0E99B0F26A9166B00A4F3B1 /* FilterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterInteractor.swift; sourceTree = "<group>"; };
 		E0E99B1B26A93CC900A4F3B1 /* SettingFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFormView.swift; sourceTree = "<group>"; };
 		E0E99B2126A943A100A4F3B1 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
+		E0E99B2526A9595800A4F3B1 /* FilterOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOption.swift; sourceTree = "<group>"; };
 		E0F3524A26A6DA2300A6F608 /* InputWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputWithLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -435,6 +437,7 @@
 				E0364FF12623E007006D243E /* ImagePreProccessor.swift */,
 				E0AB9A172642CC2500F11602 /* Coupon.swift */,
 				E0AB9A1B2642CC2A00F11602 /* Category.swift */,
+				E0E99B2526A9595800A4F3B1 /* FilterOption.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -943,6 +946,7 @@
 				E0AB9A712643D74100F11602 /* MainVC + PhotoPick.swift in Sources */,
 				E026F2CB269BD7B400EF300C /* ManagedCoupon+CoreDataClass.swift in Sources */,
 				E0AE484726171CE100BEC498 /* SlideAnimator.swift in Sources */,
+				E0E99B2626A9595800A4F3B1 /* FilterOption.swift in Sources */,
 				E0BBB20F2638F70200DC4553 /* Date+toString.swift in Sources */,
 				E0364FF22623E007006D243E /* ImagePreProccessor.swift in Sources */,
 				E0BDEB8F264A4EBC00228762 /* ExpandButton.swift in Sources */,

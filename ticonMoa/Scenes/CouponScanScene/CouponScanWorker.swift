@@ -11,6 +11,12 @@
 //
 
 import UIKit
+import Vision
+
+enum KindOfCoupon {
+    case kakao
+    case notCoupon
+}
 
 enum CouponScanState {
     case success
@@ -19,6 +25,92 @@ enum CouponScanState {
 }
 
 class CouponScanWorker {
+    
+    // MARK: Scan Photo
+    
+    let manager = OCRManager()
+    
+    func scanPhotoBarcode(image: CGImage, completionHandler: @escaping (VNRequest, Error?) -> ()) {
+        let requestHandler = VNImageRequestHandler(cgImage: image)
+        let request = VNDetectBarcodesRequest(completionHandler: completionHandler)
+        try? requestHandler.perform([request])
+    }
+    
+    func scanPhotoText(image: CGImage, completionHandler: @escaping (VNRequest, Error?) -> ()) {
+        let requestHandler = VNImageRequestHandler(cgImage: image)
+        let request = VNRecognizeTextRequest(completionHandler: completionHandler)
+        try? requestHandler.perform([request])
+    }
+    
+    func cropImage(image: UIImage, result: VNRecognizedTextObservation) -> UIImage? {
+        var transform = CGAffineTransform.identity
+        transform = transform.scaledBy(x: image.size.width, y: -image.size.height)
+        transform = transform.translatedBy(x: 0, y: -1)
+        let rect = result.boundingBox.applying(transform)
+        return image.crop(rect: rect)
+    }
+    
+    func requestOCRWithTesseract(image: UIImage) -> [String] {
+        let res: [String] = manager.requestTextRecognition(image: image)
+        return res
+    }
+    
+    func requestOCRWithTesseract(image: [UIImage]) ->[[String]] {
+        let res = image.map { requestOCRWithTesseract(image: $0) }
+        return res
+    }
+    
+    func analyzeOCRResult(data: [[String]]) -> KindOfCoupon {
+        let s = data.map { $0.joined(separator: " ")}.joined(separator: "\n")
+        if s.contains("kakao") { return .kakao }
+        return .notCoupon
+    }
+    
+    func analyzeCoupon(data: [String], kind: KindOfCoupon, barcode: String?) -> CouponScan.ScanPhoto.Response {
+        switch kind {
+        case .kakao:
+            return analyzeKakaoCoupon(data: data, barcode: barcode)
+        case .notCoupon:
+            return .init(name: nil, brand: nil, barcode: nil, expiredDate: nil)
+        }
+    }
+    
+    private func analyzeKakaoCoupon(data: [String], barcode: String?) -> CouponScan.ScanPhoto.Response{
+        var response = CouponScan.ScanPhoto.Response(name: nil,
+                                                     brand: nil,
+                                                     barcode: barcode,
+                                                     expiredDate: nil)
+        let brandRecognizer = BrandRecognizer()
+        let dateRecognizer = DateRecognizer()
+        for line in data {
+            if let _ = dateRecognizer.match(input: line) {
+                response.expiredDate = line
+            }
+            if let b = brandRecognizer.match(input: line) {
+                response.brand = b
+            }
+        }
+        if response.brand == nil,
+           let idx = data.firstIndex(where: { $0.contains("교환처") }) {
+            response.brand = data[data.index(after: idx)]
+        }
+        
+        if response.expiredDate == nil,
+           let idx = data.firstIndex(where: { $0.contains("유효기간") }) {
+            response.expiredDate = data[data.index(after: idx)]
+        }
+        
+        if response.name == nil,
+           let idx = data.firstIndex(where: { $0.contains("교환처") }),
+           let brandFirstIdx = data.firstIndex(where: {$0 == data[data.index(after: idx)]}) {
+            response.name = data[data.index(after: brandFirstIdx)]
+        }
+
+        return response
+    }
+    
+    // MARK: Register Coupon
+    
     func isVaildCoupon(request: CouponScan.RegisterCoupon.Request) -> CouponScanState {
         guard request.name != "",
               request.brand != "",
@@ -34,7 +126,10 @@ class CouponScanWorker {
     
     func saveCouponToCoreData(request: CouponScan.RegisterCoupon.Request) {
         guard let form = request.expiredDate.toDate(format: "yyyy.MM.dd") else { return }
-        let data = Coupon(name: request.name, barcode: request.barcode, brand: request.brand, date: form, category: "")
+        let data = Coupon(name: request.name,
+                          barcode: request.barcode,
+                          brand: request.brand,
+                          date: form, category: "")
         if CoreDataManager.shared.isExist(gifticon: data) {
             return
         }

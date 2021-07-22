@@ -20,10 +20,12 @@ enum CouponScan {
         }
         
         struct Response {
-            let name: String?
-            let brand: String?
-            let barcode: String?
-            let expiredDate: String?
+            var name: String?
+            var brand: String?
+            var barcode: String?
+            var expiredDate: String?
+            
+            static let empty = Response(name: nil, brand: nil, barcode: nil, expiredDate: nil)
         }
         
         struct ViewModel {

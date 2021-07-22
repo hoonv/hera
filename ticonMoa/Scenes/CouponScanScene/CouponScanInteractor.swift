@@ -25,67 +25,89 @@ protocol CouponScanDataStore {
 class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
     var presenter: CouponScanPresentationLogic?
     var worker: CouponScanWorker?
-    let manager = OCRManager()
     
     // MARK: DataStore
     
     var image: UIImage?
-
+    var barcodePayload: String?
+    
     // MARK: Scan Photo
     
     func scanPhoto(request: CouponScan.ScanPhoto.Request) {
-        let requestHandler = VNImageRequestHandler(cgImage: image!.cgImage!)
-        let request = VNRecognizeTextRequest(completionHandler: recognizeTextHandler)
-        try? requestHandler.perform([request])
+        guard let image = image?.cgImage else { return }
+        worker = CouponScanWorker()
+        worker?.scanPhotoBarcode(image: image, completionHandler: barcodeHandler)
+    }
+    
+    func barcodeHandler(request: VNRequest, error: Error?) {
+        guard let bestResult = request.results?.first as? VNBarcodeObservation,
+              let payload = bestResult.payloadStringValue,
+              let image = self.image?.cgImage
+        else {
+            createAlertMessage(type: .notContainBarcode)
+            return
+        }
+        self.barcodePayload = payload
+        worker?.scanPhotoText(image: image, completionHandler: recognizeTextHandler)
+    }
+    
+    func recognizeTextHandler(request: VNRequest, error: Error?) {
+        guard let results = request.results as? [VNRecognizedTextObservation],
+              results.count < 15 else {
+            createAlertMessage(type: .failRecognizePhoto)
+            return }
+        analyzeTextObservation(results: results)
+    }
+    
+    func analyzeTextObservation(results: [VNRecognizedTextObservation]) {
+        guard let image = image, let worker = worker else { return }
+        let cropped = results.compactMap { worker.cropImage(image: image, result: $0)}
+        let resultOCR = worker.requestOCRWithTesseract(image: cropped)
+        let kind = worker.analyzeOCRResult(data: resultOCR)
+        let lines = resultOCR.map { $0.joined(separator: "") }
+        let response = worker.analyzeCoupon(data: lines, kind: kind, barcode: barcodePayload)
+        presenter?.presentScanResult(response: response)
     }
     
     // MARK: Register Coupon
     
     func registerCoupon(request: CouponScan.RegisterCoupon.Request) {
         worker = CouponScanWorker()
-        let result = worker?.isVaildCoupon(request: request)
+        guard let worker = self.worker else { return }
+        let result = worker.isVaildCoupon(request: request)
         
         switch result {
         case .success:
-            worker?.saveCouponToCoreData(request: request)
-            worker?.saveCouponImage(name: request.barcode, image: image)
+            worker.saveCouponToCoreData(request: request)
+            worker.saveCouponImage(name: request.barcode, image: image)
             presenter?.finishCouponSave()
         case .dateFormatError:
-            let msg = "날짜의 형식이 맞지 않습니다."
-            presenter?.presentAlert(response: .init(title: nil, message: msg))
+            createAlertMessage(type: .notMatchDateFormat)
         case .inputValueError:
-            let msg = "빈칸을 모두 입력하세요"
-            presenter?.presentAlert(response: .init(title: nil, message: msg))
-        case .none:
-            print("nil")
+            createAlertMessage(type: .inputValueEmpty)
         }
     }
     
-    func recognizeTextHandler(request: VNRequest, error: Error?) {
-        guard let results = request.results as? [VNRecognizedTextObservation],
-              results.count < 15 else { return }
-        
-        let recognized = results.map { result -> [String] in
-            var transform = CGAffineTransform.identity
-            transform = transform.scaledBy(x: image!.size.width, y: -image!.size.height)
-            transform = transform.translatedBy(x: 0, y: -1)
-            let rect = result.boundingBox.applying(transform)
-            guard let cropped = image?.crop(rect: rect) else { return [] }
-            return manager.requestTextRecognition(image: cropped)
-        }
-        if let a = recognized.last?.first?.contains("kakao") {
-            // 유효기간 -3
-            let date = recognized[recognized.index(recognized.endIndex, offsetBy: -4)]
-            let brand = recognized[recognized.index(recognized.endIndex, offsetBy: -6)]
-            let barcode = recognized[recognized.index(recognized.endIndex, offsetBy: -8)]
-            let name = recognized[recognized.index(recognized.endIndex, offsetBy: -9)]
-
-            let response = CouponScan.ScanPhoto.Response(name: name[0], brand: brand[0], barcode: barcode[0], expiredDate: date[0])
-            presenter?.presentScanResult(response: response)
-        }
+    enum AlertMessage {
+        case inputValueEmpty
+        case notMatchDateFormat
+        case notContainBarcode
+        case failRecognizePhoto
     }
-
-    func imageHandler(image: UIImage, pay: OCRManager.Payload) {
-        print(pay)
+    
+    func createAlertMessage(type: AlertMessage) {
+        var message = ""
+        switch type {
+        case .failRecognizePhoto:
+            message = "사진을 분석하지 못했습니다."
+        case .inputValueEmpty:
+            message = "빈칸을 모두 입력하세요"
+        case .notContainBarcode:
+            message = "바코드를 인식하지 못했습니다."
+        case .notMatchDateFormat:
+            message = "날짜의 형식이 맞지 않습니다."
+        }
+        presenter?.presentAlert(response: .init(title: nil, message: message))
+        presenter?.presentScanResult(response: .empty)
     }
 }

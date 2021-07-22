@@ -10,20 +10,11 @@ import RxSwift
 import RxCocoa
 
 class SearchViewController: UIViewController {
-//    @IBOutlet weak var searchBar: UISearchBar!
-//
-//    @IBOutlet weak var collectionView: UICollectionView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-//        searchBar.showsCancelButton = false
-//        searchBar.setValue("취소", forKey: "cancelButtonText")
-//        collectionView.delegate = self
-//        collectionView.dataSource = self
-//        collectionView.register(UINib(nibName: "SearchCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SearchCollectionViewCell")
-//        collectionView.register(UINib(nibName: "SearchHeaderReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
-//        searchBar.delegate = self
+
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
          self.view.endEditing(true)

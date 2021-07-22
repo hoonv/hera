@@ -19,29 +19,51 @@ protocol CouponListPresentationLogic {
 class CouponListPresenter: CouponListPresentationLogic {
     weak var viewController: CouponListDisplayLogic?
     
+    let manager = ImageManager()
+
     // MARK: Do something
     
     func presentCoupons(response: CouponList.FetchCoupon.Response) {
-        let manager = ImageManager()
-        let displayed = response.coupons.map { c -> CouponList.DisplayedCoupon in
-            let date = c.expiredDate.toStringKST(dateFormat: "yyyy.MM.dd") + "까지"
-            let image = manager.loadImageFromDiskWith(fileName: c.barcode)
-            let temp = CouponList.DisplayedCoupon(name: c.name,
-                                           brand: c.brand,
-                                           date: date,
-                                           remainDay: calcuateRemainDays(c.expiredDate),
-                                           image: image,
-                                           tagColor: defineTagColor(c.expiredDate))
-            return temp
+        var displayed = response.coupons.map { c -> CouponList.DisplayedCoupon in
+            return convertToViewModel(coupon: c)
         }
+        displayed = applyFilter(coupons: displayed)
         let viewModel = CouponList.FetchCoupon.ViewModel(coupons: displayed)
         viewController?.displayCouponList(viewModel: viewModel)
     }
     
-    func calcuateRemainDays(_ date: Date) -> String {
-        let remain = Int(ceil(date.timeIntervalSince(Date()) / (24 * 60 * 60)))
-        if remain < 0 { return "기간만료" }
-        return "D-\(remain)"
+    func applyFilter(coupons: [CouponList.DisplayedCoupon]) ->
+    [CouponList.DisplayedCoupon] {
+        let order = UserDefaults.standard.integer(forKey: FilterOption.order.rawValue)
+        let isShowExpired = UserDefaults.standard.integer(forKey: FilterOption.expired.rawValue)
+        var ret = coupons
+        if isShowExpired == 1 {
+            ret = ret.filter { $0.remainDay > 0 }
+        }
+        if order == 1 {
+            ret = ret.sorted { $0.remainDay < $1.remainDay }
+        }
+        return ret
+    }
+    
+    func convertToViewModel(coupon: Coupon) -> CouponList.DisplayedCoupon {
+        let dateString = coupon.expiredDate.toStringKST(dateFormat: "yyyy.MM.dd") + "까지"
+        let image = manager.loadImageFromDiskWith(fileName: coupon.barcode)
+        let remainDay = calcuateRemainDays(coupon.expiredDate)
+        let remainString = remainDay < 0 ? "기간만료" : "D-\(remainDay)"
+        let color = defineTagColor(coupon.expiredDate)
+        return CouponList.DisplayedCoupon(name: coupon.name,
+                                          brand: coupon.brand,
+                                          expiredDate: coupon.expiredDate,
+                                          dateString: dateString,
+                                          remainDay: remainDay,
+                                          remainDayString: remainString,
+                                          image: image,
+                                          tagColor: color)
+    }
+    
+    func calcuateRemainDays(_ date: Date) -> Int {
+        return Int(ceil(date.timeIntervalSince(Date()) / (24 * 60 * 60)))
     }
     
     func defineTagColor(_ date: Date) -> UIColor {

@@ -115,7 +115,7 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
     }
     
     func finishCouponSave() {
-        NotificationCenter.default.post(name: .newCouponRegistered, object: nil)
+        NotificationCenter.default.post(name: .couponListChanged, object: nil)
         self.dismiss(animated: true, completion: nil)
     }
     // MARK: View

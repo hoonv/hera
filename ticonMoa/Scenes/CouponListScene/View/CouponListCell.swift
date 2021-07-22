@@ -24,8 +24,8 @@ class CouponListCell: UICollectionViewCell {
     func configure(viewModel: CouponList.DisplayedCoupon) {
         brandLabel.text = viewModel.brand
         nameLabel.text = viewModel.name
-        dateLabel.text = viewModel.date
-        dateTag.setTitle(viewModel.remainDay, for: .normal)
+        dateLabel.text = viewModel.dateString
+        dateTag.setTitle(viewModel.remainDayString, for: .normal)
         dateTag.backgroundColor = viewModel.tagColor
         imageView.image = viewModel.image
     }

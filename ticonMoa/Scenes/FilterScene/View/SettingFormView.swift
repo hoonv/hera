@@ -70,7 +70,6 @@ class SettingFormView: UIView {
                 optionView[i].isChecked = true
                 guard let key = title.text else { return }
                 UserDefaults.standard.set(i, forKey: key)
-                print("seeting", i, key)
                 continue
             }
             optionView[i].isChecked = false

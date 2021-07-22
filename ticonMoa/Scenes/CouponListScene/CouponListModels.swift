@@ -17,8 +17,10 @@ enum CouponList {
     struct DisplayedCoupon {
         let name: String
         let brand: String
-        let date: String
-        let remainDay: String
+        let expiredDate: Date
+        let dateString: String
+        let remainDay: Int
+        let remainDayString: String
         let image: UIImage?
         let tagColor: UIColor
     }

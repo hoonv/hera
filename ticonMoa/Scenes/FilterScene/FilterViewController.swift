@@ -66,6 +66,10 @@ class FilterViewController: UIViewController, FilterDisplayLogic {
         setupUI()
     }
     
+    deinit {
+        NotificationCenter.default.post(name: .couponListChanged, object: nil)
+    }
+    
     // MARK: Do something
     
     //@IBOutlet weak var nameTextField: UITextField!

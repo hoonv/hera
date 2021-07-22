@@ -28,7 +28,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         registerCells()
         bind()
-        NotificationCenter.default.addObserver(self, selector: #selector(newCoupon), name: .newCouponRegistered, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(newCoupon), name: .couponListChanged, object: nil)
     }
     
     @objc func newCoupon(_ notification: Notification) {

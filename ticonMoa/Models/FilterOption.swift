@@ -9,6 +9,6 @@
 import Foundation
 
 enum FilterOption: String {
-    case order = "기간완료쿠폰"
-    case expired = "쿠폰순서"
+    case order = "쿠폰순서"
+    case expired = "기간완료쿠폰"
 }

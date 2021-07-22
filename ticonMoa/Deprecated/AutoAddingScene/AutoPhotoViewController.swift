@@ -95,7 +95,7 @@ class AutoPhotoViewController: UIViewController {
                 im.saveImage(imageName: data.imageName, image: image)
             }
         }
-        NotificationCenter.default.post(name: .newCouponRegistered, object: nil)
+        NotificationCenter.default.post(name: .couponListChanged, object: nil)
         self.dismiss(animated: true, completion: nil)
     }
     

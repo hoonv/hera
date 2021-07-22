@@ -155,7 +155,7 @@ class ManualPhotoViewController: UIViewController {
             }
             let im = ImageManager()
             im.saveImage(imageName: data.imageName, image: image)
-            NotificationCenter.default.post(name: .newCouponRegistered, object: nil)
+            NotificationCenter.default.post(name: .couponListChanged, object: nil)
             self.dismiss(animated: true, completion: nil)
             return 
         }
@@ -190,5 +190,5 @@ extension ManualPhotoViewController: UITextFieldDelegate {
 }
 
 extension Notification.Name {
-    static let newCouponRegistered = Notification.Name(rawValue: "newCouponRegistered")
+    static let couponListChanged = Notification.Name(rawValue: "couponListChanged")
 }

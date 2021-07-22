@@ -115,6 +115,7 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
     }
     
     func finishCouponSave() {
+        NotificationCenter.default.post(name: .newCouponRegistered, object: nil)
         self.dismiss(animated: true, completion: nil)
     }
     // MARK: View
@@ -177,6 +178,7 @@ extension CouponScanViewController {
             self.view.layoutIfNeeded()
         }
     }
+    
     func keyboardWillHide() {
         imageView.snp.remakeConstraints { make in
             make.top.equalTo(header.snp.bottom).offset(10)
@@ -203,8 +205,9 @@ extension CouponScanViewController {
         
         inputForm.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
-            make.top.equalTo(imageView.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(imageView.snp.bottom).offset(32)
+            make.leading.equalToSuperview().offset(12)
+            make.trailing.equalToSuperview().offset(-12)
         }
         
         indicator.snp.makeConstraints { make in

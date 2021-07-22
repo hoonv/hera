@@ -109,6 +109,7 @@ extension CouponListViewController {
     
     func setupUI() {
         view.backgroundColor = .systemBackground
+        NotificationCenter.default.addObserver(self, selector: #selector(newCoupon), name: .newCouponRegistered, object: nil)
         header.addIcon.addTarget(self, action: #selector(addIconTouched), for: .touchUpInside)
         [collectionView, header].forEach {
             view.addSubview($0)
@@ -124,6 +125,10 @@ extension CouponListViewController {
             make.top.equalTo(header.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
         }
+    }
+    
+    @objc func newCoupon() {
+        self.fetchCoupons()
     }
     
     @objc func addIconTouched() {

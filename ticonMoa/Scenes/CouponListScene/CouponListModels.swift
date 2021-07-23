@@ -19,6 +19,8 @@ enum CouponList {
         let brand: String
         let expiredDate: Date
         let dateString: String
+        let registerDate: Date
+        let isUsed: Bool
         let remainDay: Int
         let remainDayString: String
         let image: UIImage?
@@ -34,8 +36,8 @@ enum CouponList {
         }
         
         struct ViewModel {
-
-            let coupons: [DisplayedCoupon]
+            let sectionName: [String]
+            let coupons: [[DisplayedCoupon]]
         }
     }
 }

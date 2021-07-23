@@ -32,7 +32,7 @@ class CouponListCell: UICollectionViewCell {
     
     private func setup() {
         let xPadding = 10
-        let yPadding = 16
+        let yPadding = 0
         [imageView, separator, descStackView, dateStackView].forEach {
             contentView.addSubview($0)
         }
@@ -63,12 +63,13 @@ class CouponListCell: UICollectionViewCell {
             make.width.equalTo(imageView.snp.height)
             make.leading.equalToSuperview()
             make.top.equalTo(contentView).offset(yPadding)
-            make.bottom.equalTo(separator).offset(-yPadding)
+            make.bottom.equalTo(separator).offset(-12)
         }
         
         separator.snp.makeConstraints { make in
             make.height.equalTo(0.8)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-6)
         }
         
         nameLabel.snp.makeConstraints { make in

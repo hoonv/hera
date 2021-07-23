@@ -140,6 +140,7 @@
 		E0E99B1C26A93CC900A4F3B1 /* SettingFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E99B1B26A93CC900A4F3B1 /* SettingFormView.swift */; };
 		E0E99B2226A943A100A4F3B1 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E99B2126A943A100A4F3B1 /* OptionView.swift */; };
 		E0E99B2626A9595800A4F3B1 /* FilterOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E99B2526A9595800A4F3B1 /* FilterOption.swift */; };
+		E0E99B2A26AA58A900A4F3B1 /* CouponListSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E99B2926AA58A900A4F3B1 /* CouponListSectionView.swift */; };
 		E0F3524B26A6DA2300A6F608 /* InputWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3524A26A6DA2300A6F608 /* InputWithLabel.swift */; };
 /* End PBXBuildFile section */
 
@@ -286,6 +287,7 @@
 		E0E99B1B26A93CC900A4F3B1 /* SettingFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFormView.swift; sourceTree = "<group>"; };
 		E0E99B2126A943A100A4F3B1 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
 		E0E99B2526A9595800A4F3B1 /* FilterOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOption.swift; sourceTree = "<group>"; };
+		E0E99B2926AA58A900A4F3B1 /* CouponListSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListSectionView.swift; sourceTree = "<group>"; };
 		E0F3524A26A6DA2300A6F608 /* InputWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputWithLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -471,6 +473,7 @@
 				E02F0868269686000092B05A /* CouponListCell.swift */,
 				E02F08722696B7690092B05A /* CouponListHeader.swift */,
 				E02F08762696C04B0092B05A /* IconButton.swift */,
+				E0E99B2926AA58A900A4F3B1 /* CouponListSectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -890,6 +893,7 @@
 				E026F2132696DD7E00EF300C /* Button+Animation.swift in Sources */,
 				E02F08822696C8F10092B05A /* CouponAddButton.swift in Sources */,
 				E0BDEB98264A837900228762 /* TiconMoaModel.xcdatamodeld in Sources */,
+				E0E99B2A26AA58A900A4F3B1 /* CouponListSectionView.swift in Sources */,
 				E0BDEB8526494C7600228762 /* Array.swift in Sources */,
 				E0AE4817261438AE00BEC498 /* SearchViewController.swift in Sources */,
 				E02F08602696787A0092B05A /* CouponListInteractor.swift in Sources */,

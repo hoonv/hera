@@ -69,7 +69,8 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
     }
     
     // MARK: fetch Coupons
-    var coupons: [CouponList.DisplayedCoupon] = []
+    var coupons: [[CouponList.DisplayedCoupon]] = []
+    var sectionNames: [String] = []
     
     func fetchCoupons() {
         let request = CouponList.FetchCoupon.Request()
@@ -78,6 +79,7 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
     
     func displayCouponList(viewModel: CouponList.FetchCoupon.ViewModel) {
         self.coupons = viewModel.coupons
+        self.sectionNames = viewModel.sectionName
         collectionView.reloadData()
     }
     
@@ -146,32 +148,64 @@ extension CouponListViewController {
 extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     var cellName: String { "CouponListCell" }
-    
+    var sectionCell: String { "CouponListSectionCell" }
+
     func setupCollectionView() {
         collectionView.isSpringLoaded = true
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CouponListCell.self, forCellWithReuseIdentifier: cellName)
+        collectionView.register(CouponListSectionView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: sectionCell)
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return coupons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return coupons.count
+        return coupons[section].count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as? CouponListCell else {
             return CouponListCell()
         }
-        let coupon = coupons[indexPath.row]
+        let coupon = coupons[indexPath.section][indexPath.row]
         cell.configure(viewModel: coupon)
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        router?.routeToCouponDetail(image: coupons[indexPath.row].image)
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: sectionCell, for: indexPath) as? CouponListSectionView else { return UICollectionReusableView() }
+        header.name.text = sectionNames[indexPath.section]
+        return header
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        router?.routeToCouponDetail(image: coupons[indexPath.section][indexPath.row].image)
+    }
+    
+    
+}
+
+extension CouponListViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width - 20, height: 150)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 30)
+    }
+}
+
+extension CouponListViewController {
+    // tabbar scroll
 //    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
 //        currentOffset = scrollView.contentOffset.y
 //    }
@@ -182,7 +216,7 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
 //        }
 //
 //        let differ = scrollView.contentOffset.y - currentOffset
-//        
+//
 //        if differ > 100 {
 //            currentOffset = scrollView.contentOffset.y
 //            let controller = tabBarController as? MainTabBarController
@@ -195,11 +229,4 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
 //            controller?.showTabBar()
 //        }
 //    }
-}
-
-extension CouponListViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width - 20, height: 150)
-    }
 }

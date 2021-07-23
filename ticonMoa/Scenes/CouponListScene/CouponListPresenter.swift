@@ -24,26 +24,28 @@ class CouponListPresenter: CouponListPresentationLogic {
     // MARK: Do something
     
     func presentCoupons(response: CouponList.FetchCoupon.Response) {
-        var displayed = response.coupons.map { c -> CouponList.DisplayedCoupon in
+        let displayed = response.coupons.map { c -> CouponList.DisplayedCoupon in
             return convertToViewModel(coupon: c)
         }
-        displayed = applyFilter(coupons: displayed)
-        let viewModel = CouponList.FetchCoupon.ViewModel(coupons: displayed)
+        let filtered = applyFilter(coupons: displayed)
+        let viewModel = CouponList.FetchCoupon.ViewModel(sectionName: ["사용전", "사용완료"], coupons: filtered)
         viewController?.displayCouponList(viewModel: viewModel)
     }
     
     func applyFilter(coupons: [CouponList.DisplayedCoupon]) ->
-    [CouponList.DisplayedCoupon] {
+    [[CouponList.DisplayedCoupon]] {
         let order = UserDefaults.standard.integer(forKey: FilterOption.order.rawValue)
         let isShowExpired = UserDefaults.standard.integer(forKey: FilterOption.expired.rawValue)
-        var ret = coupons
+        var unusedCoupon = coupons.filter { !$0.isUsed }
+        var usedCoupon = coupons.filter { $0.isUsed }
         if isShowExpired == 1 {
-            ret = ret.filter { $0.remainDay > 0 }
+            unusedCoupon = unusedCoupon.filter { $0.remainDay >= 0 }
         }
         if order == 1 {
-            ret = ret.sorted { $0.remainDay < $1.remainDay }
+            unusedCoupon = unusedCoupon.sorted { $0.remainDay < $1.remainDay }
+            usedCoupon = usedCoupon.sorted { $0.remainDay < $1.remainDay }
         }
-        return ret
+        return [unusedCoupon, usedCoupon]
     }
     
     func convertToViewModel(coupon: Coupon) -> CouponList.DisplayedCoupon {
@@ -56,6 +58,8 @@ class CouponListPresenter: CouponListPresentationLogic {
                                           brand: coupon.brand,
                                           expiredDate: coupon.expiredDate,
                                           dateString: dateString,
+                                          registerDate: coupon.registerDate,
+                                          isUsed: coupon.isUsed,
                                           remainDay: remainDay,
                                           remainDayString: remainString,
                                           image: image,
@@ -69,6 +73,6 @@ class CouponListPresenter: CouponListPresentationLogic {
     func defineTagColor(_ date: Date) -> UIColor {
         let remain = Int(ceil(date.timeIntervalSince(Date()) / (24 * 60 * 60)))
         if remain < 0 { return .gray}
-        return .orange
+        return UIColor(named: "appColor") ?? .orange
     }
 }

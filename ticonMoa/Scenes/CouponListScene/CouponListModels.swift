@@ -15,6 +15,7 @@ import UIKit
 enum CouponList {
     // MARK: Use cases
     struct DisplayedCoupon {
+        let id: UUID
         let name: String
         let brand: String
         let expiredDate: Date

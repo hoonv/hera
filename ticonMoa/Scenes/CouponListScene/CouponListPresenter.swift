@@ -41,6 +41,8 @@ class CouponListPresenter: CouponListPresentationLogic {
         var usedCoupon = coupons.filter { $0.isUsed }
         if isShowExpired == 1 {
             unusedCoupon = unusedCoupon.filter { $0.remainDay >= 0 }
+            usedCoupon = usedCoupon.filter { $0.remainDay >= 0 }
+
         }
         if order == 1 {
             unusedCoupon = unusedCoupon.sorted { $0.remainDay < $1.remainDay }
@@ -55,17 +57,19 @@ class CouponListPresenter: CouponListPresentationLogic {
         let remainDay = calcuateRemainDays(coupon.expiredDate)
         let remainString = remainDay < 0 ? "기간만료" : "D-\(remainDay)"
         let color = defineTagColor(coupon.expiredDate)
-        return CouponList.DisplayedCoupon(name: coupon.name,
-                                          brand: coupon.brand,
-                                          expiredDate: coupon.expiredDate,
-                                          dateString: dateString,
-                                          registerDate: coupon.registerDate,
-                                          isUsed: coupon.isUsed,
-                                          remainDay: remainDay,
-                                          remainDayString: remainString,
-                                          image: image,
-                                          tagColor: color,
-                                          barcode: coupon.barcode)
+        return CouponList.DisplayedCoupon(
+            id: coupon.identifier,
+            name: coupon.name,
+            brand: coupon.brand,
+            expiredDate: coupon.expiredDate,
+            dateString: dateString,
+            registerDate: coupon.registerDate,
+            isUsed: coupon.isUsed,
+            remainDay: remainDay,
+            remainDayString: remainString,
+            image: image,
+            tagColor: color,
+            barcode: coupon.barcode)
     }
     
     func calcuateRemainDays(_ date: Date) -> Int {

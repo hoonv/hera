@@ -119,13 +119,26 @@ extension CouponDetailViewController {
     }
     
     @objc func useItButtonTouched() {
-        
+        alert(title: "쿠폰사용", message: "쿠폰을 사용하셨습니까?", okTitle: "확인", okHandler: useItOKHandler,
+              okStyle: .default, cancelTitle: "취소", cancelHandler: nil, completion: nil)
     }
     
     @objc func trashButtonTouched() {
+        alert(title: "쿠폰삭제", message: "쿠폰을 완전히 삭제 하시겠습니까?", okTitle: "삭제", okHandler: trashOKHandler, okStyle: .destructive, cancelTitle: "취소", cancelHandler: nil, completion: nil)
+    }
+    
+    func useItOKHandler(action: UIAlertAction) {
+        guard let id = router?.dataStore?.identifier else { return }
         guard let barcode = router?.dataStore?.barcode else { return }
-        
+        CoreDataManager.shared.update(id: id, isUsed: true)
+        NotificationCenter.default.post(name: .couponListChanged, object: nil)
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    func trashOKHandler(action: UIAlertAction) {
+        guard let barcode = router?.dataStore?.barcode else { return }
         if CoreDataManager.shared.delete(barcode: barcode) {
+            NotificationCenter.default.post(name: .couponListChanged, object: nil)
             self.dismiss(animated: true, completion: nil)
         }
     }

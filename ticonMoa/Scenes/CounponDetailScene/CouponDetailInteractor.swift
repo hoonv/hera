@@ -18,12 +18,14 @@ protocol CouponDetailBusinessLogic {
 
 protocol CouponDetailDataStore {
     var barcode: String { get set }
+    var identifier: UUID { get set }
 }
 
 class CouponDetailInteractor: CouponDetailBusinessLogic, CouponDetailDataStore {
     var presenter: CouponDetailPresentationLogic?
     var worker: CouponDetailWorker?
     var barcode: String = ""
+    var identifier: UUID = UUID()
     
     // MARK: Do something
     

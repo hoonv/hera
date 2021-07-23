@@ -70,6 +70,19 @@ class CoreDataManager {
         return ret.count > 0 ? true : false
     }
     
+    func update(id: UUID, isUsed: Bool) {
+        let fetchRequest: NSFetchRequest<ManagedCoupon> = ManagedCoupon.fetchRequest()
+        let idPredict = NSPredicate(format: "identifier == %@", id as CVarArg)
+        fetchRequest.predicate = idPredict
+        let ret = _fetch(with: fetchRequest)
+        ret.first?.isUsed = isUsed
+        do {
+            try mainContext.save()
+        } catch {
+            return
+        }
+    }
+    
     private func _fetch(with request: NSFetchRequest<ManagedCoupon>) -> [ManagedCoupon] {
         do {
             return try mainContext.fetch(request)

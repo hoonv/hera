@@ -90,7 +90,7 @@ class RoundTabBarView: UIView {
                 continue
             }
             button.isSelected = true
-            button.tintColor = index == 0 ? .red : .black
+            button.tintColor = index == 0 ? UIColor(named: "appColor") : .black
         }
     }
 }

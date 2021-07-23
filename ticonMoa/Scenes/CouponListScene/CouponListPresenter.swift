@@ -28,7 +28,8 @@ class CouponListPresenter: CouponListPresentationLogic {
             return convertToViewModel(coupon: c)
         }
         let filtered = applyFilter(coupons: displayed)
-        let viewModel = CouponList.FetchCoupon.ViewModel(sectionName: ["사용전", "사용완료"], coupons: filtered)
+        let names = filtered.count > 1 ? ["사용전", "사용완료"] : ["사용전"]
+        let viewModel = CouponList.FetchCoupon.ViewModel(sectionName: names, coupons: filtered)
         viewController?.displayCouponList(viewModel: viewModel)
     }
     
@@ -45,7 +46,7 @@ class CouponListPresenter: CouponListPresentationLogic {
             unusedCoupon = unusedCoupon.sorted { $0.remainDay < $1.remainDay }
             usedCoupon = usedCoupon.sorted { $0.remainDay < $1.remainDay }
         }
-        return [unusedCoupon, usedCoupon]
+        return usedCoupon.count > 0 ? [unusedCoupon, usedCoupon] : [unusedCoupon]
     }
     
     func convertToViewModel(coupon: Coupon) -> CouponList.DisplayedCoupon {

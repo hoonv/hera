@@ -90,10 +90,8 @@ class CoreDataManager {
         catch { print("c error") }
     }
     
-    func delete(gifticon: Coupon?) {
-        guard let coupon = gifticon else { return }
+    func delete(barcode: String) -> Bool {
         let fetchRequest: NSFetchRequest<ManagedCoupon> = ManagedCoupon.fetchRequest()
-        let barcode = coupon.barcode
         let barcodePredict = NSPredicate(format: "barcode == %@", barcode)
         fetchRequest.predicate = barcodePredict
         let ret = _fetch(with: fetchRequest)
@@ -102,7 +100,10 @@ class CoreDataManager {
         }
         do{
             try mainContext.save()
+            return true
         }
-        catch { print("c error") }
+        catch {
+            return false
+        }
     }
 }

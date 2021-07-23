@@ -78,16 +78,7 @@ class CouponDetailViewController: UIViewController, CouponDetailDisplayLogic {
     func displaySomething(viewModel: CouponDetail.Something.ViewModel) {
         //nameTextField.text = viewModel.name
     }
-    
-    func setupUI() {
-        self.view.backgroundColor = .systemBackground
-        self.imageView.image = image
-        view.addSubview(imageView)
-        
-        imageView.snp.makeConstraints { make in
-            make.top.bottom.leading.trailing.equalToSuperview()
-        }
-    }
+
     // MARK: Views
     
     var image: UIImage?
@@ -97,4 +88,45 @@ class CouponDetailViewController: UIViewController, CouponDetailDisplayLogic {
         view.contentMode = .scaleAspectFit
         return view
     }()
+    
+    let footer: BottomButtonSet = {
+        let view = BottomButtonSet()
+        return view
+    }()
+}
+
+extension CouponDetailViewController {
+    
+    func setupUI() {
+        self.view.backgroundColor = .systemBackground
+        self.imageView.image = image
+
+        footer.trashButton.addTarget(self, action: #selector(trashButtonTouched), for: .touchUpInside)
+        footer.useItButton.addTarget(self, action: #selector(useItButtonTouched), for: .touchUpInside)
+        
+        [imageView, footer].forEach { view.addSubview($0) }
+        
+        imageView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(footer.snp.top).offset(-12)
+        }
+        
+        footer.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-12)
+            make.height.equalTo(60)
+            make.centerX.equalToSuperview()
+        }
+    }
+    
+    @objc func useItButtonTouched() {
+        
+    }
+    
+    @objc func trashButtonTouched() {
+        guard let barcode = router?.dataStore?.barcode else { return }
+        
+        if CoreDataManager.shared.delete(barcode: barcode) {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
 }

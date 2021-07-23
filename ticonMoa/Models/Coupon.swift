@@ -9,18 +9,18 @@ import UIKit
 
 struct Coupon: Equatable {
 
+    var identifier: UUID
+    var isUsed: Bool
     var name: String
-    var expiredDate: Date
     var brand: String
     var barcode: String
-    var imageName: String { barcode }
-    var image: UIImage?
     var category: String
-    var isUsed: Bool
+    var expiredDate: Date
     var registerDate: Date
-    var checked = false
-    
+    var image: UIImage?
+
     init(coupon: ManagedCoupon) {
+        identifier = coupon.identifier
         name = coupon.name
         barcode = coupon.barcode
         brand = coupon.brand
@@ -30,7 +30,8 @@ struct Coupon: Equatable {
         registerDate = coupon.registerDate
     }
     
-    init(name: String, barcode: String, brand: String, date: Date, category: String, used: Bool = false, registerDate: Date) {
+    init(id: UUID, name: String, barcode: String, brand: String, date: Date, category: String, used: Bool = false, registerDate: Date) {
+        self.identifier = id
         self.name = name
         self.barcode = barcode
         self.brand = brand
@@ -42,6 +43,6 @@ struct Coupon: Equatable {
     }
     
     static func == (lhs: Coupon, rhs: Coupon) -> Bool {
-        return lhs.barcode == rhs.barcode
+        return lhs.identifier == rhs.identifier
     }
 }

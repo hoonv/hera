@@ -78,8 +78,10 @@ class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
         
         switch result {
         case .success:
-            worker.saveCouponToCoreData(request: request)
-            worker.saveCouponImage(name: request.barcode, image: image)
+            let coupon = makeCoupon(request: request)
+            worker.saveCouponToCoreData(coupon: coupon)
+            worker.saveCouponImage(name: coupon.identifier.uuidString,
+                                   image: image)
             presenter?.finishCouponSave()
         case .dateFormatError:
             createAlertMessage(type: .notMatchDateFormat)
@@ -88,6 +90,17 @@ class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
         case .inputValueError:
             createAlertMessage(type: .inputValueEmpty)
         }
+    }
+    
+    func makeCoupon(request: CouponScan.RegisterCoupon.Request) -> Coupon {
+        let form = request.expiredDate.toDate(format: "yyyy.MM.dd") ?? Date()
+        return Coupon(
+            id: UUID(),
+            name: request.name,
+            barcode: request.barcode,
+            brand: request.brand,
+            date: form, category: "",
+            registerDate: Date())
     }
     
     enum AlertMessage {

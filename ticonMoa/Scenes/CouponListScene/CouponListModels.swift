@@ -25,6 +25,7 @@ enum CouponList {
         let remainDayString: String
         let image: UIImage?
         let tagColor: UIColor
+        let barcode: String
     }
     
     enum FetchCoupon {

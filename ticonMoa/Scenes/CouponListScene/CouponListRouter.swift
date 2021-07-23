@@ -14,7 +14,7 @@ import UIKit
 
 @objc protocol CouponListRoutingLogic {
     func routeToCouponAdd()
-    func routeToCouponDetail(image: UIImage?)
+    func routeToCouponDetail(image: UIImage?, barcode: String)
     func routeToFilter()
 }
 
@@ -38,8 +38,11 @@ class CouponListRouter: NSObject, CouponListRoutingLogic, CouponListDataPassing 
         viewController?.present(navController, animated: true, completion: nil)
     }
     
-    func routeToCouponDetail(image: UIImage?) {
+    func routeToCouponDetail(image: UIImage?, barcode: String) {
         let controller = CouponDetailViewController()
+        guard
+            var destDataStore = controller.router?.dataStore else { return }
+        destDataStore.barcode = barcode
         controller.image = image
         viewController?.present(controller, animated: true, completion: nil)
     }

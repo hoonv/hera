@@ -129,15 +129,8 @@ class CouponScanWorker {
         return .success
     }
     
-    func saveCouponToCoreData(request: CouponScan.RegisterCoupon.Request) {
-        guard let form = request.expiredDate.toDate(format: "yyyy.MM.dd") else { return }
-        let data = Coupon(name: request.name,
-                          barcode: request.barcode,
-                          brand: request.brand,
-                          date: form, category: "",
-                          registerDate: Date())
-        
-        let _ = CoreDataManager.shared.insert(coupon: data)
+    func saveCouponToCoreData(coupon: Coupon) {
+        let _ = CoreDataManager.shared.insert(coupon: coupon)
     }
     
     func saveCouponImage(name: String, image: UIImage?) {

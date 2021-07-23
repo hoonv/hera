@@ -187,7 +187,8 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        router?.routeToCouponDetail(image: coupons[indexPath.section][indexPath.row].image)
+        let data = coupons[indexPath.section][indexPath.row]
+        router?.routeToCouponDetail(image: data.image,barcode: data.barcode)
     }
     
     

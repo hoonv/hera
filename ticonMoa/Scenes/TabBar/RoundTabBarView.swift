@@ -20,7 +20,6 @@ class RoundTabBarView: UIView {
     init(_ items: [String]) {
         super.init(frame: .zero)
         backgroundColor = .white
-        
         setupStackView(items)
         updateUI(selectedIndex: 0)
     }
@@ -28,17 +27,13 @@ class RoundTabBarView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         backgroundColor = .white
-        
         setupStackView([])
         updateUI(selectedIndex: 0)
     }
 
-
     override func layoutSubviews() {
         super.layoutSubviews()
-
         layer.cornerRadius = bounds.height / 2
-
         layer.shadowPath = UIBezierPath(rect: bounds).cgPath
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.1
@@ -60,13 +55,18 @@ class RoundTabBarView: UIView {
         let stackView = UIStackView(arrangedSubviews: buttons)
 
         addSubview(stackView)
-        stackView.fillSuperview(padding: .init(top: 0, left: 16, bottom: 0, right: 16))
+        stackView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
     }
 
     func createButton(normalImage: UIImage, selectedImage: UIImage, index: Int) -> UIButton {
         let button = UIButton()
-        button.constrainWidth(constant: 60)
-        button.constrainHeight(constant: 60)
+        button.snp.makeConstraints { make in
+            make.width.height.equalTo(60)
+        }
         button.setImage(normalImage, for: .normal)
         button.setImage(selectedImage, for: .selected)
         button.setImage(selectedImage, for: [.highlighted , .selected])

@@ -17,13 +17,13 @@ protocol CouponDetailBusinessLogic {
 }
 
 protocol CouponDetailDataStore {
-    //var name: String { get set }
+    var barcode: String { get set }
 }
 
 class CouponDetailInteractor: CouponDetailBusinessLogic, CouponDetailDataStore {
     var presenter: CouponDetailPresentationLogic?
     var worker: CouponDetailWorker?
-    //var name: String = ""
+    var barcode: String = ""
     
     // MARK: Do something
     

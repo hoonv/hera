@@ -64,7 +64,8 @@ class CouponListPresenter: CouponListPresentationLogic {
                                           remainDay: remainDay,
                                           remainDayString: remainString,
                                           image: image,
-                                          tagColor: color)
+                                          tagColor: color,
+                                          barcode: coupon.barcode)
     }
     
     func calcuateRemainDays(_ date: Date) -> Int {

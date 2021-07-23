@@ -24,6 +24,7 @@ extension ManagedCoupon {
     @NSManaged public var name: String
     @NSManaged public var isUsed: Bool
     @NSManaged public var registerDate: Date
+    @NSManaged public var identifier: UUID
 }
 
 extension ManagedCoupon : Identifiable {

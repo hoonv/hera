@@ -142,12 +142,12 @@ class ManualPhotoViewController: UIViewController {
         let df = DateFormatter()
         df.dateFormat = "yyyy.MM.dd"
         guard let date = df.date(from: textDate) else { return }
-        let data = Coupon(name: name, barcode: barcode, brand: brand, date: date, category: horizontalScrollView.selectedCategory)
+        let data = Coupon(name: name, barcode: barcode, brand: brand, date: date, category: horizontalScrollView.selectedCategory, registerDate: Date())
         if CoreDataManager.shared.isExist(barcode: data.barcode) {
             alert(message: "duplicated coupon")
             return
         }
-        let isSuccess = CoreDataManager.shared.insert(gifticon: data)
+        let isSuccess = CoreDataManager.shared.insert(coupon: data)
         if isSuccess {
             guard let image = imageView.image else {
                 self.dismiss(animated: true, completion: nil)

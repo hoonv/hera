@@ -36,13 +36,13 @@ class CoreDataManager {
         return taskContext
     }
     
-    func insert(gifticon: Coupon) -> Bool {
+    func insert(coupon: Coupon) -> Bool {
         let taskContext = self.newTaskContext()
-        if isExist(barcode: gifticon.barcode) {
+        if isExist(barcode: coupon.barcode) {
             return false
         }
         let object = ManagedCoupon(context: taskContext)
-        object.configure(gifticon: gifticon)
+        object.configure(coupon: coupon)
         do {
             try taskContext.save()
             return true

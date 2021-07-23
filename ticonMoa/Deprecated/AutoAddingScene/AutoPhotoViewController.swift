@@ -85,7 +85,7 @@ class AutoPhotoViewController: UIViewController {
         }
         
         for data in gificons {
-            let isSuccess = CoreDataManager.shared.insert(gifticon: data)
+            let isSuccess = CoreDataManager.shared.insert(coupon: data)
             if isSuccess {
                 guard let image = data.image else {
                     self.dismiss(animated: true, completion: nil)

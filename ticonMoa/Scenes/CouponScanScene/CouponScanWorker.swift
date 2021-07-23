@@ -134,9 +134,10 @@ class CouponScanWorker {
         let data = Coupon(name: request.name,
                           barcode: request.barcode,
                           brand: request.brand,
-                          date: form, category: "")
+                          date: form, category: "",
+                          registerDate: Date())
         
-        let _ = CoreDataManager.shared.insert(gifticon: data)
+        let _ = CoreDataManager.shared.insert(coupon: data)
     }
     
     func saveCouponImage(name: String, image: UIImage?) {

@@ -70,7 +70,8 @@ extension AutoPhotoViewController {
                          barcode: barcode,
                          brand: b,
                          date: d,
-                         category: self.horizontalScrollView.names[0])
+                         category: self.horizontalScrollView.names[0],
+                         registerDate: Date())
         g.image = image
         return g
     }

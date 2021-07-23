@@ -13,20 +13,23 @@ import CoreData
 @objc(ManagedCoupon)
 public class ManagedCoupon: NSManagedObject {
     
-    func configure(name: String, barcode: String, brand: String, expired: Date, category: String) {
+    func configure(name: String, barcode: String, brand: String, expired: Date, category: String, isUsed: Bool, register: Date) {
         self.name = name
         self.brand = brand
         self.barcode = barcode
         self.expiredDate = expired
         self.category = category
+        self.isUsed = isUsed
+        self.registerDate = register
     }
     
-    func configure(gifticon: Coupon) {
-        self.name = gifticon.name
-        self.brand = gifticon.brand
-        self.barcode = gifticon.barcode
-        self.expiredDate = gifticon.expiredDate
-        self.category = gifticon.category
-
+    func configure(coupon: Coupon) {
+        self.name = coupon.name
+        self.brand = coupon.brand
+        self.barcode = coupon.barcode
+        self.expiredDate = coupon.expiredDate
+        self.category = coupon.category
+        self.isUsed = coupon.isUsed
+        self.registerDate = coupon.registerDate 
     }
 }

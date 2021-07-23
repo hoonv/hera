@@ -13,7 +13,7 @@ import CoreData
 @objc(ManagedCoupon)
 public class ManagedCoupon: NSManagedObject {
     
-    func configure(id: UUID, name: String, barcode: String, brand: String, expired: Date, category: String, isUsed: Bool, register: Date) {
+    func configure(id: UUID, name: String, barcode: String, brand: String, expired: Date, category: String, isUsed: Bool, register: Date, image: Data) {
         self.identifier = id
         self.name = name
         self.brand = brand
@@ -22,6 +22,7 @@ public class ManagedCoupon: NSManagedObject {
         self.category = category
         self.isUsed = isUsed
         self.registerDate = register
+        self.image = image
     }
     
     func configure(coupon: Coupon) {
@@ -32,6 +33,7 @@ public class ManagedCoupon: NSManagedObject {
         self.expiredDate = coupon.expiredDate
         self.category = coupon.category
         self.isUsed = coupon.isUsed
-        self.registerDate = coupon.registerDate 
+        self.registerDate = coupon.registerDate
+        self.image = coupon.image?.pngData() ?? Data()
     }
 }

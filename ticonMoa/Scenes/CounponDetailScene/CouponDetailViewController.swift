@@ -129,7 +129,6 @@ extension CouponDetailViewController {
     
     func useItOKHandler(action: UIAlertAction) {
         guard let id = router?.dataStore?.identifier else { return }
-        guard let barcode = router?.dataStore?.barcode else { return }
         CoreDataManager.shared.update(id: id, isUsed: true)
         NotificationCenter.default.post(name: .couponListChanged, object: nil)
         self.dismiss(animated: true, completion: nil)

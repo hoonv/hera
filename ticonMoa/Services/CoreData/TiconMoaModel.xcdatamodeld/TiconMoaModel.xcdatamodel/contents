@@ -6,11 +6,12 @@
         <attribute name="category" attributeType="String"/>
         <attribute name="expiredDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="isUsed" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="registerDate" optional="YES" attributeType="Date" defaultDateTimeInterval="-181090200" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="ManagedCoupon" positionX="-63" positionY="-18" width="128" height="149"/>
+        <element name="ManagedCoupon" positionX="-63" positionY="-18" width="128" height="164"/>
     </elements>
 </model>

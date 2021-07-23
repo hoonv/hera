@@ -28,9 +28,10 @@ struct Coupon: Equatable {
         category = coupon.category
         isUsed = coupon.isUsed
         registerDate = coupon.registerDate
+        image = UIImage(data: coupon.image)
     }
     
-    init(id: UUID, name: String, barcode: String, brand: String, date: Date, category: String, used: Bool = false, registerDate: Date) {
+    init(id: UUID, name: String, barcode: String, brand: String, date: Date, category: String, used: Bool = false, registerDate: Date, image: UIImage) {
         self.identifier = id
         self.name = name
         self.barcode = barcode
@@ -40,6 +41,7 @@ struct Coupon: Equatable {
         self.image = nil
         self.isUsed = used
         self.registerDate = registerDate
+        self.image = image
     }
     
     static func == (lhs: Coupon, rhs: Coupon) -> Bool {

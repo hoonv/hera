@@ -53,7 +53,7 @@ class CouponListPresenter: CouponListPresentationLogic {
     
     func convertToViewModel(coupon: Coupon) -> CouponList.DisplayedCoupon {
         let dateString = coupon.expiredDate.toStringKST(dateFormat: "yyyy.MM.dd") + "까지"
-        let image = manager.loadImageFromDiskWith(fileName: coupon.barcode)
+        let image = coupon.image
         let remainDay = calcuateRemainDays(coupon.expiredDate)
         let remainString = remainDay < 0 ? "기간만료" : "D-\(remainDay)"
         let color = defineTagColor(coupon.expiredDate)

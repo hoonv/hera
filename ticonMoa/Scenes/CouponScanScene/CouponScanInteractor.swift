@@ -100,7 +100,7 @@ class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
             barcode: request.barcode,
             brand: request.brand,
             date: form, category: "",
-            registerDate: Date())
+            registerDate: Date(), image: request.image)
     }
     
     enum AlertMessage {

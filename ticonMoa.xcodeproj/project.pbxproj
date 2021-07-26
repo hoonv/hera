@@ -57,7 +57,6 @@
 		E0AB9A1C2642CC2A00F11602 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A1B2642CC2A00F11602 /* Category.swift */; };
 		E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480426131D5C00BEC498 /* MainTabBarController.swift */; };
 		E0AE480826131DF600BEC498 /* RoundTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480726131DF600BEC498 /* RoundTabBarView.swift */; };
-		E0AE4817261438AE00BEC498 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE4816261438AE00BEC498 /* SearchViewController.swift */; };
 		E0AE481B261438BA00BEC498 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE481A261438BA00BEC498 /* ProfileViewController.swift */; };
 		E0AE483326145A8200BEC498 /* String+widthHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE483226145A8200BEC498 /* String+widthHeight.swift */; };
 		E0B4555126A133770044E0E3 /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B4555026A133770044E0E3 /* InputFieldView.swift */; };
@@ -80,11 +79,6 @@
 		E0BDEBB1264A89AC00228762 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BDEBB0264A89AC00228762 /* CoreDataManager.swift */; };
 		E0BDEBBB264AB3CC00228762 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BDEBBA264AB3CC00228762 /* ImageManager.swift */; };
 		E0BDEBBF264AE44800228762 /* FeedBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BDEBBE264AE44800228762 /* FeedBackButton.swift */; };
-		E0C3CF90263E5E1700483A91 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3CF8F263E5E1700483A91 /* SearchViewModel.swift */; };
-		E0C3CF95263E5F0600483A91 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3CF93263E5F0600483A91 /* SearchCollectionViewCell.swift */; };
-		E0C3CF96263E5F0600483A91 /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C3CF94263E5F0600483A91 /* SearchCollectionViewCell.xib */; };
-		E0C3CF9F263FE24C00483A91 /* SearchHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3CF9D263FE24C00483A91 /* SearchHeaderReusableView.swift */; };
-		E0C3CFA0263FE24C00483A91 /* SearchHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C3CF9E263FE24C00483A91 /* SearchHeaderReusableView.xib */; };
 		E0E99B1026A9166B00A4F3B1 /* FilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E99B0A26A9166B00A4F3B1 /* FilterPresenter.swift */; };
 		E0E99B1126A9166B00A4F3B1 /* FilterWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E99B0B26A9166B00A4F3B1 /* FilterWorker.swift */; };
 		E0E99B1226A9166B00A4F3B1 /* FilterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E99B0C26A9166B00A4F3B1 /* FilterRouter.swift */; };
@@ -98,6 +92,12 @@
 		E0E99B2F26AA623400A4F3B1 /* BottomButtonSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E99B2E26AA623400A4F3B1 /* BottomButtonSet.swift */; };
 		E0E99B4126AAA24B00A4F3B1 /* NotifinationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E99B4026AAA24B00A4F3B1 /* NotifinationName.swift */; };
 		E0F3524B26A6DA2300A6F608 /* InputWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3524A26A6DA2300A6F608 /* InputWithLabel.swift */; };
+		E0F4B08526AE5542007CDE9B /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4B07F26AE5541007CDE9B /* SearchPresenter.swift */; };
+		E0F4B08626AE5542007CDE9B /* SearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4B08026AE5541007CDE9B /* SearchWorker.swift */; };
+		E0F4B08726AE5542007CDE9B /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4B08126AE5541007CDE9B /* SearchRouter.swift */; };
+		E0F4B08826AE5542007CDE9B /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4B08226AE5541007CDE9B /* SearchModels.swift */; };
+		E0F4B08926AE5542007CDE9B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4B08326AE5542007CDE9B /* SearchViewController.swift */; };
+		E0F4B08A26AE5542007CDE9B /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4B08426AE5542007CDE9B /* SearchInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,7 +159,6 @@
 		E0AB9A1B2642CC2A00F11602 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E0AE480426131D5C00BEC498 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E0AE480726131DF600BEC498 /* RoundTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTabBarView.swift; sourceTree = "<group>"; };
-		E0AE4816261438AE00BEC498 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E0AE481A261438BA00BEC498 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E0AE483226145A8200BEC498 /* String+widthHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+widthHeight.swift"; sourceTree = "<group>"; };
 		E0B4555026A133770044E0E3 /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
@@ -183,11 +182,6 @@
 		E0BDEBB0264A89AC00228762 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E0BDEBBA264AB3CC00228762 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		E0BDEBBE264AE44800228762 /* FeedBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackButton.swift; sourceTree = "<group>"; };
-		E0C3CF8F263E5E1700483A91 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
-		E0C3CF93263E5F0600483A91 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
-		E0C3CF94263E5F0600483A91 /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
-		E0C3CF9D263FE24C00483A91 /* SearchHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderReusableView.swift; sourceTree = "<group>"; };
-		E0C3CF9E263FE24C00483A91 /* SearchHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHeaderReusableView.xib; sourceTree = "<group>"; };
 		E0E99B0A26A9166B00A4F3B1 /* FilterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPresenter.swift; sourceTree = "<group>"; };
 		E0E99B0B26A9166B00A4F3B1 /* FilterWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterWorker.swift; sourceTree = "<group>"; };
 		E0E99B0C26A9166B00A4F3B1 /* FilterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterRouter.swift; sourceTree = "<group>"; };
@@ -201,6 +195,12 @@
 		E0E99B2E26AA623400A4F3B1 /* BottomButtonSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonSet.swift; sourceTree = "<group>"; };
 		E0E99B4026AAA24B00A4F3B1 /* NotifinationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifinationName.swift; sourceTree = "<group>"; };
 		E0F3524A26A6DA2300A6F608 /* InputWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputWithLabel.swift; sourceTree = "<group>"; };
+		E0F4B07F26AE5541007CDE9B /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		E0F4B08026AE5541007CDE9B /* SearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorker.swift; sourceTree = "<group>"; };
+		E0F4B08126AE5541007CDE9B /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		E0F4B08226AE5541007CDE9B /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
+		E0F4B08326AE5542007CDE9B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E0F4B08426AE5542007CDE9B /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,12 +228,12 @@
 		E02027D92628622400AD7230 /* SearchScene */ = {
 			isa = PBXGroup;
 			children = (
-				E0AE4816261438AE00BEC498 /* SearchViewController.swift */,
-				E0C3CF93263E5F0600483A91 /* SearchCollectionViewCell.swift */,
-				E0C3CF94263E5F0600483A91 /* SearchCollectionViewCell.xib */,
-				E0C3CF8F263E5E1700483A91 /* SearchViewModel.swift */,
-				E0C3CF9D263FE24C00483A91 /* SearchHeaderReusableView.swift */,
-				E0C3CF9E263FE24C00483A91 /* SearchHeaderReusableView.xib */,
+				E0F4B07F26AE5541007CDE9B /* SearchPresenter.swift */,
+				E0F4B08026AE5541007CDE9B /* SearchWorker.swift */,
+				E0F4B08126AE5541007CDE9B /* SearchRouter.swift */,
+				E0F4B08226AE5541007CDE9B /* SearchModels.swift */,
+				E0F4B08326AE5542007CDE9B /* SearchViewController.swift */,
+				E0F4B08426AE5542007CDE9B /* SearchInteractor.swift */,
 			);
 			path = SearchScene;
 			sourceTree = "<group>";
@@ -605,9 +605,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0C3CF96263E5F0600483A91 /* SearchCollectionViewCell.xib in Resources */,
 				E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */,
-				E0C3CFA0263FE24C00483A91 /* SearchHeaderReusableView.xib in Resources */,
 				E053B6422604FC79005FAD51 /* Assets.xcassets in Resources */,
 				E0AB99EC26421E3400F11602 /* tessdata in Resources */,
 				E053B6402604FC77005FAD51 /* Main.storyboard in Resources */,
@@ -628,7 +626,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0C3CF90263E5E1700483A91 /* SearchViewModel.swift in Sources */,
 				E026F258269814B500EF300C /* CouponScanViewController.swift in Sources */,
 				E0BBB1B326378ADE00DC4553 /* PhotoCluster.swift in Sources */,
 				E0364FF52623EA97006D243E /* TextRecognitionWrapper(deprecated).swift in Sources */,
@@ -639,16 +636,19 @@
 				E026F2132696DD7E00EF300C /* Button+Animation.swift in Sources */,
 				E0BDEB98264A837900228762 /* TiconMoaModel.xcdatamodeld in Sources */,
 				E0E99B2A26AA58A900A4F3B1 /* CouponListSectionView.swift in Sources */,
+				E0F4B08926AE5542007CDE9B /* SearchViewController.swift in Sources */,
 				E0BDEB8526494C7600228762 /* Array+subscript.swift in Sources */,
-				E0AE4817261438AE00BEC498 /* SearchViewController.swift in Sources */,
 				E02F08602696787A0092B05A /* CouponListInteractor.swift in Sources */,
+				E0F4B08726AE5542007CDE9B /* SearchRouter.swift in Sources */,
 				E0AB9A182642CC2500F11602 /* Coupon.swift in Sources */,
 				E0E99B1226A9166B00A4F3B1 /* FilterRouter.swift in Sources */,
 				E098DF9B26A80771005B77C7 /* CouponDetailPresenter.swift in Sources */,
+				E0F4B08826AE5542007CDE9B /* SearchModels.swift in Sources */,
 				E0B4555126A133770044E0E3 /* InputFieldView.swift in Sources */,
 				E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */,
 				E0B4555926A152910044E0E3 /* ViewController + Alert.swift in Sources */,
 				E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */,
+				E0F4B08626AE5542007CDE9B /* SearchWorker.swift in Sources */,
 				E02F08772696C04B0092B05A /* IconButton.swift in Sources */,
 				E098DF9D26A80771005B77C7 /* CouponDetailRouter.swift in Sources */,
 				E026F23F26971B5100EF300C /* PhotoCell.swift in Sources */,
@@ -656,6 +656,7 @@
 				E02F085F2696787A0092B05A /* CouponListViewController.swift in Sources */,
 				E026F257269814B500EF300C /* CouponScanModels.swift in Sources */,
 				E0B4555526A1505E0044E0E3 /* CouponScanHeader.swift in Sources */,
+				E0F4B08A26AE5542007CDE9B /* SearchInteractor.swift in Sources */,
 				E026F2302696EE4000EF300C /* CouponAddModels.swift in Sources */,
 				E0BDEB7C2649476F00228762 /* NameRecognizer.swift in Sources */,
 				E026F2CC269BD7B400EF300C /* ManagedCoupon+CoreDataProperties.swift in Sources */,
@@ -692,6 +693,7 @@
 				E0E99B1126A9166B00A4F3B1 /* FilterWorker.swift in Sources */,
 				E0E99B1526A9166B00A4F3B1 /* FilterInteractor.swift in Sources */,
 				E0BDEB6826491E8100228762 /* OCRManager.swift in Sources */,
+				E0F4B08526AE5542007CDE9B /* SearchPresenter.swift in Sources */,
 				E0E99B1426A9166B00A4F3B1 /* FilterViewController.swift in Sources */,
 				E0B653BB260C5833007C402F /* BarcodeRequestWrapper.swift in Sources */,
 				E026F2462697D91E00EF300C /* CouponAddHeader.swift in Sources */,
@@ -699,8 +701,6 @@
 				E026F2322696EE4000EF300C /* CouponAddInteractor.swift in Sources */,
 				E026F22F2696EE4000EF300C /* CouponAddRouter.swift in Sources */,
 				E026F2312696EE4000EF300C /* CouponAddViewController.swift in Sources */,
-				E0C3CF95263E5F0600483A91 /* SearchCollectionViewCell.swift in Sources */,
-				E0C3CF9F263FE24C00483A91 /* SearchHeaderReusableView.swift in Sources */,
 				E098DFA026A80771005B77C7 /* CouponDetailInteractor.swift in Sources */,
 				E098DF9E26A80771005B77C7 /* CouponDetailModels.swift in Sources */,
 				E0AE480826131DF600BEC498 /* RoundTabBarView.swift in Sources */,

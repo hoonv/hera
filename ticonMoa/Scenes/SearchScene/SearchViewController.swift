@@ -68,7 +68,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     
     // MARK: Do something
     
-    //@IBOutlet weak var nameTextField: UITextField!
+    var brands: [String] = ["스타벅스", "bhc", "교촌치킨"]
     
     func doSomething() {
         let request = Search.Something.Request()
@@ -86,13 +86,21 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         view.showsCancelButton = false
         return view
     }()
+    
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.backgroundColor = .systemBackground
+        return view
+    }()
 }
 
 extension SearchViewController {
     func setupUI() {
+        setupCollectionView()
         self.view.backgroundColor = .systemBackground
         searchBar.delegate = self
-        [searchBar].forEach {
+        [collectionView, searchBar].forEach {
             view.addSubview($0)
         }
         
@@ -102,8 +110,50 @@ extension SearchViewController {
             make.trailing.equalToSuperview()
             make.height.equalTo(60)
         }
+        collectionView.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.top.equalTo(searchBar.snp.bottom).offset(12)
+        }
     }
 }
+
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (view.frame.width - 50) / 2, height: 60)
+    }
+}
+
+
+extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    var cellName: String { "SearchCategoryCell" }
+    
+    func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(SearchCategoryCell.self, forCellWithReuseIdentifier: cellName)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return brands.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as? SearchCategoryCell else { return SearchCategoryCell() }
+        let name = brands[indexPath.row]
+        cell.imageView.image = UIImage(named: name)
+        cell.title.text = name
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: 0, left: 20, bottom: 0, right: 20)
+    }
+}
+
+
 
 extension SearchViewController: UISearchBarDelegate {
     
@@ -122,13 +172,11 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print(searchBar.text)
+        print(searchBar.text ?? "")
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.resignFirstResponder()
     }
-    
-    
 }

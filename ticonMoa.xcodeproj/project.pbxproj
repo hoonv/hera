@@ -98,6 +98,7 @@
 		E0F4B08826AE5542007CDE9B /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4B08226AE5541007CDE9B /* SearchModels.swift */; };
 		E0F4B08926AE5542007CDE9B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4B08326AE5542007CDE9B /* SearchViewController.swift */; };
 		E0F4B08A26AE5542007CDE9B /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4B08426AE5542007CDE9B /* SearchInteractor.swift */; };
+		E0F4B08F26AE5DC9007CDE9B /* SearchCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4B08E26AE5DC9007CDE9B /* SearchCategoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,6 +202,7 @@
 		E0F4B08226AE5541007CDE9B /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
 		E0F4B08326AE5542007CDE9B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E0F4B08426AE5542007CDE9B /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		E0F4B08E26AE5DC9007CDE9B /* SearchCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 		E02027D92628622400AD7230 /* SearchScene */ = {
 			isa = PBXGroup;
 			children = (
+				E0F4B08D26AE5DAC007CDE9B /* View */,
 				E0F4B07F26AE5541007CDE9B /* SearchPresenter.swift */,
 				E0F4B08026AE5541007CDE9B /* SearchWorker.swift */,
 				E0F4B08126AE5541007CDE9B /* SearchRouter.swift */,
@@ -513,6 +516,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E0F4B08D26AE5DAC007CDE9B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0F4B08E26AE5DC9007CDE9B /* SearchCategoryCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -639,6 +650,7 @@
 				E0F4B08926AE5542007CDE9B /* SearchViewController.swift in Sources */,
 				E0BDEB8526494C7600228762 /* Array+subscript.swift in Sources */,
 				E02F08602696787A0092B05A /* CouponListInteractor.swift in Sources */,
+				E0F4B08F26AE5DC9007CDE9B /* SearchCategoryCell.swift in Sources */,
 				E0F4B08726AE5542007CDE9B /* SearchRouter.swift in Sources */,
 				E0AB9A182642CC2500F11602 /* Coupon.swift in Sources */,
 				E0E99B1226A9166B00A4F3B1 /* FilterRouter.swift in Sources */,

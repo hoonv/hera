@@ -37,8 +37,6 @@ class ImageLoader {
             completion(.success(image))
             return
         }
-        print(runningRequests)
-        print("xxx")
         let id = PHImageManager.default().requestImage(for: asset, targetSize: imgSize, contentMode: .aspectFit, options: nil) { image, _ in
 
             defer { self.runningRequests.removeValue(forKey: asset) }

@@ -83,6 +83,7 @@ class CouponAddViewController: UIViewController, CouponAddDisplayLogic {
     
     func displayFetchedPhotos(viewModel: CouponAdd.fetchPhoto.ViewModel) {
         displayedPhoto = viewModel.assets
+        interactor?.changeSelectedImage(request: .init(prev: selectedIndex, curr: selectedIndex, asset: displayedPhoto[selectedIndex.row]))
         collectionView.reloadData()
     }
     
@@ -190,7 +191,6 @@ extension CouponAddViewController: UICollectionViewDelegate, UICollectionViewDat
         }
         ImageLoader.shared.loadImage(displayedPhoto[indexPath.row]) { image in
             DispatchQueue.main.async {
-                print(indexPath)
                 try? cell.imageView.image = image.get()
             }
         }
@@ -204,7 +204,6 @@ extension CouponAddViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard indexPath != selectedIndex else { return }
-        print("inCell", selectedIndex, indexPath)
         let request = CouponAdd.fetchOnePhoto.Request(prev: selectedIndex, curr: indexPath, asset: displayedPhoto[indexPath.row])
         interactor?.changeSelectedImage(request: request)
     }

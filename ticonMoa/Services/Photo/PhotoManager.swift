@@ -67,7 +67,7 @@ final class PhotoManager {
     var targetSize = CGSize(width: 500, height: 800)
     var contentMode: PHImageContentMode = .aspectFit
      
-    private func requestPhotos() {
+    func requestPhotos() {
         let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: self.fetchOptions)
         let assets = fetchResult.objects(at:
                                 IndexSet(integersIn: 0..<fetchResult.count))

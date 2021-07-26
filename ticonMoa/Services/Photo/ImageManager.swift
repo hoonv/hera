@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 
 class ImageManager {
     func saveImage(imageName: String, image: UIImage) {

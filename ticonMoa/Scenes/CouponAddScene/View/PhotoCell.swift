@@ -10,6 +10,8 @@ import UIKit
 
 class PhotoCell: UICollectionViewCell {
     
+    var onReuse: () -> Void = {}
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -43,8 +45,11 @@ class PhotoCell: UICollectionViewCell {
         whiteBorder.isHidden = false
         self.layer.borderColor = UIColor(named: "appColor")?.cgColor
     }
-    
+
     override func prepareForReuse() {
+        super.prepareForReuse()
+        onReuse()
+        self.imageView.image = nil
         self.layer.borderWidth = 0
         whiteBorder.isHidden = true
         self.layer.borderColor = nil

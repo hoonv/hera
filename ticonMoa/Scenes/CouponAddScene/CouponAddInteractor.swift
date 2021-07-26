@@ -16,7 +16,6 @@ import Photos
 protocol CouponAddBusinessLogic {
     func fetchPhotos(request: CouponAdd.fetchPhoto.Request)
     func changeSelectedImage(request: CouponAdd.fetchOnePhoto.Request)
-    func fetchOnePhoto(request: CouponAdd.fetchOnePhoto.Request)
 }
 
 protocol CouponAddDataStore {
@@ -34,53 +33,18 @@ class CouponAddInteractor: CouponAddBusinessLogic, CouponAddDataStore {
     // MARK: fetchPhotos
     
     func fetchPhotos(request: CouponAdd.fetchPhoto.Request) {
-        worker = CouponAddWorker() { [weak self] assets, images in
-            self?.assets = assets
-            self?.images = images
-            let response = CouponAdd.fetchPhoto.Response(images: images)
-            self?.presenter?.presentFetchedPhoto(response: response)
-//            self?.filterBarcore(images: images)
-        }
-        worker?.fetchPhotos()
+        let assets = PhotoAssetLoader().loadAssets()
+        let response = CouponAdd.fetchPhoto.Response(assets: assets)
+        self.presenter?.presentFetchedPhoto(response: response)
     }
-    
-    func filterBarcore(images: [UIImage]) {
-        var count = 0
-        var tempImage: [UIImage] = []
-        images.forEach {
-            ocrManager.requestBarcodeRecognition(image: $0, completion: { image, payload in
-                count += 1
-                if let _ = payload {
-                    tempImage.append(image)
-                }
-                if count == images.count {
-                    self.images =  tempImage
-                    let response = CouponAdd.fetchPhoto.Response(images: tempImage)
-                    self.presenter?.presentFetchedPhoto(response: response)
-                }
-                
-            })
 
-        }
-    }
-    
-    func fetchOnePhoto(request: CouponAdd.fetchOnePhoto.Request) {
-        worker?.requestImage(asset: assets[request.index.row]) { [weak self] image in
-            let response = CouponAdd.fetchOnePhoto.Response(index: request.index, image: image)
-            self?.images[request.index.row] = image
-            self?.presenter?.presentFetchOnePhoto(response: response)
-        }
-    }
-    
     func changeSelectedImage(request: CouponAdd.fetchOnePhoto.Request) {
-        let image = images[request.index.row]
-        let imageSize = image.size
-        if imageSize.width <= 360 && imageSize.height <= 360 {
-            fetchOnePhoto(request: request)
-        } else {
-            let response = CouponAdd.fetchOnePhoto.Response(index: request.index, image: image)
+        ImageLoader.shared.loadImageHighQuality(request.asset) { image in
+            guard let img = try? image.get() else { return }
+            let response = CouponAdd.fetchOnePhoto.ImageResponse(image: img)
             self.presenter?.presentFetchOnePhoto(response: response)
         }
+        let cellResponse = CouponAdd.fetchOnePhoto.CellResponse(prev: request.prev, curr: request.curr)
+        self.presenter?.presentSelectedCell(response: cellResponse)
     }
-    
 }

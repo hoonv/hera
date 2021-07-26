@@ -12,10 +12,12 @@
 
 import UIKit
 import SnapKit
+import Photos
 
 protocol CouponAddDisplayLogic: class {
     func displayFetchedPhotos(viewModel: CouponAdd.fetchPhoto.ViewModel)
-    func displayLargeImageView(viewModel: CouponAdd.fetchOnePhoto.ViewModel)
+    func displayLargeImageView(viewModel: CouponAdd.fetchOnePhoto.ImageViewModel)
+    func displayChangeSelectedCell(viewModel: CouponAdd.fetchOnePhoto.CellViewModel)
 }
 
 class CouponAddViewController: UIViewController, CouponAddDisplayLogic {
@@ -72,7 +74,7 @@ class CouponAddViewController: UIViewController, CouponAddDisplayLogic {
     
     // MARK: fetch Photos
     
-    var displayedPhoto: [UIImage] = []
+    var displayedPhoto: [PHAsset] = []
     
     func fetchPhotos() {
         let request = CouponAdd.fetchPhoto.Request()
@@ -80,8 +82,7 @@ class CouponAddViewController: UIViewController, CouponAddDisplayLogic {
     }
     
     func displayFetchedPhotos(viewModel: CouponAdd.fetchPhoto.ViewModel) {
-        displayedPhoto = viewModel.images
-        imageView.image = viewModel.images.first
+        displayedPhoto = viewModel.assets
         collectionView.reloadData()
     }
     
@@ -89,16 +90,18 @@ class CouponAddViewController: UIViewController, CouponAddDisplayLogic {
     
     var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
     
-    func displayLargeImageView(viewModel: CouponAdd.fetchOnePhoto.ViewModel) {
-        let prevIndex = selectedIndex
-        self.selectedIndex = viewModel.index
-        UIView.performWithoutAnimation {
-            self.collectionView.reloadItems(at: [prevIndex, selectedIndex])
+    func displayLargeImageView(viewModel: CouponAdd.fetchOnePhoto.ImageViewModel) {
+        DispatchQueue.main.async {
+            self.imageView.image = viewModel.image
         }
-        self.imageView.image = viewModel.image
-//        self.collectionView.reloadData()
     }
     
+    func displayChangeSelectedCell(viewModel: CouponAdd.fetchOnePhoto.CellViewModel) {
+        self.selectedIndex = viewModel.curr
+        UIView.performWithoutAnimation {
+            self.collectionView.reloadItems(at: [viewModel.prev, viewModel.curr])
+        }
+    }
     // MARK: View
     
     let header: CouponAddHeader = {
@@ -179,10 +182,19 @@ extension CouponAddViewController: UICollectionViewDelegate, UICollectionViewDat
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as? PhotoCell else {
             return PhotoCell()
         }
+        cell.onReuse = {
+            ImageLoader.shared.cancelLoad(self.displayedPhoto[indexPath.row] )
+        }
         if selectedIndex.row == indexPath.row {
             cell.setSelectedCell()
         }
-        cell.imageView.image = displayedPhoto[indexPath.row]
+        ImageLoader.shared.loadImage(displayedPhoto[indexPath.row]) { image in
+            DispatchQueue.main.async {
+                print(indexPath)
+                try? cell.imageView.image = image.get()
+            }
+        }
+
         return cell
     }
     
@@ -192,11 +204,10 @@ extension CouponAddViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard indexPath != selectedIndex else { return }
-        imageView.image = displayedPhoto[indexPath.row]
-        let request = CouponAdd.fetchOnePhoto.Request(index: indexPath)
+        print("inCell", selectedIndex, indexPath)
+        let request = CouponAdd.fetchOnePhoto.Request(prev: selectedIndex, curr: indexPath, asset: displayedPhoto[indexPath.row])
         interactor?.changeSelectedImage(request: request)
     }
-    
 }
 
 extension CouponAddViewController: UICollectionViewDelegateFlowLayout {

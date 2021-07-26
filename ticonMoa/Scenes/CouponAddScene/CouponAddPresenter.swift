@@ -14,22 +14,29 @@ import UIKit
 
 protocol CouponAddPresentationLogic {
     func presentFetchedPhoto(response: CouponAdd.fetchPhoto.Response)
-    func presentFetchOnePhoto(response: CouponAdd.fetchOnePhoto.Response)
-
+    func presentFetchOnePhoto(response: CouponAdd.fetchOnePhoto.ImageResponse)
+    func presentSelectedCell(response: CouponAdd.fetchOnePhoto.CellResponse)
 }
 
 class CouponAddPresenter: CouponAddPresentationLogic {
+
     weak var viewController: CouponAddDisplayLogic?
     
     // MARK: Do something
     
     func presentFetchedPhoto(response: CouponAdd.fetchPhoto.Response) {
-        let viewModel = CouponAdd.fetchPhoto.ViewModel(images: response.images)
+        let viewModel = CouponAdd.fetchPhoto.ViewModel(assets: response.assets)
         viewController?.displayFetchedPhotos(viewModel: viewModel)
     }
     
-    func presentFetchOnePhoto(response: CouponAdd.fetchOnePhoto.Response) {
-        let viewModel = CouponAdd.fetchOnePhoto.ViewModel(index: response.index, image: response.image)
+    func presentFetchOnePhoto(response: CouponAdd.fetchOnePhoto.ImageResponse) {
+        let viewModel = CouponAdd.fetchOnePhoto.ImageViewModel(image: response.image)
         viewController?.displayLargeImageView(viewModel: viewModel)
     }
+    
+    func presentSelectedCell(response: CouponAdd.fetchOnePhoto.CellResponse) {
+        let viewModel = CouponAdd.fetchOnePhoto.CellViewModel(prev: response.prev, curr: response.curr)
+        viewController?.displayChangeSelectedCell(viewModel: viewModel)
+    }
+    
 }

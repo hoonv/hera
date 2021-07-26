@@ -99,6 +99,8 @@
 		E0F4B08926AE5542007CDE9B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4B08326AE5542007CDE9B /* SearchViewController.swift */; };
 		E0F4B08A26AE5542007CDE9B /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4B08426AE5542007CDE9B /* SearchInteractor.swift */; };
 		E0F4B08F26AE5DC9007CDE9B /* SearchCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4B08E26AE5DC9007CDE9B /* SearchCategoryCell.swift */; };
+		E0F4B09526AE8F0B007CDE9B /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4B09426AE8F0B007CDE9B /* ImageLoader.swift */; };
+		E0F4B09926AEACE9007CDE9B /* PhotoAssetLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4B09826AEACE9007CDE9B /* PhotoAssetLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +205,8 @@
 		E0F4B08326AE5542007CDE9B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E0F4B08426AE5542007CDE9B /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		E0F4B08E26AE5DC9007CDE9B /* SearchCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoryCell.swift; sourceTree = "<group>"; };
+		E0F4B09426AE8F0B007CDE9B /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		E0F4B09826AEACE9007CDE9B /* PhotoAssetLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAssetLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +282,8 @@
 				E0BDEBBA264AB3CC00228762 /* ImageManager.swift */,
 				E0B653B7260C497B007C402F /* PhotoManager.swift */,
 				E0BBB1B226378ADE00DC4553 /* PhotoCluster.swift */,
+				E0F4B09426AE8F0B007CDE9B /* ImageLoader.swift */,
+				E0F4B09826AEACE9007CDE9B /* PhotoAssetLoader.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -647,6 +653,7 @@
 				E026F2132696DD7E00EF300C /* Button+Animation.swift in Sources */,
 				E0BDEB98264A837900228762 /* TiconMoaModel.xcdatamodeld in Sources */,
 				E0E99B2A26AA58A900A4F3B1 /* CouponListSectionView.swift in Sources */,
+				E0F4B09926AEACE9007CDE9B /* PhotoAssetLoader.swift in Sources */,
 				E0F4B08926AE5542007CDE9B /* SearchViewController.swift in Sources */,
 				E0BDEB8526494C7600228762 /* Array+subscript.swift in Sources */,
 				E02F08602696787A0092B05A /* CouponListInteractor.swift in Sources */,
@@ -658,6 +665,7 @@
 				E0F4B08826AE5542007CDE9B /* SearchModels.swift in Sources */,
 				E0B4555126A133770044E0E3 /* InputFieldView.swift in Sources */,
 				E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */,
+				E0F4B09526AE8F0B007CDE9B /* ImageLoader.swift in Sources */,
 				E0B4555926A152910044E0E3 /* ViewController + Alert.swift in Sources */,
 				E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */,
 				E0F4B08626AE5542007CDE9B /* SearchWorker.swift in Sources */,

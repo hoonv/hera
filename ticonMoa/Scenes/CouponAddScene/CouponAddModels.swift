@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import Photos
 
 enum CouponAdd {
     
@@ -21,27 +22,37 @@ enum CouponAdd {
         }
         
         struct Response {
-            let images: [UIImage]
+            let assets: [PHAsset]
         }
         
         struct ViewModel {
-            let images: [UIImage]
+            let assets: [PHAsset]
         }
     }
     
     enum fetchOnePhoto {
         struct Request {
-            let index: IndexPath
+            let prev: IndexPath
+            let curr: IndexPath
+            let asset: PHAsset
         }
         
-        struct Response {
-            let index: IndexPath
+        struct ImageResponse {
             let image: UIImage
         }
         
-        struct ViewModel {
-            let index: IndexPath
+        struct CellResponse {
+            let prev: IndexPath
+            let curr: IndexPath
+        }
+        
+        struct ImageViewModel {
             let image: UIImage
+        }
+        
+        struct CellViewModel {
+            let prev: IndexPath
+            let curr: IndexPath
         }
     }
 }

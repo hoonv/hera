@@ -62,6 +62,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         doSomething()
     }
     
@@ -77,4 +78,57 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     func displaySomething(viewModel: Search.Something.ViewModel) {
         //nameTextField.text = viewModel.name
     }
+    
+    let searchBar: UISearchBar = {
+        let view = UISearchBar()
+        view.searchBarStyle = .minimal
+        view.setValue("취소 ", forKey: "cancelButtonText")
+        view.showsCancelButton = false
+        return view
+    }()
+}
+
+extension SearchViewController {
+    func setupUI() {
+        self.view.backgroundColor = .systemBackground
+        searchBar.delegate = self
+        [searchBar].forEach {
+            view.addSubview($0)
+        }
+        
+        searchBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.height.equalTo(60)
+        }
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+        UIView.animate(withDuration: 0.18) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        UIView.animate(withDuration: 0.18) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print(searchBar.text)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+    }
+    
+    
 }

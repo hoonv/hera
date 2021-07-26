@@ -68,7 +68,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     
     // MARK: Do something
     
-    var brands: [String] = ["스타벅스", "bhc", "교촌치킨"]
+    var brands: [String] = ["스타벅스", "투썸플레이스", "bhc", "교촌치킨", "빠리바게뜨", "뚜레쥬르", "베스킨라빈스", "설빙", "gs25", "cu"]
     
     func doSomething() {
         let request = Search.Something.Request()

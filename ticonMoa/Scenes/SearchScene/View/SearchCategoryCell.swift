@@ -58,7 +58,7 @@ class SearchCategoryCell: UICollectionViewCell {
         let view = UILabel()
         view.textColor = .white
         view.text = "title"
-        view.font = .systemFont(ofSize: 16, weight: .medium)
+        view.font = .systemFont(ofSize: 18, weight: .semibold)
         return view
     }()
 }

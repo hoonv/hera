@@ -68,7 +68,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     
     // MARK: Do something
     
-    var brands: [String] = ["스타벅스", "투썸플레이스", "bhc", "교촌치킨", "빠리바게뜨", "뚜레쥬르", "베스킨라빈스", "설빙", "gs25", "cu"]
+    var brands: [String] = ["스타벅스", "투썸플레이스", "bhc", "교촌치킨", "빠리바게뜨", "뚜레쥬르", "배스킨라빈스", "설빙", "gs25", "cu"]
     
     func doSomething() {
         let request = Search.Something.Request()
@@ -150,6 +150,11 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return .init(top: 0, left: 20, bottom: 0, right: 20)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let text = brands[indexPath.row]
+        router?.routeToSearchResult(text)
     }
 }
 

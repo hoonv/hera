@@ -82,24 +82,38 @@ class SearchResultViewController: UIViewController, SearchResultDisplayLogic {
         self.collectionView.reloadData()
     }
     
+    let header: SearchResultHeader = {
+        let view = SearchResultHeader()
+        return view
+    }()
+    
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.backgroundColor = .systemBackground
+        view.alwaysBounceVertical = true
         return view
     }()
 }
 
 extension SearchResultViewController {
     func setupUI() {
+        self.header.searchBar.delegate = self
         self.view.backgroundColor = .systemBackground
         setupCollectionView()
-        [collectionView].forEach {
+        [header, collectionView].forEach {
             view.addSubview($0)
         }
         
         collectionView.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalToSuperview()
+            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(header.snp.bottom)
+        }
+        
+        header.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(43)
+            make.leading.trailing.equalToSuperview()
         }
         
     }
@@ -123,10 +137,40 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         cell.configure(viewModel: coupons[indexPath.row])
         return cell
     }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
 }
 
 extension SearchResultViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width - 20, height: 150)
+    }
+}
+
+extension SearchResultViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+        UIView.animate(withDuration: 0.18) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        UIView.animate(withDuration: 0.18) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+ 
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
     }
 }

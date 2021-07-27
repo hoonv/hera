@@ -11,7 +11,6 @@
 //
 
 import UIKit
-import SnapKit
 import Photos
 
 protocol CouponAddDisplayLogic: class {

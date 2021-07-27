@@ -45,6 +45,7 @@
 		E03A51C426AFA38A00312090 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A51BE26AFA38A00312090 /* SearchResultViewController.swift */; };
 		E03A51C526AFA38A00312090 /* SearchResultInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A51BF26AFA38A00312090 /* SearchResultInteractor.swift */; };
 		E03A51CE26AFB87000312090 /* ViewModelCoupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A51CD26AFB87000312090 /* ViewModelCoupon.swift */; };
+		E03A51D526AFBEA900312090 /* SearchResultHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A51D426AFBEA900312090 /* SearchResultHeader.swift */; };
 		E04723BB26A59D0200706684 /* PhotoScanInputForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04723BA26A59D0200706684 /* PhotoScanInputForm.swift */; };
 		E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053B6382604FC77005FAD51 /* AppDelegate.swift */; };
 		E053B63B2604FC77005FAD51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053B63A2604FC77005FAD51 /* SceneDelegate.swift */; };
@@ -156,6 +157,7 @@
 		E03A51BE26AFA38A00312090 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		E03A51BF26AFA38A00312090 /* SearchResultInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultInteractor.swift; sourceTree = "<group>"; };
 		E03A51CD26AFB87000312090 /* ViewModelCoupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelCoupon.swift; sourceTree = "<group>"; };
+		E03A51D426AFBEA900312090 /* SearchResultHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultHeader.swift; sourceTree = "<group>"; };
 		E04723BA26A59D0200706684 /* PhotoScanInputForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScanInputForm.swift; sourceTree = "<group>"; };
 		E053B6352604FC77005FAD51 /* ticonMoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ticonMoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E053B6382604FC77005FAD51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 		E03A51C826AFA39100312090 /* SearchResult */ = {
 			isa = PBXGroup;
 			children = (
+				E03A51D326AFBE9A00312090 /* View */,
 				E03A51BA26AFA38A00312090 /* SearchResultPresenter.swift */,
 				E03A51BB26AFA38A00312090 /* SearchResultWorker.swift */,
 				E03A51BC26AFA38A00312090 /* SearchResultRouter.swift */,
@@ -385,6 +388,14 @@
 				E03A51BF26AFA38A00312090 /* SearchResultInteractor.swift */,
 			);
 			path = SearchResult;
+			sourceTree = "<group>";
+		};
+		E03A51D326AFBE9A00312090 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E03A51D426AFBEA900312090 /* SearchResultHeader.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E053B62C2604FC77005FAD51 = {
@@ -741,6 +752,7 @@
 				E0BDEB8F264A4EBC00228762 /* ExpandButton.swift in Sources */,
 				E098DF9C26A80771005B77C7 /* CouponDetailWorker.swift in Sources */,
 				E02F085B2696787A0092B05A /* CouponListPresenter.swift in Sources */,
+				E03A51D526AFBEA900312090 /* SearchResultHeader.swift in Sources */,
 				E0AE481B261438BA00BEC498 /* ProfileViewController.swift in Sources */,
 				E0E99B2226A943A100A4F3B1 /* OptionView.swift in Sources */,
 				E0AE483326145A8200BEC498 /* String+widthHeight.swift in Sources */,

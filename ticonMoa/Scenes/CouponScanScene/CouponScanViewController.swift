@@ -67,7 +67,6 @@ class CouponScanViewController: UIViewController, CouponScanDisplayLogic {
         setupUI()
     }
     
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         scanImageOCR()

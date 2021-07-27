@@ -22,7 +22,8 @@ class SearchResultPresenter: SearchResultPresentationLogic {
     // MARK: Do something
     
     func presentSearchedCoupon(response: SearchResult.SearchCoupon.Response) {
-        let viewModel = SearchResult.SearchCoupon.ViewModel(coupons: response.coupons)
+        let coupons = response.coupons.map { ViewModelCoupon(coupon: $0)}
+        let viewModel = SearchResult.SearchCoupon.ViewModel(coupons: coupons)
         viewController?.displaySearchedCoupon(viewModel: viewModel)
     }
 }

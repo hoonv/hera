@@ -25,7 +25,7 @@ class CouponListPresenter: CouponListPresentationLogic {
     
     func presentCoupons(response: CouponList.FetchCoupon.Response) {
         let displayed = response.coupons.map { c -> ViewModelCoupon in
-            return convertToViewModel(coupon: c)
+            return ViewModelCoupon(coupon: c)
         }
         let filtered = applyFilter(coupons: displayed)
         let names = filtered.count > 1 ? ["사용전", "사용완료"] : ["사용전"]
@@ -49,22 +49,5 @@ class CouponListPresenter: CouponListPresentationLogic {
             usedCoupon = usedCoupon.sorted { $0.remainDay < $1.remainDay }
         }
         return usedCoupon.count > 0 ? [unusedCoupon, usedCoupon] : [unusedCoupon]
-    }
-    
-    func convertToViewModel(coupon: Coupon) -> ViewModelCoupon {
-        return ViewModelCoupon(coupon: coupon)
-//        return DisplayedCoupon(
-//            id: coupon.identifier,
-//            name: coupon.name,
-//            brand: coupon.brand,
-//            expiredDate: coupon.expiredDate,
-//            dateString: dateString,
-//            registerDate: coupon.registerDate,
-//            isUsed: coupon.isUsed,
-//            remainDay: remainDay,
-//            remainDayString: remainString,
-//            image: image,
-//            tagColor: color,
-//            barcode: coupon.barcode)
     }
 }

@@ -24,7 +24,7 @@ enum SearchResult {
         }
         
         struct ViewModel {
-            let coupons: [Coupon]
+            let coupons: [ViewModelCoupon]
         }
     }
 }

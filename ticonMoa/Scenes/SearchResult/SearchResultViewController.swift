@@ -70,7 +70,7 @@ class SearchResultViewController: UIViewController, SearchResultDisplayLogic {
     // MARK: Do something
     
     //@IBOutlet weak var nameTextField: UITextField!
-    var coupons: [Coupon] = []
+    var coupons: [ViewModelCoupon] = []
     
     func fetchCoupons() {
         let request = SearchResult.SearchCoupon.Request()
@@ -79,6 +79,7 @@ class SearchResultViewController: UIViewController, SearchResultDisplayLogic {
     
     func displaySearchedCoupon(viewModel: SearchResult.SearchCoupon.ViewModel) {
         self.coupons = viewModel.coupons
+        self.collectionView.reloadData()
     }
     
     let collectionView: UICollectionView = {
@@ -114,11 +115,12 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return coupons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? CouponListCell else { return CouponListCell() }
+        cell.configure(viewModel: coupons[indexPath.row])
         return cell
     }
 }

@@ -13,7 +13,7 @@
 import UIKit
 
 protocol SearchResultDisplayLogic: class {
-    func displaySomething(viewModel: SearchResult.Something.ViewModel)
+    func displaySearchedCoupon(viewModel: SearchResult.SearchCoupon.ViewModel)
 }
 
 class SearchResultViewController: UIViewController, SearchResultDisplayLogic {
@@ -64,19 +64,19 @@ class SearchResultViewController: UIViewController, SearchResultDisplayLogic {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
         setupUI()
-        doSomething()
+        fetchCoupons()
     }
     
     // MARK: Do something
     
     //@IBOutlet weak var nameTextField: UITextField!
     
-    func doSomething() {
-        let request = SearchResult.Something.Request()
-        interactor?.doSomething(request: request)
+    func fetchCoupons() {
+        let request = SearchResult.SearchCoupon.Request()
+        interactor?.fetchSearchCoupon(request: request)
     }
     
-    func displaySomething(viewModel: SearchResult.Something.ViewModel) {
+    func displaySearchedCoupon(viewModel: SearchResult.SearchCoupon.ViewModel) {
         //nameTextField.text = viewModel.name
     }
     

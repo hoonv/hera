@@ -13,7 +13,7 @@
 import UIKit
 
 @objc protocol SearchRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToSearchResult(_ keyword: String)
 }
 
 protocol SearchDataPassing {
@@ -25,7 +25,13 @@ class SearchRouter: NSObject, SearchRoutingLogic, SearchDataPassing {
     var dataStore: SearchDataStore?
     
     // MARK: Routing
-    
+    func routeToSearchResult(_ keyword: String) {
+        let controller = SearchResultViewController()
+        var dataSource = controller.router?.dataStore
+        dataSource?.keyword = keyword
+        viewController?.navigationController?.pushViewController(controller, animated: true)
+    }
+
     //func routeToSomewhere(segue: UIStoryboardSegue?)
     //{
     //  if let segue = segue {

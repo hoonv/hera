@@ -15,7 +15,7 @@ import UIKit
 enum SearchResult {
     // MARK: Use cases
     
-    enum Something {
+    enum SearchCoupon {
         struct Request {
         }
         

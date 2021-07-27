@@ -13,25 +13,25 @@
 import UIKit
 
 protocol SearchResultBusinessLogic {
-    func doSomething(request: SearchResult.Something.Request)
+    func fetchSearchCoupon(request: SearchResult.SearchCoupon.Request)
 }
 
 protocol SearchResultDataStore {
-    //var name: String { get set }
+    var keyword: String { get set }
 }
 
 class SearchResultInteractor: SearchResultBusinessLogic, SearchResultDataStore {
     var presenter: SearchResultPresentationLogic?
     var worker: SearchResultWorker?
-    //var name: String = ""
-    
+    var keyword: String = ""
+
     // MARK: Do something
     
-    func doSomething(request: SearchResult.Something.Request) {
+    func fetchSearchCoupon(request: SearchResult.SearchCoupon.Request) {
         worker = SearchResultWorker()
         worker?.doSomeWork()
         
-        let response = SearchResult.Something.Response()
-        presenter?.presentSomething(response: response)
+        let response = SearchResult.SearchCoupon.Response()
+        presenter?.presentSearchedCoupon(response: response)
     }
 }

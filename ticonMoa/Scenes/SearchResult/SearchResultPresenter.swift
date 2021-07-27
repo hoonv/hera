@@ -13,7 +13,7 @@
 import UIKit
 
 protocol SearchResultPresentationLogic {
-    func presentSomething(response: SearchResult.Something.Response)
+    func presentSearchedCoupon(response: SearchResult.SearchCoupon.Response)
 }
 
 class SearchResultPresenter: SearchResultPresentationLogic {
@@ -21,8 +21,8 @@ class SearchResultPresenter: SearchResultPresentationLogic {
     
     // MARK: Do something
     
-    func presentSomething(response: SearchResult.Something.Response) {
-        let viewModel = SearchResult.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentSearchedCoupon(response: SearchResult.SearchCoupon.Response) {
+        let viewModel = SearchResult.SearchCoupon.ViewModel()
+        viewController?.displaySearchedCoupon(viewModel: viewModel)
     }
 }

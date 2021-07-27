@@ -147,7 +147,7 @@ extension CouponListViewController {
 
 extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var cellName: String { "CouponListCell" }
+    var cellId: String { "CouponListCell" }
     var sectionCell: String { "CouponListSectionCell" }
 
     func setupCollectionView() {
@@ -155,7 +155,7 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(CouponListCell.self, forCellWithReuseIdentifier: cellName)
+        collectionView.register(CouponListCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(CouponListSectionView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: sectionCell)
     }
     
@@ -172,7 +172,7 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as? CouponListCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? CouponListCell else {
             return CouponListCell()
         }
         let coupon = coupons[indexPath.section][indexPath.row]

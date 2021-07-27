@@ -128,12 +128,12 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var cellName: String { "SearchCategoryCell" }
+    var cellId: String { "SearchCategoryCell" }
     
     func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(SearchCategoryCell.self, forCellWithReuseIdentifier: cellName)
+        collectionView.register(SearchCategoryCell.self, forCellWithReuseIdentifier: cellId)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -141,7 +141,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as? SearchCategoryCell else { return SearchCategoryCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? SearchCategoryCell else { return SearchCategoryCell() }
         let name = brands[indexPath.row]
         cell.imageView.image = UIImage(named: name)
         cell.title.text = name

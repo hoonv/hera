@@ -63,6 +63,7 @@ class SearchResultViewController: UIViewController, SearchResultDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
+        setupUI()
         doSomething()
     }
     
@@ -77,5 +78,52 @@ class SearchResultViewController: UIViewController, SearchResultDisplayLogic {
     
     func displaySomething(viewModel: SearchResult.Something.ViewModel) {
         //nameTextField.text = viewModel.name
+    }
+    
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.backgroundColor = .systemBackground
+        return view
+    }()
+}
+
+extension SearchResultViewController {
+    func setupUI() {
+        self.view.backgroundColor = .systemBackground
+        setupCollectionView()
+        [collectionView].forEach {
+            view.addSubview($0)
+        }
+        
+        collectionView.snp.makeConstraints { make in
+            make.leading.trailing.top.bottom.equalToSuperview()
+        }
+        
+    }
+}
+
+extension SearchResultViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    var cellId: String { return "CouponListCell" }
+    
+    func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(CouponListCell.self, forCellWithReuseIdentifier: cellId)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? CouponListCell else { return CouponListCell() }
+        return cell
+    }
+}
+
+extension SearchResultViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width - 20, height: 150)
     }
 }

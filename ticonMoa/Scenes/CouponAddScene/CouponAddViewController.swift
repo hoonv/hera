@@ -166,13 +166,13 @@ extension CouponAddViewController {
 
 extension CouponAddViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var cellName: String { "PhotoCell" }
+    var cellId: String { "PhotoCell" }
     
     func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.alwaysBounceVertical = true
-        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: cellName)
+        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: cellId)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -180,7 +180,7 @@ extension CouponAddViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as? PhotoCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? PhotoCell else {
             return PhotoCell()
         }
         cell.onReuse = {

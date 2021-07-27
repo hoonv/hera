@@ -20,7 +20,12 @@ class MainTabBarController: UITabBarController {
     
     private func setupViewControllers() {
         let listVC = CouponListViewController()
-        let searchVC = SearchViewController()
+        let searchVC: UINavigationController = {
+            let nav = UINavigationController()
+            nav.viewControllers = [SearchViewController()]
+            nav.navigationBar.isHidden = true
+            return nav
+        }()
         let profileVC =  ProfileViewController()
         self.viewControllers = [listVC, searchVC, profileVC]
     }

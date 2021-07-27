@@ -173,6 +173,8 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print(searchBar.text ?? "")
+        searchBar.resignFirstResponder()
+        self.navigationController?.pushViewController(SearchResultViewController(), animated: true)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

@@ -38,6 +38,12 @@
 		E02F08772696C04B0092B05A /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F08762696C04B0092B05A /* IconButton.swift */; };
 		E0364FF22623E007006D243E /* ImagePreProccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FF12623E007006D243E /* ImagePreProccessor.swift */; };
 		E0364FF52623EA97006D243E /* TextRecognitionWrapper(deprecated).swift in Sources */ = {isa = PBXBuildFile; fileRef = E0364FF42623EA97006D243E /* TextRecognitionWrapper(deprecated).swift */; };
+		E03A51C026AFA38A00312090 /* SearchResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A51BA26AFA38A00312090 /* SearchResultPresenter.swift */; };
+		E03A51C126AFA38A00312090 /* SearchResultWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A51BB26AFA38A00312090 /* SearchResultWorker.swift */; };
+		E03A51C226AFA38A00312090 /* SearchResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A51BC26AFA38A00312090 /* SearchResultRouter.swift */; };
+		E03A51C326AFA38A00312090 /* SearchResultModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A51BD26AFA38A00312090 /* SearchResultModels.swift */; };
+		E03A51C426AFA38A00312090 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A51BE26AFA38A00312090 /* SearchResultViewController.swift */; };
+		E03A51C526AFA38A00312090 /* SearchResultInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A51BF26AFA38A00312090 /* SearchResultInteractor.swift */; };
 		E04723BB26A59D0200706684 /* PhotoScanInputForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04723BA26A59D0200706684 /* PhotoScanInputForm.swift */; };
 		E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053B6382604FC77005FAD51 /* AppDelegate.swift */; };
 		E053B63B2604FC77005FAD51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053B63A2604FC77005FAD51 /* SceneDelegate.swift */; };
@@ -142,6 +148,12 @@
 		E02F08762696C04B0092B05A /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		E0364FF12623E007006D243E /* ImagePreProccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreProccessor.swift; sourceTree = "<group>"; };
 		E0364FF42623EA97006D243E /* TextRecognitionWrapper(deprecated).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextRecognitionWrapper(deprecated).swift"; sourceTree = "<group>"; };
+		E03A51BA26AFA38A00312090 /* SearchResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultPresenter.swift; sourceTree = "<group>"; };
+		E03A51BB26AFA38A00312090 /* SearchResultWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultWorker.swift; sourceTree = "<group>"; };
+		E03A51BC26AFA38A00312090 /* SearchResultRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultRouter.swift; sourceTree = "<group>"; };
+		E03A51BD26AFA38A00312090 /* SearchResultModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModels.swift; sourceTree = "<group>"; };
+		E03A51BE26AFA38A00312090 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		E03A51BF26AFA38A00312090 /* SearchResultInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultInteractor.swift; sourceTree = "<group>"; };
 		E04723BA26A59D0200706684 /* PhotoScanInputForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScanInputForm.swift; sourceTree = "<group>"; };
 		E053B6352604FC77005FAD51 /* ticonMoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ticonMoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E053B6382604FC77005FAD51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -321,6 +333,7 @@
 				E0C3CFA3263FF78200483A91 /* CounponDetailScene */,
 				E0E99B0926A9165A00A4F3B1 /* FilterScene */,
 				E02027D92628622400AD7230 /* SearchScene */,
+				E03A51C826AFA39100312090 /* SearchResult */,
 				E02027DA2628623800AD7230 /* ProfileScene */,
 			);
 			path = Scenes;
@@ -356,6 +369,19 @@
 				E0E99B2926AA58A900A4F3B1 /* CouponListSectionView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E03A51C826AFA39100312090 /* SearchResult */ = {
+			isa = PBXGroup;
+			children = (
+				E03A51BA26AFA38A00312090 /* SearchResultPresenter.swift */,
+				E03A51BB26AFA38A00312090 /* SearchResultWorker.swift */,
+				E03A51BC26AFA38A00312090 /* SearchResultRouter.swift */,
+				E03A51BD26AFA38A00312090 /* SearchResultModels.swift */,
+				E03A51BE26AFA38A00312090 /* SearchResultViewController.swift */,
+				E03A51BF26AFA38A00312090 /* SearchResultInteractor.swift */,
+			);
+			path = SearchResult;
 			sourceTree = "<group>";
 		};
 		E053B62C2604FC77005FAD51 = {
@@ -667,6 +693,7 @@
 				E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */,
 				E0F4B09526AE8F0B007CDE9B /* ImageLoader.swift in Sources */,
 				E0B4555926A152910044E0E3 /* ViewController + Alert.swift in Sources */,
+				E03A51C026AFA38A00312090 /* SearchResultPresenter.swift in Sources */,
 				E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */,
 				E0F4B08626AE5542007CDE9B /* SearchWorker.swift in Sources */,
 				E02F08772696C04B0092B05A /* IconButton.swift in Sources */,
@@ -684,8 +711,10 @@
 				E026F255269814B500EF300C /* CouponScanWorker.swift in Sources */,
 				E0BDEB6E264939F700228762 /* TessearctEngine.swift in Sources */,
 				E0E99B1026A9166B00A4F3B1 /* FilterPresenter.swift in Sources */,
+				E03A51C126AFA38A00312090 /* SearchResultWorker.swift in Sources */,
 				E098DF8C26A7D6C0005B77C7 /* String+Date.swift in Sources */,
 				E053B63B2604FC77005FAD51 /* SceneDelegate.swift in Sources */,
+				E03A51C226AFA38A00312090 /* SearchResultRouter.swift in Sources */,
 				E0BBB2162638F72600DC4553 /* BrandRecognizer.swift in Sources */,
 				E0E99B4126AAA24B00A4F3B1 /* NotifinationName.swift in Sources */,
 				E026F22E2696EE4000EF300C /* CouponAddWorker.swift in Sources */,
@@ -700,6 +729,8 @@
 				E0E99B1C26A93CC900A4F3B1 /* SettingFormView.swift in Sources */,
 				E026F22D2696EE4000EF300C /* CouponAddPresenter.swift in Sources */,
 				E026F2CB269BD7B400EF300C /* ManagedCoupon+CoreDataClass.swift in Sources */,
+				E03A51C326AFA38A00312090 /* SearchResultModels.swift in Sources */,
+				E03A51C526AFA38A00312090 /* SearchResultInteractor.swift in Sources */,
 				E0E99B2626A9595800A4F3B1 /* FilterOption.swift in Sources */,
 				E0BBB20F2638F70200DC4553 /* Date+toString.swift in Sources */,
 				E0364FF22623E007006D243E /* ImagePreProccessor.swift in Sources */,
@@ -709,6 +740,7 @@
 				E0AE481B261438BA00BEC498 /* ProfileViewController.swift in Sources */,
 				E0E99B2226A943A100A4F3B1 /* OptionView.swift in Sources */,
 				E0AE483326145A8200BEC498 /* String+widthHeight.swift in Sources */,
+				E03A51C426AFA38A00312090 /* SearchResultViewController.swift in Sources */,
 				E0B653B8260C497B007C402F /* PhotoManager.swift in Sources */,
 				E0E99B1126A9166B00A4F3B1 /* FilterWorker.swift in Sources */,
 				E0E99B1526A9166B00A4F3B1 /* FilterInteractor.swift in Sources */,

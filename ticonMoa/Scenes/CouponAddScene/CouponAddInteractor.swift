@@ -19,17 +19,15 @@ protocol CouponAddBusinessLogic {
 }
 
 protocol CouponAddDataStore {
-    var assets: [PHAsset] { get set }
-    var images: [UIImage] { get set }
+    var selectedImage: UIImage? { get set }
 }
 
 class CouponAddInteractor: CouponAddBusinessLogic, CouponAddDataStore {
     var presenter: CouponAddPresentationLogic?
     var worker: CouponAddWorker?
-    var assets: [PHAsset] = []
-    var images: [UIImage] = []
     var ocrManager = OCRManager()
-    
+    var selectedImage: UIImage?
+
     // MARK: fetchPhotos
     
     func fetchPhotos(request: CouponAdd.fetchPhoto.Request) {
@@ -41,6 +39,7 @@ class CouponAddInteractor: CouponAddBusinessLogic, CouponAddDataStore {
     func changeSelectedImage(request: CouponAdd.fetchOnePhoto.Request) {
         ImageLoader.shared.loadImageHighQuality(request.asset) { image in
             guard let img = try? image.get() else { return }
+            self.selectedImage = img
             let response = CouponAdd.fetchOnePhoto.ImageResponse(image: img)
             self.presenter?.presentFetchOnePhoto(response: response)
         }

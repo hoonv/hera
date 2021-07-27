@@ -33,7 +33,6 @@ class ImageLoader {
         
         if let image = loadedImages[asset],
            image.size.height > 300 && image.size.width > 300  {
-            print(image.size)
             completion(.success(image))
             return
         }
@@ -72,7 +71,6 @@ class ImageLoader {
 
     func cancelLoad(_ asset: PHAsset) {
         guard let id = runningRequests[asset] else { return }
-        print("cancel")
         PHImageManager.default().cancelImageRequest(id)
         runningRequests.removeValue(forKey: asset)
     }

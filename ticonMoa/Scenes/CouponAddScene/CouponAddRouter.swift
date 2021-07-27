@@ -38,6 +38,6 @@ class CouponAddRouter: NSObject, CouponAddRoutingLogic, CouponAddDataPassing {
     // MARK: Passing data
     
     func passDataToSomewhere(source: CouponAddDataStore, destination: inout CouponScanDataStore, index: IndexPath) {
-        destination.image = source.images[index.row]
+        destination.image = source.selectedImage
     }
 }

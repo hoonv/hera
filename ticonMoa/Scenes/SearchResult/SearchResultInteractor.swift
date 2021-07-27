@@ -30,7 +30,7 @@ class SearchResultInteractor: SearchResultBusinessLogic, SearchResultDataStore {
     func fetchSearchCoupon(request: SearchResult.SearchCoupon.Request) {
         var coupons: [Coupon] = CoreDataManager.shared.fetchAllCoupons()
         coupons = coupons.filter { !$0.isUsed &&
-            isSearchedCoupon(coupon: $0, keyword: keyword)
+            isSearchedCoupon(coupon: $0, keyword: request.keyword)
         }
         let response = SearchResult.SearchCoupon.Response(coupons: coupons)
         presenter?.presentSearchedCoupon(response: response)

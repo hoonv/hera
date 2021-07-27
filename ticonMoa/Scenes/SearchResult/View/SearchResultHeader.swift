@@ -29,12 +29,13 @@ class SearchResultHeader: UIView {
         
         backButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.width.equalTo(40)
-            make.leading.equalToSuperview().offset(12)
+            make.width.equalTo(60)
+            make.leading.equalToSuperview()
+            make.height.equalToSuperview()
         }
         
         searchBar.snp.makeConstraints { make in
-            make.leading.equalTo(backButton.snp.trailing).offset(12)
+            make.leading.equalTo(backButton.snp.trailing)
             make.trailing.equalToSuperview().offset(-12)
             make.top.bottom.equalToSuperview()
         }

@@ -17,6 +17,7 @@ enum SearchResult {
     
     enum SearchCoupon {
         struct Request {
+            let keyword: String
         }
         
         struct Response {

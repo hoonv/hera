@@ -46,6 +46,7 @@
 		E03A51C526AFA38A00312090 /* SearchResultInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A51BF26AFA38A00312090 /* SearchResultInteractor.swift */; };
 		E03A51CE26AFB87000312090 /* ViewModelCoupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A51CD26AFB87000312090 /* ViewModelCoupon.swift */; };
 		E03A51D526AFBEA900312090 /* SearchResultHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A51D426AFBEA900312090 /* SearchResultHeader.swift */; };
+		E03A51E026AFF5C000312090 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = E03A51DF26AFF5C000312090 /* Then */; };
 		E04723BB26A59D0200706684 /* PhotoScanInputForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04723BA26A59D0200706684 /* PhotoScanInputForm.swift */; };
 		E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053B6382604FC77005FAD51 /* AppDelegate.swift */; };
 		E053B63B2604FC77005FAD51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053B63A2604FC77005FAD51 /* SceneDelegate.swift */; };
@@ -230,6 +231,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E03A51E026AFF5C000312090 /* Then in Frameworks */,
 				E02F086526967B1D0092B05A /* SnapKit in Frameworks */,
 				E0AB99E626421B9600F11602 /* SwiftyTesseract in Frameworks */,
 				E026F1F92696D1E400EF300C /* RxCocoa in Frameworks */,
@@ -591,6 +593,7 @@
 				E02F086426967B1D0092B05A /* SnapKit */,
 				E026F1F62696D1E400EF300C /* RxSwift */,
 				E026F1F82696D1E400EF300C /* RxCocoa */,
+				E03A51DF26AFF5C000312090 /* Then */,
 			);
 			productName = ticonMoa;
 			productReference = E053B6352604FC77005FAD51 /* ticonMoa.app */;
@@ -646,6 +649,7 @@
 				E0AB99E426421B9600F11602 /* XCRemoteSwiftPackageReference "SwiftyTesseract" */,
 				E02F086326967B1D0092B05A /* XCRemoteSwiftPackageReference "SnapKit" */,
 				E026F1F52696D1E400EF300C /* XCRemoteSwiftPackageReference "RxSwift" */,
+				E03A51DE26AFF5C000312090 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = E053B6362604FC77005FAD51 /* Products */;
 			projectDirPath = "";
@@ -1064,6 +1068,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		E03A51DE26AFF5C000312090 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.0;
+			};
+		};
 		E0AB99E426421B9600F11602 /* XCRemoteSwiftPackageReference "SwiftyTesseract" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyTesseract/SwiftyTesseract";
@@ -1089,6 +1101,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E02F086326967B1D0092B05A /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		E03A51DF26AFF5C000312090 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E03A51DE26AFF5C000312090 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 		E0AB99E526421B9600F11602 /* SwiftyTesseract */ = {
 			isa = XCSwiftPackageProductDependency;

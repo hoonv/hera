@@ -73,7 +73,8 @@ class SearchResultViewController: UIViewController, SearchResultDisplayLogic {
     var coupons: [ViewModelCoupon] = []
     
     func fetchCoupons() {
-        let request = SearchResult.SearchCoupon.Request()
+        guard let keyword = router?.dataStore?.keyword else { return }
+        let request = SearchResult.SearchCoupon.Request(keyword: keyword)
         interactor?.fetchSearchCoupon(request: request)
     }
     
@@ -97,8 +98,16 @@ class SearchResultViewController: UIViewController, SearchResultDisplayLogic {
 }
 
 extension SearchResultViewController {
+    
+    @objc func backTouchOn() {
+        self.header.searchBar.resignFirstResponder()
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func setupUI() {
+        self.header.backButton.addTarget(self, action: #selector(backTouchOn), for: .touchUpInside)
         self.header.searchBar.delegate = self
+        self.header.searchBar.text = router?.dataStore?.keyword
         self.view.backgroundColor = .systemBackground
         setupCollectionView()
         [header, collectionView].forEach {
@@ -166,7 +175,10 @@ extension SearchResultViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
- 
+        guard let keyword = searchBar.text else { return }
+        let request = SearchResult.SearchCoupon.Request(keyword: keyword)
+        interactor?.fetchSearchCoupon(request: request)
+        searchBar.resignFirstResponder()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

@@ -70,6 +70,7 @@ class SearchResultViewController: UIViewController, SearchResultDisplayLogic {
     // MARK: Do something
     
     //@IBOutlet weak var nameTextField: UITextField!
+    var coupons: [Coupon] = []
     
     func fetchCoupons() {
         let request = SearchResult.SearchCoupon.Request()
@@ -77,7 +78,7 @@ class SearchResultViewController: UIViewController, SearchResultDisplayLogic {
     }
     
     func displaySearchedCoupon(viewModel: SearchResult.SearchCoupon.ViewModel) {
-        //nameTextField.text = viewModel.name
+        self.coupons = viewModel.coupons
     }
     
     let collectionView: UICollectionView = {

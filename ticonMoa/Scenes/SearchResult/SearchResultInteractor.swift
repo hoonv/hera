@@ -28,10 +28,18 @@ class SearchResultInteractor: SearchResultBusinessLogic, SearchResultDataStore {
     // MARK: Do something
     
     func fetchSearchCoupon(request: SearchResult.SearchCoupon.Request) {
-        worker = SearchResultWorker()
-        worker?.doSomeWork()
-        
-        let response = SearchResult.SearchCoupon.Response()
+        var coupons: [Coupon] = CoreDataManager.shared.fetchAllCoupons()
+        coupons = coupons.filter { !$0.isUsed &&
+            isSearchedCoupon(coupon: $0, keyword: keyword)
+        }
+        let response = SearchResult.SearchCoupon.Response(coupons: coupons)
         presenter?.presentSearchedCoupon(response: response)
+    }
+    
+    func isSearchedCoupon(coupon: Coupon, keyword: String) -> Bool {
+        if coupon.name.contains(keyword) || coupon.brand.contains(keyword) {
+            return true
+        }
+        return false
     }
 }

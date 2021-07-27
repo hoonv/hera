@@ -20,9 +20,11 @@ enum SearchResult {
         }
         
         struct Response {
+            let coupons: [Coupon]
         }
         
         struct ViewModel {
+            let coupons: [Coupon]
         }
     }
 }

@@ -44,6 +44,7 @@
 		E03A51C326AFA38A00312090 /* SearchResultModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A51BD26AFA38A00312090 /* SearchResultModels.swift */; };
 		E03A51C426AFA38A00312090 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A51BE26AFA38A00312090 /* SearchResultViewController.swift */; };
 		E03A51C526AFA38A00312090 /* SearchResultInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A51BF26AFA38A00312090 /* SearchResultInteractor.swift */; };
+		E03A51CE26AFB87000312090 /* ViewModelCoupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A51CD26AFB87000312090 /* ViewModelCoupon.swift */; };
 		E04723BB26A59D0200706684 /* PhotoScanInputForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04723BA26A59D0200706684 /* PhotoScanInputForm.swift */; };
 		E053B6392604FC77005FAD51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053B6382604FC77005FAD51 /* AppDelegate.swift */; };
 		E053B63B2604FC77005FAD51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053B63A2604FC77005FAD51 /* SceneDelegate.swift */; };
@@ -154,6 +155,7 @@
 		E03A51BD26AFA38A00312090 /* SearchResultModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModels.swift; sourceTree = "<group>"; };
 		E03A51BE26AFA38A00312090 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		E03A51BF26AFA38A00312090 /* SearchResultInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultInteractor.swift; sourceTree = "<group>"; };
+		E03A51CD26AFB87000312090 /* ViewModelCoupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelCoupon.swift; sourceTree = "<group>"; };
 		E04723BA26A59D0200706684 /* PhotoScanInputForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScanInputForm.swift; sourceTree = "<group>"; };
 		E053B6352604FC77005FAD51 /* ticonMoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ticonMoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E053B6382604FC77005FAD51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				E0364FF12623E007006D243E /* ImagePreProccessor.swift */,
+				E03A51CD26AFB87000312090 /* ViewModelCoupon.swift */,
 				E0AB9A172642CC2500F11602 /* Coupon.swift */,
 				E0AB9A1B2642CC2A00F11602 /* Category.swift */,
 				E0E99B2526A9595800A4F3B1 /* FilterOption.swift */,
@@ -731,6 +734,7 @@
 				E026F2CB269BD7B400EF300C /* ManagedCoupon+CoreDataClass.swift in Sources */,
 				E03A51C326AFA38A00312090 /* SearchResultModels.swift in Sources */,
 				E03A51C526AFA38A00312090 /* SearchResultInteractor.swift in Sources */,
+				E03A51CE26AFB87000312090 /* ViewModelCoupon.swift in Sources */,
 				E0E99B2626A9595800A4F3B1 /* FilterOption.swift in Sources */,
 				E0BBB20F2638F70200DC4553 /* Date+toString.swift in Sources */,
 				E0364FF22623E007006D243E /* ImagePreProccessor.swift in Sources */,

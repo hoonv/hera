@@ -69,7 +69,7 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
     }
     
     // MARK: fetch Coupons
-    var coupons: [[CouponList.DisplayedCoupon]] = []
+    var coupons: [[ViewModelCoupon]] = []
     var sectionNames: [String] = []
     
     func fetchCoupons() {

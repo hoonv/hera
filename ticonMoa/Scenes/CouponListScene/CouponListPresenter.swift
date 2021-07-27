@@ -24,7 +24,7 @@ class CouponListPresenter: CouponListPresentationLogic {
     // MARK: Do something
     
     func presentCoupons(response: CouponList.FetchCoupon.Response) {
-        let displayed = response.coupons.map { c -> CouponList.DisplayedCoupon in
+        let displayed = response.coupons.map { c -> ViewModelCoupon in
             return convertToViewModel(coupon: c)
         }
         let filtered = applyFilter(coupons: displayed)
@@ -33,8 +33,8 @@ class CouponListPresenter: CouponListPresentationLogic {
         viewController?.displayCouponList(viewModel: viewModel)
     }
     
-    func applyFilter(coupons: [CouponList.DisplayedCoupon]) ->
-    [[CouponList.DisplayedCoupon]] {
+    func applyFilter(coupons: [ViewModelCoupon]) ->
+    [[ViewModelCoupon]] {
         let order = UserDefaults.standard.integer(forKey: FilterOption.order.rawValue)
         let isShowExpired = UserDefaults.standard.integer(forKey: FilterOption.expired.rawValue)
         var unusedCoupon = coupons.filter { !$0.isUsed }
@@ -51,34 +51,20 @@ class CouponListPresenter: CouponListPresentationLogic {
         return usedCoupon.count > 0 ? [unusedCoupon, usedCoupon] : [unusedCoupon]
     }
     
-    func convertToViewModel(coupon: Coupon) -> CouponList.DisplayedCoupon {
-        let dateString = coupon.expiredDate.toStringKST(dateFormat: "yyyy.MM.dd") + "까지"
-        let image = coupon.image
-        let remainDay = calcuateRemainDays(coupon.expiredDate)
-        let remainString = remainDay < 0 ? "기간만료" : "D-\(remainDay)"
-        let color = defineTagColor(coupon.expiredDate)
-        return CouponList.DisplayedCoupon(
-            id: coupon.identifier,
-            name: coupon.name,
-            brand: coupon.brand,
-            expiredDate: coupon.expiredDate,
-            dateString: dateString,
-            registerDate: coupon.registerDate,
-            isUsed: coupon.isUsed,
-            remainDay: remainDay,
-            remainDayString: remainString,
-            image: image,
-            tagColor: color,
-            barcode: coupon.barcode)
-    }
-    
-    func calcuateRemainDays(_ date: Date) -> Int {
-        return Int(ceil(date.timeIntervalSince(Date()) / (24 * 60 * 60)))
-    }
-    
-    func defineTagColor(_ date: Date) -> UIColor {
-        let remain = Int(ceil(date.timeIntervalSince(Date()) / (24 * 60 * 60)))
-        if remain < 0 { return .gray}
-        return UIColor(named: "appColor") ?? .orange
+    func convertToViewModel(coupon: Coupon) -> ViewModelCoupon {
+        return ViewModelCoupon(coupon: coupon)
+//        return DisplayedCoupon(
+//            id: coupon.identifier,
+//            name: coupon.name,
+//            brand: coupon.brand,
+//            expiredDate: coupon.expiredDate,
+//            dateString: dateString,
+//            registerDate: coupon.registerDate,
+//            isUsed: coupon.isUsed,
+//            remainDay: remainDay,
+//            remainDayString: remainString,
+//            image: image,
+//            tagColor: color,
+//            barcode: coupon.barcode)
     }
 }

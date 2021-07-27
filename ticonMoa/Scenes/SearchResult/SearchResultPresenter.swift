@@ -22,7 +22,7 @@ class SearchResultPresenter: SearchResultPresentationLogic {
     // MARK: Do something
     
     func presentSearchedCoupon(response: SearchResult.SearchCoupon.Response) {
-        let viewModel = SearchResult.SearchCoupon.ViewModel()
+        let viewModel = SearchResult.SearchCoupon.ViewModel(coupons: response.coupons)
         viewController?.displaySearchedCoupon(viewModel: viewModel)
     }
 }

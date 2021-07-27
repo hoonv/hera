@@ -14,20 +14,6 @@ import UIKit
 
 enum CouponList {
     // MARK: Use cases
-    struct DisplayedCoupon {
-        let id: UUID
-        let name: String
-        let brand: String
-        let expiredDate: Date
-        let dateString: String
-        let registerDate: Date
-        let isUsed: Bool
-        let remainDay: Int
-        let remainDayString: String
-        let image: UIImage?
-        let tagColor: UIColor
-        let barcode: String
-    }
     
     enum FetchCoupon {
         struct Request {
@@ -39,7 +25,7 @@ enum CouponList {
         
         struct ViewModel {
             let sectionName: [String]
-            let coupons: [[DisplayedCoupon]]
+            let coupons: [[ViewModelCoupon]]
         }
     }
 }

@@ -34,20 +34,16 @@ class CouponListPresenter: CouponListPresentationLogic {
     }
     
     func applyFilter(coupons: [ViewModelCoupon]) ->
-    [[ViewModelCoupon]] {
+    [ViewModelCoupon] {
         let order = UserDefaults.standard.integer(forKey: FilterOption.order.rawValue)
         let isShowExpired = UserDefaults.standard.integer(forKey: FilterOption.expired.rawValue)
         var unusedCoupon = coupons.filter { !$0.isUsed }
-        var usedCoupon = coupons.filter { $0.isUsed }
         if isShowExpired == 1 {
             unusedCoupon = unusedCoupon.filter { $0.remainDay >= 0 }
-            usedCoupon = usedCoupon.filter { $0.remainDay >= 0 }
-
         }
         if order == 1 {
             unusedCoupon = unusedCoupon.sorted { $0.remainDay < $1.remainDay }
-            usedCoupon = usedCoupon.sorted { $0.remainDay < $1.remainDay }
         }
-        return usedCoupon.count > 0 ? [unusedCoupon, usedCoupon] : [unusedCoupon]
+        return unusedCoupon
     }
 }

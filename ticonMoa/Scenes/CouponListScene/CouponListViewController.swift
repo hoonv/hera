@@ -69,7 +69,7 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
     }
     
     // MARK: fetch Coupons
-    var coupons: [[ViewModelCoupon]] = []
+    var coupons: [ViewModelCoupon] = []
     var sectionNames: [String] = []
     
     func fetchCoupons() {
@@ -148,7 +148,7 @@ extension CouponListViewController {
 extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     var cellId: String { "CouponListCell" }
-    var sectionCell: String { "CouponListSectionCell" }
+    var headerID: String { "CouponListSectionCell" }
 
     func setupCollectionView() {
         collectionView.isSpringLoaded = true
@@ -156,7 +156,7 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CouponListCell.self, forCellWithReuseIdentifier: cellId)
-        collectionView.register(CouponListSectionView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: sectionCell)
+        collectionView.register(CouponListSectionView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerID)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -164,7 +164,7 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return coupons[section].count
+        return coupons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -175,19 +175,13 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? CouponListCell else {
             return CouponListCell()
         }
-        let coupon = coupons[indexPath.section][indexPath.row]
+        let coupon = coupons[indexPath.row]
         cell.configure(viewModel: coupon)
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: sectionCell, for: indexPath) as? CouponListSectionView else { return UICollectionReusableView() }
-        header.name.text = sectionNames[indexPath.section]
-        return header
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let data = coupons[indexPath.section][indexPath.row]
+        let data = coupons[indexPath.row]
         router?.routeToCouponDetail(image: data.image,barcode: data.barcode, id: data.id)
     }
     
@@ -200,34 +194,7 @@ extension CouponListViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: view.frame.width - 20, height: 150)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 30)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: 8, left: 0, bottom: 8, right: 0)
     }
-}
-
-extension CouponListViewController {
-    // tabbar scroll
-//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//        currentOffset = scrollView.contentOffset.y
-//    }
-//
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        if scrollView.contentOffset.y < 0 {
-//            return
-//        }
-//
-//        let differ = scrollView.contentOffset.y - currentOffset
-//
-//        if differ > 100 {
-//            currentOffset = scrollView.contentOffset.y
-//            let controller = tabBarController as? MainTabBarController
-//            controller?.hideTabBar()
-//        }
-//
-//        if differ < -100 {
-//            currentOffset = scrollView.contentOffset.y
-//            let controller = tabBarController as? MainTabBarController
-//            controller?.showTabBar()
-//        }
-//    }
 }

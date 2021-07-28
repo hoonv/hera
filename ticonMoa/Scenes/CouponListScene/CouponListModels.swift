@@ -25,7 +25,7 @@ enum CouponList {
         
         struct ViewModel {
             let sectionName: [String]
-            let coupons: [[ViewModelCoupon]]
+            let coupons: [ViewModelCoupon]
         }
     }
 }

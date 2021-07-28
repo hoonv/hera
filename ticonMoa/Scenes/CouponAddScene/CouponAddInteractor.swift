@@ -25,7 +25,6 @@ protocol CouponAddDataStore {
 class CouponAddInteractor: CouponAddBusinessLogic, CouponAddDataStore {
     var presenter: CouponAddPresentationLogic?
     var worker: CouponAddWorker?
-    var ocrManager = OCRManager()
     var selectedImage: UIImage?
 
     // MARK: fetchPhotos

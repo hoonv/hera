@@ -52,6 +52,8 @@
 		E053B6402604FC77005FAD51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E053B63E2604FC77005FAD51 /* Main.storyboard */; };
 		E053B6422604FC79005FAD51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E053B6412604FC79005FAD51 /* Assets.xcassets */; };
 		E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E053B6432604FC79005FAD51 /* LaunchScreen.storyboard */; };
+		E07BFC7326B1357D001EEBB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07BFC7226B1357D001EEBB9 /* GoogleService-Info.plist */; };
+		E07BFC7A26B138ED001EEBB9 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = E07BFC7926B138ED001EEBB9 /* tessdata */; };
 		E098DF8C26A7D6C0005B77C7 /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098DF8B26A7D6C0005B77C7 /* String+Date.swift */; };
 		E098DF9B26A80771005B77C7 /* CouponDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098DF9526A80771005B77C7 /* CouponDetailPresenter.swift */; };
 		E098DF9C26A80771005B77C7 /* CouponDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098DF9626A80771005B77C7 /* CouponDetailWorker.swift */; };
@@ -60,7 +62,6 @@
 		E098DF9F26A80771005B77C7 /* CouponDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098DF9926A80771005B77C7 /* CouponDetailViewController.swift */; };
 		E098DFA026A80771005B77C7 /* CouponDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098DF9A26A80771005B77C7 /* CouponDetailInteractor.swift */; };
 		E0AB99E626421B9600F11602 /* SwiftyTesseract in Frameworks */ = {isa = PBXBuildFile; productRef = E0AB99E526421B9600F11602 /* SwiftyTesseract */; };
-		E0AB99EC26421E3400F11602 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = E0AB99EB26421E3400F11602 /* tessdata */; };
 		E0AB9A182642CC2500F11602 /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A172642CC2500F11602 /* Coupon.swift */; };
 		E0AB9A1C2642CC2A00F11602 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A1B2642CC2A00F11602 /* Category.swift */; };
 		E0AE480526131D5C00BEC498 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE480426131D5C00BEC498 /* MainTabBarController.swift */; };
@@ -77,6 +78,9 @@
 		E0BBA54426B102E600BF12A8 /* ProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBA53E26B102E600BF12A8 /* ProfileModels.swift */; };
 		E0BBA54526B102E600BF12A8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBA53F26B102E600BF12A8 /* ProfileViewController.swift */; };
 		E0BBA54626B102E600BF12A8 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBA54026B102E600BF12A8 /* ProfileInteractor.swift */; };
+		E0BBA54F26B1245100BF12A8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E0BBA54E26B1245100BF12A8 /* FirebaseAuth */; };
+		E0BBA55126B1245100BF12A8 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E0BBA55026B1245100BF12A8 /* FirebaseMessaging */; };
+		E0BBA55726B129B600BF12A8 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBA55626B129B600BF12A8 /* ProfileCell.swift */; };
 		E0BBB1B326378ADE00DC4553 /* PhotoCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBB1B226378ADE00DC4553 /* PhotoCluster.swift */; };
 		E0BBB1C02637C55E00DC4553 /* ticonMoaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBB1BF2637C55E00DC4553 /* ticonMoaTests.swift */; };
 		E0BBB2082638EB6A00DC4553 /* DateRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBB2072638EB6A00DC4553 /* DateRecognizer.swift */; };
@@ -171,6 +175,8 @@
 		E053B6412604FC79005FAD51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E053B6442604FC79005FAD51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E053B6462604FC79005FAD51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E07BFC7226B1357D001EEBB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../AppResource/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E07BFC7926B138ED001EEBB9 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = ../../../../tessdata; sourceTree = "<group>"; };
 		E098DF8B26A7D6C0005B77C7 /* String+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
 		E098DF9526A80771005B77C7 /* CouponDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponDetailPresenter.swift; sourceTree = "<group>"; };
 		E098DF9626A80771005B77C7 /* CouponDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponDetailWorker.swift; sourceTree = "<group>"; };
@@ -178,7 +184,6 @@
 		E098DF9826A80771005B77C7 /* CouponDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponDetailModels.swift; sourceTree = "<group>"; };
 		E098DF9926A80771005B77C7 /* CouponDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponDetailViewController.swift; sourceTree = "<group>"; };
 		E098DF9A26A80771005B77C7 /* CouponDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponDetailInteractor.swift; sourceTree = "<group>"; };
-		E0AB99EB26421E3400F11602 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = ../../../../tessdata; sourceTree = "<group>"; };
 		E0AB9A172642CC2500F11602 /* Coupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		E0AB9A1B2642CC2A00F11602 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E0AE480426131D5C00BEC498 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -195,6 +200,7 @@
 		E0BBA53E26B102E600BF12A8 /* ProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModels.swift; sourceTree = "<group>"; };
 		E0BBA53F26B102E600BF12A8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E0BBA54026B102E600BF12A8 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		E0BBA55626B129B600BF12A8 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		E0BBB1B226378ADE00DC4553 /* PhotoCluster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCluster.swift; sourceTree = "<group>"; };
 		E0BBB1BD2637C55E00DC4553 /* ticonMoaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ticonMoaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0BBB1BF2637C55E00DC4553 /* ticonMoaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ticonMoaTests.swift; sourceTree = "<group>"; };
@@ -240,7 +246,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0BBA55126B1245100BF12A8 /* FirebaseMessaging in Frameworks */,
 				E02F086526967B1D0092B05A /* SnapKit in Frameworks */,
+				E0BBA54F26B1245100BF12A8 /* FirebaseAuth in Frameworks */,
 				E0AB99E626421B9600F11602 /* SwiftyTesseract in Frameworks */,
 				E026F1F92696D1E400EF300C /* RxCocoa in Frameworks */,
 				E026F1F72696D1E400EF300C /* RxSwift in Frameworks */,
@@ -274,6 +282,7 @@
 		E02027DA2628623800AD7230 /* ProfileScene */ = {
 			isa = PBXGroup;
 			children = (
+				E0BBA55A26B129CC00BF12A8 /* View */,
 				E0BBA53B26B102E600BF12A8 /* ProfilePresenter.swift */,
 				E0BBA53C26B102E600BF12A8 /* ProfileWorker.swift */,
 				E0BBA53D26B102E600BF12A8 /* ProfileRouter.swift */,
@@ -434,7 +443,7 @@
 		E053B6372604FC77005FAD51 /* ticonMoa */ = {
 			isa = PBXGroup;
 			children = (
-				E0AB99EB26421E3400F11602 /* tessdata */,
+				E07BFC7926B138ED001EEBB9 /* tessdata */,
 				E02F082A269670430092B05A /* Models */,
 				E0BDEB8D264A4EAA00228762 /* View */,
 				E02F082B2696704C0092B05A /* Services */,
@@ -444,6 +453,7 @@
 				E053B63A2604FC77005FAD51 /* SceneDelegate.swift */,
 				E053B63E2604FC77005FAD51 /* Main.storyboard */,
 				E053B6412604FC79005FAD51 /* Assets.xcassets */,
+				E07BFC7226B1357D001EEBB9 /* GoogleService-Info.plist */,
 				E053B6432604FC79005FAD51 /* LaunchScreen.storyboard */,
 				E053B6462604FC79005FAD51 /* Info.plist */,
 			);
@@ -485,6 +495,14 @@
 				E0B4555426A1505E0044E0E3 /* CouponScanHeader.swift */,
 				E04723BA26A59D0200706684 /* PhotoScanInputForm.swift */,
 				E0F3524A26A6DA2300A6F608 /* InputWithLabel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E0BBA55A26B129CC00BF12A8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0BBA55626B129B600BF12A8 /* ProfileCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -606,6 +624,8 @@
 				E02F086426967B1D0092B05A /* SnapKit */,
 				E026F1F62696D1E400EF300C /* RxSwift */,
 				E026F1F82696D1E400EF300C /* RxCocoa */,
+				E0BBA54E26B1245100BF12A8 /* FirebaseAuth */,
+				E0BBA55026B1245100BF12A8 /* FirebaseMessaging */,
 			);
 			productName = ticonMoa;
 			productReference = E053B6352604FC77005FAD51 /* ticonMoa.app */;
@@ -661,6 +681,7 @@
 				E0AB99E426421B9600F11602 /* XCRemoteSwiftPackageReference "SwiftyTesseract" */,
 				E02F086326967B1D0092B05A /* XCRemoteSwiftPackageReference "SnapKit" */,
 				E026F1F52696D1E400EF300C /* XCRemoteSwiftPackageReference "RxSwift" */,
+				E0BBA54D26B1245100BF12A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = E053B6362604FC77005FAD51 /* Products */;
 			projectDirPath = "";
@@ -679,7 +700,8 @@
 			files = (
 				E053B6452604FC79005FAD51 /* LaunchScreen.storyboard in Resources */,
 				E053B6422604FC79005FAD51 /* Assets.xcassets in Resources */,
-				E0AB99EC26421E3400F11602 /* tessdata in Resources */,
+				E07BFC7A26B138ED001EEBB9 /* tessdata in Resources */,
+				E07BFC7326B1357D001EEBB9 /* GoogleService-Info.plist in Resources */,
 				E053B6402604FC77005FAD51 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -753,6 +775,7 @@
 				E0BDEBBB264AB3CC00228762 /* ImageManager.swift in Sources */,
 				E02F085C2696787A0092B05A /* CouponListWorker.swift in Sources */,
 				E02F085D2696787A0092B05A /* CouponListRouter.swift in Sources */,
+				E0BBA55726B129B600BF12A8 /* ProfileCell.swift in Sources */,
 				E02F0869269686000092B05A /* CouponListCell.swift in Sources */,
 				E02F085E2696787A0092B05A /* CouponListModels.swift in Sources */,
 				E026F256269814B500EF300C /* CouponScanRouter.swift in Sources */,
@@ -1092,6 +1115,14 @@
 				minimumVersion = 4.0.1;
 			};
 		};
+		E0BBA54D26B1245100BF12A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1114,6 +1145,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E0AB99E426421B9600F11602 /* XCRemoteSwiftPackageReference "SwiftyTesseract" */;
 			productName = SwiftyTesseract;
+		};
+		E0BBA54E26B1245100BF12A8 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0BBA54D26B1245100BF12A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		E0BBA55026B1245100BF12A8 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0BBA54D26B1245100BF12A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 

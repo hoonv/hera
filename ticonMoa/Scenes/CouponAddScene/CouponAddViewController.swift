@@ -13,7 +13,7 @@
 import UIKit
 import Photos
 
-protocol CouponAddDisplayLogic: class {
+protocol CouponAddDisplayLogic: AnyObject {
     func displayFetchedPhotos(viewModel: CouponAdd.fetchPhoto.ViewModel)
     func displayLargeImageView(viewModel: CouponAdd.fetchOnePhoto.ImageViewModel)
     func displayChangeSelectedCell(viewModel: CouponAdd.fetchOnePhoto.CellViewModel)
@@ -82,7 +82,9 @@ class CouponAddViewController: UIViewController, CouponAddDisplayLogic {
     
     func displayFetchedPhotos(viewModel: CouponAdd.fetchPhoto.ViewModel) {
         displayedPhoto = viewModel.assets
-        interactor?.changeSelectedImage(request: .init(prev: selectedIndex, curr: selectedIndex, asset: displayedPhoto[selectedIndex.row]))
+        if displayedPhoto.count > 0 {
+            interactor?.changeSelectedImage(request: .init(prev: selectedIndex, curr: selectedIndex, asset: displayedPhoto[selectedIndex.row]))
+        }
         collectionView.reloadData()
     }
     

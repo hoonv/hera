@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol RoundTabBarViewDelegate: class {
+protocol RoundTabBarViewDelegate: AnyObject {
     func roundTabBarView(_ roundTabBarView: RoundTabBarView, didSelected index : Int)
 }
 

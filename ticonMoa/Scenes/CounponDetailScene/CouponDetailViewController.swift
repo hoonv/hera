@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol CouponDetailDisplayLogic: class {
+protocol CouponDetailDisplayLogic: AnyObject {
     func displaySomething(viewModel: CouponDetail.Something.ViewModel)
 }
 

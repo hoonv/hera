@@ -133,6 +133,10 @@ extension CouponAddViewController {
     }
     
     @objc func nextIconTouched() {
+        if imageView.image == nil {
+            alert(message: "사진을 선택하세요.")
+            return
+        }
         router?.routeToCouponScan(index: selectedIndex)
     }
     

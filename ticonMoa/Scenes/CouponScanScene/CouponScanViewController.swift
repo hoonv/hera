@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol CouponScanDisplayLogic: class {
+protocol CouponScanDisplayLogic: AnyObject {
     func displayScanResult(viewModel: CouponScan.ScanPhoto.ViewModel)
     func displayAlert(viewModel: CouponScan.RegisterCoupon.Alert)
     func finishCouponSave()

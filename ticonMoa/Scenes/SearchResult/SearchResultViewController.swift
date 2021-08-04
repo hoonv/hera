@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol SearchResultDisplayLogic: class {
+protocol SearchResultDisplayLogic: AnyObject {
     func displaySearchedCoupon(viewModel: SearchResult.SearchCoupon.ViewModel)
 }
 

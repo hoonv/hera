@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol FilterDisplayLogic: class {
+protocol FilterDisplayLogic: AnyObject {
     func displaySomething(viewModel: Filter.Something.ViewModel)
 }
 

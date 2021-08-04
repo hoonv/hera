@@ -13,7 +13,7 @@
 import UIKit
 import SnapKit
 
-protocol CouponListDisplayLogic: class {
+protocol CouponListDisplayLogic: AnyObject {
     func displayCouponList(viewModel: CouponList.FetchCoupon.ViewModel)
 }
 

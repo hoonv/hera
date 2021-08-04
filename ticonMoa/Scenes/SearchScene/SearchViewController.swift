@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol SearchDisplayLogic: class {
+protocol SearchDisplayLogic: AnyObject {
     func displaySomething(viewModel: Search.Something.ViewModel)
 }
 

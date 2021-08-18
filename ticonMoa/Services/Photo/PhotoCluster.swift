@@ -64,49 +64,6 @@ class PhotoCluster {
         
         return assets
     }
-    
-    func execute() -> Observable<PHAsset> {
-        var assets: [PHAsset] = []
-        var temporaryAssets: [PHAsset] = []
-        
-        for i in data {
-            if isCapturedPhoto(size: i.size) {
-                assets.append(i)
-                continue
-            }
-            
-            if temporaryAssets.isEmpty {
-                temporaryAssets.append(i)
-                continue
-            }
-            
-            guard let lastAsset = temporaryAssets.last,
-                  let prevDate = lastAsset.creationDate,
-                  let currDate = i.creationDate
-            else { continue }
-        
-            if lastAsset.size == i.size
-                && currDate.timeIntervalSince(prevDate) < timeDiffer {
-                temporaryAssets.append(i)
-            } else {
-                assets.append(temporaryAssets.first!)
-                temporaryAssets.removeAll()
-                temporaryAssets.append(i)
-            }
-        }
-        
-        if let first = temporaryAssets.first {
-            assets.append(first)
-        }
-        
-        return Observable.create { observer in
-            for asset in assets {
-                observer.onNext(asset)
-            }
-            observer.onCompleted()
-            return Disposables.create()
-        }
-    }
 }
 
 extension PHAsset {

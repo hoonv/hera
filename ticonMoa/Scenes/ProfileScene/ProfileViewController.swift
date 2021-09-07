@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol ProfileDisplayLogic: class {
+protocol ProfileDisplayLogic: AnyObject {
     func displaySomething(viewModel: Profile.Something.ViewModel)
 }
 

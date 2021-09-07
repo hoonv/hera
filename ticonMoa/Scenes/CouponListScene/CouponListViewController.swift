@@ -18,6 +18,8 @@ protocol CouponListDisplayLogic: AnyObject {
 }
 
 class CouponListViewController: UIViewController, CouponListDisplayLogic {
+
+    
     var interactor: CouponListBusinessLogic?
     var router: (NSObjectProtocol & CouponListRoutingLogic & CouponListDataPassing)?
     
@@ -110,6 +112,9 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
 extension CouponListViewController {
     
     func setupUI() {
+        let pinterest = PinterestLayout()
+        pinterest.delegate = self
+        collectionView.collectionViewLayout = pinterest
         view.backgroundColor = .systemBackground
         NotificationCenter.default.addObserver(self, selector: #selector(newCoupon), name: .couponListChanged, object: nil)
         header.addIcon.addTarget(self, action: #selector(addIconTouched), for: .touchUpInside)
@@ -155,12 +160,12 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(CouponListCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(NewCouponListCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(CouponListSectionView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerID)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return coupons.count
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -172,8 +177,8 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? CouponListCell else {
-            return CouponListCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? NewCouponListCell else {
+            return NewCouponListCell()
         }
         let coupon = coupons[indexPath.row]
         cell.configure(viewModel: coupon)
@@ -188,13 +193,14 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
     
 }
 
-extension CouponListViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width - 20, height: 150)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 8, left: 0, bottom: 8, right: 0)
+extension CouponListViewController: PinterestLayoutDelegate {
+    func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
+        guard let size = coupons[indexPath.row].image?.size else {
+            return 0
+        }
+        let ratio = size.height / size.width
+        let m = min(collectionView.frame.height / 2.5, ratio * (collectionView.frame.width - 2) / 2)
+        return m
     }
 }
+

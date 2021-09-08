@@ -66,6 +66,9 @@
 		E098DFA026A80771005B77C7 /* CouponDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098DF9A26A80771005B77C7 /* CouponDetailInteractor.swift */; };
 		E0AA0B4A26F046DE000D90FE /* newCouponListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA0B4926F046DE000D90FE /* newCouponListCell.swift */; };
 		E0AA0B4C26F054E0000D90FE /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA0B4B26F054E0000D90FE /* PinterestLayout.swift */; };
+		E0AA0B5426F06A93000D90FE /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA0B5326F06A93000D90FE /* ShareViewController.swift */; };
+		E0AA0B5726F06A93000D90FE /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0AA0B5526F06A93000D90FE /* MainInterface.storyboard */; };
+		E0AA0B5B26F06A93000D90FE /* ticonShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E0AA0B5126F06A93000D90FE /* ticonShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E0AB99E626421B9600F11602 /* SwiftyTesseract in Frameworks */ = {isa = PBXBuildFile; productRef = E0AB99E526421B9600F11602 /* SwiftyTesseract */; };
 		E0AB9A182642CC2500F11602 /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A172642CC2500F11602 /* Coupon.swift */; };
 		E0AB9A1C2642CC2A00F11602 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A1B2642CC2A00F11602 /* Category.swift */; };
@@ -124,6 +127,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E0AA0B5926F06A93000D90FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E053B62D2604FC77005FAD51 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E0AA0B5026F06A93000D90FE;
+			remoteInfo = ticonShare;
+		};
 		E0BBB1C22637C55E00DC4553 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E053B62D2604FC77005FAD51 /* Project object */;
@@ -132,6 +142,20 @@
 			remoteInfo = ticonMoa;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E0AA0B5F26F06A93000D90FE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E0AA0B5B26F06A93000D90FE /* ticonShare.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E0050DC726DF6027002BFDA0 /* SketchedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SketchedView.swift; sourceTree = "<group>"; };
@@ -192,6 +216,10 @@
 		E098DF9A26A80771005B77C7 /* CouponDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponDetailInteractor.swift; sourceTree = "<group>"; };
 		E0AA0B4926F046DE000D90FE /* newCouponListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newCouponListCell.swift; sourceTree = "<group>"; };
 		E0AA0B4B26F054E0000D90FE /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
+		E0AA0B5126F06A93000D90FE /* ticonShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ticonShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0AA0B5326F06A93000D90FE /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		E0AA0B5626F06A93000D90FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		E0AA0B5826F06A93000D90FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0AB9A172642CC2500F11602 /* Coupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		E0AB9A1B2642CC2A00F11602 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E0AE480426131D5C00BEC498 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -258,6 +286,13 @@
 				E0AB99E626421B9600F11602 /* SwiftyTesseract in Frameworks */,
 				E026F1F92696D1E400EF300C /* RxCocoa in Frameworks */,
 				E026F1F72696D1E400EF300C /* RxSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0AA0B4E26F06A93000D90FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +472,7 @@
 			children = (
 				E053B6372604FC77005FAD51 /* ticonMoa */,
 				E0BBB1BE2637C55E00DC4553 /* ticonMoaTests */,
+				E0AA0B5226F06A93000D90FE /* ticonShare */,
 				E053B6362604FC77005FAD51 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -446,6 +482,7 @@
 			children = (
 				E053B6352604FC77005FAD51 /* ticonMoa.app */,
 				E0BBB1BD2637C55E00DC4553 /* ticonMoaTests.xctest */,
+				E0AA0B5126F06A93000D90FE /* ticonShare.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -469,6 +506,16 @@
 				E053B6462604FC79005FAD51 /* Info.plist */,
 			);
 			path = ticonMoa;
+			sourceTree = "<group>";
+		};
+		E0AA0B5226F06A93000D90FE /* ticonShare */ = {
+			isa = PBXGroup;
+			children = (
+				E0AA0B5326F06A93000D90FE /* ShareViewController.swift */,
+				E0AA0B5526F06A93000D90FE /* MainInterface.storyboard */,
+				E0AA0B5826F06A93000D90FE /* Info.plist */,
+			);
+			path = ticonShare;
 			sourceTree = "<group>";
 		};
 		E0AB9A1F2642CDAD00F11602 /* CouponListScene */ = {
@@ -624,10 +671,12 @@
 				E053B6312604FC77005FAD51 /* Sources */,
 				E053B6322604FC77005FAD51 /* Frameworks */,
 				E053B6332604FC77005FAD51 /* Resources */,
+				E0AA0B5F26F06A93000D90FE /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E0AA0B5A26F06A93000D90FE /* PBXTargetDependency */,
 			);
 			name = ticonMoa;
 			packageProductDependencies = (
@@ -639,6 +688,23 @@
 			productName = ticonMoa;
 			productReference = E053B6352604FC77005FAD51 /* ticonMoa.app */;
 			productType = "com.apple.product-type.application";
+		};
+		E0AA0B5026F06A93000D90FE /* ticonShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0AA0B5C26F06A93000D90FE /* Build configuration list for PBXNativeTarget "ticonShare" */;
+			buildPhases = (
+				E0AA0B4D26F06A93000D90FE /* Sources */,
+				E0AA0B4E26F06A93000D90FE /* Frameworks */,
+				E0AA0B4F26F06A93000D90FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ticonShare;
+			productName = ticonShare;
+			productReference = E0AA0B5126F06A93000D90FE /* ticonShare.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		E0BBB1BC2637C55E00DC4553 /* ticonMoaTests */ = {
 			isa = PBXNativeTarget;
@@ -664,12 +730,15 @@
 		E053B62D2604FC77005FAD51 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = hoon;
 				TargetAttributes = {
 					E053B6342604FC77005FAD51 = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					E0AA0B5026F06A93000D90FE = {
+						CreatedOnToolsVersion = 12.5.1;
 					};
 					E0BBB1BC2637C55E00DC4553 = {
 						CreatedOnToolsVersion = 12.4;
@@ -697,6 +766,7 @@
 			targets = (
 				E053B6342604FC77005FAD51 /* ticonMoa */,
 				E0BBB1BC2637C55E00DC4553 /* ticonMoaTests */,
+				E0AA0B5026F06A93000D90FE /* ticonShare */,
 			);
 		};
 /* End PBXProject section */
@@ -711,6 +781,14 @@
 				E07BFC7A26B138ED001EEBB9 /* tessdata in Resources */,
 				E07BFC7326B1357D001EEBB9 /* GoogleService-Info.plist in Resources */,
 				E053B6402604FC77005FAD51 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0AA0B4F26F06A93000D90FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0AA0B5726F06A93000D90FE /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -834,6 +912,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E0AA0B4D26F06A93000D90FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0AA0B5426F06A93000D90FE /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E0BBB1B92637C55E00DC4553 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -846,6 +932,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E0AA0B5A26F06A93000D90FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E0AA0B5026F06A93000D90FE /* ticonShare */;
+			targetProxy = E0AA0B5926F06A93000D90FE /* PBXContainerItemProxy */;
+		};
 		E0BBB1C32637C55E00DC4553 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E053B6342604FC77005FAD51 /* ticonMoa */;
@@ -868,6 +959,14 @@
 				E053B6442604FC79005FAD51 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E0AA0B5526F06A93000D90FE /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E0AA0B5626F06A93000D90FE /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -992,6 +1091,7 @@
 		E053B64A2604FC79005FAD51 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -1012,6 +1112,7 @@
 		E053B64B2604FC79005FAD51 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -1026,6 +1127,46 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		E0AA0B5D26F06A93000D90FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7BP3494UVW;
+				INFOPLIST_FILE = ticonShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hoonv.TiconMoa.ticonShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E0AA0B5E26F06A93000D90FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7BP3494UVW;
+				INFOPLIST_FILE = ticonShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hoonv.TiconMoa.ticonShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1088,6 +1229,15 @@
 			buildConfigurations = (
 				E053B64A2604FC79005FAD51 /* Debug */,
 				E053B64B2604FC79005FAD51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0AA0B5C26F06A93000D90FE /* Build configuration list for PBXNativeTarget "ticonShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0AA0B5D26F06A93000D90FE /* Debug */,
+				E0AA0B5E26F06A93000D90FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -40,14 +40,14 @@ class NewCouponListCell: UICollectionViewCell {
         }
         nameLabel.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(4)
-            make.leading.equalToSuperview()
-            make.trailing.lessThanOrEqualTo(dateTag.snp.leading)
+            make.leading.equalTo(dateTag.snp.trailing).offset(4)
+            make.trailing.lessThanOrEqualToSuperview()
             make.height.equalTo(20)
         }
 
         dateTag.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(4)
-            make.trailing.equalToSuperview()
+            make.leading.equalToSuperview()
             make.height.equalTo(20)
         }
     }
@@ -71,7 +71,7 @@ class NewCouponListCell: UICollectionViewCell {
         let name = UILabel()
         name.text = "촉촉한 카스테라와 함꼐하는 아메리카노 2잔"
         name.numberOfLines = 1
-        name.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+        name.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         return name
     }()
     

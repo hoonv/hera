@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class InputWithLabel: UIView {
     
     override init(frame: CGRect) {

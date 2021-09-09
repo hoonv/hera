@@ -44,10 +44,10 @@ class NewCouponListCell: UICollectionViewCell {
             make.trailing.lessThanOrEqualToSuperview()
             make.height.equalTo(20)
         }
-
         dateTag.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(4)
             make.leading.equalToSuperview()
+            make.trailing.lessThanOrEqualToSuperview()
             make.height.equalTo(20)
         }
     }

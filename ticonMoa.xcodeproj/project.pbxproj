@@ -69,6 +69,7 @@
 		E0AA0B5426F06A93000D90FE /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA0B5326F06A93000D90FE /* ShareViewController.swift */; };
 		E0AA0B5726F06A93000D90FE /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0AA0B5526F06A93000D90FE /* MainInterface.storyboard */; };
 		E0AA0B5B26F06A93000D90FE /* ticonShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E0AA0B5126F06A93000D90FE /* ticonShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E0AA0B6126F08574000D90FE /* CouponListEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA0B6026F08574000D90FE /* CouponListEmptyCell.swift */; };
 		E0AB99E626421B9600F11602 /* SwiftyTesseract in Frameworks */ = {isa = PBXBuildFile; productRef = E0AB99E526421B9600F11602 /* SwiftyTesseract */; };
 		E0AB9A182642CC2500F11602 /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A172642CC2500F11602 /* Coupon.swift */; };
 		E0AB9A1C2642CC2A00F11602 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A1B2642CC2A00F11602 /* Category.swift */; };
@@ -220,6 +221,7 @@
 		E0AA0B5326F06A93000D90FE /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		E0AA0B5626F06A93000D90FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		E0AA0B5826F06A93000D90FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0AA0B6026F08574000D90FE /* CouponListEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListEmptyCell.swift; sourceTree = "<group>"; };
 		E0AB9A172642CC2500F11602 /* Coupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		E0AB9A1B2642CC2A00F11602 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E0AE480426131D5C00BEC498 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 				E02F08722696B7690092B05A /* CouponListHeader.swift */,
 				E02F08762696C04B0092B05A /* IconButton.swift */,
 				E0E99B2926AA58A900A4F3B1 /* CouponListSectionView.swift */,
+				E0AA0B6026F08574000D90FE /* CouponListEmptyCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -865,6 +868,7 @@
 				E02F085C2696787A0092B05A /* CouponListWorker.swift in Sources */,
 				E02F085D2696787A0092B05A /* CouponListRouter.swift in Sources */,
 				E0050DCA26E06922002BFDA0 /* TiconTabBarController.swift in Sources */,
+				E0AA0B6126F08574000D90FE /* CouponListEmptyCell.swift in Sources */,
 				E0BBA55726B129B600BF12A8 /* ProfileCell.swift in Sources */,
 				E0050DC826DF6027002BFDA0 /* SketchedView.swift in Sources */,
 				E02F0869269686000092B05A /* CouponListCell.swift in Sources */,

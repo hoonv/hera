@@ -32,7 +32,7 @@ class PhotoScanInputForm: UIView {
             $0.input.delegate = self
             $0.input.returnKeyType = .next
         }
-        [nameInputLine, brandInputLine, dateInputLine, barcodeInputLine].forEach {
+        [nameInputLine, brandInputLine, dateInputLine, barcodeInputLine, datePicker].forEach {
             stackView.addArrangedSubview($0)
         }
         
@@ -79,6 +79,12 @@ class PhotoScanInputForm: UIView {
     let brandInputLine: InputWithLabel = {
         let view = InputWithLabel(label: "브랜드",
                                   placeHolder: "브랜드를 입력하세요")
+        return view
+    }()
+    
+    let datePicker: UIDatePicker = {
+        let view = UIDatePicker()
+        view.datePickerMode = .date
         return view
     }()
     

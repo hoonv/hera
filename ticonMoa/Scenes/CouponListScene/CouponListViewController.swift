@@ -73,6 +73,7 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
     // MARK: fetch Coupons
     var coupons: [ViewModelCoupon] = []
     var sectionNames: [String] = []
+    var isEmptyItems = false
     
     func fetchCoupons() {
         let request = CouponList.FetchCoupon.Request()
@@ -82,6 +83,9 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
     func displayCouponList(viewModel: CouponList.FetchCoupon.ViewModel) {
         self.coupons = viewModel.coupons
         self.sectionNames = viewModel.sectionName
+        if viewModel.coupons.isEmpty {
+            isEmptyItems = true
+        }
         collectionView.reloadData()
     }
     
@@ -153,6 +157,8 @@ extension CouponListViewController {
 extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     var cellId: String { "CouponListCell" }
+    var cellEmptyId: String { "CouponListEmptyCell" }
+
     var headerID: String { "CouponListSectionCell" }
 
     func setupCollectionView() {
@@ -161,6 +167,7 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(NewCouponListCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(CouponListEmptyCell.self, forCellWithReuseIdentifier: cellEmptyId)
         collectionView.register(CouponListSectionView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerID)
     }
     
@@ -169,7 +176,7 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return coupons.count
+        return isEmptyItems ? 1 : coupons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -177,24 +184,35 @@ extension CouponListViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if isEmptyItems {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellEmptyId, for: indexPath) as? CouponListEmptyCell else { return CouponListEmptyCell() }
+            return cell
+        }
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? NewCouponListCell else {
             return NewCouponListCell()
         }
+
         let coupon = coupons[indexPath.row]
         cell.configure(viewModel: coupon)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if isEmptyItems {
+            router?.routeToCouponAdd()
+            return
+        }
         let data = coupons[indexPath.row]
         router?.routeToCouponDetail(image: data.image,barcode: data.barcode, id: data.id)
     }
-    
-    
 }
 
 extension CouponListViewController: PinterestLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
+        if isEmptyItems {
+            return view.frame.width / 2
+        }
         guard let size = coupons[indexPath.row].image?.size else {
             return 0
         }

@@ -73,7 +73,9 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
     // MARK: fetch Coupons
     var coupons: [ViewModelCoupon] = []
     var sectionNames: [String] = []
-    var isEmptyItems = false
+    var isEmptyItems: Bool {
+        coupons.count == 0 ? true : false
+    }
     
     func fetchCoupons() {
         let request = CouponList.FetchCoupon.Request()
@@ -83,9 +85,6 @@ class CouponListViewController: UIViewController, CouponListDisplayLogic {
     func displayCouponList(viewModel: CouponList.FetchCoupon.ViewModel) {
         self.coupons = viewModel.coupons
         self.sectionNames = viewModel.sectionName
-        if viewModel.coupons.isEmpty {
-            isEmptyItems = true
-        }
         collectionView.reloadData()
     }
     

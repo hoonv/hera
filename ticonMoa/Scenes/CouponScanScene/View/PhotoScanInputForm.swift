@@ -24,7 +24,7 @@ class PhotoScanInputForm: UIView {
     }
     
     private func setupUI() {
-        [nameInputLine, brandInputLine, dateInputLine, barcodeInputLine].forEach {
+        [nameInputLine, brandInputLine, barcodeInputLine].forEach {
             if $0 == barcodeInputLine {
                 $0.input.delegate = self
                 return
@@ -32,7 +32,7 @@ class PhotoScanInputForm: UIView {
             $0.input.delegate = self
             $0.input.returnKeyType = .next
         }
-        [nameInputLine, brandInputLine, dateInputLine, barcodeInputLine, datePicker].forEach {
+        [nameInputLine, brandInputLine, barcodeInputLine, dateInputLine].forEach {
             stackView.addArrangedSubview($0)
         }
         
@@ -44,16 +44,18 @@ class PhotoScanInputForm: UIView {
         }
     }
     var textsInInput: [String?] {
-        [nameInputLine, brandInputLine, barcodeInputLine, dateInputLine].map {
+        [nameInputLine, brandInputLine, barcodeInputLine].map {
             return $0.input.text
-        }
+        } + [dateInputLine.datePicker.date.toString(dateFormat: "yyyy.MM.dd")]
     }
     
     func configureTextFeild(viewModel: CouponScan.ScanPhoto.ViewModel) {
         self.nameInputLine.input.text = viewModel.name
         self.brandInputLine.input.text = viewModel.brand
         self.barcodeInputLine.input.text = viewModel.barcode
-        self.dateInputLine.input.text = viewModel.expiredDate
+        self.dateInputLine.datePicker.date = viewModel.expiredDate?.toDate(format: "yyyy.MM.dd") ?? Date()
+        
+//        self.dateInputLine.input.text = viewModel.expiredDate
     }
     
     let stackView: UIStackView = {
@@ -82,15 +84,9 @@ class PhotoScanInputForm: UIView {
         return view
     }()
     
-    let datePicker: UIDatePicker = {
-        let view = UIDatePicker()
-        view.datePickerMode = .date
-        return view
-    }()
-    
-    let dateInputLine: InputWithLabel = {
-        let view = InputWithLabel(label: "유효기간",
-                                  placeHolder: "유효기간을 입력하세요 yyyy.mm.dd")
+
+    let dateInputLine: DateWithLabel = {
+        let view = DateWithLabel()
         return view
     }()
 }
@@ -110,9 +106,6 @@ extension PhotoScanInputForm: UITextFieldDelegate {
             brandInputLine.input.becomeFirstResponder()
         }
         if textField.isEqual(brandInputLine.input) {
-            dateInputLine.input.becomeFirstResponder()
-        }
-        if textField.isEqual(dateInputLine.input) {
             barcodeInputLine.input.becomeFirstResponder()
         }
         if textField.isEqual(barcodeInputLine.input) {

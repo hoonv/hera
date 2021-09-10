@@ -37,7 +37,7 @@ class SketchedView: UIView {
             return
         }
         let r = layer.cornerRadius
-        let w: CGFloat = rect.maxX * 0.95
+//        let w: CGFloat = rect.maxX * 0.95
         let xdiff: CGFloat = rect.maxX * 0.05 / 2
         let ydiff: CGFloat = 5
         

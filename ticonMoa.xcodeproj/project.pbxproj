@@ -347,7 +347,7 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		E026F2262696EE3100EF300C /* CouponAddScene */ = {
+		E026F2262696EE3100EF300C /* CouponSelectScene */ = {
 			isa = PBXGroup;
 			children = (
 				E026F2492697DAD800EF300C /* View */,
@@ -358,7 +358,7 @@
 				E026F22B2696EE4000EF300C /* CouponAddViewController.swift */,
 				E026F22C2696EE4000EF300C /* CouponAddInteractor.swift */,
 			);
-			path = CouponAddScene;
+			path = CouponSelectScene;
 			sourceTree = "<group>";
 		};
 		E026F239269719C200EF300C /* Photo */ = {
@@ -401,7 +401,7 @@
 			children = (
 				E02027DB2628626900AD7230 /* TabBar */,
 				E0AB9A1F2642CDAD00F11602 /* CouponListScene */,
-				E026F2262696EE3100EF300C /* CouponAddScene */,
+				E026F2262696EE3100EF300C /* CouponSelectScene */,
 				E026F25C269814BD00EF300C /* CouponScanScene */,
 				E0C3CFA3263FF78200483A91 /* CounponDetailScene */,
 				E0E99B0926A9165A00A4F3B1 /* FilterScene */,

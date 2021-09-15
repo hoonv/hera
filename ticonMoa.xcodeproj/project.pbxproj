@@ -70,6 +70,7 @@
 		E0AA0B5726F06A93000D90FE /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0AA0B5526F06A93000D90FE /* MainInterface.storyboard */; };
 		E0AA0B5B26F06A93000D90FE /* ticonShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E0AA0B5126F06A93000D90FE /* ticonShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E0AA0B6126F08574000D90FE /* CouponListEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA0B6026F08574000D90FE /* CouponListEmptyCell.swift */; };
+		E0AA0B6326F1B534000D90FE /* ReNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA0B6226F1B534000D90FE /* ReNewViewController.swift */; };
 		E0AB99E626421B9600F11602 /* SwiftyTesseract in Frameworks */ = {isa = PBXBuildFile; productRef = E0AB99E526421B9600F11602 /* SwiftyTesseract */; };
 		E0AB9A182642CC2500F11602 /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A172642CC2500F11602 /* Coupon.swift */; };
 		E0AB9A1C2642CC2A00F11602 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9A1B2642CC2A00F11602 /* Category.swift */; };
@@ -222,6 +223,7 @@
 		E0AA0B5626F06A93000D90FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		E0AA0B5826F06A93000D90FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0AA0B6026F08574000D90FE /* CouponListEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListEmptyCell.swift; sourceTree = "<group>"; };
+		E0AA0B6226F1B534000D90FE /* ReNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReNewViewController.swift; sourceTree = "<group>"; };
 		E0AB9A172642CC2500F11602 /* Coupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		E0AB9A1B2642CC2A00F11602 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E0AE480426131D5C00BEC498 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 				E053B6382604FC77005FAD51 /* AppDelegate.swift */,
 				E053B63A2604FC77005FAD51 /* SceneDelegate.swift */,
 				E0050DC726DF6027002BFDA0 /* SketchedView.swift */,
+				E0AA0B6226F1B534000D90FE /* ReNewViewController.swift */,
 				E053B63E2604FC77005FAD51 /* Main.storyboard */,
 				E053B6412604FC79005FAD51 /* Assets.xcassets */,
 				E07BFC7226B1357D001EEBB9 /* GoogleService-Info.plist */,
@@ -813,6 +816,7 @@
 				E026F258269814B500EF300C /* CouponScanViewController.swift in Sources */,
 				E0BBA54226B102E600BF12A8 /* ProfileWorker.swift in Sources */,
 				E0BBB1B326378ADE00DC4553 /* PhotoCluster.swift in Sources */,
+				E0AA0B6326F1B534000D90FE /* ReNewViewController.swift in Sources */,
 				E0364FF52623EA97006D243E /* TextRecognitionWrapper(deprecated).swift in Sources */,
 				E0E99B1326A9166B00A4F3B1 /* FilterModels.swift in Sources */,
 				E04723BB26A59D0200706684 /* PhotoScanInputForm.swift in Sources */,

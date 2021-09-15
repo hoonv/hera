@@ -15,6 +15,7 @@ import Vision
 
 enum KindOfCoupon {
     case kakao
+    case giftishow
     case notCoupon
 }
 
@@ -62,8 +63,12 @@ class CouponScanWorker {
     }
     
     func analyzeOCRResult(data: [[String]]) -> KindOfCoupon {
+        print(data)
         let s = data.map { $0.joined(separator: " ")}.joined(separator: "\n")
         if s.contains("kakao") { return .kakao }
+        if s.contains("기프티쇼") { return .giftishow }
+        if s.contains("giftishow") { return .giftishow }
+
         return .notCoupon
     }
     
@@ -71,11 +76,48 @@ class CouponScanWorker {
         switch kind {
         case .kakao:
             return analyzeKakaoCoupon(data: data, barcode: barcode)
+        case .giftishow:
+            return analyzeGiftishowCoupon(data: data, barcode: barcode)
         case .notCoupon:
             return .init(name: nil, brand: nil, barcode: nil, expiredDate: nil)
         }
     }
-    
+    private func analyzeGiftishowCoupon(data: [String], barcode: String?) -> CouponScan.ScanPhoto.Response {
+        let dataReversed: [String] = data.reversed()
+        var res: CouponScan.ScanPhoto.Response = .empty
+        res.barcode = barcode
+        res.expiredDate = dataReversed[0].getArrayAfterRegex(regex: "\\d{4}\\.\\d{2}\\.\\d{2}").first
+
+        if let colonIndex = dataReversed[1].firstIndex(of: "：") {
+            let sIdx = dataReversed[1].index(after: colonIndex)
+            let brand = dataReversed[1][sIdx...].trimmingCharacters(in: .whitespaces)
+            res.brand = brand
+        }
+        if let colonIndex1 = dataReversed[1].firstIndex(of: ":") {
+            let sIdx = dataReversed[1].index(after: colonIndex1)
+            let brand = dataReversed[1][sIdx...].trimmingCharacters(in: .whitespaces)
+            res.brand = brand
+        }
+        for i in 2..<5 {
+            if dataReversed[i].contains("상품명") || dataReversed[i].contains("교환처") {
+                continue
+            }
+            res.name = dataReversed[i]
+        }
+        for i in 2..<4 {
+            if let colonIndex = dataReversed[i].firstIndex(of: "：") {
+                let sIdx = dataReversed[i].index(after: colonIndex)
+                let name = dataReversed[i][sIdx...].trimmingCharacters(in: .whitespaces)
+                res.name = name
+            }
+            if let colonIndex1 = dataReversed[i].firstIndex(of: ":") {
+                let sIdx = dataReversed[i].index(after: colonIndex1)
+                let name = dataReversed[i][sIdx...].trimmingCharacters(in: .whitespaces)
+                res.name = name
+            }
+        }
+        return res
+    }
     private func analyzeKakaoCoupon(data: [String], barcode: String?) -> CouponScan.ScanPhoto.Response{
         var response = CouponScan.ScanPhoto.Response(name: nil,
                                                      brand: nil,
@@ -137,5 +179,22 @@ class CouponScanWorker {
         guard let image = image else { return }
         let manager = ImageManager()
         manager.saveImage(imageName: name, image: image)
+    }
+}
+
+extension String{
+    func getArrayAfterRegex(regex: String) -> [String] {
+        
+        do {
+            let regex = try NSRegularExpression(pattern: regex)
+            let results = regex.matches(in: self,
+                                        range: NSRange(self.startIndex..., in: self))
+            return results.map {
+                String(self[Range($0.range, in: self)!])
+            }
+        } catch let error {
+            print("invalid regex: \(error.localizedDescription)")
+            return []
+        }
     }
 }

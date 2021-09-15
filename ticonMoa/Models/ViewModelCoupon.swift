@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct ViewModelCoupon {
+struct ViewModelCoupon: Equatable {
     let id: UUID
     let name: String
     let brand: String
@@ -22,6 +22,23 @@ struct ViewModelCoupon {
     let tagColor: UIColor
     let dateString: String
 
+    static let empty = ViewModelCoupon()
+    
+    private init() {
+        id =  UUID()
+        name =  String()
+        brand =  String()
+        barcode =  String()
+        expiredDate =  Date()
+        registerDate =  Date()
+        isUsed =  false
+        image = nil
+        remainDay =  Int()
+        remainDayString =  String()
+        tagColor =  UIColor.blue
+        dateString =  String()
+    }
+    
     init(coupon: Coupon) {
         self.id = coupon.identifier
         self.name = coupon.name

@@ -85,6 +85,7 @@ class DateWithLabel: UIView {
     let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
+        view.spacing = 4
         return view
     }()
     override init(frame: CGRect) {
@@ -109,13 +110,10 @@ class DateWithLabel: UIView {
         }
         
         label.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
             make.height.equalTo(20)
         }
         
         datePicker.snp.makeConstraints { make in
-            make.top.equalTo(label.snp.bottom).offset(4)
-            make.leading.trailing.equalToSuperview()
             make.height.equalTo(30)
         }
     }

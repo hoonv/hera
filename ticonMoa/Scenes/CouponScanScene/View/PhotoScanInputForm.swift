@@ -54,8 +54,6 @@ class PhotoScanInputForm: UIView {
         self.brandInputLine.input.text = viewModel.brand
         self.barcodeInputLine.input.text = viewModel.barcode
         self.dateInputLine.datePicker.date = viewModel.expiredDate?.toDate(format: "yyyy.MM.dd") ?? Date()
-        
-//        self.dateInputLine.input.text = viewModel.expiredDate
     }
     
     let stackView: UIStackView = {
@@ -84,7 +82,6 @@ class PhotoScanInputForm: UIView {
         return view
     }()
     
-
     let dateInputLine: DateWithLabel = {
         let view = DateWithLabel()
         return view

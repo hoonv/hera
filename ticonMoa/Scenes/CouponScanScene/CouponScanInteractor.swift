@@ -53,7 +53,7 @@ class CouponScanInteractor: CouponScanBusinessLogic, CouponScanDataStore {
     
     func recognizeTextHandler(request: VNRequest, error: Error?) {
         guard let results = request.results as? [VNRecognizedTextObservation],
-              results.count < 15 else {
+              results.count < 50 else {
             createAlertMessage(type: .failRecognizePhoto)
             return }
         analyzeTextObservation(results: results)

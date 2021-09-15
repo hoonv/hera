@@ -27,8 +27,11 @@ class CouponListPresenter: CouponListPresentationLogic {
         let displayed = response.coupons.map { c -> ViewModelCoupon in
             return ViewModelCoupon(coupon: c)
         }
-        let filtered = applyFilter(coupons: displayed)
+        var filtered = applyFilter(coupons: displayed)
         let names = filtered.count > 1 ? ["사용전", "사용완료"] : ["사용전"]
+        if filtered.count == 0 {
+            filtered = [.empty]
+        }
         let viewModel = CouponList.FetchCoupon.ViewModel(sectionName: names, coupons: filtered)
         viewController?.displayCouponList(viewModel: viewModel)
     }
